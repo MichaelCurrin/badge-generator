@@ -15,14 +15,17 @@ gem 'jekyll', '~> 3.8.5'
 group :jekyll_plugins do
   gem 'jekyll-feed'
   gem 'jekyll-sitemap'
+  gem 'github-pages'
 end
 ```
 
 Single Jekyll plugin:
 
 ```ruby
-gem 'github-pages', group: :jekyll_plugins
+gem 'NAME', group: :jekyll_plugins
 ```
+
+Plugins supported by the `github-pages` plugin - [versions](https://pages.github.com/versions/).
 
 ### Resources
 
