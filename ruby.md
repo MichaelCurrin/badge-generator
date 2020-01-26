@@ -30,8 +30,9 @@ gem 'NAME', group: :jekyll_plugins
 - Bundler [Gemfile](https://bundler.io/v1.5/gemfile.html) doc.
 - [Jekyll Plugin Installation](https://jekyllrb.com/docs/plugins/installation/) doc.
 - Github Pages Plugin
-    - [Github Pages](https://jekyllrb.com/docs/github-pages/) Jekyll doc.
+    - [Github Pages](https://jekyllrb.com/docs/github-pages/) plugin in the Jekyll docs.
     - [Versions](https://pages.github.com/versions/) - Plugins supported by the `github-pages` plugin.
+    - [Githut Metadata](https://github.com/jekyll/github-metadata) plugin repo. This is loaded by the Github Pages plugin. Sample output [here](https://github.com/jekyll/github-metadata/blob/master/docs/site.github.md) for `site.github` namespace.
 - See a fuller Gemfile with comments in one of my repos [here](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Gemfile).
 
 Why the jekyll_plugins group in the samples above? The docs say:
