@@ -25,12 +25,13 @@ Single Jekyll plugin:
 gem 'NAME', group: :jekyll_plugins
 ```
 
-Plugins supported by the `github-pages` plugin - [versions](https://pages.github.com/versions/).
-
 ### Resources
 
 - Bundler [Gemfile](https://bundler.io/v1.5/gemfile.html) doc.
 - [Jekyll Plugin Installation](https://jekyllrb.com/docs/plugins/installation/) doc.
+- [Github Pages Plugin]
+    - [Github Pages](https://jekyllrb.com/docs/github-pages/) Jekyll doc.
+    - [Versions](https://pages.github.com/versions/) - Plugins supported by the `github-pages` plugin.
 - See a fuller Gemfile with comments in one of my repos [here](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/Gemfile).
 
 Why the jekyll_plugins group in the samples above? The docs say:
