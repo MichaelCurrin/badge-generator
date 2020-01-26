@@ -14,9 +14,7 @@ Reference for badges or shields for Github projects.
 [![Actions status](https://github.com/<USERNAME>/<REPO_NAME>/workflows/<WORKFLOW_NAME/badge.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/actions)
 ```
 
-Replace with your own username and repo name. 
-
-The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package.`
+Replace fields with your own username and repo name. The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package.`
 
 ## Netlify Deploy
 
@@ -52,6 +50,23 @@ See Netlify blog post [here](https://www.netlify.com/blog/2019/01/29/sharing-the
 
 ```html
 [![Bar](https://img.shields.io/badge/Bar-%3E%3D1.2.3-blue.svg)](https://<bar>)
+```
+
+
+## Made with
+
+Format: The badge code has the prefix, the package name and then the color. Each separated by a hyphen. The prefix and the package name can have spaces, but these must be URL encoded as `%20`.
+
+```html
+[![Made with Github Pages](https://img.shields.io/badge/Made%20with-Github%20Pages-blue.svg)](https://pages.github.com/)
+
+[![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue.svg)](https://python.org)
+
+[![Made with Node](https://img.shields.io/badge/Made%20with-Node-blue.svg)](https://nodejs.org)
+
+[![Made with Jekyll](https://img.shields.io/badge/Made%20with-Jekyll-blue.svg)](https://jekyllrb.com)
+
+[![Made with Ruby](https://img.shields.io/badge/Made%20with-Ruby-blue.svg)](https://ruby-lang.org)
 ```
 
 
