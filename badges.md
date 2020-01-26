@@ -18,7 +18,7 @@ For URL encoding, see this [tool](https://www.urlencoder.org/).
 ## Github Actions
 
 ```html
-[![Actions status](https://github.com/<USERNAME>/<REPO_NAME>/workflows/<WORKFLOW_NAME/badge.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/actions)
+[![Actions status](https://github.com/<USERNAME>/<REPO_NAME>/workflows/<WORKFLOW_NAME>/badge.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/actions)
 ```
 
 Replace fields with your own username and repo name. The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package.`
