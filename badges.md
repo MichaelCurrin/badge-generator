@@ -42,13 +42,9 @@ See Netlify blog post [here](https://www.netlify.com/blog/2019/01/29/sharing-the
 
 ## Dependencies
 
-[![Dependency Foo](https://img.shields.io/badge/Dependency%20-Foo-blue.svg)](https://<foo>)
-
 ```html
 [![Dependency Foo](https://img.shields.io/badge/Dependency%20-Foo-blue.svg)](https://<foo>)
 ```
-
-[![Bar](https://img.shields.io/badge/Bar-%3E%3D1.2.3-blue.svg)](https://<bar>)
 
 ```html
 [![Bar](https://img.shields.io/badge/Bar-%3E%3D1.2.3-blue.svg)](https://<bar>)
@@ -75,11 +71,11 @@ Format: The badge code has the prefix, the package name and then the color. Each
 ## Tag
 
 ```html
-[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/jekyll-blog-demo.svg)](https://GitHub.com/MichaelCurrin/jekyll-blog-demo/tags/)
+[![GitHub tag](https://img.shields.io/github/tag/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<APP_NAME>/tags/)
 ```
 
 ## License
 
 ```html
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/MichaelCurrin/jekyll-blog-demo/blob/master/LICENSE)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/<USER_NAME>/<APP_NAME>/blob/master/LICENSE)
 ```
