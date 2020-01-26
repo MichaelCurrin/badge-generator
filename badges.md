@@ -2,6 +2,8 @@
 
 Reference for badges or shields for Github projects.
 
+For URL encoding, see this [tool](https://www.urlencoder.org/).
+
 ## Use this template
 
 ```html
@@ -24,7 +26,7 @@ Replace fields with your own username and repo name. The workflow name must be f
 [![Netlify Status](https://api.netlify.com/api/v1/badges/<APP_ID>/deploy-status)](https://app.netlify.com/sites/<APP_NAME>/deploys)
 ```
 
-Replace `<APP_ID>` and `<APP_NAME>`.
+Replace with your own app ID and app name.
 
 
 ### Help
