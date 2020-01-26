@@ -2,6 +2,11 @@
 
 Reference for badges or shields for Github projects.
 
+Badge sources:
+
+- [github.com/badges/shields](https://github.com/badges/shields)
+- [shields.io](https://shields.io/)
+
 For URL encoding, see this [tool](https://www.urlencoder.org/).
 
 ## Use this template
@@ -37,7 +42,7 @@ For your Netlify app, you can find a status badge under settings. Example URL:
 https://app.netlify.com/sites/<APP_NAME>/settings/general#status-badges
 ```
 
-See Netlify blog post [here](https://www.netlify.com/blog/2019/01/29/sharing-the-love-with-netlify-deployment-badges/) for more info.
+See Netlify's Deploy Badges guide [here](https://www.netlify.com/blog/2019/01/29/sharing-the-love-with-netlify-deployment-badges/).
 
 
 ## Dependencies
