@@ -11,7 +11,7 @@ For URL encoding, see this [tool](https://www.urlencoder.org/).
 
 ## Use this template
 
-```html
+```
 [![Use this template](https://img.shields.io/badge/Use_this_template-green.svg)](https://github.com/<USERNAME>/<REPO_NAME>/generate)
 ```
 
@@ -61,6 +61,10 @@ See Netlify's Deploy Badges guide [here](https://www.netlify.com/blog/2019/01/29
 Format: The badge code has the prefix, the package name and then the color. Each separated by a hyphen. The prefix and the package name can have spaces, but these must be URL encoded as `%20`.
 
 ```
+[![Made with <TOOL>](https://img.shields.io/badge/Made%20with-<TOOL>-blue.svg)](<TOOL_URL>)
+```
+
+```
 [![Made with Github Pages](https://img.shields.io/badge/Made%20with-Github%20Pages-blue.svg)](https://pages.github.com/)
 
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue.svg)](https://python.org)
@@ -80,6 +84,10 @@ Format: The badge code has the prefix, the package name and then the color. Each
 ```
 
 ## License
+
+```
+[![<LICENSE_TYPE> license](https://img.shields.io/badge/License-<LICENSE_TYPE>-blue.svg)](https://github.com/<USER_NAME>/<APP_NAME>/blob/master/LICENSE)
+```
 
 ```
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/<USER_NAME>/<APP_NAME>/blob/master/LICENSE)
