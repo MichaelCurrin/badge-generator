@@ -89,12 +89,19 @@ Or leave it empty and use the [link text itself].
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 ```
 
-### Image property stylng
+### Plain HTML
 
-Resize and center an image. Example:
+
+```html
+<img src="image.png">
+```
+
+### Styled HTML
+
+Resize and center an image.
 
 ```html
 <p align="center">
-    <img width="250" src="logo.png">
+    <img width="250" src="image.png">
 </p>
 ```
