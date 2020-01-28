@@ -13,6 +13,8 @@ gem 'foo', group: :jekyll_plugins
 
 Example of `Gemfile` for a Jekyll project:
 
+<!-- TODO add links to these plugins, using my other quick start repos -->
+
 ```ruby
 source 'https://rubygems.org'
 
@@ -25,8 +27,12 @@ end
 ```
 
 Additional plugins:
-- Github Pages `gem 'github-pages'`
-- Github Metadata `gem 'jekyll-github-metadata'`
+- Github Pages
+  - Install: `gem 'github-pages'`
+  - Repo [github/pages-gem](https://github.com/github/pages-gem)
+- Github Metadata
+  - Install: `gem 'jekyll-github-metadata'` 
+  - Repo: [jekyll/github-metadata]
 
 Alternative way to install a gem:
 
