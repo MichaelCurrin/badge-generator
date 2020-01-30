@@ -8,11 +8,12 @@
 function getInputs() {
     var username = $('#username-input').one().val();
     var repoName = $('#repo-name-input').one().val();
+    var licenseType = $('#license-type-input').one().val();
 
     return {
         USERNAME: username,
         REPO_NAME: repoName,
-        LICENSE_TYPE: 'MIT'
+        LICENSE_TYPE: licenseType
     };
 }
 

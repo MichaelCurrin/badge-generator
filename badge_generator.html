@@ -27,12 +27,18 @@
     Repo name:<br>
     <input id='repo-name-input' type="text" name="repo-name" value="repo-boilerplates"><br>
 
+    <!-- TODO: Picklist -->
+    License type:<br>
+    <input id='license-type-input' type="text" name="license-type" value="MIT"><br>
+
     <h3>Your badges</h3>
 
     <div id="target-output"></div>
     <script id="badges" type="text/template">
 
 [![GitHub tag](https://img.shields.io/github/tag/{{ USERNAME }}/{{ REPO_NAME }}.svg)](https://GitHub.com/{{ USERNAME }}>/{{ REPO_NAME }}/tags/)
+
+[![{{ LICENSE_TYPE }} license](https://img.shields.io/badge/License-{{ LICENSE_TYPE }}-blue.svg)](https://github.com/{{ USER_NAME }}/{{ LICENSE_TYPE }}/blob/master/LICENSE)
 
     </script>
 
