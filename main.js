@@ -12,10 +12,7 @@ function getInputs() {
 }
 
 function render() {
-    var userInputs = getInputs();
-    var data = {
-        userInputs: userInputs
-    };
+    var data = getInputs();
     var template = $('#badges').html();
     var html = Mustache.to_html(template, data);
 
