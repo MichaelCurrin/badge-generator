@@ -1,9 +1,6 @@
 function getInputs() {
-    var usernameEl = document.getElementsByName('username')[0];
-    var username = usernameEl ? usernameEl.value : null;
-
-    var repoNameEl = document.getElementsByName('repo-name')[0];
-    var repoName = repoNameEl ? repoNameEl.value : null;
+    var username = $('#username-input').one().val();
+    var repoName = $('#repo-name-input').one().val();
 
     return {
         username: username,

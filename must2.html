@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Netflix Assistant</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+
+    <script src="/main.js"></script>
+</head>
+
+<body onload="render()">
+    <h1>Shows</h1>
+
+    <div id="target-output">Loading...</div>
+    <script id="shows" type="text/template">
+        {{#shows}}
+            <ul>
+                <li><strong>Title:</strong> {{ title }}</li>
+                <li><strong>Description:</strong> {{ overview }}</li>
+                <li><strong>Type:</strong> {{ type }}</li>
+                <li><img src="{{ image_small }}"></li>
+            </ul>
+        {{/shows}}
+    </script>
+</body>
+
+</html>
