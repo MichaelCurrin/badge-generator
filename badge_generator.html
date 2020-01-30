@@ -9,6 +9,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/commonmark/0.28.1/commonmark.min.js"></script>
 
     <script src="main.js"></script>
 </head>
@@ -24,16 +25,15 @@
     <input id='username-input' type="text" name="username" value="MichaelCurrin"><br>
 
     Repo name:<br>
-    <input id='repo-name-input' type="text" name="repo-name" value="repo-boilerplate">
+    <input id='repo-name-input' type="text" name="repo-name" value="repo-boilerplates"><br>
 
     <h3>Your badges</h3>
 
     <div id="target-output"></div>
     <script id="badges" type="text/template">
-        <ul>
-            <li><strong>Username:</strong> {{ username }}</li>
-            <li><strong>Repo name:</strong> {{ repoName }}</li>
-        </ul>
+
+[![GitHub tag](https://img.shields.io/github/tag/{{ USERNAME }}>/{{ REPO_NAME }}.svg)](https://GitHub.com/{{ USERNAME }}>/{{ REPO_NAME }}/tags/)
+
     </script>
 
 </body>

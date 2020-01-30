@@ -1,17 +1,33 @@
+/**
+ * Main script.
+ *
+ * We use the approach here to render markdown to HTML, but after Moustache is run.
+ *  https://stackoverflow.com/questions/52562508/using-markdown-in-javascript-template-engine
+ */
+
 function getInputs() {
     var username = $('#username-input').one().val();
     var repoName = $('#repo-name-input').one().val();
 
     return {
-        username: username,
-        repoName: repoName
+        USERNAME: username,
+        REPO_NAME: repoName,
+        LICENSE_TYPE: 'MIT'
     };
+}
+
+function mdToHtml(markdown) {
+    var reader = new commonmark.Parser();
+    var writer = new commonmark.HtmlRenderer();
+    var parsed = reader.parse(markdown);
+
+    return writer.render(parsed);
 }
 
 function render() {
     var data = getInputs();
     var template = $('#badges').html();
-    var html = Mustache.to_html(template, data);
-
-    $('#target-output').html(html);
+    var result = Mustache.to_html(template, data);
+    result = mdToHtml(result);
+    $('#target-output').html(result);
 }
