@@ -80,15 +80,15 @@ Format: The badge code has the prefix, the package name and then the color. Each
 ## Tag
 
 ```
-[![GitHub tag](https://img.shields.io/github/tag/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<APP_NAME>/tags/)
+[![GitHub tag](https://img.shields.io/github/tag/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<REPO_NAME>/tags/)
 ```
 
 ## License
 
 ```
-[![<LICENSE_TYPE> license](https://img.shields.io/badge/License-<LICENSE_TYPE>-blue.svg)](https://github.com/<USER_NAME>/<APP_NAME>/blob/master/LICENSE)
+[![<LICENSE_TYPE> license](https://img.shields.io/badge/License-<LICENSE_TYPE>-blue.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/blob/master/LICENSE)
 ```
 
 ```
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/<USER_NAME>/<APP_NAME>/blob/master/LICENSE)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/blob/master/LICENSE)
 ```
