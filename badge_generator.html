@@ -24,21 +24,22 @@
 
         <h2>Your details</h2>
 
-        <h3>Github repo</h3>
+        <form onsubmit="event.preventDefault(); renderAll()">
+            <h3>Github repo</h3>
 
-        Username:<br>
-        <input id='username-input' type="text" name="username" value="MichaelCurrin"><br>
-        <br>
+            Username: <input type="text" name="username" value="MichaelCurrin"><br>
+            <br>
 
-        Repo name:<br>
-        <input id='repo-name-input' type="text" name="repo-name" value="repo-boilerplates"><br>
-        <br>
+            Repo name:<br>
+            <input type="text" name="repo-name" value="repo-boilerplates"><br>
+            <br>
 
-        License type:<br>
-        <input id='license-type-input' type="text" name="license-type" value="MIT"><br>
-        <br>
+            License type:<br>
+            <input type="text" name="license-type" value="MIT"><br>
+            <br>
 
-        <input id='submitButton' type="submit" value="Give me badges" onclick="renderAll()">
+            <input type="submit" value="Give me badges">
+        </form>
 
         <h2>Your badges</h2>
 

@@ -11,9 +11,9 @@ Mustache.escape = function(text) {
 };
 
 function getInputs() {
-    var username = $('#username-input').one().val();
-    var repoName = $('#repo-name-input').one().val();
-    var licenseType = $('#license-type-input').one().val();
+    var username = $("input[name='username'").val();
+    var repoName = $("input[name='username'").val();
+    var licenseType = $("input[name='username'").val();
 
     return {
         USERNAME: username,
