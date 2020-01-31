@@ -14,7 +14,7 @@
     <script src="main.js"></script>
 </head>
 
-<body onload="render()">
+<body onload="renderAll()">
     <h1>Badge Generator</h1>
 
     <h2>Your details</h2>
@@ -33,24 +33,23 @@
 
     <h2>Your badges</h2>
 
+    <h3>Preview</h3>
+
     <div id="target-output"></div>
-
     <script id="badges" type="text/template">
-
-### Preview
-
 {{ tag }}
-
 {{ license }}
 
-### Markdown
+    </script>
 
+    <h3>Markdown</h3>
+
+    <div id="target-output-md"></div>
+    <script id="badges-md" type="text/template">
 ```
 {{ tag }}
-
 {{ license }}
 ```
-
     </script>
 
 </body>

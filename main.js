@@ -45,10 +45,16 @@ function mdToHtml(markdown) {
     return writer.render(parsed);
 }
 
-function render() {
-    var data = getInputs();
-    var template = $('#badges').html();
+function renderTemplate(templateID, outputId, data) {
+    var template = $(templateID).html();
     var result = Mustache.to_html(template, data);
     result = mdToHtml(result);
-    $('#target-output').html(result);
+    $(outputId).html(result);
+}
+
+function renderAll() {
+    var data = getInputs();
+
+    renderTemplate('#badges', '#target-output', data);
+    renderTemplate('#badges-md', '#target-output-md', data);
 }
