@@ -28,7 +28,7 @@ function useThisTemplateBadge(show, username, repoName) {
 
         return makeBadge(title, imgUrl, extUrl);
     }
-    return null;
+    return '';
 }
 
 function tagBadge(username, repoName) {
