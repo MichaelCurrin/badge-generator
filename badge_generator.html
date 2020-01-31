@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Badge Generator</title>
 
+    <!-- Default styling from Github Pages site, when you turn markdown into a site without Jekll config. -->
+    <link rel="stylesheet" href="https://michaelcurrin.github.io/repo-boilerplates/assets/css/style.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/commonmark/0.28.1/commonmark.min.js"></script>
@@ -15,42 +18,47 @@
 </head>
 
 <body onload="renderAll()">
-    <h1>Badge Generator</h1>
 
-    <h2>Your details</h2>
+    <div class="container-lg px-3 my-5 markdown-body">
+        <h1>Badge Generator</h1>
 
-    <h3>Github repo</h3>
+        Github: <a href="https://github.com/MichaelCurrin/repo-boilerplates">MichaelCurrin/repo-boilerplates</a>
 
-    Username:<br>
-    <input id='username-input' type="text" name="username" value="MichaelCurrin"><br>
+        <h2>Your details</h2>
 
-    Repo name:<br>
-    <input id='repo-name-input' type="text" name="repo-name" value="repo-boilerplates"><br>
+        <h3>Github repo</h3>
 
-    <!-- TODO: Picklist -->
-    License type:<br>
-    <input id='license-type-input' type="text" name="license-type" value="MIT"><br>
+        Username:<br>
+        <input id='username-input' type="text" name="username" value="MichaelCurrin"><br>
 
-    <h2>Your badges</h2>
+        Repo name:<br>
+        <input id='repo-name-input' type="text" name="repo-name" value="repo-boilerplates"><br>
 
-    <h3>Preview</h3>
+        <!-- TODO: Picklist -->
+        License type:<br>
+        <input id='license-type-input' type="text" name="license-type" value="MIT"><br>
 
-    <div id="target-output"></div>
-    <script id="badges" type="text/template">
+        <h2>Your badges</h2>
+
+        <h3>Preview</h3>
+
+        <div id="target-output"></div>
+        <script id="badges" type="text/template">
 {{ tag }}
 {{ license }}
 
-    </script>
+        </script>
 
-    <h3>Markdown</h3>
+        <h3>Markdown</h3>
 
-    <div id="target-output-md"></div>
-    <script id="badges-md" type="text/template">
+        <div id="target-output-md"></div>
+        <script id="badges-md" type="text/template">
 ```
 {{ tag }}
 {{ license }}
 ```
-    </script>
+        </script>
+    </div>
 
 </body>
 
