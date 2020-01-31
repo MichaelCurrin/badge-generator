@@ -22,21 +22,24 @@
     <div class="container-lg px-3 my-5 markdown-body">
         <h1>Badge Generator</h1>
 
-        Github: <a href="https://github.com/MichaelCurrin/repo-boilerplates">MichaelCurrin/repo-boilerplates</a>
-
         <h2>Your details</h2>
 
         <h3>Github repo</h3>
 
         Username:<br>
         <input id='username-input' type="text" name="username" value="MichaelCurrin"><br>
+        <br>
 
         Repo name:<br>
         <input id='repo-name-input' type="text" name="repo-name" value="repo-boilerplates"><br>
+        <br>
 
         <!-- TODO: Picklist -->
         License type:<br>
         <input id='license-type-input' type="text" name="license-type" value="MIT"><br>
+        <br>
+
+        <input id='submitButton' type="submit" onclick="renderAll()">
 
         <h2>Your badges</h2>
 
