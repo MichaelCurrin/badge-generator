@@ -5,5 +5,7 @@ This is intended to be used when creating a new repo, or updating any existing r
 
 This is not indented to have application code.
 
-Features:
-- markdown badges
+## Menu
+
+- [Badge templates](https://michaelcurrin.github.io/repo-boilerplates/badges.html)
+- [Badge generator](https://michaelcurrin.github.io/repo-boilerplates/badge_generator.html)
