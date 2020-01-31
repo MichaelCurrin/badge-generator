@@ -3,8 +3,6 @@
 
 This is intended to be used when creating a new repo, or updating any existing repos that existed before this guide was created.
 
-This is not indented to have application code.
-
 ## Menu
 
 - [Badge templates](https://michaelcurrin.github.io/repo-boilerplates/badges.html)
