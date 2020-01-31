@@ -10,10 +10,14 @@ Mustache.escape = function(text) {
     return text;
 };
 
+function makeBadge(title, imgUrl, extUrl) {
+    return `[![${title}](${imgUrl})](${extUrl})`;
+}
+
 function getInputs() {
-    var username = $("input[name='username'").val();
-    var repoName = $("input[name='username'").val();
-    var licenseType = $("input[name='username'").val();
+    var username = $("input[name='username'").val(),
+        repoName = $("input[name='repo-name'").val(),
+        licenseType = $("input[name='license-type'").val();
 
     return {
         USERNAME: username,
@@ -21,16 +25,24 @@ function getInputs() {
         LICENSE_TYPE: licenseType,
         tag: function() {
             if (this.USERNAME && this.REPO_NAME) {
-                return `[![GitHub tag](https://img.shields.io/github/tag/${this.USERNAME}/${this
-                    .REPO_NAME}.svg)](https://GitHub.com/${this.USERNAME}/${this.REPO_NAME}/tags/)`;
+                var title = 'GitHub tag',
+                    imgUrl = `https://img.shields.io/github/tag/${this.USERNAME}/${this.REPO_NAME}.svg`,
+                    extUrl = `https://GitHub.com/${this.USERNAME}/${this.REPO_NAME}/tags/`;
+
+                return makeBadge(title, imgUrl, extUrl);
             }
             return '';
         },
         license: function() {
             if (this.LICENSE_TYPE && this.USERNAME && this.REPO_NAME) {
-                return `[![${this.LICENSE_TYPE} license](https://img.shields.io/badge/License-${this
-                    .LICENSE_TYPE}-blue.svg)](https://github.com/${this.USERNAME}/${this
-                    .REPO_NAME}/blob/master/LICENSE)`;
+                var color = 'blue',
+                    branch = 'master';
+
+                var title = `${this.LICENSE_TYPE} license`,
+                    imgUrl = `https://img.shields.io/badge/License-${this.LICENSE_TYPE}-${color}.svg`,
+                    extUrl = `https://github.com/${this.USERNAME}/${this.REPO_NAME}/blob/${branch}/LICENSE`;
+
+                return makeBadge(title, imgUrl, extUrl);
             }
             return '';
         }
@@ -38,18 +50,19 @@ function getInputs() {
 }
 
 function mdToHtml(markdown) {
-    var reader = new commonmark.Parser();
-    var writer = new commonmark.HtmlRenderer();
-    var parsed = reader.parse(markdown);
+    var reader = new commonmark.Parser(),
+        writer = new commonmark.HtmlRenderer(),
+        parsed = reader.parse(markdown);
 
     return writer.render(parsed);
 }
 
 function renderTemplate(templateID, outputId, data) {
-    var template = $(templateID).html();
-    var result = Mustache.to_html(template, data);
-    result = mdToHtml(result);
-    $(outputId).html(result);
+    var template = $(templateID).html(),
+        resultHtml = Mustache.to_html(template, data),
+        resultMd = mdToHtml(resultHtml);
+
+    $(outputId).html(resultMd);
 }
 
 function renderAll() {
