@@ -11,6 +11,9 @@ Mustache.escape = function(text) {
 };
 
 function makeBadge(title, imgUrl, extUrl) {
+    imgUrl = encodeURI(imgUrl);
+    extUrl = encodeURI(extUrl);
+
     return `[![${title}](${imgUrl})](${extUrl})`;
 }
 
