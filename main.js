@@ -15,14 +15,29 @@ function makeBadge(title, imgUrl, extUrl) {
 }
 
 function getInputs() {
-    var username = $("input[name='username'").val(),
-        repoName = $("input[name='repo-name'").val(),
-        licenseType = $("input[name='license-type'").val();
+    var useThisTemplate = $('input[name="use-this-template"').prop('checked'),
+        username = $('input[name="username"').val(),
+        repoName = $('input[name="repo-name"').val(),
+        licenseType = $('input[name="license-type"').val();
 
     return {
+        USE_THIS_TEMPLATE: useThisTemplate,
         USERNAME: username,
         REPO_NAME: repoName,
         LICENSE_TYPE: licenseType,
+        use: function() {
+            if (useThisTemplate && this.USERNAME && this.REPO_NAME) {
+                var text = 'Use_this_template',
+                    color = 'green';
+
+                var title = 'Use this template',
+                    imgUrl = `https://img.shields.io/badge/${text}-${color}.svg`,
+                    extUrl = `https://github.com/${this.USERNAME}/${this.REPO_NAME}/generate`;
+
+                return makeBadge(title, imgUrl, extUrl);
+            }
+            return '';
+        },
         tag: function() {
             if (this.USERNAME && this.REPO_NAME) {
                 var title = 'GitHub tag',
@@ -67,6 +82,7 @@ function renderTemplate(templateID, outputId, data) {
 
 function renderAll() {
     var data = getInputs();
+    console.debug(data);
 
     renderTemplate('#badges', '#target-output', data);
     renderTemplate('#badges-md', '#target-output-md', data);
