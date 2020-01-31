@@ -5,6 +5,11 @@
  *  https://stackoverflow.com/questions/52562508/using-markdown-in-javascript-template-engine
  */
 
+// Don't escape HTML.
+Mustache.escape = function(text) {
+    return text;
+};
+
 function getInputs() {
     var username = $('#username-input').one().val();
     var repoName = $('#repo-name-input').one().val();
@@ -13,7 +18,22 @@ function getInputs() {
     return {
         USERNAME: username,
         REPO_NAME: repoName,
-        LICENSE_TYPE: licenseType
+        LICENSE_TYPE: licenseType,
+        tag: function() {
+            if (this.USERNAME && this.REPO_NAME) {
+                return `[![GitHub tag](https://img.shields.io/github/tag/${this.USERNAME}/${this
+                    .REPO_NAME}.svg)](https://GitHub.com/${this.USERNAME}/${this.REPO_NAME}/tags/)`;
+            }
+            return '';
+        },
+        license: function() {
+            if (this.LICENSE_TYPE && this.USERNAME && this.REPO_NAME) {
+                return `[![${this.LICENSE_TYPE} license](https://img.shields.io/badge/License-${this
+                    .LICENSE_TYPE}-blue.svg)](https://github.com/${this.USERNAME}/${this
+                    .REPO_NAME}/blob/master/LICENSE)`;
+            }
+            return '';
+        }
     };
 }
 
