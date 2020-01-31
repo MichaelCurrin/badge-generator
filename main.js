@@ -5,11 +5,12 @@
  *  https://stackoverflow.com/questions/52562508/using-markdown-in-javascript-template-engine
  */
 
-// Don't escape HTML.
+// Turn off escaping so markdown in templates is preserved.
 Mustache.escape = function(text) {
     return text;
 };
 
+/** Create badge as markdown, with URLs escaped. **/
 function makeBadge(title, imgUrl, extUrl) {
     imgUrl = encodeURI(imgUrl);
     extUrl = encodeURI(extUrl);
@@ -88,6 +89,7 @@ function renderTemplate(templateID, outputId, data) {
     $(outputId).html(resultMd);
 }
 
+/** Use inputs and templates to render badges. **/
 function renderAll() {
     var badgeData = makeBadges();
 
