@@ -33,7 +33,6 @@ Replace fields with your own username and repo name. The workflow name must be f
 
 Replace with your own app ID and app name.
 
-
 ### Help
 
 For your Netlify app, you can find a status badge under settings. Example URL:
@@ -91,4 +90,17 @@ Format: The badge code has the prefix, the package name and then the color. Each
 
 ```
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/blob/master/LICENSE)
+```
+
+
+## Github project
+
+These can be used in the doc page or somewhere on your website frontend.
+
+### Fork
+
+```
+<a href="https://github.com/<USERNAME>/<REPO_NAME>">
+    <img src="https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social">
+</a>
 ```
