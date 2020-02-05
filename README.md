@@ -1,6 +1,8 @@
 # Repo Boilerplates
 > Assistant for creating docs and chore files for Github repositories
 
+- [Project website](https://michaelcurrin.github.io/repo-boilerplates/)
+
 This is intended to be used when creating a new repo, or updating any existing repos that existed before this guide was created.
 
 ## Menu
