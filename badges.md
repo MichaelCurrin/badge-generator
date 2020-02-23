@@ -59,11 +59,19 @@ See Netlify's Deploy Badges guide [here](https://www.netlify.com/blog/2019/01/29
 
 Format: The badge code has the prefix, the package name and then the color. Each separated by a hyphen. The prefix and the package name can have spaces, but these must be URL encoded as `%20`.
 
+General format for _Made with_ badge, first without and with a hyperlink added:
+
 ```
+![Made with <TOOL>](https://img.shields.io/badge/Made%20with-<TOOL>-blue.svg)
+
 [![Made with <TOOL>](https://img.shields.io/badge/Made%20with-<TOOL>-blue.svg)](<TOOL_URL>)
 ```
 
+Sample badges:
+
 ```
+[![Made with Bash](https://img.shields.io/badge/Made%20with-Bash-blue.svg)](https://www.gnu.org/software/bash/)
+
 [![Made with Github Pages](https://img.shields.io/badge/Made%20with-Github%20Pages-blue.svg)](https://pages.github.com/)
 
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue.svg)](https://python.org)
