@@ -1,15 +1,13 @@
-# Repo Boilerplates
-> Assistant for creating docs and chore files for Github repositories
+# Badge generator
+> Online tool for creating customized badges for your Github projects, plus some resource links and examples
 
-- [Project website](https://michaelcurrin.github.io/repo-boilerplates/)
+- [Project website](https://michaelcurrin.github.io/badge-generator/)
 
-This is intended to be used when creating a new repo, or updating any existing repos that existed before this guide was created.
+## Docs site
 
-## Menu
+- [michaelcurrin.github.io/badge-generator/](https://michaelcurrin.github.io/badge-generator/)
 
-- [Badge templates](https://michaelcurrin.github.io/repo-boilerplates/badges.html)
-- [Badge generator](https://michaelcurrin.github.io/repo-boilerplates/badge_generator.html)
 
-## About licenses
+## License
 
-See [Licenses cheatsheet](https://github.com/MichaelCurrin/cheatsheets/blob/master/cheatsheets/licensing.md).
+[MIT License](/LICENSE)
