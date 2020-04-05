@@ -141,42 +141,49 @@ From [Social](https://shields.io/category/social) category on [Shields.io](https
 
 ### Stars
 
-Use `/stars` in the image URL.
+Use **stars** in the image URL.
 
 ```
-<img src="https://img.shields.io/github/stars/<USERNAME>/<REPO_NAME>?style=social">
+https://img.shields.io/github/stars/<USERNAME>/<REPO_NAME>?style=social
 ```
 
 ### Forks
 
-Use `/forks` in the image URL.
+Use **forks** in the image URL.
 
 ```
-<img src="https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social">
+https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social
 ```
 
 ### Add hyperlinks
 
+Wrap the image in an anchor tag:
+
 ```
 <a href="...">
-    <img ... >
+    <img src= "..." >
 </a>
 ```
-```
 
-Use the repo URL. 
+Use one of the following for the link target:
+
+- Repo homepage: `https://github.com/<USERNAME>/<REPO_NAME>`
+- Repo stars list: `https://github.com/<USERNAME>/<REPO_NAME>/stargazers`
+- Repo forks list: `https://github.com/<USERNAME>/<REPO_NAME>/network/members`
+
+
+#### Full template
 
 ```
 <a href="https://github.com/<USERNAME>/<REPO_NAME>">
-    <img ... >
+    <img src="https://img.shields.io/github/stars/<USERNAME>/<REPO_NAME>?style=social">
 </a>
 
+<a href="https://github.com/<USERNAME>/<REPO_NAME>">
+    <img src="https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social">
+</a>
 ```
 
-Or one of the following:
-
-- stars: `{REPO_URL}/stargazers`
-- forks: `{REPO_URL}/network/members`
 
 ### Jekyll variables
 
