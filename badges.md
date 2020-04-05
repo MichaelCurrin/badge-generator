@@ -41,6 +41,15 @@ Choices:
 
 Replace fields with your own username and repo name. The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package.`
 
+Example of the badge itself, without link:
+
+```
+![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python%20package/badge.svg)
+```
+
+Note that Github Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax tas the one above, though Github's tool provides many choices on configuring the badge.
+
+
 ## Netlify Deploy
 
 ### Sample badge
