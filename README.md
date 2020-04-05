@@ -12,6 +12,4 @@ This is intended to be used when creating a new repo, or updating any existing r
 
 ## About licenses
 
-- [Licensing a repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) (Github docs)
-- [Choose a License](https://choosealicense.com/)
-- [What Coders Should Know About Copyright Licensing](https://www.fastcompany.com/3014553/what-coders-should-know-about-copyright-licensing)
+See [Licenses cheatsheet](https://github.com/MichaelCurrin/cheatsheets/blob/master/cheatsheets/licensing.md).
