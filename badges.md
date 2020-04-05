@@ -9,7 +9,6 @@ Badge sources:
 
 For URL encoding, see this [tool](https://www.urlencoder.org/).
 
-https://img.shields.io/github/stars/foo/bar?style=for-the-badge
 
 ## Styles
 
