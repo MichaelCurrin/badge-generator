@@ -110,13 +110,22 @@ Sample badges:
 [![Made with Ruby](https://img.shields.io/badge/Made%20with-Ruby-blue.svg)](https://ruby-lang.org)
 ```
 
-You can choose better static text badge, or pulling in NPM version (then link to NPM or the main site). Here the NPM version is always the _latest_.
+Theme badge:
+
+```
+[![Theme minima](https://img.shields.io/badge/theme-minima-blue.svg)](https://github.com/jekyll/minina)
+```
+
+You can choose better static text badge, or pull in NPM version (then link to NPM or the main site). Here the NPM version is always the _latest_.
 
 ```
 [![Made with Docsify](https://img.shields.io/badge/Made%20with-Docsify-blue.svg)](https://docsify.js.org/) 
 
 [![Made with latest Docsify](https://img.shields.io/npm/v/docsify/latest?label=docsify)](https://docsify.js.org/)
 ```
+
+You can even pull in the version from your package.json file.
+
 
 ## Tag
 
