@@ -1,5 +1,7 @@
 # Badges
 
+<!-- When this is cleaned up to be interactive, hardcoded cases here can be used as unit tests. -->
+
 Reference for badges or shields for Github projects.
 
 Badge sources:
@@ -8,6 +10,8 @@ Badge sources:
 - [shields.io](https://shields.io/)
 
 For URL encoding, see this [tool](https://www.urlencoder.org/).
+
+Rmember images can be tested as URLs directly in the browser. That's useful for faster dev and debugging.
 
 
 ## Styles
@@ -30,6 +34,7 @@ Choices:
 
 ### Docs
 
+
 ```
 - [![Docs site](https://img.shields.io/badge/docs-Github%20Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
 ```
@@ -39,6 +44,10 @@ Alt text and using green for stronger CTA for application vs calmer docs site bl
 ```
 - [![Github Pages site](https://img.shields.io/badge/site-Github%20Pages-green)](https://michaelcurrin.github.io/badge-generator/)  
 ```
+
+Put the URL in the badge. Just remember a dash even encoded will break it.
+
+- [![Badge generator site](https://img.shields.io/badge/site-mysite-green)](https://michaelcurrin.github.io/badge-generator/)  
 
 
 Choices
