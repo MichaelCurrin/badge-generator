@@ -32,8 +32,23 @@ Choices:
 
 ## Simple buttons
 
-### Docs
+Using button with static content which just has styling.
 
+Separate into `a-b`.
+
+```
+https://img.shields.io/badge/site-Github%20Pages-blue
+```
+
+Or just `b`.
+
+```
+https://img.shields.io/badge/Github%20Pages-blue
+```
+
+See [Made with](#made-with) section.
+
+### Docs
 
 ```
 - [![Docs site](https://img.shields.io/badge/docs-Github%20Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
@@ -63,6 +78,7 @@ Choices
 ```
 [![Use this template](https://img.shields.io/badge/Use_this_template-green.svg)](https://github.com/<USERNAME>/<REPO_NAME>/generate)
 ```
+
 
 ## Github Actions
 
