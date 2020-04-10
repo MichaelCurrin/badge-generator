@@ -31,13 +31,23 @@ Choices:
 ### Docs
 
 ```
+- [![Docs site](https://img.shields.io/badge/docs-Github%20Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
+```
+
+Alt text and using green for stronger CTA for application vs calmer docs site blue.
+
+```
+- [![Github Pages site](https://img.shields.io/badge/site-Github%20Pages-green)](https://michaelcurrin.github.io/badge-generator/)  
+```
+
+
+Choices
+
+```
 - [![Online docs](https://img.shields.io/badge/Online%20docs-blue.svg)](https://michaelcurrin.github.io/badge-generator/)
 - [![Local docs](https://img.shields.io/badge/Local%20docs-blue.svg)](/docs)
 ```
 
-```
-- [![Docs site](https://img.shields.io/badge/docs-Github%20Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
-```
 
 ## Use this template
 
