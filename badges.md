@@ -26,6 +26,14 @@ Choices:
 - `for-the-badge` - large badge
 - `social` - useful for [Github project](#github-project) badges.
 
+## Simple buttons
+
+### Docs
+
+```
+- [![Online docs](https://img.shields.io/badge/Online%20docs-blue.svg)](https://michaelcurrin.github.io/badge-generator/)
+- [![Local docs](https://img.shields.io/badge/Local%20docs-blue.svg)](/docs)
+```
 
 ## Use this template
 
