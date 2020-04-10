@@ -164,14 +164,15 @@ You can even pull in the version from your package.json file.
 
 ## Github project
 
-These can be used in the doc page or somewhere on your website frontend.
+Add a repo badge which shows a social counter.
+
+The badge can be used in the doc page or somewhere on your website frontend.
 
 From [Social](https://shields.io/category/social) category on [Shields.io](https://shields.io/) site.
 
-
 ### Stars
 
-Use **stars** in the image URL.
+Use **stars** in the image URL, before username.
 
 ```
 https://img.shields.io/github/stars/<USERNAME>/<REPO_NAME>?style=social
@@ -179,7 +180,7 @@ https://img.shields.io/github/stars/<USERNAME>/<REPO_NAME>?style=social
 
 ### Forks
 
-Use **forks** in the image URL.
+Use **forks** in the image URL, before username.
 
 ```
 https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social
@@ -187,12 +188,11 @@ https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social
 
 ### Add hyperlinks
 
-Wrap the image in an anchor tag:
 
-```
-<a href="...">
-    <img src= "..." >
-</a>
+Wrap the image in a link.
+
+```markdown
+![[Image description](image-url)](link-target)
 ```
 
 Use one of the following for the link target:
@@ -202,16 +202,12 @@ Use one of the following for the link target:
 - Repo forks list: `https://github.com/<USERNAME>/<REPO_NAME>/network/members`
 
 
-#### Full template
+Example:
 
 ```
-<a href="https://github.com/<USERNAME>/<REPO_NAME>">
-    <img src="https://img.shields.io/github/stars/<USERNAME>/<REPO_NAME>?style=social">
-</a>
+[![Repo stars](https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 
-<a href="https://github.com/<USERNAME>/<REPO_NAME>">
-    <img src="https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social">
-</a>
+[![Repo forks](https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 ```
 
 
