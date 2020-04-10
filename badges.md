@@ -35,6 +35,10 @@ Choices:
 - [![Local docs](https://img.shields.io/badge/Local%20docs-blue.svg)](/docs)
 ```
 
+```
+- [![Docs site](https://img.shields.io/badge/docs-Github%20Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
+```
+
 ## Use this template
 
 ```
