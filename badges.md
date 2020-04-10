@@ -173,6 +173,8 @@ You can choose better static text badge, or pull in NPM version (then link to NP
 
 You can even pull in the version from your package.json file.
 
+If the site is just a docs site and not a main site, change to _Docs: Docsify_ rather.
+
 
 ## Tag
 
