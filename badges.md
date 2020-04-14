@@ -30,20 +30,32 @@ Choices:
 - `for-the-badge` - large badge
 - `social` - useful for [Github project](#github-project) badges.
 
-## Simple buttons
 
-Using button with static content which just has styling.
+## Simple button format
 
-Separate into `a-b`.
+Use a button with static content which just has styling.
+
+- Spaces must be `%20` or `_` (the latter is more readable in code).
+- `.svg` suffix is optional.
+
+### Two-part label
+
+Separate into `Foo-Bar-color`. Where `Foo` will be in black and the `Bar` will be in color.
+
+e.g
 
 ```
-https://img.shields.io/badge/site-Github%20Pages-blue
+https://img.shields.io/badge/site-Github_Pages-blue
 ```
 
-Or just `b`.
+### One-part label
+
+Use `Foo-color`.
+
+e.g.
 
 ```
-https://img.shields.io/badge/Github%20Pages-blue
+https://img.shields.io/badge/Foo-blue-blue
 ```
 
 See [Made with](#made-with) section.
@@ -51,13 +63,13 @@ See [Made with](#made-with) section.
 ### Docs
 
 ```
-- [![Docs site](https://img.shields.io/badge/docs-Github%20Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
+- [![Docs site](https://img.shields.io/badge/docs-Github_Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
 ```
 
 Alt text and using green for stronger CTA for application vs calmer docs site blue.
 
 ```
-- [![Github Pages site](https://img.shields.io/badge/site-Github%20Pages-green)](https://michaelcurrin.github.io/badge-generator/)  
+- [![Github Pages site](https://img.shields.io/badge/site-Github_Pages-green)](https://michaelcurrin.github.io/badge-generator/)  
 ```
 
 Put the URL in the badge. Just remember a dash even encoded will break it.
@@ -68,8 +80,8 @@ Put the URL in the badge. Just remember a dash even encoded will break it.
 Choices
 
 ```
-- [![Online docs](https://img.shields.io/badge/Online%20docs-blue.svg)](https://michaelcurrin.github.io/badge-generator/)
-- [![Local docs](https://img.shields.io/badge/Local%20docs-blue.svg)](/docs)
+- [![Online docs](https://img.shields.io/badge/Online_docs-blue.svg)](https://michaelcurrin.github.io/badge-generator/)
+- [![Local docs](https://img.shields.io/badge/Local_docs-blue.svg)](/docs)
 ```
 
 
@@ -86,12 +98,12 @@ Choices
 [![Actions status](https://github.com/<USERNAME>/<REPO_NAME>/workflows/<WORKFLOW_NAME>/badge.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/actions)
 ```
 
-Replace fields with your own username and repo name. The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package.`
+Replace fields with your own username and repo name. The workflow name must be from the name field inside the file, but URL safe. e.g. `Python_package.`
 
 Example of the badge itself, without link:
 
 ```
-![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python%20package/badge.svg)
+![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python_package/badge.svg)
 ```
 
 Note that Github Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax tas the one above, though Github's tool provides many choices on configuring the badge.
@@ -121,7 +133,7 @@ See Netlify's Deploy Badges guide [here](https://www.netlify.com/blog/2019/01/29
 ## Dependencies
 
 ```
-[![Dependency Foo](https://img.shields.io/badge/Dependency%20-Foo-blue.svg)](https://<foo>)
+[![Dependency Foo](https://img.shields.io/badge/Dependency-Foo-blue.svg)](https://<foo>)
 ```
 
 ```
@@ -131,30 +143,30 @@ See Netlify's Deploy Badges guide [here](https://www.netlify.com/blog/2019/01/29
 
 ## Made with
 
-Format: The badge code has the prefix, the package name and then the color. Each separated by a hyphen. The prefix and the package name can have spaces, but these must be URL encoded as `%20`.
+Format: The badge code has the prefix, the package name and then the color. Each separated by a hyphen. 
 
 General format for _Made with_ badge, first without and with a hyperlink added:
 
 ```
-![Made with <TOOL>](https://img.shields.io/badge/Made%20with-<TOOL>-blue.svg)
+![Made with <TOOL>](https://img.shields.io/badge/Made_with-<TOOL>-blue.svg)
 
-[![Made with <TOOL>](https://img.shields.io/badge/Made%20with-<TOOL>-blue.svg)](<TOOL_URL>)
+[![Made with <TOOL>](https://img.shields.io/badge/Made_with-<TOOL>-blue.svg)](<TOOL_URL>)
 ```
 
 Sample badges:
 
 ```
-[![Made with Bash](https://img.shields.io/badge/Made%20with-Bash-blue.svg)](https://www.gnu.org/software/bash/)
+[![Made with Bash](https://img.shields.io/badge/Made_with-Bash-blue.svg)](https://www.gnu.org/software/bash/)
 
-[![Made with Github Pages](https://img.shields.io/badge/Made%20with-Github%20Pages-blue.svg)](https://pages.github.com/)
+[![Made with Github Pages](https://img.shields.io/badge/Made_with-Github_Pages-blue.svg)](https://pages.github.com/)
 
-[![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue.svg)](https://python.org)
+[![Made with Python](https://img.shields.io/badge/Made_with-Python-blue.svg)](https://python.org)
 
-[![Made with Node](https://img.shields.io/badge/Made%20with-Node-blue.svg)](https://nodejs.org)
+[![Made with Node](https://img.shields.io/badge/Made_with-Node-blue.svg)](https://nodejs.org)
 
-[![Made with Jekyll](https://img.shields.io/badge/Made%20with-Jekyll-blue.svg)](https://jekyllrb.com)
+[![Made with Jekyll](https://img.shields.io/badge/Made_with-Jekyll-blue.svg)](https://jekyllrb.com)
 
-[![Made with Ruby](https://img.shields.io/badge/Made%20with-Ruby-blue.svg)](https://ruby-lang.org)
+[![Made with Ruby](https://img.shields.io/badge/Made_with-Ruby-blue.svg)](https://ruby-lang.org)
 ```
 
 Theme badge:
@@ -166,7 +178,7 @@ Theme badge:
 You can choose better static text badge, or pull in NPM version (then link to NPM or the main site). Here the NPM version is always the _latest_.
 
 ```
-[![Made with Docsify](https://img.shields.io/badge/Made%20with-Docsify-blue.svg)](https://docsify.js.org/) 
+[![Made with Docsify](https://img.shields.io/badge/Made_with-Docsify-blue.svg)](https://docsify.js.org/) 
 
 [![Made with latest Docsify](https://img.shields.io/npm/v/docsify/latest?label=docsify)](https://docsify.js.org/)
 ```
