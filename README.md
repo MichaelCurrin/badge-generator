@@ -4,9 +4,9 @@
 
 ## Project website
 
-- [michaelcurrin.github.io/badge-generator/](https://michaelcurrin.github.io/badge-generator/)
+[![Github Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)  
 
 
 ## License
 
-[MIT License](/LICENSE)
+Released under [MIT License](/LICENSE).
