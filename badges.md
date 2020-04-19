@@ -73,7 +73,11 @@ Alt text and using green for stronger CTA for application vs calmer docs site bl
 
 or
 
-[![Github Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)  
+[![Github Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+
+or
+
+[![Docsify JS Template site](https://img.shields.io/badge/site-Docsify_JS_Tutorial-green?style=for-the-badge)](https://michaelcurrin.github.io/docsify-js-tutorial/#/)
 ```
 
 Put the URL in the badge. Just remember a dash even encoded will break it.
