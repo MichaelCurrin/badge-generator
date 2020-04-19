@@ -62,26 +62,31 @@ See [Made with](#made-with) section.
 
 ### Docs
 
-```
-- [![Docs site](https://img.shields.io/badge/docs-Github_Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
+```markdown
+[![Docs site](https://img.shields.io/badge/docs-Github_Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
 ```
 
 Alt text and using green for stronger CTA for application vs calmer docs site blue.
 
-```
-- [![Github Pages site](https://img.shields.io/badge/site-Github_Pages-green)](https://michaelcurrin.github.io/badge-generator/)  
+```markdown
+[![Github Pages site](https://img.shields.io/badge/site-Github_Pages-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+
+or
+
+[![Github Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)  
 ```
 
 Put the URL in the badge. Just remember a dash even encoded will break it.
 
-- [![Badge generator site](https://img.shields.io/badge/site-mysite-green)](https://michaelcurrin.github.io/badge-generator/)  
+[![Badge generator site](https://img.shields.io/badge/site-mysite-green)](https://michaelcurrin.github.io/badge-generator/)  
 
 
 Choices
 
-```
-- [![Online docs](https://img.shields.io/badge/Online_docs-blue.svg)](https://michaelcurrin.github.io/badge-generator/)
-- [![Local docs](https://img.shields.io/badge/Local_docs-blue.svg)](/docs)
+```markdown
+[![Online docs](https://img.shields.io/badge/Online_docs-blue.svg)](https://michaelcurrin.github.io/badge-generator/)
+
+[![Local docs](https://img.shields.io/badge/Local_docs-blue.svg)](/docs)
 ```
 
 
