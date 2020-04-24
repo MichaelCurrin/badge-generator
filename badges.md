@@ -60,13 +60,22 @@ https://img.shields.io/badge/Foo-blue-blue
 
 See [Made with](#made-with) section.
 
+### Large button
+
+With arbitary text here.
+
+```markdown
+[![Foo Bar](https://img.shields.io/badge/foo-Bar-green?style=for-the-badge)]()
+```
+
+
 ### Docs
 
 ```markdown
 [![Docs site](https://img.shields.io/badge/docs-Github_Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
 ```
 
-Alt text and using green for stronger CTA for application vs calmer docs site blue.
+Using large badge and green for stronger call-to-action for application, compared with calmer docs site blue.
 
 ```markdown
 [![Github Pages site](https://img.shields.io/badge/site-Github_Pages-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
@@ -196,15 +205,18 @@ You can even pull in the version from your package.json file.
 
 If the site is just a docs site and not a main site, change to _Docs: Docsify_ rather.
 
-## Latest stable code
 
-### Tag
+## Latest code
+
+If you have no tags or releases, the badge will still load but just say there is no tag/release.
+
+### Latest tag
 
 ```
 [![GitHub tag](https://img.shields.io/github/tag/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<REPO_NAME>/tags/)
 ```
 
-### Release
+### Latest release
 
 ```
 [![GitHub release](https://img.shields.io/github/release/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<REPO_NAME>/releases/)
