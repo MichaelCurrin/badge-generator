@@ -43,7 +43,7 @@ Use a button with static content which just has styling.
 
 ### Two-part label
 
-Separate into `Foo-Bar-color`. Where `Foo` will be in black and the `Bar` will be in color.
+Separate into `PRE_LABEL-MAIN_LABEL-COLOR`. Where `Foo` will be in black and the `Bar` will be in color.
 
 e.g
 
@@ -53,17 +53,20 @@ https://img.shields.io/badge/site-Github_Pages-blue
 
 ### One-part label
 
-Use `Foo-color`.
+Use `MAIN_LABEL-COLOR`.
 
 e.g.
 
 ```
-https://img.shields.io/badge/Foo-blue-blue
+https://img.shields.io/badge/Foo-blue
 ```
 
-See [Made with](#made-with) section.
+Related - see [Made with](#made-with) section.
+
 
 ### Large button
+
+Using style to create a large badge.
 
 With arbitary text here.
 
@@ -74,7 +77,7 @@ With arbitary text here.
 [![Foo Bar](https://img.shields.io/badge/foo-Bar-green?style=for-the-badge)]()
 
 
-And sample emojis.
+With emojis.
  
 ```markdown
 [![Foo Bar](https://img.shields.io/badge/📂_Foo-Bar_🛡️-green?style=for-the-badge)]()
