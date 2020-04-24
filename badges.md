@@ -36,6 +36,9 @@ Choices:
 Use a button with static content which just has styling.
 
 - Spaces must be `%20` or `_` (the latter is more readable in code).
+- For emojis
+    - You can use unicode emoji (e.g. `🛡️`) in the shield label.
+    - But Github emoji as text (`:shield:`) will not work. But you can convert from symbol to unicode - you can always test a Git emoji in your markdown file then copy the rendered unicode.
 - `.svg` suffix is optional.
 
 ### Two-part label
@@ -67,6 +70,18 @@ With arbitary text here.
 ```markdown
 [![Foo Bar](https://img.shields.io/badge/foo-Bar-green?style=for-the-badge)]()
 ```
+
+[![Foo Bar](https://img.shields.io/badge/foo-Bar-green?style=for-the-badge)]()
+
+
+And sample emojis.
+ 
+```markdown
+[![Foo Bar](https://img.shields.io/badge/📂_Foo-Bar_🛡️-green?style=for-the-badge)]()
+```
+
+[![Foo Bar](https://img.shields.io/badge/📂_Foo-Bar_🛡️-green?style=for-the-badge)]()
+
 
 
 ### Docs
