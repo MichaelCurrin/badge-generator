@@ -82,7 +82,7 @@ And sample emojis.
 
 [![Foo Bar](https://img.shields.io/badge/📂_Foo-Bar_🛡️-green?style=for-the-badge)]()
 
-
+This can be useful for language symbols e.g. `🇬🇧`.
 
 ### Docs
 
