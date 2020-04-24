@@ -11,7 +11,7 @@ Badge sources:
 
 For URL encoding, see this [tool](https://www.urlencoder.org/).
 
-Rmember images can be tested as URLs directly in the browser. That's useful for faster dev and debugging.
+Remember images can be tested as URLs directly in the browser. That's useful for faster dev and debugging.
 
 
 ## Styles
@@ -196,14 +196,15 @@ You can even pull in the version from your package.json file.
 
 If the site is just a docs site and not a main site, change to _Docs: Docsify_ rather.
 
+## Latest stable code
 
-## Tag
+### Tag
 
 ```
 [![GitHub tag](https://img.shields.io/github/tag/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<REPO_NAME>/tags/)
 ```
 
-## Release
+### Release
 
 ```
 [![GitHub release](https://img.shields.io/github/release/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<REPO_NAME>/releases/)
@@ -215,8 +216,16 @@ If the site is just a docs site and not a main site, change to _Docs: Docsify_ r
 [![<LICENSE_TYPE> license](https://img.shields.io/badge/License-<LICENSE_TYPE>-blue.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/blob/master/LICENSE)
 ```
 
+e.g.
+
 ```
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/blob/master/LICENSE)
+```
+
+Link to _License_ section in the same README.md doc.
+
+```
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
 ```
 
 
