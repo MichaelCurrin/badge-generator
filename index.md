@@ -4,9 +4,10 @@
 ## Features
 
 - Quickly and easily generate badges
-- Professional and consistent look
+- Badges are mostly SVG images define by a URL - no image editing
+- Professional and consistent badges
 - Use pre-made generic badges or create a new one
-- Gives you markdown to copy and paste
+- Gives you badges as markdown to copy and paste
 
 
 ## Menu
@@ -19,7 +20,7 @@ If you are interested in choosing a license for your repo, see [Licenses cheatsh
 
 ## Why use this tool?
 
-- It relies mostly on sites like https://shields.io to generate professional badges that you can embed in your documentation.
+- It relies mostly on sites like https://shields.io to generate professional badges that you can embed in your documentation and then add your own hyperlinks to.
 - Great for new projects which have no badges yet, or updating older projects
 - You don't need to learn the syntax for each badge type or worry about escaping a space character. The generator will save you time and give you just the markdown you need (you can also come back to the generator to regenerate a badge when you need to modify an existing badge).
 - It aims to be more convenient and user-friendly than the generator on shields.io site.
