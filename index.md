@@ -1,6 +1,14 @@
 > Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges
 
 
+## Features
+
+- Quickly and easily generate badges
+- Professional and consistent look
+- Use pre-made generic badges or create a new one
+- Gives you markdown to copy and paste
+
+
 ## Menu
 
 - [Badge templates](badges) - tutorial and examples
