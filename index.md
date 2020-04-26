@@ -4,10 +4,10 @@
 ## Features
 
 - Quickly and easily generate badges
-- Badges are mostly SVG images define by a URL - no image editing
+- Preview your badges and then copy the markdown when you're happy
+- Uses dynamic SVG images defined by URL - no image editing
 - Professional and consistent badges
 - Use pre-made generic badges or create a new one
-- Gives you badges as markdown to copy and paste
 
 
 ## Menu
