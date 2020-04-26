@@ -68,7 +68,7 @@ Related - see [Made with](#made-with) section.
 
 Using style to create a large badge.
 
-With arbitary text here.
+With arbitrary text here.
 
 ```markdown
 [![Foo Bar](https://img.shields.io/badge/foo-Bar-green?style=for-the-badge)]()
@@ -120,14 +120,14 @@ Choices
 ```
 
 
-## Use this template
+## Use this Template badges
 
 ```
-[![Use this template](https://img.shields.io/badge/Use_this_template-green.svg)](https://github.com/<USERNAME>/<REPO_NAME>/generate)
+[![Use this Template](https://img.shields.io/badge/Use_this_Template-green.svg)](https://github.com/<USERNAME>/<REPO_NAME>/generate)
 ```
 
 
-## Github Actions
+## Github Actions badges
 
 ```
 [![Actions status](https://github.com/<USERNAME>/<REPO_NAME>/workflows/<WORKFLOW_NAME>/badge.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/actions)
@@ -146,6 +146,8 @@ Note that Github Actions now includes a tool on the right of the Actions page fo
 
 ## Netlify Deploy
 
+Dynamic badge.
+
 ### Sample badge
 
 ```
@@ -156,7 +158,7 @@ Replace with your own app ID and app name.
 
 ### Help
 
-For your Netlify app, you can find a status badge under settings. Example URL:
+In your Netlify app setup, you can find a status badge under Settings. Example URL:
 
 ```
 https://app.netlify.com/sites/<APP_NAME>/settings/general#status-badges
@@ -165,7 +167,11 @@ https://app.netlify.com/sites/<APP_NAME>/settings/general#status-badges
 See Netlify's Deploy Badges guide [here](https://www.netlify.com/blog/2019/01/29/sharing-the-love-with-netlify-deployment-badges/).
 
 
-## Dependencies
+## Dependency badges
+
+### Dependency
+
+Static badges.
 
 ```
 [![Dependency Foo](https://img.shields.io/badge/Dependency-Foo-blue.svg)](https://<foo>)
@@ -176,7 +182,10 @@ See Netlify's Deploy Badges guide [here](https://www.netlify.com/blog/2019/01/29
 ```
 
 
-## Made with
+### Made with
+
+Static badges.
+
 
 Format: The badge code has the prefix, the package name and then the color. Each separated by a hyphen. 
 
@@ -204,13 +213,15 @@ Sample badges:
 [![Made with Ruby](https://img.shields.io/badge/Made_with-Ruby-blue.svg)](https://ruby-lang.org)
 ```
 
-Theme badge:
+### Theme badge
 
 ```
 [![Theme minima](https://img.shields.io/badge/theme-minima-blue.svg)](https://github.com/jekyll/minina)
 ```
 
-You can choose better static text badge, or pull in NPM version (then link to NPM or the main site). Here the NPM version is always the _latest_.
+## JS / NPM dependencies
+
+You can choose a static text badge with or without a fixed version. Or a dynamic one to pull in NPM version (then link to NPM or the main site). Here the NPM version is always the _latest_.
 
 ```
 [![Made with Docsify](https://img.shields.io/badge/Made_with-Docsify-blue.svg)](https://docsify.js.org/) 
@@ -218,12 +229,15 @@ You can choose better static text badge, or pull in NPM version (then link to NP
 [![Made with latest Docsify](https://img.shields.io/npm/v/docsify/latest?label=docsify)](https://docsify.js.org/)
 ```
 
-You can even pull in the version from your package.json file.
+
+You can even pull in the version from your package.json file. Not covered here.
 
 If the site is just a docs site and not a main site, change to _Docs: Docsify_ rather.
 
 
 ## Latest code
+
+Dynamic badges.
 
 If you have no tags or releases, the badge will still load but just say there is no tag/release.
 
@@ -240,6 +254,8 @@ If you have no tags or releases, the badge will still load but just say there is
 ```
 
 ## License
+
+Static badges.
 
 ```
 [![<LICENSE_TYPE> license](https://img.shields.io/badge/License-<LICENSE_TYPE>-blue.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/blob/master/LICENSE)
