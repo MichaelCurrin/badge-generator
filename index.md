@@ -1,5 +1,14 @@
 > Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges
 
+
+## Menu
+
+- [Badge templates](badges) - tutorial and examples
+- [Badge generator](badge_generator) - your details go in, custom badges come out for you to copy
+
+If you are interested in choosing a license for your repo, see [Licenses cheatsheet](https://github.com/MichaelCurrin/cheatsheets/blob/master/cheatsheets/licensing.md).
+
+
 ## Why use this tool?
 
 - It relies mostly on sites like https://shields.io to generate professional badges that you can embed in your documentation.
@@ -15,10 +24,3 @@
 
 _Note this project is work in progress and logic is being moved from the template to the generator_
 
-
-## Menu
-
-- [Badge templates](badges) - tutorial and examples
-- [Badge generator](badge_generator) - your details go in, custom badges come out for you to copy
-
-If you are interested in choosing a license for your repo, see [Licenses cheatsheet](https://github.com/MichaelCurrin/cheatsheets/blob/master/cheatsheets/licensing.md).
