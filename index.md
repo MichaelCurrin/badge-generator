@@ -1,10 +1,10 @@
-> Generate tailor-made badges/shields for your repo docs and learn more about badges
+> Generate tailor-made badges/shields for your repo docs and resources for learning to work with badges
 
 ## Why use this tool
 
 - It relies mostly on https://shields.io for professional and widely-used badges
-- You don't need to learn the syntax for each badge type or worry about escaping a space character - the generator will give you what you need (you can also come back to the generator to regenerate a badge when you need to modify an existing badge)
-- It focus on a collection of badges styles and syntax I commonly use, to avoid sifting through shields.io docs every time and also to keep my projects consistent
+- You don't need to learn the syntax for each badge type or worry about escaping a space character. The generator will save you time and give you just the markdown you need (you can also come back to the generator to regenerate a badge when you need to modify an existing badge).
+- It focus on a badges styles and syntax I commonly use and bundles the badges together in the output, to avoid sifting through shields.io docs every time and to keep my projects lookimg consistent
 - Ideal for:
     - JS, Python, Jekyll and Bash projects
     - Github Actions and Netlify badges
