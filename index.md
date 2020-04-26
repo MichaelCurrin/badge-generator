@@ -2,10 +2,11 @@
 
 ## Why use this tool?
 
-- It relies mostly on sites like https://shields.io to generate professional badges you can embed in your documentation.
+- It relies mostly on sites like https://shields.io to generate professional badges that you can embed in your documentation.
 - Great for new projects which have no badges yet, or updating older projects
 - You don't need to learn the syntax for each badge type or worry about escaping a space character. The generator will save you time and give you just the markdown you need (you can also come back to the generator to regenerate a badge when you need to modify an existing badge).
-- It focus on the badge choices I commonly use and bundles the badges together in the output, to avoid sifting through shields.io docs every time and to keep my projects lookimg consistent
+- It aims to be more convenient and user-friendly than the generator on shields.io site.
+- It focuses on the badge choices I commonly use and bundles the badges together as output, to avoid sifting through shields.io docs every time and to keep my projects looking consistent.
 - Ideal for these topics:
     - JS, Python, Jekyll and Bash projects
     - Github Actions badges
