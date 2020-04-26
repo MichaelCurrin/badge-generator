@@ -1,4 +1,4 @@
-> Online tool - generate tailor-made badges/shields for your repo docs and learn to work with badges
+> Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges
 
 ## Why use this tool?
 
