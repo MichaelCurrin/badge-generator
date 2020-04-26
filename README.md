@@ -1,5 +1,5 @@
 # Badge generator
-> Online tool for creating customized badges for your Github projects, plus some resource links and examples
+> Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges
 
 
 ## Project website
