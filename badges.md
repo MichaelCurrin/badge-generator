@@ -9,7 +9,7 @@ Badge sources:
 - [github.com/badges/shields](https://github.com/badges/shields)
 - [shields.io](https://shields.io/)
 
-For URL encoding, see this [tool](https://www.urlencoder.org/).
+For URL encoding, see this [tool](https://www.urlencoder.org/) or [percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding) (linked from shields.io). It might be safer to always encode, though its less readable. This may not always be needed. Like `/` works fine. But `-` even encoded still breaks a badge which uses it as a separator.
 
 Remember images can be tested as URLs directly in the browser. That's useful for faster dev and debugging.
 
@@ -43,13 +43,20 @@ Use a button with static content which just has styling.
 
 ### Two-part label
 
-Separate into `PRE_LABEL-MAIN_LABEL-COLOR`. Where `Foo` will be in black and the `Bar` will be in color.
+Separate into `PRE_LABEL-MAIN_LABEL-COLOR`. Where the first part is black by default and the second part is a custom color like `blue` or `f967f9` (for `#f967f9` hex).
 
 e.g
 
 ```
 https://img.shields.io/badge/site-Github_Pages-blue
 ```
+
+From shields.io site, you can set colors by parameters:
+
+- Color of logo `?logoColor=violet`
+- Background of right part `?color=fedcba`
+- Background of label `?labelColor=abcdef`
+
 
 ### One-part label
 
@@ -133,12 +140,12 @@ Choices
 [![Actions status](https://github.com/<USERNAME>/<REPO_NAME>/workflows/<WORKFLOW_NAME>/badge.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/actions)
 ```
 
-Replace fields with your own username and repo name. The workflow name must be from the name field inside the file, but URL safe. e.g. `Python_package.`
+Replace fields with your own username and repo name. The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package` for workflow named `Python package`. NB. You cannot use an underscore for a space, as with other badges.
 
 Example of the badge itself, without link:
 
 ```
-![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python_package/badge.svg)
+![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python%20package/badge.svg)
 ```
 
 Note that Github Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax tas the one above, though Github's tool provides many choices on configuring the badge.
