@@ -321,13 +321,21 @@ Use one of the following for the link target:
 - Repo forks list: `https://github.com/<USERNAME>/<REPO_NAME>/network/members`
 
 
-Example:
+Examples:
 
-```
+```markdown
 [![Repo stars](https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 
 [![Repo forks](https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 ```
+
+Adding the repo name first:
+
+```markdown
+[mkdocs/mkdocs ![Repo stars](https://img.shields.io/github/stars/mkdocs/mkdocs?style=social)](https://github.com/mkdocs/mkdocs)
+```
+
+Note you can also use the `social` style on a plain text shield and it will look grey as well, but it won't have the Github icon.
 
 
 ### Jekyll variables
