@@ -9,7 +9,7 @@ const SHIELDS_API = 'https://img.shields.io/badge',
 const STYLES = {
     FOR_THE_BADGE: '?style=for-the-badge',
     SOCIAL: '?style=for-the-badge'
-}
+};
 
 /** Make a markdown badge for any inputs. Escapes URLs. **/
 function makeBadge(title, imgUrl, extUrl) {

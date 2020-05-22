@@ -16,7 +16,11 @@ function mdToHtml(markdown) {
 }
 
 function toCodeBlock(text) {
-    return ['```', text, '```'].join("\n");
+    return [
+        '```',
+        text,
+        '```'
+    ].join('\n');
 }
 
 /** Place HTML inside target template, but respecting markdown. **/
@@ -28,7 +32,7 @@ function renderTemplate(templateID, outputId, data, asCodeBlock = false) {
     if (asCodeBlock) {
         template = toCodeBlock(template);
     }
-    var resultHtml = Mustache.to_html(template, data)
+    var resultHtml = Mustache.to_html(template, data);
 
     resultMd = mdToHtml(resultHtml);
     $(outputId).html(resultMd);
