@@ -24,12 +24,9 @@ If you are interested in choosing a license for your repo, see [Licenses cheatsh
 - Great for new projects which have no badges yet, or updating older projects
 - You don't need to learn the syntax for each badge type or worry about escaping a space character. The generator will save you time and give you just the markdown you need (you can also come back to the generator to regenerate a badge when you need to modify an existing badge).
 - It aims to be more convenient and user-friendly than the generator on shields.io site.
-- It focuses on the badge choices I commonly use and bundles the badges together as output, to avoid sifting through shields.io docs every time and to keep my projects looking consistent.
+- It focuses on the badge choices I commonly use and bundles the badges together as output, to avoid sifting through [shields.io](https://shields.io/) docs every time and to keep my projects looking consistent.
 - Ideal for these topics:
     - JS, Python, Jekyll and Bash projects
     - Github Actions badges
     - Tags, license and Use this Template badges in the Github environment
 - Need a badge which has custom text, color and URL? The generator can do that too.
-
-_Note this project is work in progress and logic is being moved from the template to the generator_
-

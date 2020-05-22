@@ -16,7 +16,7 @@ Remember images can be tested as URLs directly in the browser. That's useful for
 
 ## Styles
 
-How to set the style oa badge. Based on the Styles section of the Shields site.
+How to set the style on a badge. Based on the Styles section of the Shields site.
 
 Modifier:
 
@@ -85,7 +85,7 @@ With arbitrary text here.
 
 
 With emojis.
- 
+
 ```markdown
 [![Foo Bar](https://img.shields.io/badge/📂_Foo-Bar_🛡️-green?style=for-the-badge)]()
 ```
@@ -115,7 +115,7 @@ or
 
 Put the URL in the badge. Just remember a dash even encoded will break it.
 
-[![Badge generator site](https://img.shields.io/badge/site-mysite-green)](https://michaelcurrin.github.io/badge-generator/)  
+[![Badge generator site](https://img.shields.io/badge/site-mysite-green)](https://michaelcurrin.github.io/badge-generator/)
 
 
 Choices
@@ -194,7 +194,7 @@ Static badges.
 Static badges.
 
 
-Format: The badge code has the prefix, the package name and then the color. Each separated by a hyphen. 
+Format: The badge code has the prefix, the package name and then the color. Each separated by a hyphen.
 
 General format for _Made with_ badge, first without and with a hyperlink added:
 
@@ -231,7 +231,7 @@ Sample badges:
 You can choose a static text badge with or without a fixed version. Or a dynamic one to pull in NPM version (then link to NPM or the main site). Here the NPM version is always the _latest_.
 
 ```
-[![Made with Docsify](https://img.shields.io/badge/Made_with-Docsify-blue.svg)](https://docsify.js.org/) 
+[![Made with Docsify](https://img.shields.io/badge/Made_with-Docsify-blue.svg)](https://docsify.js.org/)
 
 [![Made with latest Docsify](https://img.shields.io/npm/v/docsify/latest?label=docsify)](https://docsify.js.org/)
 ```
