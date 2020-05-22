@@ -8,7 +8,8 @@
     <title>Badge Generator</title>
 
     <!-- Default styling from Github Pages site, when you turn markdown into a site without Jekll config. -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://michaelcurrin.github.io/badge-generator/assets/css/style.css">
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
@@ -28,11 +29,6 @@
             <h3>Github repo</h3>
 
             <div>
-                Use this template: <input type="checkbox" name='use-this-template'>
-            </div>
-            <br>
-
-            <div>
                 Username: <input type="text" name="username" value="MichaelCurrin">
             </div>
             <br>
@@ -45,9 +41,18 @@
             <div>
                 License type: <input type="text" name="license-type" value="MIT">
             </div>
+
+            <!-- TODO: Add license result inline. -->
+
             <br>
 
-            <input type="submit" value="Give me badges">
+            <div>
+                Add Use this Template button: <input type="checkbox" name='use-this-template'>
+            </div>
+
+            <br>
+
+            <input type="submit" value="Generate badges">
         </form>
 
         <h2>Your badges</h2>
