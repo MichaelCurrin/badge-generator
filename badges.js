@@ -2,6 +2,11 @@
  * Handle rendering of each badge and all badges.
  */
 
+const SHIELDS_API = 'https://img.shields.io/badge',
+    SHIELDS_IMG = 'https://img.shields.io',
+    GITHUB = 'https://github.com';
+
+
 /** Make a markdown badge for any inputs. Escapes URLs. **/
 function makeBadge(title, imgUrl, extUrl) {
     imgUrl = encodeURI(imgUrl);
@@ -16,8 +21,8 @@ function useThisTemplateBadge(show, username, repoName) {
             color = 'green';
 
         var title = 'Use this template',
-            imgUrl = `https://img.shields.io/badge/${text}-${color}.svg`,
-            extUrl = `https://github.com/${username}/${repoName}/generate`;
+            imgUrl = `${SHIELDS_API}/${text}-${color}`,
+            extUrl = `${GITHUB}/${username}/${repoName}/generate`;
 
         return makeBadge(title, imgUrl, extUrl);
     }
@@ -27,8 +32,8 @@ function useThisTemplateBadge(show, username, repoName) {
 function tagBadge(username, repoName) {
     if (username && repoName) {
         var title = 'GitHub tag',
-            imgUrl = `https://img.shields.io/github/tag/${username}/${repoName}.svg`,
-            extUrl = `https://GitHub.com/${username}/${repoName}/tags/`;
+            imgUrl = `${SHIELDS_IMG}/github/tag/${username}/${repoName}`,
+            extUrl = `${GITHUB}/${username}/${repoName}/tags/`;
 
         return makeBadge(title, imgUrl, extUrl);
     }
@@ -41,14 +46,15 @@ function licenseBadge(licenseType, username, repoName) {
             branch = 'master';
 
         var title = `${licenseType} license`,
-            imgUrl = `https://img.shields.io/badge/License-${licenseType}-${color}.svg`,
-            extUrl = `https://github.com/${username}/${repoName}/blob/${branch}/LICENSE`;
+            imgUrl = `${SHIELDS_API}/License-${licenseType}-${color}.svg`,
+            extUrl = `${GITHUB}/${username}/${repoName}/blob/${branch}/LICENSE`;
 
         return makeBadge(title, imgUrl, extUrl);
     }
     return '';
 }
 
+// TODO: Refactor to use a class.
 function makeBadges() {
     var useThisTemplateIsChecked = $('input[name="use-this-template"').prop('checked'),
         username = $('input[name="username"').val(),
