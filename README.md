@@ -28,7 +28,7 @@ Open the `/badge_generator.html` on localhost.
 - The markdown files get styling added on Github and are kept light here without Jekyll theming for now.
 - The badge generator HTML file has no frontmatter, so the brackets are not parsed at build time, leaving them to be processed by mustache.
 - Dependencies are loaded in the HTML to keep the built process light for now.
-
+-  We use the approach here to render markdown to HTML, but after Mustache is run. https://stackoverflow.com/questions/52562508/using-markdown-in-javascript-template-engine
 
 ## License
 
