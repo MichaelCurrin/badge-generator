@@ -9,9 +9,9 @@ Badge sources:
 - [github.com/badges/shields](https://github.com/badges/shields)
 - [shields.io](https://shields.io/)
 
-For URL encoding, see this [tool](https://www.urlencoder.org/) or [percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding) (linked from shields.io). It might be safer to always encode, though its less readable. This may not always be needed. Like `/` works fine. But `-` even encoded still breaks a badge which uses it as a separator.
+For URL encoding, see this [tool](https://www.urlencoder.org/) or [percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding) (linked from shields.io). It might be safer to always encode, though its less readable. This may not always be needed. Like `/` works fine. But `-` even encoded still breaks a badge that uses it as a separator.
 
-Remember images can be tested as URLs directly in the browser. That's useful for faster dev and debugging.
+Remember images can be tested as URLs directly in the browser. That view is useful for faster dev and debugging.
 
 
 ## Styles
@@ -148,7 +148,7 @@ Example of the badge itself, without link:
 ![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python%20package/badge.svg)
 ```
 
-Note that Github Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax tas the one above, though Github's tool provides many choices on configuring the badge.
+Note that Github Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax as the one above, though Github's tool provides many choices on configuring the badge.
 
 
 ## Netlify Deploy
