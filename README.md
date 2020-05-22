@@ -15,6 +15,14 @@
 
 ## Development
 
+
+## Run locally
+
+Start a server.
+
+Open the `/badge_generator.html` on localhost.
+
+
 ### Notes
 
 - The markdown files get styling added on Github and are kept light here without Jekyll theming for now.
