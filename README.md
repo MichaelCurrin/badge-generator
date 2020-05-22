@@ -13,6 +13,15 @@
 - Submit a PR to add an improvement.
 
 
+## Development
+
+### Notes
+
+- The markdown files get styling added on Github and are kept light here without Jekyll theming for now.
+- The badge generator HTML file has no frontmatter, so the brackets are not parsed at build time, leaving them to be processed by mustache.
+- Dependencies are loaded in the HTML to keep the built process light for now.
+
+
 ## License
 
 - Released under [MIT License](/LICENSE).
