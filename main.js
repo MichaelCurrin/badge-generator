@@ -70,7 +70,6 @@ function makeBadges() {
     };
 }
 
-/** Convert markdown to HTML. */
 function mdToHtml(markdown) {
     var reader = new commonmark.Parser(),
         writer = new commonmark.HtmlRenderer(),
@@ -79,11 +78,20 @@ function mdToHtml(markdown) {
     return writer.render(parsed);
 }
 
+function toCodeBlock(text) {
+    return ['```', text, '```'].join("\n");
+}
+
 /** Place HTML inside target template, but respecting markdown. **/
-function renderTemplate(templateID, outputId, data) {
-    var template = $(templateID).html(),
-        // Remove empty lines of result.
-        resultHtml = Mustache.to_html(template, data).replace(/^\n/gm, '');
+function renderTemplate(templateID, outputId, data, asCodeBlock = false) {
+    var template = $(templateID).html();
+
+    if (asCodeBlock) {
+        template = toCodeBlock(template);
+    }
+    var resultHtml = Mustache.to_html(template, data)
+    // Remove empty lines of result.
+    resultHtml = resultHtml.replace(/^\n/gm, '');
 
     resultMd = mdToHtml(resultHtml);
     $(outputId).html(resultMd);
@@ -94,5 +102,5 @@ function renderAll() {
     var badgeData = makeBadges();
 
     renderTemplate('#badges', '#target-output', badgeData);
-    renderTemplate('#badges-md', '#target-output-md', badgeData);
+    renderTemplate('#badges', '#target-output-md', badgeData, true);
 }
