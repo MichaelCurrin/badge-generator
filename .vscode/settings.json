@@ -1,0 +1,4 @@
+{
+    // Preven auto HTML formatting from breaking moustache with markdown.
+    "editor.formatOnSave": false
+}
