@@ -22,13 +22,13 @@ function toCodeBlock(text) {
 /** Place HTML inside target template, but respecting markdown. **/
 function renderTemplate(templateID, outputId, data, asCodeBlock = false) {
     var template = $(templateID).html();
+    // Strip whitespace on the outside.
+    template = template.replace(/^\s+|\s+$/g, '');
 
     if (asCodeBlock) {
         template = toCodeBlock(template);
     }
     var resultHtml = Mustache.to_html(template, data)
-    // Remove empty lines of result.
-    resultHtml = resultHtml.replace(/^\n/gm, '');
 
     resultMd = mdToHtml(resultHtml);
     $(outputId).html(resultMd);

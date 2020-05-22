@@ -6,6 +6,10 @@ const SHIELDS_API = 'https://img.shields.io/badge',
     SHIELDS_IMG = 'https://img.shields.io',
     GITHUB = 'https://github.com';
 
+const STYLES = {
+    FOR_THE_BADGE: '?style=for-the-badge',
+    SOCIAL: '?style=for-the-badge'
+}
 
 /** Make a markdown badge for any inputs. Escapes URLs. **/
 function makeBadge(title, imgUrl, extUrl) {
@@ -21,7 +25,7 @@ function useThisTemplateBadge(show, username, repoName) {
             color = 'green';
 
         var title = 'Use this template',
-            imgUrl = `${SHIELDS_API}/${text}-${color}`,
+            imgUrl = `${SHIELDS_API}/${text}-${color}${STYLES.FOR_THE_BADGE}`,
             extUrl = `${GITHUB}/${username}/${repoName}/generate`;
 
         return makeBadge(title, imgUrl, extUrl);
