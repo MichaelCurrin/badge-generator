@@ -18,7 +18,7 @@
 
 ## Run locally
 
-Start a server.
+Start a server. Preferably one with hot-reloading.
 
 Open the `/badge_generator.html` on localhost.
 
