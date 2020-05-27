@@ -24,7 +24,7 @@
     <div class="container-lg px-3 my-5 markdown-body">
         <h1>Badge Generator</h1>
 
-        <h2>Your details</h2>
+        <h2>Input your project's info</h2>
 
         <form onsubmit="event.preventDefault(); renderAll()">
             <h3>Github repo</h3>
@@ -53,6 +53,43 @@
 
             <br>
 
+            <h3>Generic badge</h3>
+
+            <div>
+                Pre-label: <input type="text" name='generic-pre-label' value="Foo">
+            </div>
+            <br>
+
+
+            <div>
+                Post-label: <input type="text" name='generic-post-label' value="Bar">
+            </div>
+
+            <br>
+
+            <div>
+                Color: <input type="text" name='generic-color' value="green">
+
+                <p><i>Hints: brightgreen green yellowgreen yellow orange red blue lightgrey
+                    success important critical informational inactive
+                    blueviolet ff69b4 9cf</i></p>
+            </div>
+
+            <br>
+
+            <div>
+                Large: <input type="checkbox" name='generic-large'>
+            </div>
+
+            <br>
+
+            <div>
+                Target: <input type="text" name='generic-target' value="https://example.com">
+            </div>
+
+            <br>
+            <br>
+
             <input type="submit" value="Generate badges">
         </form>
 
@@ -67,6 +104,7 @@
 
 {{ use }}
 
+{{ generic }}
         </script>
 
         <h3>Markdown</h3>

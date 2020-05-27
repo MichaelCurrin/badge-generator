@@ -58,16 +58,58 @@ function licenseBadge(licenseType, username, repoName) {
     return '';
 }
 
+function genericBadge(generics) {
+    const { preLabel, postLabel, color, isLarge, target } = generics;
+    if (!postLabel) {
+        return '';
+    }
+
+    var title = [
+        preLabel,
+        postLabel
+    ].join(' ');
+
+    if (preLabel) {
+        var pieces = [
+            preLabel,
+            postLabel,
+            color
+        ];
+    }
+    else {
+        var pieces = [
+            postLabel,
+            color
+        ];
+    }
+    shield = pieces.join('-').replace(' ', '_');
+
+    var style = isLarge ? STYLES.FOR_THE_BADGE : '',
+        imgUrl = `${SHIELDS_API}/${shield}${style}`;
+
+    return makeBadge(title, imgUrl, target);
+}
+
 // TODO: Refactor to use a class.
 function makeBadges() {
-    var useThisTemplateIsChecked = $('input[name="use-this-template"').prop('checked'),
-        username = $('input[name="username"').val(),
+    var username = $('input[name="username"').val(),
         repoName = $('input[name="repo-name"').val(),
-        licenseType = $('input[name="license-type"').val();
+        licenseType = $('input[name="license-type"').val(),
+        useThisTemplateIsChecked = $('input[name="use-this-template"').prop('checked');
+
+    var generics = {
+        preLabel: $('input[name="generic-pre-label"]').val(),
+        postLabel: $('input[name="generic-post-label"]').val(),
+        color: $('input[name="generic-color"]').val(),
+        isLarge: $('input[name="generic-large"]').prop('checked'),
+        target: $('input[name="generic-target"]').val()
+    };
+    console.log(useThisTemplateIsChecked, generics.isLarge);
 
     return {
-        use: useThisTemplateBadge(useThisTemplateIsChecked, username, repoName),
         tag: tagBadge(username, repoName),
-        license: licenseBadge(licenseType, username, repoName)
+        license: licenseBadge(licenseType, username, repoName),
+        use: useThisTemplateBadge(useThisTemplateIsChecked, username, repoName),
+        generic: genericBadge(generics)
     };
 }
