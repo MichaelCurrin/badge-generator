@@ -84,9 +84,8 @@ function genericBadge(generics) {
             color
         ];
     }
-    shield = pieces.join('-').replace(' ', '_');
-
-    var style = isLarge ? STYLES.FOR_THE_BADGE : '',
+    var shield = pieces.join('-').replace(' ', '_'),
+        style = isLarge ? STYLES.FOR_THE_BADGE : '',
         imgUrl = `${SHIELDS_API}/${shield}${style}`;
 
     return makeBadge(title, imgUrl, target);
@@ -106,7 +105,6 @@ function makeBadges() {
         isLarge: $('input[name="generic-large"]').prop('checked'),
         target: $('input[name="generic-target"]').val()
     };
-    console.log(useThisTemplateIsChecked, generics.isLarge);
 
     return {
         tag: tagBadge(username, repoName),
