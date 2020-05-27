@@ -11,12 +11,14 @@ const STYLES = {
     SOCIAL: '?style=for-the-badge'
 };
 
-/** Make a markdown badge for any inputs. Escapes URLs. **/
-function makeBadge(title, imgUrl, extUrl) {
+/** Make a markdown badge for any inputs. Escapes URLs.
+ *  TODO: Avoid escaping if interal URLs.
+ **/
+function makeBadge(title, imgUrl, target) {
     imgUrl = encodeURI(imgUrl);
-    extUrl = encodeURI(extUrl);
+    target = encodeURI(target);
 
-    return `[![${title}](${imgUrl})](${extUrl})`;
+    return `[![${title}](${imgUrl})](${target})`;
 }
 
 function useThisTemplateBadge(show, username, repoName) {
