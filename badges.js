@@ -4,7 +4,9 @@
 
 const SHIELDS_API = 'https://img.shields.io/badge',
     SHIELDS_IMG = 'https://img.shields.io',
-    GITHUB = 'https://github.com';
+    GITHUB = 'https://github.com',
+    DEFAULT_COLOR = 'blue',
+    DEFAULT_BRANCH = 'master';
 
 const STYLES = {
     FOR_THE_BADGE: '?style=for-the-badge',
@@ -46,16 +48,19 @@ function tagBadge(username, repoName) {
     return '';
 }
 
-function licenseBadge(licenseType, username, repoName) {
+function licenseBadge(licenseType, username, repoName, localLicense = true) {
     if ((licenseType, username, repoName)) {
-        var color = 'blue',
-            branch = 'master';
-
         var title = `${licenseType} license`,
-            imgUrl = `${SHIELDS_API}/License-${licenseType}-${color}.svg`,
-            extUrl = `${GITHUB}/${username}/${repoName}/blob/${branch}/LICENSE`;
+            imgUrl = `${SHIELDS_API}/License-${licenseType}-${DEFAULT_COLOR}.svg`;
 
-        return makeBadge(title, imgUrl, extUrl);
+        if (localLicense) {
+            var target = '#license';
+        }
+        else {
+            var target = `${GITHUB}/${username}/${repoName}/blob/${DEFAULT_BRANCH}/LICENSE`;
+        }
+
+        return makeBadge(title, imgUrl, target);
     }
     return '';
 }
