@@ -136,13 +136,20 @@ Choices
 
 ## Github Actions badges
 
+Reference a workflow and its state as passing or failing.
 ```
 [![Actions status](https://github.com/<USERNAME>/<REPO_NAME>/workflows/<WORKFLOW_NAME>/badge.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/actions)
 ```
 
-Replace fields with your own username and repo name. The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package` for workflow named `Python package`. NB. You cannot use an underscore for a space, as with other badges.
+The workflow is referenced by name - based on the title in a workflow file. The name of the file does not matter and is not used by the badge.
 
-Example of the badge itself, without link:
+Replace fields with your own username and repo name.
+
+The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package` for workflow named `Python package`. NB. You cannot use an underscore for a space, as with other badges.
+
+The target here goes to all actions.
+
+Example of the badge itself, without a link:
 
 ```
 ![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python%20package/badge.svg)

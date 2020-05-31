@@ -10,7 +10,6 @@
     <!-- Default styling from Github Pages site, when you turn markdown into a site without Jekll config. -->
     <link rel="stylesheet" href="https://michaelcurrin.github.io/badge-generator/assets/css/style.css">
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/commonmark/0.28.1/commonmark.min.js"></script>
@@ -99,10 +98,21 @@
 
         <div id="target-output"></div>
         <script id="badges" type="text/template">
+**Metadata**
+
 {{ tag }}
 {{ license }}
 
-{{ use }}
+**Actions**
+
+{{ useThisTemplate }}
+
+**Social**
+
+{{ stars }}
+{{ forks }}
+
+**Other**
 
 {{ generic }}
         </script>

@@ -2,7 +2,8 @@
  * Handle rendering of each badge and all badges.
  */
 
-const SHIELDS_API = 'https://img.shields.io/badge',
+const SHIELDS_BADGE = 'https://img.shields.io/badge',
+    SHIELDS_GH = 'https://img.shields.io/github',
     SHIELDS_IMG = 'https://img.shields.io',
     GITHUB = 'https://github.com',
     DEFAULT_COLOR = 'blue',
@@ -10,7 +11,7 @@ const SHIELDS_API = 'https://img.shields.io/badge',
 
 const STYLES = {
     FOR_THE_BADGE: '?style=for-the-badge',
-    SOCIAL: '?style=for-the-badge'
+    SOCIAL: '?style=social'
 };
 
 /** Make a markdown badge for any inputs. Escapes URLs.
@@ -23,13 +24,17 @@ function makeBadge(title, imgUrl, target) {
     return `[![${title}](${imgUrl})](${target})`;
 }
 
+function ghURL(username, repoName) {
+    return `${GITHUB}/${username}/${repoName}`;
+}
+
 function useThisTemplateBadge(show, username, repoName) {
     if (show && username && repoName) {
         var text = 'Use_this_template',
             color = 'green';
 
         var title = 'Use this template',
-            imgUrl = `${SHIELDS_API}/${text}-${color}${STYLES.FOR_THE_BADGE}`,
+            imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}`,
             extUrl = `${GITHUB}/${username}/${repoName}/generate`;
 
         return makeBadge(title, imgUrl, extUrl);
@@ -40,8 +45,10 @@ function useThisTemplateBadge(show, username, repoName) {
 function tagBadge(username, repoName) {
     if (username && repoName) {
         var title = 'GitHub tag',
-            imgUrl = `${SHIELDS_IMG}/github/tag/${username}/${repoName}`,
-            extUrl = `${GITHUB}/${username}/${repoName}/tags/`;
+            imgUrl = `${SHIELDS_IMG}/github/tag/${username}/${repoName}`;
+
+        var repoURL = ghURL(username, repoName),
+            extUrl = `${repoURL}/tags/`;
 
         return makeBadge(title, imgUrl, extUrl);
     }
@@ -51,7 +58,7 @@ function tagBadge(username, repoName) {
 function licenseBadge(licenseType, username, repoName, localLicense = true) {
     if ((licenseType, username, repoName)) {
         var title = `${licenseType} license`,
-            imgUrl = `${SHIELDS_API}/License-${licenseType}-${DEFAULT_COLOR}.svg`;
+            imgUrl = `${SHIELDS_BADGE}/License-${licenseType}-${DEFAULT_COLOR}.svg`;
 
         if (localLicense) {
             var target = '#license';
@@ -63,6 +70,21 @@ function licenseBadge(licenseType, username, repoName, localLicense = true) {
         return makeBadge(title, imgUrl, target);
     }
     return '';
+}
+
+function _ghSocialShield(type, username, repoName) {
+    return `${SHIELDS_GH}/${type}/${username}/${repoName}${STYLES.SOCIAL}`;
+}
+
+function ghSocial(username, repoName, type) {
+    if (!username && !repoName && !type) {
+        return '';
+    }
+
+    var shield = _ghSocialShield(type, username, repoName);
+    var target = ghURL(username, repoName);
+
+    return `[${username}/${repoName} ![Repo ${type}](${shield})](${target})`;
 }
 
 function genericBadge(generics) {
@@ -91,7 +113,7 @@ function genericBadge(generics) {
     }
     var shield = pieces.join('-').replace(' ', '_'),
         style = isLarge ? STYLES.FOR_THE_BADGE : '',
-        imgUrl = `${SHIELDS_API}/${shield}${style}`;
+        imgUrl = `${SHIELDS_BADGE}/${shield}${style}`;
 
     return makeBadge(title, imgUrl, target);
 }
@@ -114,7 +136,9 @@ function makeBadges() {
     return {
         tag: tagBadge(username, repoName),
         license: licenseBadge(licenseType, username, repoName),
-        use: useThisTemplateBadge(useThisTemplateIsChecked, username, repoName),
+        useThisTemplate: useThisTemplateBadge(useThisTemplateIsChecked, username, repoName),
+        stars: ghSocial(username, repoName, 'stars'),
+        forks: ghSocial(username, repoName, 'forks'),
         generic: genericBadge(generics)
     };
 }
