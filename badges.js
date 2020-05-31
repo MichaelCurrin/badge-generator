@@ -28,6 +28,10 @@ function ghURL(username, repoName) {
     return `${GITHUB}/${username}/${repoName}`;
 }
 
+function ghPagesURL(username, repoName) {
+    return `https://${username}.github.io/${repoName}/`;
+}
+
 function useThisTemplateBadge(show, username, repoName) {
     if (show && username && repoName) {
         var text = 'Use_this_template',
@@ -76,7 +80,7 @@ function _ghSocialShield(type, username, repoName) {
     return `${SHIELDS_GH}/${type}/${username}/${repoName}${STYLES.SOCIAL}`;
 }
 
-function ghSocial(username, repoName, type) {
+function ghSocial(username, repoName, type, usePreLabel = false) {
     if (!username && !repoName && !type) {
         return '';
     }
@@ -84,11 +88,14 @@ function ghSocial(username, repoName, type) {
     var shield = _ghSocialShield(type, username, repoName);
     var target = ghURL(username, repoName);
 
-    return `[${username}/${repoName} ![Repo ${type}](${shield})](${target})`;
+    var preLabel = usePreLabel ? `${username}/${repoName} ` : '';
+
+    return `[${preLabel}![Repo ${type}](${shield})](${target})`;
 }
 
-function genericBadge(generics) {
-    const { preLabel, postLabel, color, isLarge, target } = generics;
+// TODO: Split on the badge and the target as functions then combine them in a higher function like this.
+function genericBadge(params) {
+    const { preLabel, postLabel, color, isLarge, target } = params;
     if (!postLabel) {
         return '';
     }
@@ -118,12 +125,25 @@ function genericBadge(generics) {
     return makeBadge(title, imgUrl, target);
 }
 
+function ghPagesBadge(username, repoName) {
+    var params = {
+        preLabel: 'View site',
+        postLabel: 'GH Pages',
+        color: 'green',
+        isLarge: true,
+        target: ghPagesURL(username, repoName)
+    };
+
+    return genericBadge(params);
+}
+
 // TODO: Refactor to use a class.
 function makeBadges() {
     var username = $('input[name="username"').val(),
         repoName = $('input[name="repo-name"').val(),
         licenseType = $('input[name="license-type"').val(),
-        useThisTemplateIsChecked = $('input[name="use-this-template"').prop('checked');
+        useThisTemplateIsChecked = $('input[name="use-this-template"').prop('checked'),
+        useGHPagesIsChecked = $('input[name="use-gh-pages"').prop('checked');
 
     var generics = {
         preLabel: $('input[name="generic-pre-label"]').val(),
@@ -137,8 +157,13 @@ function makeBadges() {
         tag: tagBadge(username, repoName),
         license: licenseBadge(licenseType, username, repoName),
         useThisTemplate: useThisTemplateBadge(useThisTemplateIsChecked, username, repoName),
+        viewSite: useGHPagesIsChecked ? ghPagesBadge(username, repoName) : '',
+
         stars: ghSocial(username, repoName, 'stars'),
         forks: ghSocial(username, repoName, 'forks'),
+        starsExtended: ghSocial(username, repoName, 'stars', true),
+        forksExtended: ghSocial(username, repoName, 'forks', true),
+
         generic: genericBadge(generics)
     };
 }
