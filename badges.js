@@ -39,7 +39,8 @@ function useThisTemplateBadge(show, username, repoName) {
 
         var title = 'Use this template',
             imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}`,
-            extUrl = `${GITHUB}/${username}/${repoName}/generate`;
+            repoUrl = ghURL(username, repoName),
+            extUrl = `${repoUrl}/generate`;
 
         return makeBadge(title, imgUrl, extUrl);
     }
@@ -51,8 +52,8 @@ function tagBadge(username, repoName) {
         var title = 'GitHub tag',
             imgUrl = `${SHIELDS_GH}/tag/${username}/${repoName}`;
 
-        var repoURL = ghURL(username, repoName),
-            extUrl = `${repoURL}/tags/`;
+        var repoUrl = ghURL(username, repoName),
+            extUrl = `${repoUrl}/tags/`;
 
         return makeBadge(title, imgUrl, extUrl);
     }
@@ -61,7 +62,7 @@ function tagBadge(username, repoName) {
 
 function licenseBadge(licenseType, username, repoName, localLicense = true) {
     if ((licenseType, username, repoName)) {
-        var title = `${licenseType} license`,
+        var title = `License: ${licenseType}`,
             imgUrl = `${SHIELDS_BADGE}/License-${licenseType}-${DEFAULT_COLOR}.svg`;
 
         if (localLicense) {
