@@ -2,9 +2,9 @@
  * Handle rendering of each badge and all badges.
  */
 
-const SHIELDS_BADGE = 'https://img.shields.io/badge',
-    SHIELDS_GH = 'https://img.shields.io/github',
-    SHIELDS_IMG = 'https://img.shields.io',
+const SHIELDS_API = 'https://img.shields.io',
+    SHIELDS_BADGE = `${SHIELDS_API}/badge`,
+    SHIELDS_GH = `${SHIELDS_API}/github`,
     GITHUB = 'https://github.com',
     DEFAULT_COLOR = 'blue',
     DEFAULT_BRANCH = 'master';
@@ -49,7 +49,7 @@ function useThisTemplateBadge(show, username, repoName) {
 function tagBadge(username, repoName) {
     if (username && repoName) {
         var title = 'GitHub tag',
-            imgUrl = `${SHIELDS_IMG}/github/tag/${username}/${repoName}`;
+            imgUrl = `${SHIELDS_GH}/tag/${username}/${repoName}`;
 
         var repoURL = ghURL(username, repoName),
             extUrl = `${repoURL}/tags/`;
