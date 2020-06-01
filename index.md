@@ -13,14 +13,14 @@
 ## Menu
 
 - [Badge templates](badges) - tutorial and examples
-- [Badge generator](badge_generator) - your details go in, custom badges come out for you to copy
+- [Badge generator](badge-generator) - your details go in, custom badges come out for you to copy
 
 If you are interested in choosing a license for your repo, see [Licenses cheatsheet](https://github.com/MichaelCurrin/cheatsheets/blob/master/cheatsheets/licensing.md).
 
 
 ## Why use this tool?
 
-- It relies mostly on sites like https://shields.io to generate professional badges that you can embed in your documentation and then add your own hyperlinks to.
+- It relies mostly on sites like [shields.io](https://shields.io/) to generate professional badges that you can embed in your documentation and then add your own hyperlinks to.
 - Great for new projects which have no badges yet, or updating older projects
 - You don't need to learn the syntax for each badge type or worry about escaping a space character. The generator will save you time and give you just the markdown you need (you can also come back to the generator to regenerate a badge when you need to modify an existing badge).
 - It aims to be more convenient and user-friendly than the generator on shields.io site.
