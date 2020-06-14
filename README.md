@@ -15,6 +15,13 @@
 
 ## Development
 
+## Roadmap
+
+- [ ] Add tests
+- [ ] Refactor JS to be DRY and OO
+- [ ] Make into multi-page JS app - possibly with React or Preact, or Jekyll and mustache
+- [ ] Split view into left and right (or top and bottom) optionally mobile friendly
+
 
 ## Run locally
 
