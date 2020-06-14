@@ -26,71 +26,77 @@
         <h2>Input your project's info</h2>
 
         <form onsubmit="event.preventDefault(); renderAll()">
-            <h3>Github repo</h3>
+            <fieldset name='gh-repo'>
+                <legend>Github repo</legend>
 
-            <div>
-                Username: <input type="text" name="username" value="MichaelCurrin">
-            </div>
-            <br>
+                <div>
+                    Username: <input type="text" name="username" value="MichaelCurrin">
+                </div>
+                <br>
 
-            <div>
-                Repo name: <input type="text" name="repo-name" value="badge-generator">
-            </div>
-            <br>
+                <div>
+                    Repo name: <input type="text" name="repo-name" value="badge-generator">
+                </div>
+                <br>
 
-            <div>
-                License type: <input type="text" name="license-type" value="MIT">
-            </div>
+                <div>
+                    License type: <input type="text" name="license-type" value="MIT">
+                </div>
 
-            <!-- TODO: Add license result inline. -->
+                <!-- TODO: Add license result inline. -->
 
-            <br>
+                <br>
 
-            <div>
-                Is a template: <input type="checkbox" name='use-this-template'>
-            </div>
+                <div>
+                    Is a template: <input type="checkbox" name='use-this-template'>
+                </div>
 
-            <br>
+                <br>
 
-            <div>
-                Has GH Pages site: <input type="checkbox" name='use-gh-pages'>
-            </div>
+                <div>
+                    Has GH Pages site: <input type="checkbox" name='use-gh-pages'>
+                </div>
 
-            <br>
-
-            <h3>Generic badge</h3>
-
-            <div>
-                Pre-label: <input type="text" name='generic-pre-label' value="Foo">
-            </div>
-            <br>
-
-
-            <div>
-                Post-label: <input type="text" name='generic-post-label' value="Bar">
-            </div>
+            </fieldset>
 
             <br>
 
-            <div>
-                Color: <input type="text" name='generic-color' value="green">
+            <fieldset name="generic-badge">
 
-                <p><i>Hints: brightgreen green yellowgreen yellow orange red blue lightgrey
-                    success important critical informational inactive
-                    blueviolet ff69b4 9cf</i></p>
-            </div>
+                <legend>Generic badge</legend>
 
-            <br>
+                <div>
+                    Pre-label: <input type="text" name='generic-pre-label' value="Foo">
+                </div>
+                <br>
 
-            <div>
-                Large: <input type="checkbox" name='generic-large'>
-            </div>
+                <div>
+                    Post-label: <input type="text" name='generic-post-label' value="Bar">
+                </div>
 
-            <br>
+                <br>
 
-            <div>
-                Target: <input type="text" name='generic-target' value="https://example.com">
-            </div>
+                <div>
+                    Color: <input type="text" name='generic-color' value="green">
+
+                    <p><i>Hints: brightgreen green yellowgreen yellow orange red blue lightgrey
+                            success important critical informational inactive
+                            blueviolet ff69b4 9cf</i></p>
+                </div>
+
+                <br>
+
+                <div>
+                    Large: <input type="checkbox" name='generic-large'>
+                </div>
+
+                <br>
+
+                <div>
+                    Target: <input type="text" name='generic-target' value="https://example.com">
+                </div>
+
+            </fieldset>
 
             <br>
             <br>
