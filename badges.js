@@ -14,84 +14,114 @@ const STYLES = {
     SOCIAL: '?style=social'
 };
 
+function markdownLink(title, linkTarget) {
+    return `[${title}](${linkTarget})`
+}
+
+function markdownImage(title, imageTarget) {
+    return `![${title}](${imageTarget})`
+}
+
+// TODO: Add pre-label as social badges have.
+function markdownImageWithLink(title, imageTarget, linkTarget) {
+    var image = markdownImage(title, imageTarget)
+
+    return markdownLink(image, linkTarget)
+}
+
 /** Make a markdown badge for any inputs. Escapes URLs.
  *  TODO: Avoid escaping if interal URLs.
  **/
-function makeBadge(title, imgUrl, target) {
-    imgUrl = encodeURI(imgUrl);
-    target = encodeURI(target);
+function makeBadge(title, imageTarget, linkTarget) {
+    imageTarget = encodeURI(imageTarget);
+    linkTarget = encodeURI(linkTarget);
 
-    return `[![${title}](${imgUrl})](${target})`;
+    return markdownImageWithLink(title, imageTarget, linkTarget);
 }
 
-function ghURL(username, repoName) {
-    return `${GITHUB}/${username}/${repoName}`;
-}
+class Repo {
+    constructor(username, repoName) {
+        this.username = username
+        this.repoName = repoName
 
-function ghPagesURL(username, repoName) {
-    return `https://${username}.github.io/${repoName}/`;
-}
-
-function useThisTemplateBadge(show, username, repoName) {
-    if (show && username && repoName) {
-        var text = 'Use_this_template',
-            color = 'green';
-
-        var title = 'Use this template',
-            imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}`,
-            repoUrl = ghURL(username, repoName),
-            extUrl = `${repoUrl}/generate`;
-
-        return makeBadge(title, imgUrl, extUrl);
+        this.isValid = username && repoName
     }
-    return '';
-}
 
-function tagBadge(username, repoName) {
-    if (username && repoName) {
-        var title = 'GitHub tag',
-            imgUrl = `${SHIELDS_GH}/tag/${username}/${repoName}`;
-
-        var repoUrl = ghURL(username, repoName),
-            extUrl = `${repoUrl}/tags/`;
-
-        return makeBadge(title, imgUrl, extUrl);
+    ghURL() {
+        return `${GITHUB}/${this.username}/${this.repoName}`;
     }
-    return '';
-}
 
-function licenseBadge(licenseType, username, repoName, localLicense = true) {
-    if ((licenseType, username, repoName)) {
-        var title = `License: ${licenseType}`,
-            imgUrl = `${SHIELDS_BADGE}/License-${licenseType}-${DEFAULT_COLOR}.svg`;
+    ghPagesURL() {
+        return `https://${this.username}.github.io/${this.repoName}/`;
+    }
 
-        if (localLicense) {
-            var target = '#license';
-        }
-        else {
-            var target = `${GITHUB}/${username}/${repoName}/blob/${DEFAULT_BRANCH}/LICENSE`;
+    useThisTemplateBadge(show) {
+        if (show && this.isValid) {
+            var text = 'Use_this_template',
+                color = 'green';
+
+            var title = 'Use this template',
+                imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}`,
+                repoUrl = this.ghURL(),
+                extUrl = `${repoUrl}/generate`;
+
+            return makeBadge(title, imgUrl, extUrl);
         }
 
-        return makeBadge(title, imgUrl, target);
-    }
-    return '';
-}
-
-function _ghSocialShield(type, username, repoName) {
-    return `${SHIELDS_GH}/${type}/${username}/${repoName}${STYLES.SOCIAL}`;
-}
-
-function ghSocial(username, repoName, type, usePreLabel = false) {
-    if (!username && !repoName && !type) {
         return '';
     }
 
-    var shield = _ghSocialShield(type, username, repoName);
-    var target = ghURL(username, repoName);
+    // TODO This is missing when only pre-releases, so add badge for that.
+    tagBadge(isRelease = false) {
+        if (!this.isValid) {
+            return '';
+        }
+        var type = isRelease ? 'release' : 'tag';
 
-    var preLabel = usePreLabel ? `${username}/${repoName} ` : '';
+        var title = `GitHub ${type}`,
+            imgUrl = `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}`;
 
-    return `[${preLabel}![Repo ${type}](${shield})](${target})`;
+        var repoUrl = this.ghURL(),
+            extUrl = `${repoUrl}/${type}s/`;
+
+        return makeBadge(title, imgUrl, extUrl);
+
+    }
+
+    licenseBadge(licenseType, localLicense = true) {
+        if (licenseType && this.isValid) {
+            var title = `License: ${licenseType}`,
+                imgUrl = `${SHIELDS_BADGE}/License-${licenseType}-${DEFAULT_COLOR}`;
+
+            if (localLicense) {
+                var target = '#license';
+            }
+            else {
+                var repoUrl = this.ghURL(),
+                    target = `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
+            }
+
+            return makeBadge(title, imgUrl, target);
+        }
+        return '';
+    }
+
+    _ghSocialShield(type) {
+        return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${STYLES.SOCIAL}`;
+    }
+
+    ghSocial(type, usePreLabel = false) {
+        if (!type && !this.isValid) {
+            return '';
+        }
+
+        var shield = this._ghSocialShield(type);
+        var target = this.ghURL();
+
+        var preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : '';
+
+        return `[${preLabel}![Repo ${type}](${shield})](${target})`;
+    }
 }
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
@@ -126,13 +156,13 @@ function genericBadge(params) {
     return makeBadge(title, imgUrl, target);
 }
 
-function ghPagesBadge(username, repoName) {
+function ghPagesBadge(target) {
     var params = {
         preLabel: 'View site',
         postLabel: 'GH Pages',
         color: 'green',
         isLarge: true,
-        target: ghPagesURL(username, repoName)
+        target: target
     };
 
     return genericBadge(params);
@@ -154,16 +184,19 @@ function makeBadges() {
         target: $('input[name="generic-target"]').val()
     };
 
-    return {
-        tag: tagBadge(username, repoName),
-        license: licenseBadge(licenseType, username, repoName),
-        useThisTemplate: useThisTemplateBadge(useThisTemplateIsChecked, username, repoName),
-        viewSite: useGHPagesIsChecked ? ghPagesBadge(username, repoName) : '',
+    var repo = new Repo(username, repoName)
 
-        stars: ghSocial(username, repoName, 'stars'),
-        forks: ghSocial(username, repoName, 'forks'),
-        starsExtended: ghSocial(username, repoName, 'stars', true),
-        forksExtended: ghSocial(username, repoName, 'forks', true),
+    return {
+        release: repo.tagBadge({ isRelease: true }),
+        tag: repo.tagBadge(),
+        license: repo.licenseBadge(licenseType),
+        useThisTemplate: repo.useThisTemplateBadge(useThisTemplateIsChecked),
+        viewSite: useGHPagesIsChecked ? ghPagesBadge(repo.ghPagesURL()) : '',
+
+        stars: repo.ghSocial('stars'),
+        forks: repo.ghSocial('forks'),
+        starsExtended: repo.ghSocial('stars', true),
+        forksExtended: repo.ghSocial('forks', true),
 
         generic: genericBadge(generics)
     };
