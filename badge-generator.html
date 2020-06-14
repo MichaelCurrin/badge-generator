@@ -98,6 +98,28 @@
 
             </fieldset>
 
+            <fieldset>
+                <legend>External package</legend>
+
+                <div>
+                    Package name: <input type="text" name="package-name" value="">
+                </div>
+
+                <div>
+                    Package type:
+
+                    <input type="radio" id="python" name="package-type" value="python" checked>
+                    <label for="python">Python</label>
+
+                    <input type="radio" id="npm" name="package-type" value="npm">
+                    <label for="npm">NPM</label>
+
+                    <input type="radio" id="ruby" name="package-type" value="gem">
+                    <label for="ruby">Ruby gem</label>
+                </div>
+
+            </fieldset>
+
             <br>
             <br>
 
@@ -134,9 +156,14 @@
 {{ forksExtended }}
 
 
-**Other**
+**Generic**
 
 {{ generic }}
+
+
+**Package**
+
+{{ package }}
         </script>
 
         <h3>Markdown</h3>

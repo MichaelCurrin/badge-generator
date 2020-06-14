@@ -168,6 +168,54 @@ function ghPagesBadge(target) {
     return genericBadge(params);
 }
 
+// TODO: react : 1.2.3
+// TODO: Get dynamically from package.json
+// TODO: dependency: react
+class Package {
+    constructor(name, type) {
+        this.name = name
+        this.type = type
+
+        this.isValid = name && type
+    }
+
+    homepage() {
+        if (!this.isValid) {
+            return '';
+        }
+
+        var url = '';
+
+        switch (this.type) {
+            case 'python':
+                url = `https://pypi.org/project/${this.name}`;
+                break;
+            case 'npm':
+                url = `https://www.npmjs.com/package/${this.name}`;
+                break;
+            case 'gem':
+                url = `https://rubygems.org/gems/${this.name}/`
+                break;
+            default:
+                console.error(`Invalid type: ${this.type}`)
+        }
+
+        return url;
+    }
+
+    badge() {
+        var params = {
+            preLabel: this.type,
+            postLabel: this.name,
+            color: 'blue',
+            isLarge: false,
+            target: this.homepage()
+        };
+
+        return genericBadge(params);
+    }
+}
+
 // TODO: Refactor to use a class.
 function makeBadges() {
     var username = $('input[name="username"').val(),
@@ -184,7 +232,13 @@ function makeBadges() {
         target: $('input[name="generic-target"]').val()
     };
 
+    var package = {
+        name: $('input[name="package-name"]').val(),
+        type: $('input[name="package-type"]:checked').val()
+    };
+
     var repo = new Repo(username, repoName)
+    var package = new Package(package.name, package.type)
 
     return {
         release: repo.tagBadge({ isRelease: true }),
@@ -198,6 +252,8 @@ function makeBadges() {
         starsExtended: repo.ghSocial('stars', true),
         forksExtended: repo.ghSocial('forks', true),
 
-        generic: genericBadge(generics)
+        generic: genericBadge(generics),
+
+        package: package.badge(),
     };
 }
