@@ -1,4 +1,4 @@
-const { Repo } = require('../repo.js')
+const { Repo } = require('../components/repo.js')
 
 test('Get correct full URL for a repo', () => {
   var repo = new Repo('my-user', 'my-repo-name')
