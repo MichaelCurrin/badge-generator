@@ -25,7 +25,7 @@ test('MIT license full badge with relative target displays correctly', () => {
   expect(license.markdown()).toBe(badge)
 })
 
-test('MIT license full badge with absolute target displays correctly', () => {
+test('MIT license full badge with FQDN target displays correctly', () => {
   var target = 'https://github.com/my-user/my-repo-name/blob/master/LICENSE';
   var license = new License('MIT', target)
 
