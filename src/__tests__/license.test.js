@@ -1,4 +1,4 @@
-const { License } = require('./license.js')
+const { License } = require('../license.js')
 
 test('MIT license badge title displays correctly', () => {
   var license = new License('MIT')
