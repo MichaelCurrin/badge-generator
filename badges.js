@@ -29,12 +29,20 @@ function markdownImageWithLink(title, imageTarget, linkTarget) {
     return markdownLink(image, linkTarget)
 }
 
+function encode(value, spaceToUnderscore=true) {
+    // In some cases like GH Actions is necessary to use %20 and not _ for a space.
+    if (spaceToUnderscore) {
+        value = value.replace(' ', '_');
+    }
+    return encodeURI(value);
+}
+
 /** Make a markdown badge for any inputs. Escapes URLs.
  *  TODO: Avoid escaping if interal URLs.
  **/
 function makeBadge(title, imageTarget, linkTarget) {
-    imageTarget = encodeURI(imageTarget);
-    linkTarget = encodeURI(linkTarget);
+    imageTarget = encode(imageTarget);
+    linkTarget = encode(linkTarget);
 
     return markdownImageWithLink(title, imageTarget, linkTarget);
 }
