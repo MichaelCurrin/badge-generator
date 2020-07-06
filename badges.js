@@ -66,7 +66,7 @@ class Repo {
     useThisTemplateBadge(show) {
         if (show && this.isValid) {
             var text = 'Use_this_template',
-                color = 'green';
+                color = '2ea44f';
 
             var title = 'Use this template',
                 imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}`,
@@ -164,6 +164,7 @@ function genericBadge(params) {
     return makeBadge(title, imgUrl, target);
 }
 
+// TODO add variation that is a docs site. And add custom text options.
 function ghPagesBadge(target) {
     var params = {
         preLabel: 'View site',
@@ -176,9 +177,10 @@ function ghPagesBadge(target) {
     return genericBadge(params);
 }
 
-// TODO: react : 1.2.3
-// TODO: Get dynamically from package.json
-// TODO: dependency: react
+// TODO: alt styles:
+//      - react : 1.2.3
+//      - Get dynamically from package.json
+//      - dependency: react
 class Package {
     constructor(name, type) {
         this.name = name
