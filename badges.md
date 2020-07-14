@@ -213,14 +213,14 @@ General format for _Made with_ badge, first without and with a hyperlink added:
 
 Sample badges:
 
-```
-[![Made with Bash](https://img.shields.io/badge/Made_with-Bash-blue.svg)](https://www.gnu.org/software/bash/)
+```markdown
+[![Hosted with GH Pages](https://img.shields.io/badge/Made_with-GH_Pages-blue.svg)](https://pages.github.com/)
 
-[![Made with Github Pages](https://img.shields.io/badge/Made_with-Github_Pages-blue.svg)](https://pages.github.com/)
+[![Made with Bash](https://img.shields.io/badge/Made_with-Bash-blue.svg)](https://www.gnu.org/software/bash/)
 
 [![Made with Python](https://img.shields.io/badge/Made_with-Python-blue.svg)](https://python.org)
 
-[![Made with Node](https://img.shields.io/badge/Made_with-Node-blue.svg)](https://nodejs.org)
+[![Made with NodeJS](https://img.shields.io/badge/Made_with-NodeJS-blue.svg)](https://nodejs.org)
 
 [![Made with Jekyll](https://img.shields.io/badge/Made_with-Jekyll-blue.svg)](https://jekyllrb.com)
 
@@ -229,7 +229,7 @@ Sample badges:
 
 ### Theme badge
 
-```
+```markdown
 [![Theme minima](https://img.shields.io/badge/theme-minima-blue.svg)](https://github.com/jekyll/minina)
 ```
 
@@ -237,7 +237,7 @@ Sample badges:
 
 You can choose a static text badge with or without a fixed version. Or a dynamic one to pull in NPM version (then link to NPM or the main site). Here the NPM version is always the _latest_.
 
-```
+```markdown
 [![Made with Docsify](https://img.shields.io/badge/Made_with-Docsify-blue.svg)](https://docsify.js.org/)
 
 [![Made with latest Docsify](https://img.shields.io/npm/v/docsify/latest?label=docsify)](https://docsify.js.org/)
@@ -267,26 +267,6 @@ If you have no tags or releases, the badge will still load but just say there is
 [![GitHub release](https://img.shields.io/github/release/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<REPO_NAME>/releases/)
 ```
 
-## License
-
-Static badges.
-
-```
-[![<LICENSE_TYPE> license](https://img.shields.io/badge/License-<LICENSE_TYPE>-blue.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/blob/master/LICENSE)
-```
-
-e.g.
-
-```
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/blob/master/LICENSE)
-```
-
-Link to _License_ section in the same README.md doc.
-
-```
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](#license)
-```
-
 
 ## Github project
 
@@ -311,6 +291,13 @@ Use **forks** in the image URL, before username.
 ```
 https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social
 ```
+
+To actually for a repo:
+
+```
+https://github.com/MichaelCurrin/fork
+```
+
 
 ### Add hyperlinks
 
