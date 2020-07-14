@@ -84,6 +84,7 @@ With arbitrary text here.
 [![Foo Bar](https://img.shields.io/badge/foo-Bar-green?style=for-the-badge)]()
 
 
+
 With emojis.
 
 ```markdown
@@ -267,8 +268,18 @@ If you have no tags or releases, the badge will still load but just say there is
 [![GitHub release](https://img.shields.io/github/release/<USER_NAME>/<APP_NAME>.svg)](https://GitHub.com/<USER_NAME>/<REPO_NAME>/releases/)
 ```
 
+## GitHub repo
 
-## Github project
+Set `logo=github` to add the GH icon to the pre-label.
+
+```markdown
+[![GH repo: my-repo](https://img.shields.io/badge/my-repo-blue?logo=github)]()
+```
+
+[![GH repo: my-repo](https://img.shields.io/badge/my-repo-blue?logo=github)]()
+
+
+## GitHub social
 
 Add a repo badge which shows a social counter.
 
