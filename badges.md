@@ -14,7 +14,9 @@ For URL encoding, see this [tool](https://www.urlencoder.org/) or [percent encod
 Remember images can be tested as URLs directly in the browser. That view is useful for faster dev and debugging.
 
 
-## Styles
+## Styling
+
+### Styles
 
 How to set the style on a badge. Based on the Styles section of the Shields site.
 
@@ -29,6 +31,27 @@ Choices:
 - `flat-square` - square edges
 - `for-the-badge` - large badge
 - `social` - useful for [Github project](#github-project) badges.
+
+### Logos
+
+```
+?logo={LOGO}
+```
+
+Examples:
+
+- `github`
+- `npm`
+- `discord`
+- `visual-studio-code`
+
+See large listing:
+
+- [simpleicons.org/](https://simpleicons.org/)
+
+From `shields.io`:
+
+> Insert one of the named logos from (bitcoin, dependabot, discord, gitlab, npm, paypal, serverfault, stackexchange, superuser, telegram, travis) or simple-icons. Simple-icons are referenced using names as they appear on the simple-icons site. If the name includes spaces, replace them with dashes (e.g: `?logo=visual-studio-code`)
 
 
 ## Simple button format
