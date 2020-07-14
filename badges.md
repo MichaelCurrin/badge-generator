@@ -295,11 +295,22 @@ If you have no tags or releases, the badge will still load but just say there is
 
 Set `logo=github` to add the GH icon to the pre-label.
 
-```markdown
-[![GH repo: my-repo](https://img.shields.io/badge/my-repo-blue?logo=github)]()
+Note: Using a `-` will break the pattern even if encoded. But you can pass a separate value.
+
+Here the pre-label ('label') has a hyphen but this would really be `repo`. Another option is `my-user/my-repo` in the last part, or split between black and blue areas (leaving out the word `repo`).
+
+TODO: Find out how to set the first part using params and no name.
+
+```
+https://img.shields.io/badge/my_repo-blue?logo=github&label=foo-bar
 ```
 
-[![GH repo: my-repo](https://img.shields.io/badge/my-repo-blue?logo=github)]()
+
+```markdown
+[![GH repo: my-repo](https://img.shields.io/badge/my_repo-blue?logo=github)]()
+```
+
+[![GH repo: my-repo](https://img.shields.io/badge/my_repo-blue?logo=github)]()
 
 
 ## GitHub social
