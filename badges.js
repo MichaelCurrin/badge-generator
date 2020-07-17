@@ -60,7 +60,18 @@ class Repo {
     }
 
     ghPagesURL() {
-        return `https://${this.username}.github.io/${this.repoName}/`;
+        // Domain will get lowercased by GH after a redirect so just make it lowercase now.
+        // But preserve case for the comparison. Note Project page needs trailing forwardslash
+        // but User page is without.
+        
+        var ghDomain = `${this.username}.github.io`;
+        var fullDomain = `https://${ghDomain.toLowerCase()}`;
+        
+        if (this.repoName === ghDomain) {
+            return fullDomain;
+        }
+        
+        return `${fullDomain}/${this.repoName}/`;
     }
 
     useThisTemplateBadge(show) {
@@ -111,6 +122,7 @@ class Repo {
 
             return makeBadge(title, imgUrl, target);
         }
+        
         return '';
     }
 
