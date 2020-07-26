@@ -145,26 +145,26 @@ class Repo {
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
 function genericBadge(params) {
-    const { preLabel, postLabel, color, isLarge, target } = params;
-    if (!postLabel) {
+    const { label, message, color, isLarge, target } = params;
+    if (!message) {
         return '';
     }
 
     var title = [
-        preLabel,
-        postLabel
+        label,
+        message
     ].join(' ');
 
-    if (preLabel) {
+    if (label) {
         var pieces = [
-            preLabel,
-            postLabel,
+            label,
+            message,
             color
         ];
     }
     else {
         var pieces = [
-            postLabel,
+            message,
             color
         ];
     }
@@ -178,8 +178,8 @@ function genericBadge(params) {
 // TODO add variation that is a docs site. And add custom text options.
 function ghPagesBadge(target) {
     var params = {
-        preLabel: 'View site',
-        postLabel: 'GH Pages',
+        label: 'View site',
+        message: 'GH Pages',
         color: 'green',
         isLarge: true,
         target: target
@@ -226,8 +226,8 @@ class Package {
 
     badge() {
         var params = {
-            preLabel: this.type,
-            postLabel: this.name,
+            label: this.type,
+            message: this.name,
             color: 'blue',
             isLarge: false,
             target: this.homepage()
@@ -246,8 +246,8 @@ function makeBadges() {
         useGHPagesIsChecked = $('input[name="use-gh-pages"').prop('checked');
 
     var generics = {
-        preLabel: $('input[name="generic-pre-label"]').val(),
-        postLabel: $('input[name="generic-post-label"]').val(),
+        label: $('input[name="generic-label"]').val(),
+        message: $('input[name="generic-message"]').val(),
         color: $('input[name="generic-color"]').val(),
         isLarge: $('input[name="generic-large"]').prop('checked'),
         target: $('input[name="generic-target"]').val()
