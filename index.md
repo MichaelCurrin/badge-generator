@@ -14,6 +14,7 @@
 
 - [Badge templates](badges) - tutorial and examples
 - [Badge generator](badge-generator) - your details go in, custom badges come out for you to copy
+- [Image generator](image-generator) - formatting a logo or screenshot for your docs
 
 If you are interested in choosing a license for your repo, see [Licenses cheatsheet](https://github.com/MichaelCurrin/cheatsheets/blob/master/cheatsheets/licensing.md).
 
