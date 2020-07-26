@@ -49,3 +49,14 @@ function renderAll() {
 
     console.debug('Done');
 }
+
+function renderImages() {
+    console.debug('Render images');
+
+    var imageData = makeImages();
+
+    renderTemplate('#images', '#target-output', imageData);
+    renderTemplate('#images', '#target-output-md', imageData, true);
+
+    console.debug('Done');
+}
