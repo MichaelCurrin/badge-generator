@@ -15,21 +15,21 @@ const STYLES = {
 };
 
 function markdownLink(title, linkTarget) {
-    return `[${title}](${linkTarget})`
+    return `[${title}](${linkTarget})`;
 }
 
 function markdownImage(title, imageTarget) {
-    return `![${title}](${imageTarget})`
+    return `![${title}](${imageTarget})`;
 }
 
 // TODO: Add pre-label as social badges have.
 function markdownImageWithLink(title, imageTarget, linkTarget) {
-    var image = markdownImage(title, imageTarget)
+    var image = markdownImage(title, imageTarget);
 
-    return markdownLink(image, linkTarget)
+    return markdownLink(image, linkTarget);
 }
 
-function encode(value, spaceToUnderscore=true) {
+function encode(value, spaceToUnderscore = true) {
     // In some cases like GH Actions is necessary to use %20 and not _ for a space.
     if (spaceToUnderscore) {
         value = value.replace(' ', '_');
@@ -49,10 +49,10 @@ function makeBadge(title, imageTarget, linkTarget) {
 
 class Repo {
     constructor(username, repoName) {
-        this.username = username
-        this.repoName = repoName
+        this.username = username;
+        this.repoName = repoName;
 
-        this.isValid = username && repoName
+        this.isValid = username && repoName;
     }
 
     ghURL() {
@@ -63,14 +63,14 @@ class Repo {
         // Domain will get lowercased by GH after a redirect so just make it lowercase now.
         // But preserve case for the comparison. Note Project page needs trailing forwardslash
         // but User page is without.
-        
+
         var ghDomain = `${this.username}.github.io`;
         var fullDomain = `https://${ghDomain.toLowerCase()}`;
-        
+
         if (this.repoName === ghDomain) {
             return fullDomain;
         }
-        
+
         return `${fullDomain}/${this.repoName}/`;
     }
 
@@ -104,7 +104,6 @@ class Repo {
             extUrl = `${repoUrl}/${type}s/`;
 
         return makeBadge(title, imgUrl, extUrl);
-
     }
 
     licenseBadge(licenseType, localLicense = true) {
@@ -122,7 +121,7 @@ class Repo {
 
             return makeBadge(title, imgUrl, target);
         }
-        
+
         return '';
     }
 
@@ -195,10 +194,10 @@ function ghPagesBadge(target) {
 //      - dependency: react
 class Package {
     constructor(name, type) {
-        this.name = name
-        this.type = type
+        this.name = name;
+        this.type = type;
 
-        this.isValid = name && type
+        this.isValid = name && type;
     }
 
     homepage() {
@@ -216,10 +215,10 @@ class Package {
                 url = `https://www.npmjs.com/package/${this.name}`;
                 break;
             case 'gem':
-                url = `https://rubygems.org/gems/${this.name}/`
+                url = `https://rubygems.org/gems/${this.name}/`;
                 break;
             default:
-                console.error(`Invalid type: ${this.type}`)
+                console.error(`Invalid type: ${this.type}`);
         }
 
         return url;
@@ -254,13 +253,13 @@ function makeBadges() {
         target: $('input[name="generic-target"]').val()
     };
 
-    var package = {
+    var packageData = {
         name: $('input[name="package-name"]').val(),
         type: $('input[name="package-type"]:checked').val()
     };
 
-    var repo = new Repo(username, repoName)
-    var package = new Package(package.name, package.type)
+    var repo = new Repo(username, repoName);
+    var pkg = new Package(packageData.name, packageData.type);
 
     return {
         release: repo.tagBadge({ isRelease: true }),
@@ -276,6 +275,6 @@ function makeBadges() {
 
         generic: genericBadge(generics),
 
-        package: package.badge(),
+        package: pkg.badge()
     };
 }
