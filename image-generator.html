@@ -47,7 +47,17 @@
                 <div>
                     Title / hover text: <input type="text" name="title" value="My title">
                 </div>
-
+                <div>
+                    Width: <input type="text" name="width">
+                </div>
+                <br>
+                <div>
+                    Height: <input type="text" name="height" value="400">
+                </div>
+                <br>
+                <div>
+                    Align: <input type="text" name="alignAttr" value="center">
+                </div>
 
             </fieldset>
 
@@ -62,8 +72,9 @@
         <script id="images" type="text/template">
 **HTML image**
 
-{{ htmlImg }}
-
+<div {{ alignAttr }}>
+    {{ htmlImg }}
+</div>
 
 **Markdown image**
 

@@ -2,9 +2,12 @@ function makeImages() {
     var src = $('input[name="src"').val(),
         alt = $('input[name="alt"').val(),
         title = $('input[name="title"').val(),
-        target = $('input[name="title"').val()
+        target = $('input[name="target"').val()
 
-    var width, height = 400;
+    var width = $('input[name="width"').val(),
+        height = $('input[name="height"').val()
+
+    var alignAttr = $('input[name="align"').val();
 
     var mdTitle = title ? ` "${title}"` : '';
     var mdImg = `![${alt}](${src}${mdTitle})`;
@@ -12,17 +15,21 @@ function makeImages() {
         mdImg = `[${mdImg}](${target})`;
     }
 
-    var htmlTitle = title ? ` title="${title}"` : '';
-    var htmlAltText = alt ? ` alt="${alt}"` : '';
-    var htmlImg = `<img src=${src}${htmlAltText}${htmlTitle} />`
+    var htmlTitle = title ? ` title="${title}"` : '',
+        htmlAltText = alt ? ` alt="${alt}"` : '',
+        htmlWidth = width ? ` width="${width}"` : '',
+        htmlHeight = height ? ` height="${height}"` : '';
+
+    var htmlImg = `<img src=${src}${htmlAltText}${htmlTitle}${htmlWidth}${htmlHeight} />`
     if (target) {
         htmlImg = `\
 <a href="${target}">
-    ${htmlImg}
-</a>`
+        ${htmlImg}
+    </a>`
     };
 
     return {
+        alignAttr: alignAttr,
         htmlImg: htmlImg,
         mdImg: mdImg
     }
