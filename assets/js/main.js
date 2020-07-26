@@ -40,8 +40,12 @@ function renderTemplate(templateID, outputId, data, asCodeBlock = false) {
 
 /** Use inputs and templates to render badges. **/
 function renderAll() {
+    console.debug('Render all');
+
     var badgeData = makeBadges();
 
     renderTemplate('#badges', '#target-output', badgeData);
     renderTemplate('#badges', '#target-output-md', badgeData, true);
+
+    console.debug('Done');
 }
