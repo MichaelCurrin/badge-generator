@@ -7,7 +7,7 @@ function makeImages() {
     var width = $('input[name="width"').val(),
         height = $('input[name="height"').val()
 
-    var alignAttr = $('input[name="align"').val();
+    var alignAttr = $('input[name="alignAttr"').val();
 
     var mdTitle = title ? ` "${title}"` : '';
     var mdImg = `![${alt}](${src}${mdTitle})`;
@@ -25,11 +25,18 @@ function makeImages() {
         htmlImg = `\
 <a href="${target}">
         ${htmlImg}
-    </a>`
-    };
+    </a>`;
+    }
+
+    if (alignAttr) {
+        htmlImg = `\
+<div align=${alignAttr}>
+    ${htmlImg}
+</div>`
+    }
+
 
     return {
-        alignAttr: alignAttr,
         htmlImg: htmlImg,
         mdImg: mdImg
     }
