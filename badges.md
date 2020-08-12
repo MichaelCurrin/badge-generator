@@ -1,4 +1,4 @@
-# Badges
+# Badge templates
 
 <!-- When this is cleaned up to be interactive, hardcoded cases here can be used as unit tests. -->
 
@@ -161,13 +161,22 @@ Choices
 ## Github Actions badges
 
 Reference a workflow and its state as passing or failing.
+
 ```
 [![Actions status](https://github.com/<USERNAME>/<REPO_NAME>/workflows/<WORKFLOW_NAME>/badge.svg)](https://github.com/<USER_NAME>/<REPO_NAME>/actions)
 ```
 
-The workflow is referenced by name - based on the title in a workflow file. The name of the file does not matter and is not used by the badge.
+Replace fields above with your own username and repo name.
 
-Replace fields with your own username and repo name.
+
+The workflow is referenced by name - based on the title in a workflow file. The name of the file does not matter and is not used by the badge. But it can be if you use the filter logic.
+
+e.g. Sample here spread over two lines for convenience even though it i
+
+- Badge image: https://github.com/MichaelCurrin/auto-commit-msg/workflows/Node%20CI/badge.svg
+- Link: https://github.com/MichaelCurrin/auto-commit-msg/actions?query=workflow%3A%22Node+CI%22
+
+Note `+` in actions URL works instead of space. But **not** in the badge image - use `%20` instead.
 
 The workflow name must be from the name field inside the file, but URL safe. e.g. `Python%20package` for workflow named `Python package`. NB. You cannot use an underscore for a space, as with other badges.
 
