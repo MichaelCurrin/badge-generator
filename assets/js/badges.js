@@ -96,9 +96,9 @@ class Repo {
         }
         var type = isRelease ? 'release' : 'tag';
         // Based on example on shields.io tool. Prerelease is important for releases < v1 to not show as missing.
-        // It's not so important for tags as < v1 will show, but alpha will show. Semvar is preferred to sorting
+        // It's not so important for tags as < v1 will show, but alpha will show. Semver is preferred to sorting
         // by date (the default).
-        var params = '?include_prereleases&sort=semvar';
+        var params = '?include_prereleases&sort=semver';
 
         var title = `GitHub ${type}`,
             imgUrl = `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}`;
