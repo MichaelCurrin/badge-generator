@@ -294,7 +294,7 @@ If the site is just a docs site and not a main site, change to _Docs: Docsify_ r
 
 Dynamic badges.
 
-If you have no tags or releases, the badge will still load but just say there is no tag/release.
+If you have no tags or releases, the badge will still load but just say there is no tag/release. The tag badge updates easier - it will be created every time while a release badge only updates when a release is created by hand. See also the tag and release handling on the Badge Generator page, which also includes extra params not covered here.
 
 ### Latest tag
 
