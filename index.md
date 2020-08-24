@@ -1,5 +1,6 @@
 > Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges
 
+Repo: [MichaelCurrin/badge-generator](https://github.com/MichaelCurrin/badge-generator)
 
 ## Features
 
