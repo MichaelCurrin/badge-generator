@@ -20,7 +20,7 @@ function makeImages() {
         htmlWidth = width ? ` width="${width}"` : '',
         htmlHeight = height ? ` height="${height}"` : '';
 
-    var htmlImg = `<img src=${src}${htmlAltText}${htmlTitle}${htmlWidth}${htmlHeight} />`
+    var htmlImg = `<img src="${src}"${htmlAltText}${htmlTitle}${htmlWidth}${htmlHeight} />`
     if (target) {
         htmlImg = `\
 <a href="${target}">
@@ -34,7 +34,6 @@ function makeImages() {
     ${htmlImg}
 </div>`
     }
-
 
     return {
         htmlImg: htmlImg,
