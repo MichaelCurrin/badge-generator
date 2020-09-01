@@ -1,5 +1,11 @@
 /**
  * Main script.
+ *
+ * Handle rendering of badge or image elements.
+ * Elements come in as markdown strings and must be rendered both literal values in
+ * a code block and as display values (after being converted to HTML).
+ *
+ * Requires commonmark and mustache scripts to be loaded.
  */
 
 // Turn off escaping so markdown in templates is preserved.
@@ -7,6 +13,7 @@ Mustache.escape = function(text) {
     return text;
 };
 
+/** Render markdown input as HTML */
 function mdToHtml(markdown) {
     var reader = new commonmark.Parser(),
         writer = new commonmark.HtmlRenderer(),
@@ -15,6 +22,7 @@ function mdToHtml(markdown) {
     return writer.render(parsed);
 }
 
+/** Place text inside triple backtick codeblock. */
 function toCodeBlock(text) {
     return [
         '```',
@@ -50,6 +58,7 @@ function renderAll() {
     console.debug('Done');
 }
 
+/** Use inputs and templates to render images. **/
 function renderImages() {
     console.debug('Render images');
 

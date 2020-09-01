@@ -1,3 +1,8 @@
+/**
+ * Handle image form.
+ */
+
+/** Find inputs and return finished markdown and HTML code. */
 function makeImages() {
     var src = $('input[name="src"').val(),
         alt = $('input[name="alt"').val(),
