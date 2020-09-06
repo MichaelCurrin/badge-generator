@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Generator</title>
+
+    <!-- Default styling from Github Pages site, when you turn markdown into a site without Jekyll config. -->
+    <!-- Or use Vue's styling? -->
+    <link rel="stylesheet" href="https://michaelcurrin.github.io/badge-generator/assets/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container-lg px-3 my-5 markdown-body">
+        <h1>Image Generator</h1>
+
+        <p>Prepare a logo or sample screenshot image for your README.md file.</p>
+
+        <p>Note that width and height are optional, but they can help in certain cases. For example, a screenshot or
+            logo will be set by GitHub to 100% of the page width making it look large and take up vertical space, so
+            reduce height or width manually. Setting heigh can also make sure the height of the tag is set before the
+            image loads, so it reserves the space - if the height is larger than the original image though then the
+            image will looked stretched.</p>
+
+        <h2>Enter image details</h2>
+
+
+        <form>
+            <fieldset name='image'>
+                <legend>Doc image</legend>
+
+                <div>
+                    <span>Source (required): </span>
+                    <input v-model="imgSrc" placeholder="sample.png">
+                </div>
+
+                <br>
+
+                <div>
+                    <span>Link target: </span>
+                    <input v-model="linkTarget" placeholder="https://">
+                </div>
+
+                <br>
+
+                <div>
+                    <span>Alt text: </span>
+                    <input v-model="altText" placeholder="Fallback text">
+                </div>
+
+                <br>
+
+                <div>
+                    <span>Title: </span>
+                    <input v-model="imgTitle" placeholder="Text to show on hover">
+                </div>
+
+                <br>
+
+                <div>
+                    <span>Width: </span>
+                    <input v-model="width" placeholder="Number or blank">
+                </div>
+
+                <br>
+
+                <div>
+                    <span>Height: </span>
+                    <input v-model="height" placeholder="Number or blank">
+                </div>
+
+                <br>
+
+                <div>
+                    <span>Align direction: </span>
+                    <input v-model="align" placeholder="">
+                </div>
+            </fieldset>
+
+            <br>
+            <br>
+
+        </form>
+
+        <div>
+            <h2>Your content</h2>
+
+            <p>Source is: {{ imgSrc }}</p>
+            <p>{{ linkTarget }}</p>
+            <p>{{ altText }}</p>
+            <p>{{ imgTitle }}</p>
+            <p>{{ width }}</p>
+            <p>{{ height }}</p>
+            <p>{{ align }}</p>
+
+            <div :align=align>
+                <img :src=imgSrc :alt=altText :title=imgTitle :height=height :width=width />
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                imgSrc: 'sample.png',
+                linkTarget: '',
+                altText: '',
+                imgTitle: '',
+                width: '',
+                height: '400',
+                align: 'center'
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
