@@ -42,14 +42,14 @@
 
                 <div>
                     <span>Link target: </span>
-                    <input v-model="linkTarget" placeholder="https://">
+                    <input v-model="linkTarget" placeholder="Internal path or external URL">
                 </div>
 
                 <br>
 
                 <div>
                     <span>Alt text: </span>
-                    <input v-model="altText" placeholder="Fallback text">
+                    <input v-model="altText" placeholder="Fallback image text">
                 </div>
 
                 <br>
@@ -63,14 +63,14 @@
 
                 <div>
                     <span>Width: </span>
-                    <input v-model="width" placeholder="Number or blank">
+                    <input v-model="width" placeholder="e.g. 400">
                 </div>
 
                 <br>
 
                 <div>
                     <span>Height: </span>
-                    <input v-model="height" placeholder="Number or blank">
+                    <input v-model="height" placeholder="e.g. 400">
                 </div>
 
                 <br>
@@ -91,29 +91,34 @@
 
             <p>Source is: {{ imgSrc }}</p>
             <p>{{ linkTarget }}</p>
-            <p>{{ altText }}</p>
-            <p>{{ imgTitle }}</p>
+            <p>{{ altText }} - {{altTextOut}}</p>
+            <p>{{ imgTitle }} - {{imgTitleOut}}</p>
             <p>{{ width }}</p>
             <p>{{ height }}</p>
             <p>{{ align }}</p>
 
             <div :align=align>
-                <img :src=imgSrc :alt=altText :title=imgTitle :height=height :width=width />
+                <img :src=imgSrc :alt=altTextOut :title=imgTitleOut :height=height :width=width />
             </div>
 
-            <button-counter></button-counter>
+            <!-- <html-image></html-image> -->
         </div>
     </div>
 
     <script>
-        Vue.component('button-counter', {
-            data: function () {
-                return {
-                    count: 0
-                }
-            },
-            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
-        })
+        // Vue.component('html-image', {
+        //     data: function () {
+        //         return {
+        //             // pass outer data?
+        //             imgSrc: imgSrc
+        //         }
+        //     },
+        //     // computed?
+
+        //     // https://vuejsexamples.com/easy-way-to-dynamically-create-reactive-forms-in-vue/
+
+        //     template: '<img :src=imgSrc />'
+        // })
 
         var app = new Vue({
             el: '#app',
@@ -125,7 +130,16 @@
                 width: '',
                 height: '400',
                 align: 'center'
+            },
+            computed: {
+                altTextOut: function () {
+                    return this.altText || this.imgSrc
+                },
+                imgTitleOut: function () {
+                    return this.imgTitle || this.altTextOut
+                }
             }
+
         })
 
     </script>
