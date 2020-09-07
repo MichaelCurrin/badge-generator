@@ -101,15 +101,15 @@
                 <img :src=imgSrc :alt=altTextOut :title=imgTitleOut :height=height :width=width />
             </div>
 
-            <html-image :img-src=imgSrc></html-image>
+            <html-image :img-src=imgSrc :align=align></html-image>
         </div>
     </div>
 
     <script>
         Vue.component('html-image', {
-            props: ['imgSrc'],
+            props: ['imgSrc', 'align'],
 
-            template: '<div> <h1>{{imgSrc}}</h1> </div>'
+            template: '<div v-bind:align="align" > <h1>{{imgSrc}} - {{ align }}</h1> </div>'
         })
 
         var app = new Vue({
