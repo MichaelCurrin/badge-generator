@@ -77,7 +77,11 @@
 
                 <div>
                     <span>Align direction: </span>
-                    <input v-model="align" placeholder="">
+                    <select v-model="alignDir">
+                        <option>center</option>
+                        <option>right</option>
+                        <option>left</option>
+                    </select>
                 </div>
             </fieldset>
 
@@ -97,19 +101,23 @@
             <p>{{ height }}</p>
             <p>{{ align }}</p> -->
 
-            <div :align=align>
+            <div :align=alignDir>
                 <img :src="imgSrc" :alt="altTextOut" :title="imgTitleOut" :height="height" :width="width" />
             </div>
 
-            <html-image :img-src="imgSrc" :align="align"></html-image>
+            <html-image :img-src="imgSrc" :align="alignDir"></html-image>
         </div>
     </div>
 
     <script>
         Vue.component('html-image', {
-            props: ['imgSrc', 'align'],
+            props: ['imgSrc', 'alignDir'],
 
-            template: '<div v-bind:align="align" > <h1>{{imgSrc}} - {{ align }}</h1> </div>'
+            template: `
+                <div v-bind:align="alignDir" >
+                    <h1>{{ imgSrc }} - {{ alignDir }}</h1>
+                </div>
+            `
         })
 
         var app = new Vue({
@@ -121,7 +129,7 @@
                 imgTitle: '',
                 width: '',
                 height: '400',
-                align: 'center'
+                alignDir: 'center'
             },
             computed: {
                 altTextOut: function () {
