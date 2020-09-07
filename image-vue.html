@@ -89,36 +89,28 @@
         <div>
             <h2>Your content</h2>
 
-            <p>Source is: {{ imgSrc }}</p>
+            <!-- <p>Source is: {{ imgSrc }}</p>
             <p>{{ linkTarget }}</p>
             <p>{{ altText }} - {{altTextOut}}</p>
             <p>{{ imgTitle }} - {{imgTitleOut}}</p>
             <p>{{ width }}</p>
             <p>{{ height }}</p>
-            <p>{{ align }}</p>
+            <p>{{ align }}</p> -->
 
             <div :align=align>
                 <img :src=imgSrc :alt=altTextOut :title=imgTitleOut :height=height :width=width />
             </div>
 
-            <!-- <html-image></html-image> -->
+            <html-image :img-src=imgSrc></html-image>
         </div>
     </div>
 
     <script>
-        // Vue.component('html-image', {
-        //     data: function () {
-        //         return {
-        //             // pass outer data?
-        //             imgSrc: imgSrc
-        //         }
-        //     },
-        //     // computed?
+        Vue.component('html-image', {
+            props: ['imgSrc'],
 
-        //     // https://vuejsexamples.com/easy-way-to-dynamically-create-reactive-forms-in-vue/
-
-        //     template: '<img :src=imgSrc />'
-        // })
+            template: '<div> <h1>{{imgSrc}}</h1> </div>'
+        })
 
         var app = new Vue({
             el: '#app',
