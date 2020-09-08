@@ -9,7 +9,7 @@
  */
 
 // Turn off escaping so markdown in templates is preserved.
-Mustache.escape = function(text) {
+Mustache.escape = function (text) {
     return text;
 };
 
@@ -46,17 +46,6 @@ function renderTemplate(templateID, outputId, data, asCodeBlock = false) {
     $(outputId).html(resultMd);
 }
 
-/** Use inputs and templates to render badges. **/
-function renderAll() {
-    console.debug('Render all');
-
-    var badgeData = makeBadges();
-
-    renderTemplate('#badges', '#target-output', badgeData);
-    renderTemplate('#badges', '#target-output-md', badgeData, true);
-
-    console.debug('Done');
-}
 
 /** Use inputs and templates to render images. **/
 function renderImages() {
