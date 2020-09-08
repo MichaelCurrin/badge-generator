@@ -91,6 +91,7 @@
             <div>
                 <h3>Preview</h3>
                 <!-- Make sure to not add result on a new line otherwise it will indent and format. -->
+                <!-- FIXME This seems cached in MD only, v-html="result" helps but then it breaks-->
                 <vue-markdown>{{ result }}</vue-markdown>
             </div>
 
@@ -118,11 +119,11 @@
                 alignDir: 'center'
             },
             computed: {
-                altTextOut: function () {
+                altTextOut() {
                     return this.altText || this.imgSrc
                 },
                 // Hover title.
-                imgTitleOut: function () {
+                imgTitleOut() {
                     return this.imgTitle || this.altTextOut
                 },
                 result() {
