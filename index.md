@@ -2,6 +2,7 @@
 
 Repo: [MichaelCurrin/badge-generator](https://github.com/MichaelCurrin/badge-generator)
 
+
 ## Features
 
 - Quickly and easily generate badges
@@ -13,7 +14,7 @@ Repo: [MichaelCurrin/badge-generator](https://github.com/MichaelCurrin/badge-gen
 
 ## Menu
 
-- [Badge templates](badges) - tutorial and examples
+- [Badge samples](badge-samples) - info and badges for you to copy
 - [Badge generator](badge-generator) - your details go in, custom badges come out for you to copy
 - [Image generator](image-generator) - formatting a logo or screenshot for your docs
 

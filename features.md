@@ -6,7 +6,7 @@
 - Made for
 - Call to Action - download, view docs site, view live site
 - Social badges
-- Custom bdges
+- Custom badges
 - Link maker (no badge) including optional alt text
 
 These could also be available as JS to include in other projects and not just this project's frontend.
