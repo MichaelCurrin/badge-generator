@@ -24,7 +24,7 @@
 
         <h2>Input your project's info</h2>
 
-        <form onsubmit="event.preventDefault(); renderAll()">
+        <form onsubmit="event.preventDefault(); renderBadges()">
             <fieldset name='gh-repo'>
                 <legend>Github repo</legend>
 
@@ -217,7 +217,7 @@
         }
 
         /** Use inputs and templates to render badges. **/
-        function renderAll() {
+        function renderBadges() {
             console.debug('Render all');
 
             var badgeData = makeBadges();
