@@ -1,7 +1,4 @@
 {
-    // Preven auto HTML formatting from breaking moustache with markdown.
-    "editor.formatOnSave": false,
-
     // It is very noisy - for example function not used.
     "eslint.enable": false
 }
