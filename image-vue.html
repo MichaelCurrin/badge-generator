@@ -12,22 +12,17 @@
     <link rel="stylesheet" href="https://michaelcurrin.github.io/badge-generator/assets/css/style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-markdown@2.2.4/dist/vue-markdown.min.js"></script>
+
+    <script src="assets/js/badges.js"></script>
+    <script src="assets/js/images.js"></script>
 </head>
 
 <body>
     <div id="app" class="container-lg px-3 my-5 markdown-body">
         <h1>Image Generator</h1>
 
-        <p>Prepare a logo or sample screenshot image for your README.md file.</p>
-
-        <p>Note that width and height are optional, but they can help in certain cases. For example, a screenshot or
-            logo will be set by GitHub to 100% of the page width making it look large and take up vertical space, so
-            reduce height or width manually. Setting heigh can also make sure the height of the tag is set before the
-            image loads, so it reserves the space - if the height is larger than the original image though then the
-            image will looked stretched.</p>
-
-        <h2>Enter image details</h2>
-
+        <!-- TODO preamble -->
 
         <form>
             <fieldset name='image'>
@@ -85,40 +80,31 @@
                 </div>
             </fieldset>
 
-            <br>
-            <br>
-
         </form>
+
+        <br>
+        <br>
 
         <div>
             <h2>Your content</h2>
 
-            <!-- <p>Source is: {{ imgSrc }}</p>
-            <p>{{ linkTarget }}</p>
-            <p>{{ altText }} - {{altTextOut}}</p>
-            <p>{{ imgTitle }} - {{imgTitleOut}}</p>
-            <p>{{ width }}</p>
-            <p>{{ height }}</p>
-            <p>{{ align }}</p> -->
-
-            <div :align=alignDir>
-                <img :src="imgSrc" :alt="altTextOut" :title="imgTitleOut" :height="height" :width="width" />
+            <div>
+                <h3>Preview</h3>
+                <!-- Make sure to not add result on a new line otherwise it will indent and format. -->
+                <vue-markdown>{{ result }}</vue-markdown>
             </div>
 
-            <html-image :img-src="imgSrc" :align="alignDir"></html-image>
+            <div>
+                <h3>Code</h3>
+                <!-- Reduce whitespace - keep everything on one line. -->
+                <pre><code>{{ result }}</code></pre>
+            </div>
+
         </div>
     </div>
 
     <script>
-        Vue.component('html-image', {
-            props: ['imgSrc', 'alignDir'],
-
-            template: `
-                <div v-bind:align="alignDir" >
-                    <h1>{{ imgSrc }} - {{ alignDir }}</h1>
-                </div>
-            `
-        })
+        Vue.use(VueMarkdown)
 
         var app = new Vue({
             el: '#app',
@@ -135,11 +121,32 @@
                 altTextOut: function () {
                     return this.altText || this.imgSrc
                 },
+                // Hover title.
                 imgTitleOut: function () {
                     return this.imgTitle || this.altTextOut
+                },
+                result() {
+                    const htmlImg = mkHtmlImg(
+                        this.imgSrc, this.altTextOut, this.imgTitleOut, this.linkTarget, this.width, this
+                        .height, this
+                        .alignDir
+                    )
+                    const mdImg = markdownImageWithLink(
+                        this.altTextOut, this.imgSrc, this.linkTarget, this.imgTitleOut
+                    )
+
+                    // TODO Use x-template in Vue, but for now this is quickest way.
+                    return `\
+**HTML image**
+
+${htmlImg}
+
+**Markdown image**
+
+${mdImg}
+`
                 }
             }
-
         })
 
     </script>
