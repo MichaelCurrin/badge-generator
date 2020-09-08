@@ -1,5 +1,5 @@
 /**
- * Main script.
+ * Lib script.
  *
  * Handle rendering of badge or image elements.
  * Elements come in as markdown strings and must be rendered both literal values in
@@ -44,17 +44,4 @@ function renderTemplate(templateID, outputId, data, asCodeBlock = false) {
 
     resultMd = mdToHtml(resultHtml);
     $(outputId).html(resultMd);
-}
-
-
-/** Use inputs and templates to render images. **/
-function renderImages() {
-    console.debug('Render images');
-
-    var imageData = makeImages();
-
-    renderTemplate('#images', '#target-output', imageData);
-    renderTemplate('#images', '#target-output-md', imageData, true);
-
-    console.debug('Done');
 }

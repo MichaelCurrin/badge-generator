@@ -14,19 +14,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/commonmark/0.28.1/commonmark.min.js"></script>
 
-    <script src="assets/js/badges.js"></script>
+    <!-- <script src="assets/js/badges.js"></script> -->
     <script src="assets/js/images.js"></script>
     <script src="assets/js/main.js"></script>
 </head>
 
-<body onload="renderImages()">
-
+<body>
     <div class="container-lg px-3 my-5 markdown-body">
         <h1>Image Generator</h1>
 
         <p>Prepare a logo or sample screenshot image for your README.md file.</p>
 
-        <p>Note that width and height are optional, but they can help in certain cases. For example, a screenshot or logo will be set by GitHub to 100% of the page width making it look large and take up vertical space, so reduce height or width manually. Setting heigh can also make sure the height of the tag is set before the image loads, so it reserves the space - if the height is larger than the original image though then the image will looked stretched.</p>
+        <p>Note that width and height are optional, but they can help in certain cases. For example, a screenshot or
+            logo will be set by GitHub to 100% of the page width making it look large and take up vertical space, so
+            reduce height or width manually. Setting heigh can also make sure the height of the tag is set before the
+            image loads, so it reserves the space - if the height is larger than the original image though then the
+            image will looked stretched.</p>
 
         <h2>Enter image details</h2>
 
@@ -73,7 +76,7 @@
         <h2>Your content</h2>
 
         <script id="images" type="text/template">
-**HTML image**
+            **HTML image**
 
 {{ htmlImg }}
 
@@ -91,6 +94,20 @@
         <div id="target-output-md"></div>
     </div>
 
+    <script>
+        /** Use inputs and templates to render images. **/
+        function renderImages() {
+            console.debug('Render images');
+
+            var imageData = makeImages();
+
+            renderTemplate('#images', '#target-output', imageData);
+            renderTemplate('#images', '#target-output-md', imageData, true);
+
+            console.debug('Done');
+        }
+
+    </script>
 </body>
 
 </html>
