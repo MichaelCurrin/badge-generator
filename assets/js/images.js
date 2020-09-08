@@ -31,7 +31,7 @@ function mkHtmlImg(src, alt, title, target = '', width, height, alignAttr) {
 
     if (alignAttr) {
         htmlImg = `\
-<div align=${alignAttr}>
+<div align="${alignAttr}">
 ${htmlImg}
 </div>`;
     }
