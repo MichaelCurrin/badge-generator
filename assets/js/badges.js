@@ -14,19 +14,27 @@ const STYLES = {
     SOCIAL: '?style=social'
 };
 
-function markdownLink(title, linkTarget) {
-    return `[${title}](${linkTarget})`;
+// TODO combine link/target functions in a class.
+
+function markdownLink(altText, linkTarget) {
+    return `[${altText}](${linkTarget})`;
 }
 
-function markdownImage(title, imageTarget) {
-    return `![${title}](${imageTarget})`;
+function markdownImage(altText, imageTarget, hoverTitle = '') {
+    if (hoverTitle) {
+        imageTarget = `${imageTarget} "${hoverTitle}"`;
+    }
+    return `![${altText}](${imageTarget})`;
 }
 
 // TODO: Add pre-label as social badges have.
-function markdownImageWithLink(title, imageTarget, linkTarget) {
-    var image = markdownImage(title, imageTarget);
+function markdownImageWithLink(altText, imageTarget, linkTarget = '', hoverTitle = '') {
+    var image = markdownImage(altText, imageTarget, hoverTitle);
 
-    return markdownLink(image, linkTarget);
+    if (linkTarget) {
+        return markdownLink(image, linkTarget);
+    }
+    return image;
 }
 
 function encode(value, spaceToUnderscore = true) {
@@ -38,7 +46,7 @@ function encode(value, spaceToUnderscore = true) {
 }
 
 /** Make a markdown badge for any inputs. Escapes URLs.
- *  TODO: Avoid escaping if interal URLs.
+ *  TODO: Avoid escaping if internal URLs.
  **/
 function makeBadge(title, imageTarget, linkTarget) {
     imageTarget = encode(imageTarget);
@@ -60,7 +68,7 @@ class Repo {
     }
 
     ghPagesURL() {
-        // Domain will get lowercased by GH after a redirect so just make it lowercase now.
+        // Domain will get lower-cased by GH after a redirect so just make it lowercase now.
         // But preserve case for the comparison. Note Project page needs trailing forwardslash
         // but User page is without.
 
