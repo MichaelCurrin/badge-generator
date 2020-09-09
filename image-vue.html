@@ -36,13 +36,6 @@
                 <br>
 
                 <div>
-                    <span>Link target: </span>
-                    <input v-model="linkTarget" placeholder="Internal path or external URL">
-                </div>
-
-                <br>
-
-                <div>
                     <span>Alt text: </span>
                     <input v-model="altText" placeholder="Fallback image text">
                 </div>
@@ -52,6 +45,20 @@
                 <div>
                     <span>Title: </span>
                     <input v-model="imgTitle" placeholder="Text to show on hover">
+                </div>
+
+                <br>
+
+                <div>
+                    <span>Link target: </span>
+                    <input v-model="linkTarget" placeholder="Internal path or external URL">
+                </div>
+
+                <br>
+
+                <div>
+                    <span>Link target: </span>
+                    <input v-model="linkTarget" placeholder="Internal path or external URL">
                 </div>
 
                 <br>
@@ -79,7 +86,6 @@
                     </select>
                 </div>
             </fieldset>
-
         </form>
 
         <br>
@@ -97,7 +103,7 @@
 
             <div>
                 <h3>Code</h3>
-                <!-- Reduce whitespace - keep everything on one line. -->
+                <!-- To reduce whitespace, make sure to keep everything on one line here. -->
                 <pre><code>{{ result }}</code></pre>
             </div>
 
@@ -122,9 +128,9 @@
                 altTextOut() {
                     return this.altText || this.imgSrc
                 },
-                // Hover title.
                 imgTitleOut() {
-                    return this.imgTitle || this.altTextOut
+                    // If neither is set then null string is fine.
+                    return this.imgTitle || this.altText
                 },
                 result() {
                     const htmlImg = mkHtmlImg(
