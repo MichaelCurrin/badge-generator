@@ -20,78 +20,80 @@
 
 <body>
     <div id="app" class="container-lg px-3 my-5 markdown-body">
-        <h1>Image Generator</h1>
+        <div id="input">
+            <h1>Image Generator</h1>
 
-        <!-- TODO preamble -->
+            <!-- TODO preamble -->
 
-        <form>
-            <fieldset name='image'>
-                <legend>Doc image</legend>
+            <form>
+                <fieldset name='image'>
+                    <legend>Doc image</legend>
 
-                <div>
-                    <span>Source (required): </span>
-                    <input v-model="imgSrc" placeholder="sample.png">
-                </div>
+                    <div>
+                        <span>Source (required): </span>
+                        <input v-model="imgSrc" placeholder="sample.png">
+                    </div>
 
-                <br>
+                    <br>
 
-                <div>
-                    <span>Alt text: </span>
-                    <input v-model="altText" placeholder="Fallback image text">
-                </div>
+                    <div>
+                        <span>Alt text: </span>
+                        <input v-model="altText" placeholder="Fallback image text">
+                    </div>
 
-                <br>
+                    <br>
 
-                <div>
-                    <span>Title: </span>
-                    <input v-model="imgTitle" placeholder="Text to show on hover">
-                </div>
+                    <div>
+                        <span>Title: </span>
+                        <input v-model="imgTitle" placeholder="Text to show on hover">
+                    </div>
 
-                <br>
+                    <br>
 
-                <div>
-                    <span>Link target: </span>
-                    <input v-model="linkTarget" placeholder="Internal path or external URL">
-                </div>
+                    <div>
+                        <span>Link target: </span>
+                        <input v-model="linkTarget" placeholder="Internal path or external URL">
+                    </div>
 
-                <br>
+                    <br>
 
-                <div>
-                    <span>Link target: </span>
-                    <input v-model="linkTarget" placeholder="Internal path or external URL">
-                </div>
+                    <div>
+                        <span>Link target: </span>
+                        <input v-model="linkTarget" placeholder="Internal path or external URL">
+                    </div>
 
-                <br>
+                    <br>
 
-                <div>
-                    <span>Width: </span>
-                    <input v-model="width" placeholder="e.g. 400">
-                </div>
+                    <div>
+                        <span>Width: </span>
+                        <input v-model="width" placeholder="e.g. 400">
+                    </div>
 
-                <br>
+                    <br>
 
-                <div>
-                    <span>Height: </span>
-                    <input v-model="height" placeholder="e.g. 400">
-                </div>
+                    <div>
+                        <span>Height: </span>
+                        <input v-model="height" placeholder="e.g. 400">
+                    </div>
 
-                <br>
+                    <br>
 
-                <div>
-                    <span>Align direction: </span>
-                    <select v-model="alignDir">
-                        <option>center</option>
-                        <option>right</option>
-                        <option>left</option>
-                    </select>
-                </div>
-            </fieldset>
-        </form>
+                    <div>
+                        <span>Align direction: </span>
+                        <select v-model="alignDir">
+                            <option>center</option>
+                            <option>right</option>
+                            <option>left</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
 
         <br>
         <br>
 
-        <div>
+        <div id="output">
             <h2>Your content</h2>
 
             <div>
