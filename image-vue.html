@@ -25,7 +25,7 @@
 
             <!-- TODO preamble -->
 
-            <form>
+            <form @submit.prevent.enter="submit">
                 <fieldset name='image'>
                     <legend>Doc image</legend>
 
@@ -79,6 +79,7 @@
                     <br>
 
                     <div>
+
                         <span>Align direction: </span>
                         <select v-model="alignDir">
                             <option>center</option>
@@ -87,6 +88,15 @@
                         </select>
                     </div>
                 </fieldset>
+
+                <br>
+
+                <!-- TODO turn into component and maybe personalize message - Generate badges vs docs vs images. Or Generate content. Submit is generic -->
+                <input type="submit" value="Submit">
+                <br>
+                <p>
+                    <i>Tip: Pressing the <kbd>Enter</kbd> key after updating a text field will also submit.</i>
+                </p>
             </form>
         </div>
 
@@ -124,7 +134,8 @@
                 imgTitle: '',
                 width: '',
                 height: '400',
-                alignDir: 'center'
+                alignDir: 'center',
+                result: '_Your output will appear here_ -->'
             },
             computed: {
                 altTextOut() {
@@ -134,7 +145,9 @@
                     // If neither is set then null string is fine.
                     return this.imgTitle || this.altText
                 },
-                result() {
+            },
+            methods: {
+                process() {
                     const htmlImg = mkHtmlImg(
                         this.imgSrc, this.altTextOut, this.imgTitleOut, this.linkTarget, this.width, this
                         .height, this
@@ -154,8 +167,11 @@ ${htmlImg}
 
 ${mdImg}
 `
+                },
+                submit(message, event) {
+                    this.result = this.process()
                 }
-            }
+            },
         })
 
     </script>
