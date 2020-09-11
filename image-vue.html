@@ -31,7 +31,7 @@
 
                     <div>
                         <span>Source (required): </span>
-                        <input v-model="imgSrc" placeholder="sample.png">
+                        <input v-model="imgSrc" placeholder="Local path or URL">
                     </div>
 
                     <br>
@@ -127,7 +127,7 @@
         var app = new Vue({
             el: '#app',
             data: {
-                imgSrc: 'sample.png',
+                imgSrc: '/sample.png',
                 linkTarget: '',
                 altText: '',
                 imgTitle: '',
