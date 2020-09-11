@@ -122,6 +122,10 @@
     </div>
 
     <script>
+        function stripLeadingSlash(value) {
+            return value.replace(/^\/+/, '');
+        }
+
         Vue.use(VueMarkdown)
 
         var app = new Vue({
@@ -138,11 +142,11 @@
             },
             computed: {
                 altTextOut() {
-                    return this.altText || this.imgSrc
+                    return stripLeadingSlash(this.altText || this.imgSrc)
                 },
                 imgTitleOut() {
                     // If neither is set then null string is fine.
-                    return this.imgTitle || this.altText
+                    return stripLeadingSlash(this.imgTitle || this.altText)
                 },
             },
             methods: {
