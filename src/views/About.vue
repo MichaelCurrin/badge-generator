@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h2>About</h2>
+    <h1>About</h1>
     <vue-markdown>_Content_</vue-markdown>
   </div>
 </template>

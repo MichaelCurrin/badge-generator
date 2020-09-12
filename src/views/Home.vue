@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h2>Welcome to Badge Generator</h2>
+    <h1>Badge Generator</h1>
 
     <img alt="Vue logo" src="https://source.unsplash.com/hh4R3gAbhs8/650x250" />
     <br />
