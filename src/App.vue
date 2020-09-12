@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>
+      <span> | </span>
+      <router-link to="/badges">Badges</router-link>
+      <span> | </span>
+      <router-link to="/images">Images</router-link>
+      <span> | </span>
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
@@ -21,12 +26,19 @@
   padding: 30px;
 }
 
+/* Cleanup menu to remove default of underline and then add it back on hover. */
+
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #42b983;
+  text-decoration: none;
+}
+
+#nav a:hover {
+  text-decoration: underline;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #2c3e50;
 }
 </style>
