@@ -1,7 +1,7 @@
 {
-  "name": "vue-router-quickstart",
-  "description": "Template for a multi-page Vue app",
-  "version": "0.2.0",
+  "name": "badge-generator",
+  "description": "Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges",
+  "version": "0.7.0",
   "author": "MichaelCurrin",
   "scripts": {
     "serve": "vue-cli-service serve",
