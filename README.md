@@ -2,7 +2,7 @@
 > Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges
 
 
-## Project website
+## Project site
 
 [![Github Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
 
@@ -10,32 +10,8 @@
 ## Contributing
 
 - Create an issue to request a feature.
-- Submit a PR to add an improvement.
+- Submit a PR to add an improvement, using a feature branch on your fork.
 
-
-## Development
-
-## Roadmap
-
-- [ ] Add tests
-- [ ] Refactor JS to be DRY and OO
-- [ ] Make into multi-page JS app - possibly with Vue, React or Preact, or Jekyll and mustache
-- [ ] Split view into left and right (or top and bottom) optionally mobile friendly
-
-
-## Run locally
-
-Start a server. Preferably one with hot-reloading.
-
-Open the `/badge_generator.html` on localhost.
-
-
-### Notes
-
-- The markdown files get styling added on Github and are kept light here without Jekyll theming for now.
-- The badge generator HTML file has no frontmatter, so the brackets are not parsed at build time, leaving them to be processed by mustache.
-- Dependencies are loaded in the HTML to keep the built process light for now.
--  We use the approach here to render markdown to HTML, but after Mustache is run. https://stackoverflow.com/questions/52562508/using-markdown-in-javascript-template-engine
 
 ## License
 
