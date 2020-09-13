@@ -1,6 +1,6 @@
 <template>
   <div class="home container-lg">
-    <h1>Badge Generator</h1>
+    <h1>Home</h1>
 
     <div class="hero">
       <img

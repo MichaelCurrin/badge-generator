@@ -1,31 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <span> | </span>
-      <router-link to="/badges">Badges</router-link>
-      <span> | </span>
-      <router-link to="/images">Images</router-link>
-      <span> | </span>
-      <router-link to="/about">About</router-link>
+    <div class="container-lg">
+      <span id="logo">Badge Generator</span>
+      <div id="nav">
+        <router-link to="/">Home</router-link>
+        <span> | </span>
+        <router-link to="/badges">Badges</router-link>
+        <span> | </span>
+        <router-link to="/images">Images</router-link>
+        <span> | </span>
+        <router-link to="/about">About</router-link>
+      </div>
+      <router-view />
     </div>
-    <router-view />
   </div>
 </template>
 
 <style>
 /**
- * Based on Vue styles
+ * Based on Vue quickstart styles.
  */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+
+  padding-top: 10px;
 }
 
 #nav {
-  padding: 30px;
+  padding-top: 20px;
 }
 
 /* Cleanup menu to remove default of underline and then add it back on hover. */
@@ -131,7 +136,15 @@ summary {
 /**
  * Custom
  */
-#nav,
+#logo {
+  font-weight: bold;
+  font-size: 3em;
+}
+
+#nav {
+  float: right;
+}
+
 .hero {
   text-align: center;
 }
