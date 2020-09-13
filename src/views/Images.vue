@@ -80,7 +80,7 @@
 
           <br />
 
-          <input class="btn btn-primary" type="submit" value="Submit" />
+          <input class="btn" type="submit" value="Submit" />
         </form>
       </div>
 
@@ -177,6 +177,7 @@ export default {
       // This shouldn't be a Vue component or template as that adds overheard. It doesn't even need to be a function
       // or method (the indentation fits better but then its another function to maintain).
       // Also this just needs to be plain text and not HTML. It gets converted to HTML and a code block.
+      // Also making it an x-template is not good practice according to the docs. And it might not play well with vue-markdown tag.
       const result = `\
 **HTML image**
 
