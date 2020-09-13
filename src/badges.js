@@ -1,6 +1,7 @@
 /**
  * Handle rendering of each badge and all badges.
  */
+/* eslint-disable */
 
 const SHIELDS_API = 'https://img.shields.io',
     SHIELDS_BADGE = `${SHIELDS_API}/badge`,
@@ -28,7 +29,7 @@ function markdownImage(altText, imageTarget, hoverTitle = '') {
 }
 
 // TODO: Add pre-label as social badges have.
-function markdownImageWithLink(altText, imageTarget, linkTarget = '', hoverTitle = '') {
+export function markdownImageWithLink(altText, imageTarget, linkTarget = '', hoverTitle = '') {
     var image = markdownImage(altText, imageTarget, hoverTitle);
 
     if (linkTarget) {
