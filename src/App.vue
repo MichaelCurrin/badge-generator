@@ -14,16 +14,17 @@
 </template>
 
 <style>
+/** Based on Vue styles **/
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
 #nav {
   padding: 30px;
+  text-align: center;
 }
 
 /* Cleanup menu to remove default of underline and then add it back on hover. */
@@ -41,4 +42,33 @@
 #nav a.router-link-exact-active {
   color: #2c3e50;
 }
+
+/** Based on GitHub Pages built markdown site (without Jekyll) **/
+.container-lg {
+  max-width: 1012px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+pre {
+  padding: 16px;
+  overflow: auto;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial;
+}
+pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+/** Custom **/
 </style>
