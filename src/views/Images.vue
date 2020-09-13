@@ -2,6 +2,8 @@
   <div class="images container-lg">
     <h1>Images</h1>
 
+    <p>Prepare a logo or sample screenshot image for your README.md file.</p>
+
     <div class="app-input">
       <h2>Input values</h2>
 
@@ -86,6 +88,31 @@
       </form>
     </div>
 
+    <div class="app-notes">
+      <summary>
+        <h2>Help</h2>
+        <details>
+          <p>
+            Setting <i>width</i> and <i>height</i> is optional, but this can
+            help in certain cases. For example, a screenshot or logo will be set
+            by GitHub to <i>100%</i> of the page width making it look large and
+            take up vertical space, so reduce height or width manually.
+          </p>
+          <p>
+            Setting height can also make sure the height of the tag is set
+            before the image loads, so it reserves the space - if the height is
+            larger than the original image though then the image will looked
+            stretched.
+          </p>
+          <p>
+            Warning: If you set height only to say 400, then the image in the
+            README.md will look fine on desktop but ends up looking distorted on
+            mobile.
+          </p>
+        </details>
+      </summary>
+    </div>
+
     <!-- TODO turn into component -->
     <div class="app-results">
       <h2>Output values</h2>
@@ -126,8 +153,8 @@ export default {
       linkTarget: "",
       altText: "Sample screenshot",
       imgTitle: "",
-      width: "",
-      height: "400",
+      width: "400",
+      height: "",
       alignDir: "center",
       result: "_Your output will appear here_",
     };
