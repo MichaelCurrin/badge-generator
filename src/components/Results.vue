@@ -24,11 +24,11 @@ import VueMarkdown from "vue-markdown";
 
 export default {
   name: "Results",
-  props: {
-    result: String,
-  },
   components: {
     VueMarkdown,
+  },
+  props: {
+    result: String,
   },
 };
 </script>
