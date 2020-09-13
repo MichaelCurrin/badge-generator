@@ -56,7 +56,7 @@ function makeBadge(title, imageTarget, linkTarget) {
     return markdownImageWithLink(title, imageTarget, linkTarget);
 }
 
-class Repo {
+export class Repo {
     constructor(username, repoName) {
         this.username = username;
         this.repoName = repoName;
@@ -70,7 +70,7 @@ class Repo {
 
     ghPagesURL() {
         // Domain will get lower-cased by GH after a redirect so just make it lowercase now.
-        // But preserve case for the comparison. Note Project page needs trailing forwardslash
+        // But preserve case for the comparison. Note Project page needs trailing forward slash
         // but User page is without.
 
         var ghDomain = `${this.username}.github.io`;
@@ -82,9 +82,22 @@ class Repo {
 
         return `${fullDomain}/${this.repoName}/`;
     }
+    // TODO add variation that has a docs site for the text. And add custom text options.
+    ghPagesBadge() {
+        const target = this.ghPagesURL()
 
-    useThisTemplateBadge(show) {
-        if (show && this.isValid) {
+        const params = {
+            label: 'View site',
+            message: 'GH Pages',
+            color: 'green',
+            isLarge: true,
+            target: target
+        };
+
+        return genericBadge(params);
+    }
+    useThisTemplateBadge() {
+        if (this.isValid) {
             var text = 'Use_this_template',
                 color = '2ea44f';
 
@@ -187,24 +200,11 @@ function genericBadge(params) {
     return makeBadge(title, imgUrl, target);
 }
 
-// TODO add variation that is a docs site. And add custom text options.
-function ghPagesBadge(target) {
-    var params = {
-        label: 'View site',
-        message: 'GH Pages',
-        color: 'green',
-        isLarge: true,
-        target: target
-    };
-
-    return genericBadge(params);
-}
-
 // TODO: alt styles:
 //      - react : 1.2.3
 //      - Get dynamically from package.json
 //      - dependency: react
-class Package {
+export class Package {
     constructor(name, type) {
         this.name = name;
         this.type = type;
