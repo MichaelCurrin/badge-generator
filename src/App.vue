@@ -60,8 +60,6 @@ pre {
   line-height: 1.45;
   background-color: #f6f8fa;
   border-radius: 3px;
-
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial;
 }
 pre code {
   display: inline;
@@ -75,11 +73,78 @@ pre code {
   border: 0;
 }
 
+code,
+kbd,
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: solid 1px #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+}
+
+/* Most of these don't seem to make a visible difference, but cursor here is the most useful. */
+[hidden][hidden] {
+  display: none !important;
+}
+details summary {
+  cursor: pointer;
+}
+details:not([open]) > *:not(summary) {
+  display: none !important;
+}
+summary {
+  display: list-item;
+}
+.details-overlay[open] > summary::before {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 80;
+  display: block;
+  cursor: default;
+  content: " ";
+  background: transparent;
+}
+.details-overlay-dark[open] > summary::before {
+  z-index: 99;
+  background: rgba(27, 31, 35, 0.5);
+}
+
+.btn {
+  cursor: pointer;
+}
+
 /**
  * Custom
  */
 #nav,
 .hero {
   text-align: center;
+}
+
+.btn {
+  border-radius: 12px;
+  color: white;
+  font-size: 21px;
+  background: linear-gradient(to bottom, #42b983, #3aa776);
+  padding: 10px 20px 10px 20px;
+}
+
+.btn:hover {
+  background: linear-gradient(to top, #42b983, #3aa776);
 }
 </style>
