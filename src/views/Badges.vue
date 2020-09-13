@@ -1,7 +1,12 @@
 <template>
-  <div class="badges container-lg">
-    <h1>Badges</h1>
-    <vue-markdown>_Content_</vue-markdown>
+  <div class="badges container-lg row">
+    <div class="col-12">
+      <h1>Badges</h1>
+    </div>
+
+    <div class="col-6">
+      <vue-markdown>_Content_</vue-markdown>
+    </div>
   </div>
 </template>
 

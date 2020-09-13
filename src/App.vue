@@ -2,6 +2,7 @@
   <div id="app">
     <div class="container-lg">
       <span id="logo">Badge Generator</span>
+
       <div id="nav">
         <router-link to="/">Home</router-link>
         <span> | </span>
@@ -11,8 +12,9 @@
         <span> | </span>
         <router-link to="/about">About</router-link>
       </div>
-      <router-view />
     </div>
+
+    <router-view />
   </div>
 </template>
 
@@ -159,5 +161,20 @@ summary {
 
 .btn:hover {
   background: linear-gradient(to top, #42b983, #3aa776);
+}
+
+/* Flexbox - based on GH pages, Bootstrap and the GH Readme Generator. */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-6 {
+  flex: 1;
+  padding: 8px;
+}
+
+.col-12 {
+  width: 100%;
 }
 </style>
