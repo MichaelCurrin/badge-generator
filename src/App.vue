@@ -30,7 +30,7 @@
 }
 
 #nav {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 /* Cleanup menu to remove default of underline and then add it back on hover. */
