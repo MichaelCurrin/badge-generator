@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav" class="center">
+    <div id="nav">
       <router-link to="/">Home</router-link>
       <span> | </span>
       <router-link to="/badges">Badges</router-link>
