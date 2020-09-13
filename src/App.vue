@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" class="center">
       <router-link to="/">Home</router-link>
       <span> | </span>
       <router-link to="/badges">Badges</router-link>
@@ -14,7 +14,9 @@
 </template>
 
 <style>
-/** Based on Vue styles **/
+/**
+ * Based on Vue styles
+ */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,7 +26,6 @@
 
 #nav {
   padding: 30px;
-  text-align: center;
 }
 
 /* Cleanup menu to remove default of underline and then add it back on hover. */
@@ -43,7 +44,10 @@
   color: #2c3e50;
 }
 
-/** Based on GitHub Pages built markdown site (without Jekyll) **/
+/** GitHub Pages
+ *
+ * Based on GitHub Pages built markdown site (without Jekyll)
+ */
 .container-lg {
   max-width: 1012px;
   margin-right: auto;
@@ -70,5 +74,12 @@ pre code {
   background-color: transparent;
   border: 0;
 }
-/** Custom **/
+
+/**
+ * Custom
+ */
+#nav,
+.hero {
+  text-align: center;
+}
 </style>

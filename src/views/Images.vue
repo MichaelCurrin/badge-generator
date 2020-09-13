@@ -162,7 +162,7 @@ export default {
       );
 
       // This shouldn't be a Vue component or template as that adds overheard. It doesn't even need to be a function
-      // or method.
+      // or method (the indentation fits better but then its another function to maintain).
       // Also this just needs to be plain text and not HTML. It gets converted to HTML and a code block.
       const result = `\
 **HTML image**
@@ -171,7 +171,8 @@ ${htmlImg}
 
 **Markdown image**
 
-${mdImg}`;
+${mdImg}
+      `;
 
       // Change the global value on form submission.
       this.result = result;

@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about container-lg">
     <h1>About</h1>
     <vue-markdown>_Content_</vue-markdown>
   </div>

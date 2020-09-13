@@ -1,5 +1,5 @@
 <template>
-  <div class="badges">
+  <div class="badges container-lg">
     <h1>Badges</h1>
     <vue-markdown>_Content_</vue-markdown>
   </div>
