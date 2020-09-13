@@ -67,7 +67,15 @@ pre {
   line-height: 1.45;
   background-color: #f6f8fa;
   border-radius: 3px;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  /* This is allows the text to wrap and prevents it from stretching out and causing the flexbox to reflow when not desired.
+  Using nowrap to go off the screen unfortunately flatten it all to one line and reflows flexbox. */
+  white-space: break-spaces;
 }
+
 pre code {
   display: inline;
   max-width: auto;
@@ -83,7 +91,8 @@ pre code {
 code,
 kbd,
 pre {
-  font-family: monospace, monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
   font-size: 1em;
 }
 
