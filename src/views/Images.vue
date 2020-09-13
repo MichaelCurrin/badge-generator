@@ -116,13 +116,13 @@
     </div>
 
     <div class="col-6">
-      <AppResults :result="result" />
+      <Results :result="result" />
     </div>
   </div>
 </template>
 
 <script>
-import AppResults from "@/components/AppResults.vue";
+import Results from "@/components/Results.vue";
 
 import { markdownImageWithLink } from "../badges";
 import { mkHtmlImg } from "../images";
@@ -131,7 +131,7 @@ import { stripLeadingSlash } from "../lib";
 export default {
   name: "Images",
   components: {
-    AppResults,
+    Results,
   },
   data() {
     return {

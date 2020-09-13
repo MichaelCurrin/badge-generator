@@ -23,7 +23,7 @@
 import VueMarkdown from "vue-markdown";
 
 export default {
-  name: "AppResults",
+  name: "Results",
   props: {
     result: String,
   },
