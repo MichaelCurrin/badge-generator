@@ -142,7 +142,7 @@ export default {
     },
   },
   methods: {
-    process: function () {
+    submit: function () {
       console.debug("Process inputs and render results");
 
       const htmlImg = mkHtmlImg(
@@ -161,20 +161,20 @@ export default {
         this.imgTitleOut
       );
 
-      // TODO Use x-template in Vue, but for now this is quickest way.
-      return `\
+      // This shouldn't be a Vue component or template as that adds overheard. It doesn't even need to be a function
+      // or method.
+      // Also this just needs to be plain text and not HTML. It gets converted to HTML and a code block.
+      const result = `\
 **HTML image**
 
 ${htmlImg}
 
 **Markdown image**
 
-${mdImg}
-`;
-    },
-    submit() {
+${mdImg}`;
+
       // Change the global value on form submission.
-      this.result = this.process();
+      this.result = result;
     },
   },
 };
