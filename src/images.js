@@ -2,18 +2,6 @@
  * Handle image form.
  */
 
-// Use markdownImageWithLink rather.
-function mkMdImg(src, alt, title, target = '') {
-    var mdTitle = title ? ` "${title}"` : '';
-
-    var mdImg = `![${alt}](${src}${mdTitle})`;
-    if (target) {
-        mdImg = `[${mdImg}](${target})`;
-    }
-
-    return mdImg;
-}
-
 // TODO There must be cleaner way to calculate this and lay it out. Use Vue?
 function mkHtmlImg(src, alt, title, target = '', width, height, alignAttr) {
     var htmlTitle = title ? ` title="${title}"` : '',
