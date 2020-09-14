@@ -51,7 +51,8 @@
   color: #2c3e50;
 }
 
-/** GitHub Pages
+/**
+ * GitHub Pages
  *
  * Based on GitHub Pages built markdown site (without Jekyll)
  */
@@ -72,7 +73,7 @@ pre {
   margin-bottom: 0;
 
   /* This is allows the text to wrap and prevents it from stretching out and causing the flexbox to reflow when not desired.
-  Using nowrap to go off the screen unfortunately flatten it all to one line and reflows flexbox. */
+     Using nowrap to go off the screen unfortunately flatten it all to one line and reflows flexbox. */
   white-space: break-spaces;
 }
 
@@ -122,22 +123,6 @@ details:not([open]) > *:not(summary) {
 }
 summary {
   display: list-item;
-}
-.details-overlay[open] > summary::before {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 80;
-  display: block;
-  cursor: default;
-  content: " ";
-  background: transparent;
-}
-.details-overlay-dark[open] > summary::before {
-  z-index: 99;
-  background: rgba(27, 31, 35, 0.5);
 }
 
 .btn {
