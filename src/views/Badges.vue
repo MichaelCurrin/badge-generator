@@ -15,6 +15,7 @@
             <div>
               <span>Username: </span>
               <input v-model="username" />
+              <small>User or org which owns the GitHub repo</small>
             </div>
             <br />
 
