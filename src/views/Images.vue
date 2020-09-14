@@ -178,18 +178,16 @@ export default {
       // or method (the indentation fits better but then its another function to maintain).
       // Also this just needs to be plain text and not HTML. It gets converted to HTML and a code block.
       // Also making it an x-template is not good practice according to the docs. And it might not play well with vue-markdown tag.
-      const result = `\
-**HTML image**
+
+      this.result = `\
+_HTML image_
 
 ${htmlImg}
 
-**Markdown image**
+_Markdown image_
 
 ${mdImg}
       `;
-
-      // Change the global value on form submission.
-      this.result = result;
     },
   },
 };

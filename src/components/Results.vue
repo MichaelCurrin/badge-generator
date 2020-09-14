@@ -9,8 +9,6 @@
       <vue-markdown :source="result"></vue-markdown>
     </div>
 
-    <hr />
-
     <div>
       <h3>Code</h3>
       <!-- To reduce whitespace, make sure to keep everything on one line here. -->
