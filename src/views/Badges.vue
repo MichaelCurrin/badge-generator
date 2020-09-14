@@ -75,6 +75,8 @@ export default {
       repoName: "badge-generator",
       licenseType: "MIT",
       result: "_Your output will appear here_",
+      useThisTemplate: false,
+      ghPages: false,
     };
   },
   methods: {
