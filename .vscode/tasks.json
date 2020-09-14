@@ -2,12 +2,13 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			// Does not accept yarn
 			"type": "npm",
 			"script": "serve",
 			"problemMatcher": [
 				"$eslint-compact"
 			],
-			"label": "yarn: serve",
+			"label": "npm: serve",
 			"detail": "vue-cli-service serve"
 		}
 	]
