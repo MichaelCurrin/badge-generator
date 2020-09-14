@@ -97,7 +97,7 @@ export default {
       const viewSite = this.ghPages ? repo.ghPagesBadge() : "";
 
       this.result = `\
-**Repo metadata**
+_Repo metadata_
 
 ${release}
 
@@ -105,7 +105,7 @@ ${tag}
 
 ${license}
 
-**Call-to-Action buttons**
+_Call-to-Action buttons_
 
 ${useThisTemplate}
 
