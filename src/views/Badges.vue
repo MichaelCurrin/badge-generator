@@ -19,12 +19,12 @@
             <br />
 
             <TextInput label="License" v-model="licenseType" />
-            <br />
           </fieldset>
           <br />
 
           <fieldset name="buttons">
             <legend>Show call-to-action buttons</legend>
+
             <Checkbox
               label="Template"
               v-model="useThisTemplate"
