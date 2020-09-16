@@ -68,14 +68,11 @@
             />
             <br />
 
-            <div>
-              <span>Align direction: </span>
-              <select v-model="alignDir">
-                <option>center</option>
-                <option>right</option>
-                <option>left</option>
-              </select>
-            </div>
+            <Checkbox
+              label="Align center"
+              v-model="alignCenter"
+              :checked="alignCenter"
+            />
           </fieldset>
 
           <br />
@@ -122,6 +119,7 @@
 </template>
 
 <script>
+import Checkbox from "@/components/Checkbox.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
@@ -132,6 +130,7 @@ import { stripLeadingSlash } from "../lib";
 export default {
   name: "Images",
   components: {
+    Checkbox,
     Results,
     TextInput,
   },
@@ -143,7 +142,7 @@ export default {
       imgTitle: "",
       width: "400",
       height: "",
-      alignDir: "center",
+      alignCenter: true,
       result: "_Your output will appear here_",
     };
   },
@@ -167,7 +166,7 @@ export default {
         this.linkTarget,
         this.width,
         this.height,
-        this.alignDir
+        this.alignCenter ? "center" : ""
       );
       const mdImg = markdownImageWithLink(
         this.altTextOut,
