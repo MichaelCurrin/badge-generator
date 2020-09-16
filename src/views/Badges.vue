@@ -35,7 +35,7 @@
             <Checkbox
               label="GitHub Pages"
               v-model="ghPages"
-              note="Add link to the GitHub Pages site."
+              note="Add link to a GitHub Pages site."
             />
           </fieldset>
           <br />
@@ -104,9 +104,12 @@ ${license}
 
 _Call-to-Action buttons_
 
-${useThisTemplate}
+<div align="center">
 
+${useThisTemplate}
 ${viewSite}
+
+</div>
       `;
     },
   },
