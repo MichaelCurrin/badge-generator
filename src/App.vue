@@ -183,4 +183,8 @@ summary {
 .col-12 {
   width: 100%;
 }
+
+.note {
+  color: #666;
+}
 </style>
