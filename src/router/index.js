@@ -12,9 +12,9 @@ const routes = [
     component: Home,
   },
   {
-    path: "/badges",
-    name: "Badges",
-    component: () => import("../views/Badges.vue"),
+    path: "/repo-badges",
+    name: "Repo Badges",
+    component: () => import("../views/RepoBadges.vue"),
   },
   {
     path: "/images",

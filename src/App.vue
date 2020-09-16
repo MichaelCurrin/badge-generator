@@ -6,7 +6,7 @@
       <div id="nav">
         <router-link to="/">Home</router-link>
         <span> | </span>
-        <router-link to="/badges">Badges</router-link>
+        <router-link to="/repo-badges">Repo badges</router-link>
         <span> | </span>
         <router-link to="/images">Images</router-link>
         <span> | </span>

@@ -1,7 +1,7 @@
 <template>
   <div class="badges container-lg row">
     <div class="col-12">
-      <h1>Badges</h1>
+      <h1>Repo badges</h1>
     </div>
 
     <div class="col-6">
@@ -58,7 +58,7 @@ import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 export default {
-  name: "Badges",
+  name: "RepoBadges",
   components: {
     Checkbox,
     Results,
