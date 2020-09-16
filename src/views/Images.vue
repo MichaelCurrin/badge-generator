@@ -14,56 +14,58 @@
           <fieldset name="links">
             <legend>Links</legend>
 
-            <div>
-              <span>Source (required): </span>
-              <input v-model="imgSrc" placeholder="e.g. /sample.png" />
-              <small>Local path or URL</small>
-            </div>
-            <br />
+            <TextInput
+              label="Source (required)"
+              v-model="imgSrc"
+              placeholder="e.g. /sample.png"
+              note="Local path or URL."
+            />
 
-            <div>
-              <span>Click target: </span>
-              <input
-                v-model="linkTarget"
-                placeholder="e.g. https://example.com"
-              />
-              <small>Local path or external URL</small>
-            </div>
+            <TextInput
+              label="Click target"
+              v-model="linkTarget"
+              placeholder="e.g. https://example.com"
+              note="Local path or external URL."
+            />
           </fieldset>
           <br />
 
           <fieldset name="text">
             <legend>Text</legend>
-            <div>
-              <span>Alt text: </span>
-              <input v-model="altText" placeholder="e.g. Sample screenshot" />
-              <small>Fallback image text</small>
-            </div>
+
+            <TextInput
+              label="Alt text"
+              v-model="altText"
+              placeholder="e.g. Sample screenshot"
+              note="Fallback image text on broken link. If not set, the image path will be used"
+            />
             <br />
 
-            <div>
-              <span>Title: </span>
-              <input v-model="imgTitle" />
-              <small>Text to show on hover</small>
-            </div>
+            <TextInput
+              label="Title"
+              v-model="imgTitle"
+              note="Text to show on hover."
+            />
           </fieldset>
           <br />
 
           <fieldset id="appearance">
             <legend>Appearance</legend>
 
-            <div>
-              <span>Width: </span>
-              <input v-model="width" placeholder="e.g. 400" />
-            </div>
-
+            <TextInput
+              label="Width"
+              v-model="width"
+              placeholder="e.g. 400"
+              note="Measured in pixels. No px is needed."
+            />
             <br />
 
-            <div>
-              <span>Height: </span>
-              <input v-model="height" placeholder="e.g. 400" />
-            </div>
-
+            <TextInput
+              label="Height"
+              v-model="height"
+              placeholder="e.g. 400"
+              note="Recommended: Set height only if width is set too, as just height can cause distortion on mobile view"
+            />
             <br />
 
             <div>
@@ -121,6 +123,7 @@
 
 <script>
 import Results from "@/components/Results.vue";
+import TextInput from "@/components/TextInput.vue";
 
 import { markdownImageWithLink } from "../badges";
 import { mkHtmlImg } from "../images";
@@ -130,6 +133,7 @@ export default {
   name: "Images",
   components: {
     Results,
+    TextInput,
   },
   data() {
     return {
@@ -148,7 +152,7 @@ export default {
       return stripLeadingSlash(this.altText || this.imgSrc);
     },
     imgTitleOut() {
-      // If neither is set then null string is fine.
+      // If neither is set, then empty string is fine.
       return stripLeadingSlash(this.imgTitle || this.altText);
     },
   },
@@ -171,11 +175,6 @@ export default {
         this.linkTarget,
         this.imgTitleOut
       );
-
-      // This shouldn't be a Vue component or template as that adds overheard. It doesn't even need to be a function
-      // or method (the indentation fits better but then its another function to maintain).
-      // Also this just needs to be plain text and not HTML. It gets converted to HTML and a code block.
-      // Also making it an x-template is not good practice according to the docs. And it might not play well with vue-markdown tag.
 
       this.result = `\
 _HTML image_
