@@ -4,19 +4,31 @@
       <span id="logo">Badge Generator</span>
 
       <div id="nav">
-        <router-link to="/">Home</router-link>
-        <span> | </span>
-        <router-link to="/repo-badges">Repo badges</router-link>
-        <span> | </span>
-        <router-link to="/images">Images</router-link>
-        <span> | </span>
-        <router-link to="/about">About</router-link>
+        <!-- Build menu based on configured app routes. -->
+        <span v-for="(item, index) in routes" v-bind:key="item.path">
+          <span>
+            {{ index !== 0 ? " | " : "" }}
+          </span>
+          <router-link :to="item.path">
+            {{ item.name }}
+          </router-link>
+        </span>
       </div>
     </div>
 
     <router-view />
   </div>
 </template>
+
+<script>
+import { routes } from "@/router/index.js";
+
+export default {
+  data() {
+    return { routes };
+  },
+};
+</script>
 
 <style>
 /**
