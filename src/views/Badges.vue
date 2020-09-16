@@ -12,41 +12,28 @@
           <fieldset name="gh-repo">
             <legend>Github repo</legend>
 
-            <div>
-              <span>Username: </span>
-              <input v-model="username" />
-              <small>User or org which owns the GitHub repo</small>
-            </div>
+            <TextInput label="Username" v-model="username" />
             <br />
 
-            <div>
-              <span>Repo name: </span>
-              <input v-model="repoName" />
-            </div>
+            <TextInput label="Repo name" v-model="repoName" />
             <br />
 
-            <div>
-              <span>License type: </span>
-              <input v-model="licenseType" />
-            </div>
-
+            <TextInput label="License" v-model="licenseType" />
             <br />
 
-            <div>
-              <span>Template: </span>
-              <input type="checkbox" v-model="useThisTemplate" />
-              <small>Add a <i>Use This Template</i> button</small>
-            </div>
-
+            <Checkbox
+              label="Template"
+              v-model="useThisTemplate"
+              note="Add a <i>Use This Template</i> button"
+            />
             <br />
 
-            <div>
-              <span>GitHub Pages: </span>
-              <input type="checkbox" v-model="ghPages" />
-              <small>Add a link to the project's GH Pages site</small>
-            </div>
+            <Checkbox
+              label="GitHub Pages"
+              v-model="ghPages"
+              note="Add a <i>Use This Template</i> button"
+            />
           </fieldset>
-
           <br />
 
           <input class="btn" type="submit" value="Submit" />
@@ -62,12 +49,16 @@
 
 <script>
 import { Repo } from "@/badges";
+import Checkbox from "@/components/Checkbox.vue";
 import Results from "@/components/Results.vue";
+import TextInput from "@/components/TextInput.vue";
 
 export default {
   name: "Badges",
   components: {
+    Checkbox,
     Results,
+    TextInput,
   },
   data() {
     return {
