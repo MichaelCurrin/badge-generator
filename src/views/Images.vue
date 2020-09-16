@@ -11,12 +11,12 @@
         <h2>Input values</h2>
 
         <form @submit.prevent.enter="submit">
-          <fieldset name="images">
-            <legend>Documentation images</legend>
+          <fieldset name="Main">
+            <legend>Main</legend>
 
             <div>
               <span>Source (required): </span>
-              <input v-model="imgSrc" />
+              <input v-model="imgSrc" placeholder="e.g. /sample.png" />
               <small>Local path or URL</small>
             </div>
 
@@ -24,7 +24,7 @@
 
             <div>
               <span>Alt text: </span>
-              <input v-model="altText" />
+              <input v-model="altText" placeholder="e.g. Sample screenshot" />
               <small>Fallback image text</small>
             </div>
 
@@ -39,20 +39,20 @@
             <br />
 
             <div>
-              <span>Link target: </span>
-              <input v-model="linkTarget" />
-              <small>Internal path or external URL</small>
+              <span>Click target: </span>
+              <input
+                v-model="linkTarget"
+                placeholder="e.g. https://example.com"
+              />
+              <small>Local path or external URL</small>
             </div>
 
             <br />
+          </fieldset>
+          <br />
 
-            <div>
-              <span>Link target: </span>
-              <input v-model="linkTarget" />
-              <small>Internal path or external URL</small>
-            </div>
-
-            <br />
+          <fieldset id="appearance">
+            <legend>Appearance</legend>
 
             <div>
               <span>Width: </span>
