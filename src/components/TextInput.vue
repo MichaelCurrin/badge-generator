@@ -6,13 +6,20 @@
       v-bind:value="value"
       v-on:input="$emit('input', $event.target.value)"
     />
-    <small v-if="note">{{ note }}</small>
+    <small v-if="note">
+      <vue-markdown>{{ note }}</vue-markdown>
+    </small>
   </div>
 </template>
 
 <script>
+import VueMarkdown from "vue-markdown";
+
 export default {
   name: "TextInput",
+  components: {
+    VueMarkdown,
+  },
   props: {
     label: { type: String, required: true },
     value: { type: String, required: true },
