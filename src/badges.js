@@ -169,8 +169,7 @@ export class Repo {
 }
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
-function genericBadge(params) {
-    const { label, message, color, isLarge, target } = params;
+export function genericBadge(label, message, color, isLarge, target) {
     if (!message) {
         return '';
     }

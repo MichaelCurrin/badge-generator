@@ -17,6 +17,16 @@ export const routes = [
     component: () => import("../views/RepoBadges.vue"),
   },
   {
+    path: "/generic-badges",
+    name: "Generic Badges",
+    component: () => import("../views/GenericBadges.vue"),
+  },
+  // {
+  //   path: "/package-badges",
+  //   name: "Repo Badges",
+  //   component: () => import("../views/PackageBadges.vue"),
+  // },
+  {
     path: "/images",
     name: "Images",
     component: () => import("../views/Images.vue"),
