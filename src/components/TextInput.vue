@@ -9,7 +9,7 @@
       v-on:input="$emit('input', $event.target.value)"
       v-bind:placeholder="placeholder"
     />
-    <small v-if="note">
+    <small class="note" v-if="note">
       <vue-markdown>{{ note }}</vue-markdown>
     </small>
   </div>

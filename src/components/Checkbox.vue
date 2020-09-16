@@ -8,7 +8,7 @@
       v-bind:checked="checked"
       v-on:change="$emit('input', $event.target.checked)"
     />
-    <small v-if="note">
+    <small class="note" v-if="note">
       <vue-markdown>{{ note }}</vue-markdown>
     </small>
   </div>
