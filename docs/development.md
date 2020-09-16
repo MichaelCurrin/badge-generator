@@ -23,6 +23,13 @@ Open the `/badge_generator.html` page on localhost.
 - Dependencies are loaded in the HTML to keep the built process light for now.
 -  We use the approach here to render markdown to HTML, but after Mustache is run. https://stackoverflow.com/questions/52562508/using-markdown-in-javascript-template-engine
 
+On setting `this.result` on Image and Badge pages.
+
+- This shouldn't be a Vue component or template as that adds overhead. It doesn't even need to be a function
+or method (the indentation fits better but then its another function to maintain).
+- Also this just needs to be plain text and not HTML. It gets converted to HTML and a code block.
+- Making it an x-template is not good practice according to the docs. And it might not play well with vue-markdown tag.
+
 
 ## Packages
 
