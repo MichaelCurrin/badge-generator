@@ -23,7 +23,7 @@
           </fieldset>
           <br />
 
-          <fieldset name="ghRepo">
+          <fieldset name="buttons">
             <legend>Show call-to-action buttons</legend>
             <Checkbox
               label="Template"
