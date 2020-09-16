@@ -28,14 +28,14 @@
             <Checkbox
               label="Template"
               v-model="useThisTemplate"
-              note="Add a <i>Use This Template</i> button"
+              note="Add a <i>Use This Template</i> button."
             />
             <br />
 
             <Checkbox
               label="GitHub Pages"
               v-model="ghPages"
-              note="Add a <i>Use This Template</i> button"
+              note="Add link to the GitHub Pages site."
             />
           </fieldset>
           <br />
