@@ -69,9 +69,9 @@ export default {
       username: "MichaelCurrin",
       repoName: "badge-generator",
       licenseType: "MIT",
-      result: "_Your output will appear here_",
       useThisTemplate: false,
       ghPages: false,
+      result: "_Your output will appear here_",
     };
   },
   methods: {
