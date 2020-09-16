@@ -9,8 +9,8 @@
         <h2>Input values</h2>
 
         <form @submit.prevent.enter="submit">
-          <fieldset name="gh-repo">
-            <legend>Github repo</legend>
+          <fieldset name="ghRepo">
+            <legend>GitHub repo metadata</legend>
 
             <TextInput label="Username" v-model="username" />
             <br />
@@ -20,7 +20,11 @@
 
             <TextInput label="License" v-model="licenseType" />
             <br />
+          </fieldset>
+          <br />
 
+          <fieldset name="ghRepo">
+            <legend>Show call-to-action buttons</legend>
             <Checkbox
               label="Template"
               v-model="useThisTemplate"

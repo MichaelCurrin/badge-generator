@@ -1,12 +1,11 @@
 // Bind to given variable in parent's v-model.
-// Optionally supply `:check=true` to override default of `false`.
+// Default checked state depends on the initial value of the parent variable passed in.
 <template>
   <div>
     <span>{{ label }}: </span>
     <input
       type="checkbox"
-      checked="checked"
-      v-bind:value="value"
+      v-bind:checked="checked"
       v-on:change="$emit('input', $event.target.checked)"
     />
     <small v-if="note">
