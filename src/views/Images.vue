@@ -25,7 +25,7 @@
               label="Click target"
               v-model="linkTarget"
               placeholder="e.g. https://example.com"
-              note="Local path or external URL."
+              note="Local path or external URL. Such as docs/ or link to project site."
             />
           </fieldset>
           <br />
