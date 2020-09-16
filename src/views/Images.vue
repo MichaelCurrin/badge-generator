@@ -11,31 +11,14 @@
         <h2>Input values</h2>
 
         <form @submit.prevent.enter="submit">
-          <fieldset name="Main">
-            <legend>Main</legend>
+          <fieldset name="links">
+            <legend>Links</legend>
 
             <div>
               <span>Source (required): </span>
               <input v-model="imgSrc" placeholder="e.g. /sample.png" />
               <small>Local path or URL</small>
             </div>
-
-            <br />
-
-            <div>
-              <span>Alt text: </span>
-              <input v-model="altText" placeholder="e.g. Sample screenshot" />
-              <small>Fallback image text</small>
-            </div>
-
-            <br />
-
-            <div>
-              <span>Title: </span>
-              <input v-model="imgTitle" />
-              <small>Text to show on hover</small>
-            </div>
-
             <br />
 
             <div>
@@ -46,8 +29,23 @@
               />
               <small>Local path or external URL</small>
             </div>
+          </fieldset>
+          <br />
 
+          <fieldset name="text">
+            <legend>Text</legend>
+            <div>
+              <span>Alt text: </span>
+              <input v-model="altText" placeholder="e.g. Sample screenshot" />
+              <small>Fallback image text</small>
+            </div>
             <br />
+
+            <div>
+              <span>Title: </span>
+              <input v-model="imgTitle" />
+              <small>Text to show on hover</small>
+            </div>
           </fieldset>
           <br />
 

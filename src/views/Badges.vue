@@ -23,7 +23,7 @@
           <br />
 
           <fieldset name="buttons">
-            <legend>Show call-to-action buttons</legend>
+            <legend>Large CTA buttons</legend>
 
             <Checkbox
               label="Template"
