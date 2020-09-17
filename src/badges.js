@@ -164,7 +164,7 @@ export class Repo {
 
         var preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : '';
 
-        return `[${preLabel}![Repo ${type}](${shield})](${target})`;
+        return `[${preLabel}![${type} - ${this.repoName}](${shield})](${target})`;
     }
 }
 
