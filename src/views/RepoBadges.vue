@@ -86,6 +86,9 @@ export default {
       const tag = repo.tagBadge();
       const license = repo.licenseBadge(this.licenseType);
 
+      const stars = repo.ghSocial("stars"),
+        forks = repo.ghSocial("forks");
+
       const useThisTemplate = this.useThisTemplate
         ? repo.useThisTemplateBadge(this.useThisTemplate)
         : "";
@@ -101,6 +104,11 @@ ${release}
 ${tag}
 
 ${license}
+
+_Social_
+
+${stars}
+${forks}
 
 _Call-to-Action buttons_
 
