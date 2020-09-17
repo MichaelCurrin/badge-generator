@@ -81,10 +81,10 @@ export default {
       const repo = new Repo(this.username, this.repoName);
 
       const release = repo.tagBadge({
-        isRelease: true,
-      });
-      const tag = repo.tagBadge();
-      const license = repo.licenseBadge(this.licenseType);
+          isRelease: true,
+        }),
+        tag = repo.tagBadge(),
+        license = repo.licenseBadge(this.licenseType);
 
       const stars = repo.ghSocial("stars"),
         forks = repo.ghSocial("forks");
