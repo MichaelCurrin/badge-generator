@@ -160,20 +160,20 @@ export default {
       console.debug("Process inputs and render results");
 
       const htmlImg = mkHtmlImg(
-        this.imgSrc,
-        this.altTextOut,
-        this.imgTitleOut,
-        this.linkTarget,
-        this.width,
-        this.height,
-        this.alignCenter ? "center" : ""
-      );
-      const mdImg = markdownImageWithLink(
-        this.altTextOut,
-        this.imgSrc,
-        this.linkTarget,
-        this.imgTitleOut
-      );
+          this.imgSrc,
+          this.altTextOut,
+          this.imgTitleOut,
+          this.linkTarget,
+          this.width,
+          this.height,
+          this.alignCenter ? "center" : ""
+        ),
+        mdImg = markdownImageWithLink(
+          this.altTextOut,
+          this.imgSrc,
+          this.linkTarget,
+          this.imgTitleOut
+        );
 
       this.result = `\
 _HTML image_
