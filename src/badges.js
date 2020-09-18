@@ -198,6 +198,20 @@ export function genericBadge(label, message, color, isLarge, target) {
 
     return makeBadge(title, imgUrl, target);
 }
+const packageInfo = {
+    python: {
+        label: 'PyPI',
+        url: 'https://pypi.org/project/'
+    },
+    node: {
+        label: 'npm',
+        url: 'https://www.npmjs.com/package/'
+    },
+    ruby: {
+        label: 'rubygems',
+        url: 'https://rubygems.org/gems/'
+    },
+}
 
 // TODO: alt styles:
 //      - react : 1.2.3
@@ -207,41 +221,23 @@ export class Package {
     constructor(name, type) {
         this.name = name;
         this.type = type;
-        console.log(name, type)
-        this.isValid = name && type;
-    }
 
-    homepage() {
-        if (!this.isValid) {
-            return '';
+        this.color = 'blue'
+        this.isLarge = false
+
+        this.metadata = packageInfo[type]
+        if (!this.metadata) {
+            throw new Error("Unable to find matching provider")
         }
-
-        var url = '';
-
-        switch (this.type) {
-            case 'python':
-                url = `https://pypi.org/project/${this.name}`;
-                break;
-            case 'npm':
-                url = `https://www.npmjs.com/package/${this.name}`;
-                break;
-            case 'gem':
-                url = `https://rubygems.org/gems/${this.name}/`;
-                break;
-            default:
-                console.error(`Invalid type: ${this.type}`);
-        }
-
-        return url;
     }
 
     badge() {
         return genericBadge(
-            this.type,
+            this.metadata.label,
             this.name,
-            'blue',
-            false,
-            this.homepage()
+            this.color,
+            this.isLarge,
+            this.metadata.url
         );
     }
 }

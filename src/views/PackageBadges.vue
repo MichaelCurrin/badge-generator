@@ -30,18 +30,18 @@
 
               <input
                 type="radio"
-                id="npm"
+                id="node"
                 name="package-type"
-                value="npm"
+                value="node"
                 v-model="pkgType"
               />
-              <label for="npm">Node (NPM)</label>
+              <label for="node">Node (NPM)</label>
 
               <input
                 type="radio"
                 id="ruby"
                 name="package-type"
-                value="gem"
+                value="ruby"
                 v-model="pkgType"
               />
               <label for="ruby">Ruby (Rubygems)</label>
