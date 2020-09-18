@@ -12,18 +12,18 @@ export const routes = [
     component: Home,
   },
   {
-    path: "/repo-badges",
-    name: "Repo Badges",
+    path: "/repo",
+    name: "Repo",
     component: () => import("../views/RepoBadges.vue"),
   },
   {
-    path: "/generic-badges",
-    name: "Generic Badges",
+    path: "/generic",
+    name: "Generic",
     component: () => import("../views/GenericBadges.vue"),
   },
   {
-    path: "/package-badges",
-    name: "Package Badges",
+    path: "/package",
+    name: "Package",
     component: () => import("../views/PackageBadges.vue"),
   },
   {
