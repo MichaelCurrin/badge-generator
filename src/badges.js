@@ -9,7 +9,7 @@ const SHIELDS_API = 'https://img.shields.io',
     GITHUB = 'https://github.com',
     DEFAULT_COLOR = 'blue',
     DEFAULT_BRANCH = 'master';
-
+// TODO handle as map to make it easy to add multiple params.
 const STYLES = {
     FOR_THE_BADGE: '?style=for-the-badge',
     SOCIAL: '?style=social'
@@ -214,9 +214,10 @@ const packageInfo = {
 }
 
 // TODO: alt styles:
-//      - react : 1.2.3
+//      - 'react : 1.2.3'
 //      - Get dynamically from package.json
-//      - dependency: react
+//      - 'dependency: react'
+// TODO add logo for Python etc.
 export class Package {
     constructor(name, type) {
         this.name = name;
