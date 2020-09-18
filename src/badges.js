@@ -177,7 +177,7 @@ export function genericBadge(label, message, color, isLarge, target) {
     var title = [
         label,
         message
-    ].join(' ');
+    ].join(' - ');
 
     if (label) {
         var pieces = [
@@ -207,7 +207,7 @@ export class Package {
     constructor(name, type) {
         this.name = name;
         this.type = type;
-
+        console.log(name, type)
         this.isValid = name && type;
     }
 
@@ -236,14 +236,12 @@ export class Package {
     }
 
     badge() {
-        var params = {
-            label: this.type,
-            message: this.name,
-            color: 'blue',
-            isLarge: false,
-            target: this.homepage()
-        };
-
-        return genericBadge(params);
+        return genericBadge(
+            this.type,
+            this.name,
+            'blue',
+            false,
+            this.homepage()
+        );
     }
 }
