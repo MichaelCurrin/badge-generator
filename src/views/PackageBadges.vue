@@ -82,10 +82,9 @@ export default {
     submit: function () {
       console.debug("Process inputs and render results");
 
-      console.log(this.pkgName, this.pkgType);
       const pkg = new Package(this.pkgName, this.pkgType),
         badge = pkg.badge();
-      console.log(badge);
+
       this.result = `\
 ${badge}
         `;
