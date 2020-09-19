@@ -32,6 +32,13 @@
             >MichaelCurrin/badge-generator</a
           >
         </p>
+
+        <p>
+          This is an online tool which generates badges to add to your GitHub
+          repo's README.md file, to help people learn about your repo at a
+          glance and also for a professional look.<br />
+          I use this tool regularly for myself - I hope you will too.
+        </p>
       </div>
     </div>
   </div>
