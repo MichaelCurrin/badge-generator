@@ -1,5 +1,7 @@
 # Badge generator
-> Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges
+> Online tool to magically generate badges that you can paste in your README.md file
+
+Built with Vue. Hosted on GH Pages. Made for GitHub repo.
 
 
 ## Project site
