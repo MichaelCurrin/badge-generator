@@ -12,7 +12,7 @@ export function mkHtmlImg(
   height,
   alignAttr
 ) {
-  var htmlTitle = title ? ` title="${title}"` : "",
+  const htmlTitle = title ? ` title="${title}"` : "",
     htmlAltText = alt ? ` alt="${alt}"` : "",
     htmlWidth = width ? ` width="${width}"` : "",
     htmlHeight = height ? ` height="${height}"` : "";
