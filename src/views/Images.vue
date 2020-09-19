@@ -79,15 +79,9 @@
 
           <input class="btn" type="submit" value="Submit" />
         </form>
-      </div>
 
-      <!-- TODO make component -->
-      <div class="app-notes">
-        <h2>Help</h2>
-
-        <details>
-          <summary>Click to show/hide notes</summary>
-          <p>
+        <Help
+          message="<p>
             Tip: Pressing the <kbd>Enter</kbd> key after updating a text field
             will also submit.
           </p>
@@ -107,8 +101,8 @@
             Warning: If you set height only to say 400, then the image in the
             README.md will look fine on desktop but ends up looking distorted on
             mobile.
-          </p>
-        </details>
+          </p>"
+        />
       </div>
     </div>
 
@@ -120,6 +114,7 @@
 
 <script>
 import Checkbox from "@/components/Checkbox.vue";
+import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
@@ -131,6 +126,7 @@ export default {
   name: "Images",
   components: {
     Checkbox,
+    Help,
     Results,
     TextInput,
   },

@@ -43,17 +43,9 @@
           <input class="btn" type="submit" value="Submit" />
         </form>
 
-        <div class="app-notes">
-          <h2>Help</h2>
-          <details>
-            <summary>Click to show/hide notes</summary>
-            <p>
-              Note that HTML <code>align</code> attribute is being deprecated in
-              favor of CSS. But in markdown on GitHub you cannot set CSS even
-              inline and so must use the <code>align</code> attribute.
-            </p>
-          </details>
-        </div>
+        <Help
+          message="Note that HTML `align` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the `align` attribute."
+        />
       </div>
     </div>
 
@@ -65,6 +57,7 @@
 
 <script>
 import { Repo } from "@/badges";
+import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
@@ -73,6 +66,7 @@ export default {
   name: "RepoBadges",
   components: {
     Checkbox,
+    Help,
     Results,
     TextInput,
   },

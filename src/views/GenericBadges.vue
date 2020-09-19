@@ -48,6 +48,11 @@
 
           <input class="btn" type="submit" value="Submit" />
         </form>
+
+        <Help
+          message="Create a fixed badge using arbitrary text and a link. For example, describe a tools or platforms your repo is built on or built for running. This form takes care of encoding characters so they are safe     for the badge URL. Warning: hyphens are not supported and will break
+          the badge."
+        />
       </div>
     </div>
 
@@ -60,6 +65,7 @@
 <script>
 import { genericBadge } from "@/badges";
 import Checkbox from "@/components/Checkbox.vue";
+import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
@@ -67,6 +73,7 @@ export default {
   name: "GenericBadges",
   components: {
     Checkbox,
+    Help,
     Results,
     TextInput,
   },
