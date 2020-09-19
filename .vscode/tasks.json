@@ -9,15 +9,6 @@
 			],
 			"label": "npm: serve",
 			"detail": "vue-cli-service serve"
-		},
-		{
-			"type": "npm",
-			"script": "lint",
-			"problemMatcher": [
-				"$eslint-compact"
-			],
-			"label": "npm: lint",
-			"detail": "vue-cli-service lint"
 		}
 	]
 }
