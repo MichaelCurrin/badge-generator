@@ -59,3 +59,27 @@ That gave errors:
 So tried this which fixed the error.
 
     yarn add -D babel-runtime
+
+
+## Components
+
+### Checkbox
+
+[Checkbox.vue](/src/components/Checkbox.vue)
+
+Bind to given variable in parent's v-model.
+
+Use `:checked="foo"` in addition to `v-model="foo"`, so you can set default state.
+
+### TextInput
+
+[TextInput.vue](/src/components/TextInput.vue)
+
+Allow a given variable from the parent to be used here and push changes back
+up using events.
+
+Quickstart:
+
+```vue
+<TextInput label="" v-model="" placeholder="" note="" />
+```

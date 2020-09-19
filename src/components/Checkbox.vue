@@ -1,9 +1,3 @@
-/*
- * Checkbox component
- *
- * Bind to given variable in parent's v-model. Set default state using
- * :checked="foo", in addition to v-model="foo".
- */
 <template>
   <div>
     <span>{{ label }}: </span>

@@ -1,10 +1,3 @@
-/*
- * TextInput component
- *
- * Allow a given variable from the parent to be used here and push changes back
- * up using events.
- * Quickstart: <TextInput label="" v-model="" placeholder="" note="" />
- */
 <template>
   <div>
     <span>{{ label }}: </span>
