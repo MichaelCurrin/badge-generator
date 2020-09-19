@@ -31,11 +31,6 @@ export const routes = [
     name: "Images",
     component: () => import("../views/Images.vue"),
   },
-  {
-    path: "/about",
-    name: "About",
-    component: () => import("../views/About.vue"),
-  },
 ];
 
 const router = new VueRouter({
