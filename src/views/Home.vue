@@ -37,7 +37,16 @@
           This is an online tool which generates badges to add to your GitHub
           repo's README.md file, to help people learn about your repo at a
           glance and also for a professional look.<br />
-          I use this tool regularly for myself - I hope you will too.
+          This tool adds convenience to your life so you can make badges quickly
+          and easily and get on with the coding.
+          <br />For badges that you need to create regularly, there's no need to
+          look at <i>shields.io</i> to figure out how it works or to write the
+          markdown by hand (and do all the tedious things like escaping
+          characters and learning the syntax for each badge.
+          <br />
+          I use this tool regularly for myself - I hope you will too. If you
+          want to contribute, issues and PRs are welcome.
+          <br />PS. This site works best on a desktop screen size.
         </p>
       </div>
     </div>
