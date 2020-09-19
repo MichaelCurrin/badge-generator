@@ -42,6 +42,18 @@
 
           <input class="btn" type="submit" value="Submit" />
         </form>
+
+        <div class="app-notes">
+          <h2>Help</h2>
+          <details>
+            <summary>Click to show/hide notes</summary>
+            <p>
+              Note that HTML <code>align</code> attribute is being deprecated in
+              favor of CSS. But in markdown on GitHub you cannot set CSS even
+              inline and so must use the <code>align</code> attribute.
+            </p>
+          </details>
+        </div>
       </div>
     </div>
 

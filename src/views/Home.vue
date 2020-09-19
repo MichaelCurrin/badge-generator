@@ -33,25 +33,31 @@
           >
         </p>
 
-        <p>
-          This is an online tool which generates badges (or "shield") based on
-          your inputs. You can preview the badges on the tool and then copy the
-          markdown/HTML to your GitHub repo's <b>README.md</b> file. Those
-          badges can help people learn about your repo at a glance and make it
-          look professional.
-          <br />
-          This tool adds <b>convenience</b> and <b>productivity</b> to your life
-          so you can make badges quickly and easily and get on with the coding.
-          <br />
-          For badges that you need to create regularly, there's no need to look
-          at <i>shields.io</i> to figure out how it works or to write the
-          markdown by hand (and do all the tedious things like escaping
-          characters and learning the syntax for each badge.
-          <br />
-          I use this tool regularly for myself - I hope you will too. If you
-          want to contribute, issues and PRs are welcome.
-          <br />PS. This site works best on a desktop screen size.
-        </p>
+        <div>
+          <p>
+            This is an online tool which generates badges (or "shield") based on
+            your inputs. You can preview the badges on the tool and then copy
+            the markdown/HTML to your GitHub repo's <b>README.md</b> file. Those
+            badges can help people learn about your repo at a glance and make it
+            look professional.
+          </p>
+          <p>
+            This tool adds <b>convenience</b> and <b>productivity</b> to your
+            life so you can make badges quickly and easily and get on with the
+            coding.
+          </p>
+          <p>
+            For badges that you need to create regularly, there's no need to
+            look at <i>shields.io</i> to figure out how it works or to write the
+            markdown by hand (and do all the tedious things like escaping
+            characters and learning the syntax for each badge.
+          </p>
+          <p>
+            I use this tool regularly for myself - I hope you will too. If you
+            want to contribute, issues and PRs are welcome.
+          </p>
+          <p>PS. This site works best on a desktop screen size.</p>
+        </div>
       </div>
     </div>
   </div>
