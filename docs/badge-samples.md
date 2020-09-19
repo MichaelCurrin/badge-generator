@@ -2,12 +2,12 @@
 
 <!-- When this is cleaned up to be interactive, hardcoded cases here can be used as unit tests. -->
 
-Reference for badges or shields for Github projects.
+Reference for badges or shields for GitHub projects.
 
 Badge sources:
 
-- [github.com/badges/shields](https://github.com/badges/shields)
-- [shields.io](https://shields.io/)
+- Repo: [badges/shields](https://github.com/badges/shields)
+- Site: [shields.io](https://shields.io/)
 
 For URL encoding, see this [tool](https://www.urlencoder.org/) or [percent encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding) (linked from shields.io). It might be safer to always encode, though its less readable. This may not always be needed. Like `/` works fine. But `-` even encoded still breaks a badge that uses it as a separator.
 
