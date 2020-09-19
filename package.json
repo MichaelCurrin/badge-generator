@@ -1,6 +1,6 @@
 {
   "name": "badge-generator",
-  "description": "Online tool to help you quickly generate tailor-made badges/shields for your repo docs and learn to work with badges",
+  "description": "Online tool to magically generate badges that you can paste in your README.md file",
   "version": "0.7.0",
   "author": "MichaelCurrin",
   "scripts": {
