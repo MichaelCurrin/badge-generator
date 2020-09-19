@@ -20,3 +20,8 @@ In particular the use of `vue-markdown`, splitting the layout vertically and use
 This skeleton of this project is based on this one:
 
 - https://github.com/MichaelCurrin/vue-router-quickstart
+
+
+## Badge generator topic on GitHub
+
+- https://github.com/topics/badge-generator
