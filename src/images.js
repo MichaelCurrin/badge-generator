@@ -3,11 +3,19 @@
  */
 
 // TODO There must be cleaner way to calculate this and lay it out. Use Vue?
-export function mkHtmlImg(src, alt, title, target = '', width, height, alignAttr) {
-  var htmlTitle = title ? ` title="${title}"` : '',
-    htmlAltText = alt ? ` alt="${alt}"` : '',
-    htmlWidth = width ? ` width="${width}"` : '',
-    htmlHeight = height ? ` height="${height}"` : '';
+export function mkHtmlImg(
+  src,
+  alt,
+  title,
+  target = "",
+  width,
+  height,
+  alignAttr
+) {
+  var htmlTitle = title ? ` title="${title}"` : "",
+    htmlAltText = alt ? ` alt="${alt}"` : "",
+    htmlWidth = width ? ` width="${width}"` : "",
+    htmlHeight = height ? ` height="${height}"` : "";
 
   var htmlImg = `<img src="${src}"${htmlAltText}${htmlTitle}${htmlWidth}${htmlHeight} />`;
   if (target) {
