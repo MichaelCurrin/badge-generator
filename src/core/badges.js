@@ -189,10 +189,11 @@ function buildUrl(urlStr, params) {
 }
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
+// Color must be set in the label-message-color or message-color format.
 export function genericBadge(
   label = "",
   message = "",
-  color = "",
+  color = "blue",
   isLarge = false,
   target = "",
   logo = "",
@@ -201,17 +202,18 @@ export function genericBadge(
   if (!message) {
     return "";
   }
-
   const title = [label, message].join(" - ");
 
-  let pieces;
+  label = encode(label);
+  message = encode(message)
+
+  let pieces = [message, color]
   if (label) {
-    pieces = [label, message, color];
-  } else {
-    pieces = [message, color];
+    pieces.unshift(label);
   }
-  const shield = pieces.join("-").replace(" ", "_"),
-    imgUrl = `${SHIELDS_BADGE}/${shield}`;
+  const shield = pieces.join("-");
+
+  const imgUrl = `${SHIELDS_BADGE}/${shield}`;
 
   let params = {};
   if (isLarge) {
@@ -219,7 +221,9 @@ export function genericBadge(
   }
   if (logo) {
     params.logo = logo;
-    params.logoColor = logoColor;
+    if (logoColor) {
+      params.logoColor = logoColor;
+    }
   }
   const fullUrl = buildUrl(imgUrl, params);
 
