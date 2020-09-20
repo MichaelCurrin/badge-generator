@@ -63,11 +63,12 @@
 </template>
 
 <script>
-import { genericBadge } from "@/badges";
 import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
+
+import { genericBadge } from "@/core/badges";
 
 export default {
   name: "GenericBadges",

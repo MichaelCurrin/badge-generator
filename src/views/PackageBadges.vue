@@ -61,9 +61,10 @@
 </template>
 
 <script>
-import { Package } from "@/badges";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
+
+import { Package } from "@/core/badges";
 
 export default {
   name: "PackageBadges",

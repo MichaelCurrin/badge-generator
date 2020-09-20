@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { DESCRIPTION } from "@/constants";
+import { DESCRIPTION } from "@/core/constants";
 
 export default {
   name: "Home",

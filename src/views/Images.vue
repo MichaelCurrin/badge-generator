@@ -113,14 +113,15 @@
 </template>
 
 <script>
+import { stripLeadingSlash } from "@/lib";
+
 import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { markdownImageWithLink } from "../badges";
-import { mkHtmlImg } from "../images";
-import { stripLeadingSlash } from "../lib";
+import { markdownImageWithLink } from "@/core/badges";
+import { mkHtmlImg } from "@/core/images";
 
 export default {
   name: "Images",

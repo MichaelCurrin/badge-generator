@@ -56,11 +56,12 @@
 </template>
 
 <script>
-import { Repo } from "@/badges";
 import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
+
+import { Repo } from "@/core/badges";
 
 export default {
   name: "RepoBadges",
