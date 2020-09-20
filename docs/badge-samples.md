@@ -119,6 +119,19 @@ With emojis.
 
 ### Docs
 
+Link to docs `/docs` directory.
+
+[![View Project Docs](https://img.shields.io/badge/View-Project_Docs-green?style=for-the-badge)](/docs/)
+
+```markdown
+[![View Project Docs](https://img.shields.io/badge/View-Project_Docs-green?style=for-the-badge)](/docs/)
+```
+
+Link to docs site.
+
+[![Docs site](https://img.shields.io/badge/docs-Github_Pages-blue)](https://michaelcurrin.github.io/badge-generator)
+
+
 ```markdown
 [![Docs site](https://img.shields.io/badge/docs-Github_Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
 ```
