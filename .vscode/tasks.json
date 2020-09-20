@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "serve",
+			"problemMatcher": [
+				"$eslint-compact"
+			],
+			"label": "npm: serve",
+			"detail": "vue-cli-service serve"
+		}
+	]
+}
