@@ -1,12 +1,13 @@
 # Badge generator :shield: :badger: :mage:
 > Magically generate custom badges that you can paste in your docs
 
+[![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/tags/?include_prereleases&sort=semver)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
 [![Made with Node](https://img.shields.io/badge/Node.js->=10.X-blue?logo=node.js&logoColor=white)](https://nodejs.org)
 [![Made with Yarn](https://img.shields.io/badge/Yarn->=1-blue?logo=yarn&logoColor=white)](https://classic.yarnpkg.com)
-[![Made with Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/vue-quickstart/vue?logo=vue.js)](https://www.npmjs.com/package/vue)
+[![Made with Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue)
 
 
 ## Online tool
