@@ -180,12 +180,12 @@ summary {
 .col-6 {
   flex: 1;
   padding: 8px;
-  min-width: 300px;
+  min-width: 200px;
 }
 
 .col-12 {
   width: 100%;
-  min-width: 600px;
+  min-width: 200px;
 }
 
 .note {
