@@ -49,7 +49,6 @@ function encode(value, spaceToUnderscore = true) {
     if (spaceToUnderscore) {
         value = value.replace(' ', '_');
     }
-
     return encodeURI(value);
 }
 
