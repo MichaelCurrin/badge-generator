@@ -84,17 +84,13 @@ export class Repo {
     }
     // TODO add variation that has a docs site for the text. And add custom text options.
     ghPagesBadge() {
-        const target = this.ghPagesURL()
+        const label = 'View site',
+            message = 'GH Pages',
+            color = 'green',
+            isLarge = true,
+            target = this.ghPagesURL();
 
-        const params = {
-            label: 'View site',
-            message: 'GH Pages',
-            color: 'green',
-            isLarge: true,
-            target: target
-        };
-
-        return genericBadge(params);
+        return genericBadge(label, message, color, isLarge, target);
     }
     useThisTemplateBadge() {
         if (this.isValid) {
