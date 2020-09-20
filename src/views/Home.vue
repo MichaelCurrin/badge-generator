@@ -33,6 +33,12 @@
           >
         </p>
 
+        <p>
+          <i>{{ description }}</i>
+        </p>
+      </div>
+
+      <div>
         <div>
           <p>
             This is an online tool which generates badges (or "shield") based on
@@ -64,7 +70,14 @@
 </template>
 
 <script>
+import { DESCRIPTION } from "@/constants";
+
 export default {
   name: "Home",
+  data() {
+    return {
+      description: DESCRIPTION,
+    };
+  },
 };
 </script>
