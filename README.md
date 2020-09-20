@@ -35,6 +35,11 @@ See also the [docs](/docs/) directory.
 - Submit a PR to add an improvement, using a feature branch on your fork.
 
 
+## Credits
+
+- [favicon.ico](/public/favicon.ico) - https://favicon.io/emoji-favicons/badger/
+
+
 ## License
 
 - Released under [MIT License](/LICENSE).
