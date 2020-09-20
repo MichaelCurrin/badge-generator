@@ -1,56 +1,64 @@
 <template>
-  <div class="badges container-lg row">
-    <div class="col-12">
-      <h1>Repo badges</h1>
+  <div class="badges container-lg">
+    <div class="row">
+      <div class="col-12">
+        <h1>Repo badges</h1>
+      </div>
     </div>
 
-    <div class="col-6">
-      <div class="app-input">
-        <h2>Input values</h2>
+    <div class="row">
+      <div class="col-6">
+        <div class="app-input">
+          <h2>Input values</h2>
 
-        <form @submit.prevent.enter="submit">
-          <fieldset name="ghRepo">
-            <legend>GitHub repo metadata</legend>
+          <form @submit.prevent.enter="submit">
+            <fieldset name="ghRepo">
+              <legend>GitHub repo metadata</legend>
 
-            <TextInput label="Username" v-model="username" />
+              <TextInput label="Username" v-model="username" />
+              <br />
+
+              <TextInput label="Repo name" v-model="repoName" />
+              <br />
+
+              <TextInput label="License" v-model="licenseType" />
+            </fieldset>
             <br />
 
-            <TextInput label="Repo name" v-model="repoName" />
+            <fieldset name="buttons">
+              <legend>Large CTA buttons</legend>
+
+              <Checkbox
+                label="Template"
+                v-model="useThisTemplate"
+                note="Add a <i>Use This Template</i> button."
+              />
+              <br />
+
+              <Checkbox
+                label="GitHub Pages"
+                v-model="ghPages"
+                note="Add link to a GitHub Pages site."
+              />
+            </fieldset>
             <br />
 
-            <TextInput label="License" v-model="licenseType" />
-          </fieldset>
-          <br />
+            <input class="btn" type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
 
-          <fieldset name="buttons">
-            <legend>Large CTA buttons</legend>
+      <div class="col-6">
+        <Results :result="result" />
+      </div>
+    </div>
 
-            <Checkbox
-              label="Template"
-              v-model="useThisTemplate"
-              note="Add a <i>Use This Template</i> button."
-            />
-            <br />
-
-            <Checkbox
-              label="GitHub Pages"
-              v-model="ghPages"
-              note="Add link to a GitHub Pages site."
-            />
-          </fieldset>
-          <br />
-
-          <input class="btn" type="submit" value="Submit" />
-        </form>
-
+    <div class="row">
+      <div class="col-12">
         <Help
           message="Note that HTML `align` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the `align` attribute."
         />
       </div>
-    </div>
-
-    <div class="col-6">
-      <Results :result="result" />
     </div>
   </div>
 </template>

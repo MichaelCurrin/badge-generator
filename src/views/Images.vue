@@ -1,85 +1,99 @@
 <template>
-  <div class="images container-lg row">
-    <div class="col-12">
-      <h1>Images</h1>
+  <div class="images container-lg">
+    <div class="row">
+      <div class="col-12">
+        <h1>Images</h1>
 
-      <p>Prepare a logo or sample screenshot image for your README.md file.</p>
+        <p>
+          Prepare a logo or sample screenshot image for your README.md file.
+        </p>
+      </div>
     </div>
 
-    <div class="col-6">
-      <div class="app-input">
-        <h2>Input values</h2>
+    <div class="row">
+      <div class="col-6">
+        <div class="app-input">
+          <h2>Input values</h2>
 
-        <form @submit.prevent.enter="submit">
-          <fieldset name="links">
-            <legend>Links</legend>
+          <form @submit.prevent.enter="submit">
+            <fieldset name="links">
+              <legend>Links</legend>
 
-            <TextInput
-              label="Source (required)"
-              v-model="imgSrc"
-              placeholder="e.g. /sample.png"
-              note="Local path or URL."
-            />
+              <TextInput
+                label="Source (required)"
+                v-model="imgSrc"
+                placeholder="e.g. /sample.png"
+                note="Local path or URL."
+              />
 
-            <TextInput
-              label="Click target"
-              v-model="linkTarget"
-              placeholder="e.g. https://example.com"
-              note="Local path or external URL. Such as docs/ or link to project site."
-            />
-          </fieldset>
-          <br />
-
-          <fieldset name="text">
-            <legend>Text</legend>
-
-            <TextInput
-              label="Alt text"
-              v-model="altText"
-              placeholder="e.g. Sample screenshot"
-              note="Fallback image text on broken link. If not set, the image path will be used"
-            />
+              <TextInput
+                label="Click target"
+                v-model="linkTarget"
+                placeholder="e.g. https://example.com"
+                note="Local path or external URL. Such as docs/ or link to project site."
+              />
+            </fieldset>
             <br />
 
-            <TextInput
-              label="Title"
-              v-model="imgTitle"
-              note="Text to show on hover."
-            />
-          </fieldset>
-          <br />
+            <fieldset name="text">
+              <legend>Text</legend>
 
-          <fieldset id="appearance">
-            <legend>Appearance</legend>
+              <TextInput
+                label="Alt text"
+                v-model="altText"
+                placeholder="e.g. Sample screenshot"
+                note="Fallback image text on broken link. If not set, the image path will be used"
+              />
+              <br />
 
-            <TextInput
-              label="Width"
-              v-model="width"
-              placeholder="e.g. 400"
-              note="Measured in pixels. No px is needed."
-            />
+              <TextInput
+                label="Title"
+                v-model="imgTitle"
+                note="Text to show on hover."
+              />
+            </fieldset>
             <br />
 
-            <TextInput
-              label="Height"
-              v-model="height"
-              placeholder="e.g. 400"
-              note="Recommended: Set height only if width is set too, as just height can cause distortion on mobile view"
-            />
+            <fieldset id="appearance">
+              <legend>Appearance</legend>
+
+              <TextInput
+                label="Width"
+                v-model="width"
+                placeholder="e.g. 400"
+                note="Measured in pixels. No px is needed."
+              />
+              <br />
+
+              <TextInput
+                label="Height"
+                v-model="height"
+                placeholder="e.g. 400"
+                note="Recommended: Set height only if width is set too, as just height can cause distortion on mobile view"
+              />
+              <br />
+
+              <Checkbox
+                label="Align center"
+                v-model="alignCenter"
+                :checked="alignCenter"
+              />
+            </fieldset>
+
             <br />
 
-            <Checkbox
-              label="Align center"
-              v-model="alignCenter"
-              :checked="alignCenter"
-            />
-          </fieldset>
+            <input class="btn" type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
 
-          <br />
+      <div class="col-6">
+        <Results :result="result" />
+      </div>
+    </div>
 
-          <input class="btn" type="submit" value="Submit" />
-        </form>
-
+    <div class="row">
+      <div class="col-12">
         <Help
           message="<p>
             Tip: Pressing the <kbd>Enter</kbd> key after updating a text field
@@ -104,10 +118,6 @@
           </p>"
         />
       </div>
-    </div>
-
-    <div class="col-6">
-      <Results :result="result" />
     </div>
   </div>
 </template>

@@ -1,20 +1,24 @@
 <template>
-  <div class="images container-lg row">
-    <div class="col-12">
-      <h1>Catalogue</h1>
+  <div class="images container-lg">
+    <div class="row">
+      <div class="col-12">
+        <h1>Catalogue</h1>
 
-      <p>
-        Choose from pre-built badges that can be copied to your docs without any
-        updates needed. These badges are all static, as they used fixed choices
-        of text, logos, colors and external links.
-      </p>
+        <p>
+          Choose from pre-built badges that can be copied to your docs without
+          any updates needed. These badges are all static, as they used fixed
+          choices of text, logos, colors and external links.
+        </p>
+      </div>
     </div>
 
-    <div class="col-6">
-      <div v-for="item in tools" v-bind:key="item">
-        <vue-markdown>{{ item }}</vue-markdown>
-        <pre><code>{{ item }}</code></pre>
-        <br />
+    <div class="row">
+      <div class="col-12">
+        <div v-for="item in tools" v-bind:key="item">
+          <vue-markdown>{{ item }}</vue-markdown>
+          <pre><code>{{ item }}</code></pre>
+          <br />
+        </div>
       </div>
     </div>
   </div>

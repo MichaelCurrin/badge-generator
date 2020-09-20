@@ -66,8 +66,10 @@ export default {
 /**
  * GitHub Pages
  *
- * Based on GitHub Pages built markdown site (without Jekyll)
+ * Based on GitHub Pages built markdown site (without Jekyll).
  */
+
+/* Center app. */
 .container-lg {
   max-width: 1012px;
   margin-right: auto;
@@ -169,7 +171,7 @@ summary {
   background: linear-gradient(to top, #42b983, #3aa776);
 }
 
-/* Flexbox - based on GH pages, Bootstrap and the GH Readme Generator. */
+/* Flexbox - based on GH pages, Bootstrap and the GH Readme Generator. There is a better to do this using @media instead of min-width values (the min-width goes off-screen on a really small resolution when tested on desktop but this could be unrealistic). */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -178,10 +180,12 @@ summary {
 .col-6 {
   flex: 1;
   padding: 8px;
+  min-width: 300px;
 }
 
 .col-12 {
   width: 100%;
+  min-width: 600px;
 }
 
 .note {
