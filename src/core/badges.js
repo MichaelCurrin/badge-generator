@@ -44,12 +44,15 @@ export function markdownImageWithLink(
  * Specifically for this shields.io API, convert spaces to underscores to prevent
  * them be converted to '%20' and so keep them readable. A '+' sign might work too.
  * Note that GH Actions needs a '%20' and not an underscore.
+ * Note that '>' and '<' are valid on shields.io and should not be encoded.
  */
 function encode(value, spaceToUnderscore = true) {
   if (spaceToUnderscore) {
     value = value.replace(" ", "_");
   }
-  return encodeURI(value);
+  const encoded = encodeURI(value)
+
+  return encoded.replace('%3E', '>').replace('%3C', '<');
 }
 
 /**
@@ -176,7 +179,7 @@ export class Repo {
  *
  * Note the URL must have a protocol or it will be considered invalid.
  *
- * Returns as a string.
+ * Returns as a string. The URL API encodes, so reverse this for badges.
  */
 function buildUrl(urlStr, params) {
   let url = new URL(urlStr);
@@ -185,7 +188,7 @@ function buildUrl(urlStr, params) {
     url.searchParams.append(key, value);
   }
 
-  return url.href;
+  return decodeURI(url.href);
 }
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
@@ -203,8 +206,7 @@ export function genericBadge(
     return "";
   }
   const title = [label, message].join(" - ");
-
-  label = encode(label);
+  label = encode(label)
   message = encode(message)
 
   let pieces = [message, color]
@@ -225,9 +227,9 @@ export function genericBadge(
       params.logoColor = logoColor;
     }
   }
-  const fullUrl = buildUrl(imgUrl, params);
+  const fullImgUrl = buildUrl(imgUrl, params);
 
-  return makeBadge(title, fullUrl, target);
+  return makeBadge(title, fullImgUrl, target);
 }
 
 // TODO: alt styles:
