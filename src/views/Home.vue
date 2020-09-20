@@ -25,7 +25,7 @@
           </span>
         </small>
 
-        <!-- TODO replace with better GH badge and with markdown maybe. A corner badge would help too -->
+        <!-- TODO replace with better GH badge and with markdown maybe. Need new style to handle hyphen. A corner badge would help too -->
         <p>
           GitHub repo:
           <a href="https://github.com/MichaelCurrin/badge-generator"
