@@ -50,9 +50,9 @@ function encode(value, spaceToUnderscore = true) {
   if (spaceToUnderscore) {
     value = value.replace(" ", "_");
   }
-  const encoded = encodeURI(value)
+  const encoded = encodeURI(value);
 
-  return encoded.replace('%3E', '>').replace('%3C', '<');
+  return encoded.replace("%3E", ">").replace("%3C", "<");
 }
 
 /**
@@ -206,10 +206,10 @@ export function genericBadge(
     return "";
   }
   const title = [label, message].join(" - ");
-  label = encode(label)
-  message = encode(message)
+  label = encode(label);
+  message = encode(message);
 
-  let pieces = [message, color]
+  let pieces = [message, color];
   if (label) {
     pieces.unshift(label);
   }
