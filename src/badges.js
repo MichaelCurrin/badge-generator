@@ -30,7 +30,7 @@ function markdownImage(altText, imageTarget, hoverTitle = '') {
 
 // TODO: Add pre-label as social badges have.
 export function markdownImageWithLink(altText, imageTarget, linkTarget = '', hoverTitle = '') {
-    var image = markdownImage(altText, imageTarget, hoverTitle);
+    const image = markdownImage(altText, imageTarget, hoverTitle);
 
     if (linkTarget) {
         return markdownLink(image, linkTarget);
@@ -73,8 +73,8 @@ export class Repo {
         // But preserve case for the comparison. Note Project page needs trailing forward slash
         // but User page is without.
 
-        var ghDomain = `${this.username}.github.io`;
-        var fullDomain = `https://${ghDomain.toLowerCase()}`;
+        const ghDomain = `${this.username}.github.io`,
+            fullDomain = `https://${ghDomain.toLowerCase()}`;
 
         if (this.repoName === ghDomain) {
             return fullDomain;
@@ -94,10 +94,11 @@ export class Repo {
     }
     useThisTemplateBadge() {
         if (this.isValid) {
-            var text = 'Use_this_template',
+            // Match the text and color of GitHub's template button.
+            const text = 'Use_this_template',
                 color = '2ea44f';
 
-            var title = 'Use this template',
+            const title = 'Use this template',
                 imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}&logo=github`,
                 repoUrl = this.ghURL(),
                 extUrl = `${repoUrl}/generate`;
@@ -112,16 +113,17 @@ export class Repo {
         if (!this.isValid) {
             return '';
         }
-        var type = isRelease ? 'release' : 'tag';
+
+        const type = isRelease ? 'release' : 'tag';
         // Based on example on shields.io tool. Prerelease is important for releases < v1 to not show as missing.
         // It's not so important for tags as < v1 will show, but alpha will show. Semver is preferred to sorting
         // by date (the default).
-        var params = '?include_prereleases&sort=semver';
+        const params = '?include_prereleases&sort=semver';
 
-        var title = `GitHub ${type}`,
+        const title = `GitHub ${type}`,
             imgUrl = `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}`;
 
-        var repoUrl = this.ghURL(),
+        const repoUrl = this.ghURL(),
             extUrl = `${repoUrl}/${type}s/${params}`;
 
         return makeBadge(title, imgUrl, extUrl);
@@ -129,15 +131,16 @@ export class Repo {
 
     licenseBadge(licenseType, localLicense = true) {
         if (licenseType && this.isValid) {
-            var title = `License: ${licenseType}`,
+            const title = `License: ${licenseType}`,
                 imgUrl = `${SHIELDS_BADGE}/License-${licenseType}-${DEFAULT_COLOR}`;
 
+            let target;
             if (localLicense) {
-                var target = '#license';
+                target = '#license';
             }
             else {
-                var repoUrl = this.ghURL(),
-                    target = `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
+                const repoUrl = this.ghURL();
+                target = `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
             }
 
             return makeBadge(title, imgUrl, target);
@@ -155,10 +158,10 @@ export class Repo {
             return '';
         }
 
-        var shield = this._ghSocialShield(type);
-        var target = this.ghURL();
+        const shield = this._ghSocialShield(type);
+        const target = this.ghURL();
 
-        var preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : '';
+        const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : '';
 
         return `[${preLabel}![${type} - ${this.repoName}](${shield})](${target})`;
     }
@@ -170,25 +173,26 @@ export function genericBadge(label, message, color, isLarge, target) {
         return '';
     }
 
-    var title = [
+    const title = [
         label,
         message
     ].join(' - ');
 
+    let pieces;
     if (label) {
-        var pieces = [
+        pieces = [
             label,
             message,
             color
         ];
     }
     else {
-        var pieces = [
+        pieces = [
             message,
             color
         ];
     }
-    var shield = pieces.join('-').replace(' ', '_'),
+    const shield = pieces.join('-').replace(' ', '_'),
         style = isLarge ? STYLES.FOR_THE_BADGE : '',
         imgUrl = `${SHIELDS_BADGE}/${shield}${style}`;
 
@@ -206,8 +210,8 @@ const packageInfo = {
     ruby: {
         label: 'rubygems',
         url: 'https://rubygems.org/gems/'
-    },
-}
+    }
+};
 
 // TODO: alt styles:
 //      - 'react : 1.2.3'
@@ -219,12 +223,12 @@ export class Package {
         this.name = name;
         this.type = type;
 
-        this.color = 'blue'
-        this.isLarge = false
+        this.color = 'blue';
+        this.isLarge = false;
 
-        this.metadata = packageInfo[type]
+        this.metadata = packageInfo[type];
         if (!this.metadata) {
-            throw new Error("Unable to find matching provider")
+            throw new Error('Unable to find matching provider');
         }
     }
 
