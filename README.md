@@ -20,6 +20,15 @@
 </div>
 
 
+## Documentation
+
+The steps to install and run locally and to deploy on GH pages can be followed using the [vue-quickstart docs][] - just change the cloned project name to `badge-generator` instead of `vue-quickstart`.
+
+See also the [docs](/docs/) directory.
+
+[vue-quickstart docs]: https://github.com/MichaelCurrin/vue-quickstart/tree/master/docs
+
+
 ## Contributing
 
 - Create an issue to request a feature.
