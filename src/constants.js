@@ -1,3 +1,7 @@
+import * as pkg from "../package.json";
+
+export const DESCRIPTION = pkg.description;
+
 export const SHIELDS_API = "https://img.shields.io",
   SHIELDS_BADGE = `${SHIELDS_API}/badge`,
   SHIELDS_GH = `${SHIELDS_API}/github`,

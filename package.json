@@ -1,6 +1,6 @@
 {
   "name": "badge-generator",
-  "description": "Online tool to magically generate badges that you can paste in your README.md file",
+  "description": "Magically generate custom badges that you can paste in your docs",
   "version": "0.7.0",
   "author": "MichaelCurrin",
   "scripts": {
