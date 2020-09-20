@@ -38,29 +38,35 @@ export function markdownImageWithLink(altText, imageTarget, linkTarget = '', hov
     return image;
 }
 
+/**
+ * Encode a value to safe as a param in a URL.
+ *
+ * Specifically for this shields.io API, convert spaces to underscores to prevent
+ * them be converted to '%20' and so keep them readable. A '+' sign might work too.
+ * Note that GH Actions needs a '%20' and not an underscore.
+ */
 function encode(value, spaceToUnderscore = true) {
-    // In some cases like GH Actions is necessary to use %20 and not _ for a space.
     if (spaceToUnderscore) {
         value = value.replace(' ', '_');
     }
+
     return encodeURI(value);
 }
 
-/** Make a markdown badge for any inputs. Escapes URLs.
- *  TODO: Avoid escaping if internal URLs.
- **/
+/**
+ * Make a fixed markdown badge using any given inputs.
+ *
+ * Escapes URLs.
+ * TODO: Avoid escaping if internal URLs.
+ */
 function makeBadge(title, imageTarget, linkTarget) {
-    imageTarget = encode(imageTarget);
-    linkTarget = encode(linkTarget);
-
-    return markdownImageWithLink(title, imageTarget, linkTarget);
+    return markdownImageWithLink(title, encode(imageTarget), encode(linkTarget));
 }
 
 export class Repo {
     constructor(username, repoName) {
         this.username = username;
         this.repoName = repoName;
-
         this.isValid = username && repoName;
     }
 
