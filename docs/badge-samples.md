@@ -119,6 +119,8 @@ With emojis.
 
 ### Docs
 
+Using `blue` is a good color here to not distract from using the template or viewing the demo site.
+
 Link to docs `/docs` directory.
 
 [![View Project Docs](https://img.shields.io/badge/View-Project_Docs-green?style=for-the-badge)](/docs/)
