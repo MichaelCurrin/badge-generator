@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // Use Debugger here or just Tasks launcher.
+        {
+            "type": "node-terminal",
+            "name": "Run Script: serve",
+            "request": "launch",
+            "command": "npm run serve",
+            "cwd": "${workspaceFolder}",
+        },
+        // Attach to running server.
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "vuejs: firefox",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}/src",
+            "pathMappings": [
+                {
+                    "url": "webpack:///src",
+                    "path": "${workspaceFolder}/src"
+                }
+            ]
+        }
+    ]
+}
