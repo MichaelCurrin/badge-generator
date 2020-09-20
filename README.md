@@ -1,4 +1,4 @@
-# Badge generator :name_badge: :badger:
+# Badge generator :shield: :badger: :mage:
 > Magically generate custom badges that you can paste in your docs
 
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/tags/?include_prereleases&sort=semver)
