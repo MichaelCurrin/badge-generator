@@ -2,6 +2,7 @@
  * Handle rendering of each badge and all badges.
  */
 /* eslint-disable */
+import { PACKAGE_INFO } from './constants';
 
 const SHIELDS_API = 'https://img.shields.io',
     SHIELDS_BADGE = `${SHIELDS_API}/badge`,
@@ -203,20 +204,6 @@ export function genericBadge(label, message, color, isLarge, target) {
 
     return makeBadge(title, imgUrl, target);
 }
-const packageInfo = {
-    python: {
-        label: 'PyPI',
-        url: 'https://pypi.org/project/'
-    },
-    node: {
-        label: 'npm',
-        url: 'https://www.npmjs.com/package/'
-    },
-    ruby: {
-        label: 'rubygems',
-        url: 'https://rubygems.org/gems/'
-    }
-};
 
 // TODO: alt styles:
 //      - 'react : 1.2.3'
@@ -231,7 +218,7 @@ export class Package {
         this.color = 'blue';
         this.isLarge = false;
 
-        this.metadata = packageInfo[type];
+        this.metadata = PACKAGE_INFO[type];
         if (!this.metadata) {
             throw new Error('Unable to find matching provider');
         }
