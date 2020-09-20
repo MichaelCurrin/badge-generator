@@ -5,16 +5,15 @@
 
 - [ ] Add tests
 - [ ] Refactor JS to be DRY and OO
-- [ ] Make into multi-page JS app - possibly with Vue, React or Preact, or Jekyll and mustache
-- [ ] Split view into left and right (or top and bottom) optionally mobile friendly
+- [X] Make into multi-page JS app - possibly with Vue, React or Preact, or Jekyll and mustache
+- [X] Split view into left and right (or top and bottom) optionally mobile friendly
 
 
 ## Run locally
 
-Start a server. Preferably one with hot-reloading.
+For plain development, just run the serve task from the CLI or from the Tasks Explorer in VS Code.
 
-Open the `/badge_generator.html` page on localhost.
-
+For debugging, start the server and then launch the Firefox task under Debugger pane. This will open a new window and attach to the server, so you can set breakpoints.
 
 ### Notes
 
