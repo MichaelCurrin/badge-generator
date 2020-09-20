@@ -102,7 +102,7 @@ export class Repo {
                 color = '2ea44f';
 
             var title = 'Use this template',
-                imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}`,
+                imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}&logo=github`,
                 repoUrl = this.ghURL(),
                 extUrl = `${repoUrl}/generate`;
 
