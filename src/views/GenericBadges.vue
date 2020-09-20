@@ -30,6 +30,19 @@
             />
 
             <Checkbox label="Large" v-model="isLarge" />
+            <br />
+
+            <TextInput
+              label="Logo"
+              v-model="logo"
+              note="Supports values like `dependabot`, `discord` and `npm`. And also values from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
+            />
+
+            <TextInput
+              label="Logo color"
+              v-model="logoColor"
+              note="The badge's specific color will be used unless you specify and overide. Using `white` is great for readability against the dark label background."
+            />
           </fieldset>
           <br />
 
@@ -85,6 +98,9 @@ export default {
       color: "green",
       isLarge: false,
       target: "https://",
+      logo: "",
+      logoColor: "",
+
       result: "_Your output will appear here_",
     };
   },
@@ -97,7 +113,9 @@ export default {
         this.message,
         this.color,
         this.isLarge,
-        this.target
+        this.target,
+        this.logo,
+        this.logoColor
       );
 
       this.result = `\

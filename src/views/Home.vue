@@ -53,8 +53,10 @@
             coding.
           </p>
           <p>
-            For badges that you need to create regularly, there's no need to
-            look at <i>shields.io</i> to figure out how it works or to write the
+            The power here is in narrowing the choices and putting less burden
+            on your to figure out rules and syntax or read long URLs. For badges
+            that you need to create regularly, there's no need to look at
+            <i>shields.io</i> to figure out how it works or to write the
             markdown by hand (and do all the tedious things like escaping
             characters and learning the syntax for each badge.
           </p>

@@ -171,8 +171,33 @@ export class Repo {
   }
 }
 
+/**
+ * Convenience method to build a URL with search params.
+ *
+ * Note the URL must have a protocol or it will be considered invalid.
+ *
+ * Returns as a string.
+ */
+function buildUrl(urlStr, params) {
+  let url = new URL(urlStr);
+
+  for (const [key, value] of Object.entries(params)) {
+    url.searchParams.append(key, value);
+  }
+
+  return url.href;
+}
+
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
-export function genericBadge(label, message, color, isLarge, target) {
+export function genericBadge(
+  label = "",
+  message = "",
+  color = "",
+  isLarge = false,
+  target = "",
+  logo = "",
+  logoColor = ""
+) {
   if (!message) {
     return "";
   }
@@ -186,10 +211,19 @@ export function genericBadge(label, message, color, isLarge, target) {
     pieces = [message, color];
   }
   const shield = pieces.join("-").replace(" ", "_"),
-    style = isLarge ? STYLES.FOR_THE_BADGE : "",
-    imgUrl = `${SHIELDS_BADGE}/${shield}${style}`;
+    imgUrl = `${SHIELDS_BADGE}/${shield}`;
 
-  return makeBadge(title, imgUrl, target);
+  let params = {};
+  if (isLarge) {
+    params.style = "for-the-badge";
+  }
+  if (logo) {
+    params.logo = logo;
+    params.logoColor = logoColor;
+  }
+  const fullUrl = buildUrl(imgUrl, params);
+
+  return makeBadge(title, fullUrl, target);
 }
 
 // TODO: alt styles:
