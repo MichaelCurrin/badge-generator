@@ -95,12 +95,12 @@ export default {
       const stars = repo.ghSocial("stars"),
         forks = repo.ghSocial("forks");
 
-      const useThisTemplate = this.useThisTemplate
+      const templateButton = this.useThisTemplate
         ? repo.useThisTemplateBadge(this.useThisTemplate)
         : "";
       // For now just GH pages but can be extended to have badges
       // focused docs. A custom URL independent of repo can be generated in a separate section or maybe here - just add output URL and assume the other data.
-      const viewSite = this.ghPages ? repo.ghPagesBadge() : "";
+      const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
       this.result = `\
 _Repo metadata_
@@ -120,8 +120,8 @@ _Call-to-Action buttons_
 
 <div align="center">
 
-${useThisTemplate}
-${viewSite}
+${templateButton}
+${ghPagesButton}
 
 </div>
       `;
