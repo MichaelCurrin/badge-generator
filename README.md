@@ -19,6 +19,23 @@
 
 </div>
 
+## Preview
+
+<div align="center">
+    <h3>Homepage</h3>
+    <a href="https://michaelcurrin.github.io/badge-generator/">
+        <img src="/docs/_media/homepage.png" alt="Home screenshot" title="Home screenshot" width="400" />
+    </a>
+</div>
+
+<div align="center">
+    <h3>Generate badges</h3>
+    <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
+        <img src="/docs/_media/inputs.png" alt="Home screenshot" title="Inputs screenshot" width="300" />
+        <img src="/docs/_media/shields.png" alt="Shields screenshot" title="Shields screenshot" width="300" />
+        <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="300" />
+    </a>
+</div>
 
 ## Documentation
 
