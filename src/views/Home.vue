@@ -5,12 +5,14 @@
         <h1>Home</h1>
 
         <div class="hero">
-          <img
+          <a href="https://unsplash.com/photos/hh4R3gAbhs8">
+            <img
             alt="Logo"
             src="https://source.unsplash.com/hh4R3gAbhs8/650x250"
             width="650"
             height="250"
-          />
+            />
+          </a>
           <br />
 
           <small>
