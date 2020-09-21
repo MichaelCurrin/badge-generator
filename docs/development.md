@@ -15,10 +15,12 @@
 Overview of code in [src](/src/):
 
 - The overall app navigation and CSS is handled in [App.vue](/src/App.vue)
+- Routing is handled in [router/index.js](/src/router/index.js) and using the [vue-router][] package. To keep the navigation bar in sync with routes, the `App.vue` file actually builds a navbar based on what is defined in the router config.
 - The `.vue` pages are handed in [views](/src/views).
-- The `.vue` components are [components](/src/components) and used in the vuews.
+- The `.vue` components are [components](/src/components) and used in the views.
 - The plain `.js` files are in [core](/src/core). These handle processing arguments and returning badges as strings. There is no Vue logic in here but the exported objects get used in the Vue directories covered above.
 
+[vue-router]: https://router.vuejs.org/
 
 ### Components
 > Notes on the components
