@@ -219,6 +219,12 @@ Based on a run:
 
 https://github.com/MichaelCurrin/dev-cheatsheets/runs/1208501953
 
+And the run does not have a _Create badge_ button. 
+
+So you have to use the colored dot on a commit to check GH Pages status.
+
+Or the Environment part of the repo info or the Environment tab - https://github.com/MichaelCurrin/dev-cheatsheets/deployments 
+
 
 ## Netlify Deploy
 
