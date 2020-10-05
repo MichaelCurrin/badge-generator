@@ -141,11 +141,11 @@ Link to docs site.
 Using large badge and green for stronger call-to-action for application, compared with calmer docs site blue.
 
 ```markdown
-[![Github Pages site](https://img.shields.io/badge/site-Github_Pages-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+[![GitHub Pages site](https://img.shields.io/badge/site-GitHub_Pages-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
 
 or
 
-[![Github Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+[![GitHub Pages site](https://img.shields.io/badge/GitHub_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
 
 or
 
@@ -173,7 +173,7 @@ Choices
 ```
 
 
-## Github Actions badges
+## GitHub Actions badges
 
 Reference a workflow and its state as passing or failing.
 
@@ -203,7 +203,21 @@ Example of the badge itself, without a link:
 ![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python%20package/badge.svg)
 ```
 
-Note that Github Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax as the one above, though Github's tool provides many choices on configuring the badge.
+Note that GitHub Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax as the one above, though Github's tool provides many choices on configuring the badge.
+
+### GH Pages
+
+Unfortunately this badge does not work with GH Pages alone. 
+
+I tried a badge like this:
+
+```md
+![](https://github.com/MichaelCurrin/dev-cheatsheets/workflows/Page%20Build/badge.svg)
+```
+
+Based on a run:
+
+https://github.com/MichaelCurrin/dev-cheatsheets/runs/1208501953
 
 
 ## Netlify Deploy
