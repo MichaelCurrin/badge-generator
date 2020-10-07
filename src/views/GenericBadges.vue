@@ -38,13 +38,13 @@
               <TextInput
                 label="Logo"
                 v-model="logo"
-                note="Supports values like `dependabot`, `discord` and `npm`. And also values from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
+                note="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
               />
 
               <TextInput
                 label="Logo color"
                 v-model="logoColor"
-                note="The badge's specific color will be used unless you specify and overide. Using `white` is great for readability against the dark label background."
+                note="The badge's specific color will be used unless you specify and override. Using `white` is great for readability against the dark label background."
               />
             </fieldset>
             <br />
