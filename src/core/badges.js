@@ -205,7 +205,7 @@ export function genericBadge(
   if (!message) {
     return "";
   }
-  const title = [label, message].join(" - ");
+  const title = label ? [label, message].join(" - ") : message;
   label = encode(label);
   message = encode(message);
 
