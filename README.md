@@ -3,7 +3,7 @@
 
 [![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/tags/?include_prereleases&sort=semver)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/pulse)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
 [![Made with Node](https://img.shields.io/badge/Node.js->=10.X-blue?logo=node.js&logoColor=white)](https://nodejs.org)
@@ -35,6 +35,7 @@
 _Enter form details and generated markdown code and badge preview_
 
 <!-- It's best to have these each on their own line for readability. -->
+
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
         <img src="/docs/_media/inputs.png" alt="Home screenshot" title="Inputs screenshot" width="350" />
@@ -56,11 +57,13 @@ _Enter form details and generated markdown code and badge preview_
 
 ## Documentation
 
-The steps to install and run locally and to deploy on GH pages can be followed using the [vue-quickstart docs][] - just change the cloned project name to `badge-generator` instead of `vue-quickstart`.
-
-See also the [docs](/docs/) directory.
+The steps to install and run locally and to then deploy on GH pages can be followed from my [vue-quickstart docs][]. Just change the cloned project name to `badge-generator` instead of `vue-quickstart`.
 
 [vue-quickstart docs]: https://github.com/MichaelCurrin/vue-quickstart/tree/master/docs
+
+See also docs folder:
+
+[![View - Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/)
 
 
 ## Contributing
