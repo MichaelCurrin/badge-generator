@@ -1,14 +1,11 @@
 <template>
   <div class="app-notes">
-    <h2>Help</h2>
-    <details>
-      <summary>Click to show/hide notes</summary>
+    <h2>Notes</h2>
       <p>
         <vue-markdown>
           {{ message }}
         </vue-markdown>
       </p>
-    </details>
   </div>
 </template>
 
