@@ -3,7 +3,7 @@
 
 [![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/tags/?include_prereleases&sort=semver)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/pulse)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
 [![Made with Node](https://img.shields.io/badge/Node.js->=10.X-blue?logo=node.js&logoColor=white)](https://nodejs.org)
@@ -15,9 +15,10 @@
 
 <div align="center">
 
-[![Github Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+[![GitHub Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
 
 </div>
+
 
 ## Preview
 
@@ -49,6 +50,7 @@ _Enter form details and generated markdown code and badge preview_
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
         <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="350" />
+    </a>
 </div>
 
 
@@ -69,7 +71,7 @@ See also the [docs](/docs/) directory.
 
 ## Credits
 
-- [favicon.ico](/public/favicon.ico) - https://favicon.io/emoji-favicons/badger/
+- [favicon.ico](/public/favicon.ico) - from https://favicon.io/emoji-favicons/badger/
 
 
 ## License
