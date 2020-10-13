@@ -61,9 +61,13 @@ The steps to install and run locally and to then deploy on GH pages can be follo
 
 [vue-quickstart docs]: https://github.com/MichaelCurrin/vue-quickstart/tree/master/docs
 
-See also docs folder:
+See also the docs folder:
+
+<div align="center">
 
 [![View - Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/)
+
+</div>
 
 
 ## Contributing
