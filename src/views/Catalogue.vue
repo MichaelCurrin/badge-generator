@@ -14,7 +14,7 @@
 
     <div class="row">
       <div class="col-12">
-        <div v-for="item in tools" v-bind:key="item">
+        <div v-for="item in badges" v-bind:key="item">
           <vue-markdown>{{ item }}</vue-markdown>
           <pre><code>{{ item }}</code></pre>
           <br />
@@ -29,7 +29,7 @@ import VueMarkdown from "vue-markdown";
 
 import { genericBadge } from "@/core/badges";
 
-const TOOLS = [
+const tools = [
   {
     label: "Hosted on",
     message: "GitHub Pages",
@@ -73,6 +73,18 @@ const TOOLS = [
     logo: "ruby",
   },
 ];
+const renderedTools = tools.map((tool) =>
+  // So far they all look best as white or default to white.
+  genericBadge(
+    tool.label,
+    tool.message,
+    undefined,
+    null,
+    tool.target,
+    tool.logo,
+    "white"
+  )
+);
 
 export default {
   name: "Catalogue",
@@ -81,18 +93,7 @@ export default {
   },
   data() {
     return {
-      tools: TOOLS.map((tool) =>
-        // So far they all look best as white or default to white.
-        genericBadge(
-          tool.label,
-          tool.message,
-          undefined,
-          null,
-          tool.target,
-          tool.logo,
-          "white"
-        )
-      ),
+      badges: renderedTools,
     };
   },
 };
