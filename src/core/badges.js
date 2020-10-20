@@ -100,6 +100,7 @@ export class Repo {
 
     return genericBadge(label, message, color, isLarge, target);
   }
+  
   useThisTemplateBadge() {
     if (this.isValid) {
       // Match the text and color of GitHub's template button.
@@ -116,23 +117,35 @@ export class Repo {
 
     return "";
   }
-
+  
+  /**
+   * Create badge that dynamically shows a tag or release and links to releases.
+   *
+   * TODO move these to the docs and link from there. It is useful for maintaining built badges.
+   * 
+   * Notes on setting of the badge params:
+   * - It is best to always link to releases page, since all tags on are shown on that page
+   *   but you get the benefit of the release titles.
+   * - Including pre-released is done based on example on shields.io tool. 
+   *   If you have a releases before v1, they will not appear as missing unless you add the flag.
+   *   The tags before v1 will show either way, but with the flag the alpha tags will show too,
+   *   so you may not want the flag.
+   * - Use semvar for natural sorting. The default is to sort by date, which means tags added to
+   *   old commits can show up as the latest tag when you don't want them to.
+   */
   tagBadge(isRelease = false) {
     if (!this.isValid) {
       return "";
     }
 
     const type = isRelease ? "release" : "tag";
-    // Based on example on shields.io tool. Prerelease is important for releases < v1 to not show as missing.
-    // It's not so important for tags as < v1 will show, but alpha will show. Semver is preferred to sorting
-    // by date (the default).
     const params = "?include_prereleases&sort=semver";
 
     const title = `GitHub ${type}`,
       imgUrl = `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}`;
 
     const repoUrl = this.ghURL(),
-      extUrl = `${repoUrl}/${type}s/${params}`;
+      extUrl = `${repoUrl}/releases/${params}`;
 
     return makeBadge(title, imgUrl, extUrl);
   }
