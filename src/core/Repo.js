@@ -1,3 +1,6 @@
+/**
+ * Repo badge module.
+ */
 import {
   SHIELDS_BADGE,
   SHIELDS_GH,

@@ -1,3 +1,6 @@
+/**
+ * Package badge module.
+ */
 import { PACKAGE_INFO } from "./constants";
 import { genericBadge } from "./badges";
 
