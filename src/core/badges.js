@@ -1,9 +1,7 @@
 /**
  * Handle rendering of each badge and all badges.
  */
-import {
-  SHIELDS_BADGE,
-} from "./constants";
+import { SHIELDS_BADGE } from "./constants";
 
 // TODO combine link/target functions in a class.
 function markdownLink(altText, linkTarget) {
@@ -60,11 +58,11 @@ export function makeBadge(title, imageTarget, linkTarget) {
 }
 
 /**
- * Convenience method to build a URL with search params.
+ * Convenient method to build a URL using search params as key-value pairs.
  *
  * Note the URL must have a protocol or it will be considered invalid.
  *
- * Returns as a string. The URL API encodes, so reverse this for badges.
+ * Return a string. The URL API performs encoding, so we reverse this for use in badges.
  */
 function buildUrl(urlStr, params) {
   let url = new URL(urlStr);
@@ -76,8 +74,42 @@ function buildUrl(urlStr, params) {
   return decodeURI(url.href);
 }
 
+function formatTitle(label, message) {
+  return label ? [label, message].join(" - ") : message;
+}
+function dashShieldUrl(label, message, color) {
+  label = encode(label);
+  message = encode(message);
+
+  let pieces = [message, color];
+  if (label) {
+    pieces.unshift(label);
+  }
+
+  const shieldPath = pieces.join("-");
+
+  return `${SHIELDS_BADGE}/${shieldPath}`;
+}
+
+function logoParams(isLarge, logo, logoColor) {
+  let params = {};
+
+  if (isLarge) {
+    params.style = "for-the-badge";
+  }
+
+  if (logo) {
+    params.logo = logo;
+    if (logoColor) {
+      params.logoColor = logoColor;
+    }
+  }
+
+  return params;
+}
+
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
-// Color must be set in the label-message-color or message-color format.
+// Color must be set in the LABEL-MESSAGE-COLOR or MESSAGE-COLOR format.
 export function genericBadge(
   label = "",
   message = "",
@@ -90,28 +122,10 @@ export function genericBadge(
   if (!message) {
     return "";
   }
-  const title = label ? [label, message].join(" - ") : message;
-  label = encode(label);
-  message = encode(message);
+  const title = formatTitle(label, message);
 
-  let pieces = [message, color];
-  if (label) {
-    pieces.unshift(label);
-  }
-  const shield = pieces.join("-");
-
-  const imgUrl = `${SHIELDS_BADGE}/${shield}`;
-
-  let params = {};
-  if (isLarge) {
-    params.style = "for-the-badge";
-  }
-  if (logo) {
-    params.logo = logo;
-    if (logoColor) {
-      params.logoColor = logoColor;
-    }
-  }
+  const imgUrl = dashShieldUrl(label, message, color);
+  const params = logoParams(isLarge, logo, logoColor);
   const fullImgUrl = buildUrl(imgUrl, params);
 
   return makeBadge(title, fullImgUrl, target);
