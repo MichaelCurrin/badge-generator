@@ -68,7 +68,7 @@
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { Package } from "@/core/badges";
+import { Package } from "@/core/Package";
 
 export default {
   name: "PackageBadges",
