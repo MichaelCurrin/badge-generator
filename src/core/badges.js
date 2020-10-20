@@ -1,7 +1,7 @@
 /**
  * Handle rendering of each badge and all badges.
  */
-import { SHIELDS_BADGE } from "./constants";
+import { SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
 
 // TODO combine link/target functions in a class.
 function markdownLink(altText, linkTarget) {
@@ -77,6 +77,7 @@ function buildUrl(urlStr, params) {
 function formatTitle(label, message) {
   return label ? [label, message].join(" - ") : message;
 }
+
 function dashShieldUrl(label, message, color) {
   label = encode(label);
   message = encode(message);
@@ -91,6 +92,9 @@ function dashShieldUrl(label, message, color) {
   return `${SHIELDS_BADGE}/${shieldPath}`;
 }
 
+/**
+ * Return key-value pairs with appropriate size and logo values.
+ */
 function logoParams(isLarge, logo, logoColor) {
   let params = {};
 
@@ -108,6 +112,13 @@ function logoParams(isLarge, logo, logoColor) {
   return params;
 }
 
+/**
+ * Note the typical badge style with X-Y-Z formatting.
+ * This is more verbose but it allows use of certain special characters
+ * and also does not require encoding.
+ * e.g. https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&logo=github&color=blue
+ */
+
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
 // Color must be set in the LABEL-MESSAGE-COLOR or MESSAGE-COLOR format.
 export function genericBadge(
@@ -117,16 +128,27 @@ export function genericBadge(
   isLarge = false,
   target = "",
   logo = "",
-  logoColor = ""
+  logoColor = "",
+  useParamApproach = true
 ) {
   if (!message) {
     return "";
   }
   const title = formatTitle(label, message);
 
-  const imgUrl = dashShieldUrl(label, message, color);
-  const params = logoParams(isLarge, logo, logoColor);
-  const fullImgUrl = buildUrl(imgUrl, params);
+  const styleParams = logoParams(isLarge, logo, logoColor);
+
+  // TODO Toggle on frontend, and use this always on the Repo page.
+  if (useParamApproach) {
+    const params = { label, message, color, ...styleParams };
+    const fullImgUrl = buildUrl(SHIELDS_STATIC, params);
+
+    // No encoding. TODO simplify handling maybe encode flag, then the call happens once here.
+    return markdownImageWithLink(title, fullImgUrl, target);
+  }
+
+  let imgUrl = dashShieldUrl(label, message, color);
+  let fullImgUrl = buildUrl(imgUrl, styleParams);
 
   return makeBadge(title, fullImgUrl, target);
 }

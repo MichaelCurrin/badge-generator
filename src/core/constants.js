@@ -3,7 +3,8 @@ import * as pkg from "../../package.json";
 export const DESCRIPTION = pkg.description;
 
 export const SHIELDS_API = "https://img.shields.io",
-  SHIELDS_BADGE = `${SHIELDS_API}/badge`,
+  SHIELDS_BADGE = `${SHIELDS_API}/badge`, // Dash-based
+  SHIELDS_STATIC = `${SHIELDS_API}/static/v1`, // Param-based
   SHIELDS_GH = `${SHIELDS_API}/github`,
   GITHUB = "https://github.com",
   DEFAULT_COLOR = "blue",
