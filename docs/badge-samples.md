@@ -207,7 +207,7 @@ Note that GitHub Actions now includes a tool on the right of the Actions page fo
 
 ### GH Pages
 
-Unfortunately this badge does not work with GH Pages alone. 
+Unfortunately this badge does not work with GH Pages alone.
 
 I tried a badge like this:
 
@@ -219,11 +219,11 @@ Based on a run:
 
 https://github.com/MichaelCurrin/dev-cheatsheets/runs/1208501953
 
-And the run does not have a _Create badge_ button. 
+And the run does not have a _Create badge_ button.
 
 So you have to use the colored dot on a commit to check GH Pages status.
 
-Or the Environment part of the repo info or the Environment tab - https://github.com/MichaelCurrin/dev-cheatsheets/deployments 
+Or the Environment part of the repo info or the Environment tab - https://github.com/MichaelCurrin/dev-cheatsheets/deployments
 
 
 ## Netlify Deploy
@@ -323,25 +323,23 @@ If you have no tags or releases, the badge will still load but just say there is
 
 Set `logo=github` to add the GH icon to the pre-label.
 
-Note: Using a `-` will break the pattern even if encoded. But you can pass a separate value.
-
-Here the pre-label ('label') has a hyphen but this would really be `repo`. Another option is `my-user/my-repo` in the last part, or split between black and blue areas (leaving out the word `repo`).
-
-TODO: Find out how to set the first part using params and no name.
-
-```
-https://img.shields.io/badge/my_repo-blue?logo=github&label=foo-bar
-```
-
+Note: Using a `-` will break the pattern even if encoded. But you can pass a label as a parameter instead and then it allows a dash.
 
 ```markdown
-[![GH repo: my-repo](https://img.shields.io/badge/my_repo-blue?logo=github)]()
+![Repo - MichaelCurrin/badge-generator](https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&logo=github&color=blue)
 ```
 
-[![GH repo: my-repo](https://img.shields.io/badge/my_repo-blue?logo=github)]()
+![Repo - MichaelCurrin/badge-generator](https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&logo=github&color=blue)
 
+That is also useful if you need to put a URL with slashes, which would fail normally.
 
-## GitHub social
+```markdown
+![GH Pages - URL](https://img.shields.io/static/v1?label=GH%20Pages&message=MichaelCurrin.github.io/coding-blog/&color=darkgreen)
+```
+
+![GH Pages - URL](https://img.shields.io/static/v1?label=GH%20Pages&message=MichaelCurrin.github.io/coding-blog/&color=darkgreen)
+
+## GitHub social badges
 
 Add a repo badge which shows a social counter.
 
@@ -365,7 +363,7 @@ Use **forks** in the image URL, before username.
 https://img.shields.io/github/forks/<USERNAME>/<REPO_NAME>?style=social
 ```
 
-To actually for a repo:
+A link to actually fork the repo.
 
 ```
 https://github.com/MichaelCurrin/fork
