@@ -123,6 +123,11 @@ export class Repo {
    *
    * TODO move these to the docs and link from there. It is useful for maintaining built badges.
    * 
+   * The tag shield shows the latest tag. The shield badge shows the latest release,
+   * which must be created by hand on the Releases tab of your repo. Therefore, showing
+   * releases will be behind the latest tag. The release flow of your app and if you want
+   * people to start using a tag without a release influences which badge makes sense to yu.
+   * 
    * Notes on setting of the badge params:
    * - It is best to always link to releases page, since all tags on are shown on that page
    *   but you get the benefit of the release titles.
