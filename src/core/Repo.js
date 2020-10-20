@@ -7,10 +7,9 @@ import {
   GITHUB,
   DEFAULT_COLOR,
   DEFAULT_BRANCH,
-  STYLES
+  STYLES,
 } from "./constants";
 import { genericBadge, makeBadge } from "./badges";
-
 
 export class Repo {
   constructor(username, repoName) {
