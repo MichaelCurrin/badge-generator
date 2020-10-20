@@ -1,11 +1,11 @@
 <template>
   <div class="app-notes">
     <h2>Notes</h2>
-      <p>
-        <vue-markdown>
-          {{ message }}
-        </vue-markdown>
-      </p>
+    <p>
+      <vue-markdown>
+        {{ message }}
+      </vue-markdown>
+    </p>
   </div>
 </template>
 

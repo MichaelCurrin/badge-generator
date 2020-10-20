@@ -100,7 +100,7 @@ export class Repo {
 
     return genericBadge(label, message, color, isLarge, target);
   }
-  
+
   useThisTemplateBadge() {
     if (this.isValid) {
       // Match the text and color of GitHub's template button.
@@ -117,21 +117,21 @@ export class Repo {
 
     return "";
   }
-  
+
   /**
    * Create badge that dynamically shows a tag or release and links to releases.
    *
    * TODO move these to the docs and link from there. It is useful for maintaining built badges.
-   * 
+   *
    * The tag shield shows the latest tag. The shield badge shows the latest release,
    * which must be created by hand on the Releases tab of your repo. Therefore, showing
    * releases will be behind the latest tag. The release flow of your app and if you want
    * people to start using a tag without a release influences which badge makes sense to yu.
-   * 
+   *
    * Notes on setting of the badge params:
    * - It is best to always link to releases page, since all tags on are shown on that page
    *   but you get the benefit of the release titles.
-   * - Including pre-released is done based on example on shields.io tool. 
+   * - Including pre-released is done based on example on shields.io tool.
    *   If you have a releases before v1, they will not appear as missing unless you add the flag.
    *   The tags before v1 will show either way, but with the flag the alpha tags will show too,
    *   so you may not want the flag.
