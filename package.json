@@ -3,6 +3,12 @@
   "description": "Magically generate custom badges that you can paste in your docs",
   "version": "1.2.0",
   "author": "MichaelCurrin",
+  "license": "MIT",
+  "homepage": "https://github.com/MichaelCurrin/badge-generator#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichaelCurrin/badge-generator"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
