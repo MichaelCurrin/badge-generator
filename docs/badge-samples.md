@@ -1,8 +1,8 @@
 # Badge templates
 
-<!-- When this is cleaned up to be interactive, hardcoded cases here can be used as unit tests. -->
+<!-- When this is cleaned up to be interactive, hardcoded cases here could be used as unit tests. -->
 
-Reference for badges or shields for GitHub projects.
+Reference for badges or shields for GitHub projects. This is somewhat of a tutorial on how the badges generated on the main site work and some badges which don't get added there could still be recorded here.
 
 Badge sources:
 
@@ -339,6 +339,7 @@ That is also useful if you need to put a URL with slashes, which would fail norm
 
 ![GH Pages - URL](https://img.shields.io/static/v1?label=GH%20Pages&message=MichaelCurrin.github.io/coding-blog/&color=darkgreen)
 
+
 ## GitHub social badges
 
 Add a repo badge which shows a social counter.
@@ -369,9 +370,7 @@ A link to actually fork the repo.
 https://github.com/MichaelCurrin/fork
 ```
 
-
 ### Add hyperlinks
-
 
 Wrap the image in a link.
 
@@ -403,7 +402,33 @@ Adding the repo name first:
 Note you can also use the `social` style on a plain text shield and it will look grey as well, but it won't have the Github icon.
 
 
-### Jekyll variables
+## GitHub stats
+
+```markdown
+[![GitHub issues open](https://img.shields.io/github/issues-raw/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator/issues)
+[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator/pulls)
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator)
+
+[![GitHub commit activity yearly](https://img.shields.io/github/commit-activity/y/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
+[![GitHub commit activity monthly](https://img.shields.io/github/commit-activity/m/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
+[![GitHub commit activity weekly](https://img.shields.io/github/commit-activity/w/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
+```
+
+[![GitHub issues open](https://img.shields.io/github/issues-raw/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator/issues)
+[![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator/pulls)
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator)
+
+[![GitHub commit activity yearly](https://img.shields.io/github/commit-activity/y/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
+[![GitHub commit activity monthly](https://img.shields.io/github/commit-activity/m/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
+[![GitHub commit activity weekly](https://img.shields.io/github/commit-activity/w/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
+
+
+
+## Jekyll variables
 
 In Jekyll, with a Github plugin, you use the following variables in the link and image URLs:
 
