@@ -415,6 +415,8 @@ Recommended by the [Black](https://github.com/psf/black) README - I updated to r
 
 ## GitHub stats
 
+I don't know how useful these are but they can be generated easily using just a username so maybe I put them in one large string and render markdown to HTML.
+
 ```markdown
 [![GitHub issues open](https://img.shields.io/github/issues-raw/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator/issues)
 [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/MichaelCurrin/badge-generator?logo=github)](https://github.com/MichaelCurrin/badge-generator/issues)
@@ -436,6 +438,26 @@ Recommended by the [Black](https://github.com/psf/black) README - I updated to r
 [![GitHub commit activity yearly](https://img.shields.io/github/commit-activity/y/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
 [![GitHub commit activity monthly](https://img.shields.io/github/commit-activity/m/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
 [![GitHub commit activity weekly](https://img.shields.io/github/commit-activity/w/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
+
+### Lines of code
+
+Choose `?category=CATEGORY` using one of: `files`,  `lines`, `code`, `blanks` or `comments`.
+
+```markdown
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=files)
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=lines)
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=code)
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=blanks)
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=comments)
+```
+
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=files)
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=lines)
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=code)
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=blanks)
+![GitHub lines of code](https://tokei.rs/b1/github/MichaelCurrin/badge-generator?category=comments)
+
+Served from https://github.com/XAMPPRocky/tokei_rs and handled by https://github.com/XAMPPRocky/tokei .
 
 
 ## VC Code Extension
