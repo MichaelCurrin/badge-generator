@@ -459,6 +459,14 @@ Choose `?category=CATEGORY` using one of: `files`,  `lines`, `code`, `blanks` or
 
 Served from https://github.com/XAMPPRocky/tokei_rs and handled by https://github.com/XAMPPRocky/tokei .
 
+There is also something in shields.io that supports counting files (search _count_) but it says it is limited up to 1000 and also I keep getting errors.
+
+```md
+![](https://img.shields.io/github/directory-file-count/badges/shields)
+```
+
+![](https://img.shields.io/github/directory-file-count/badges/shields)
+
 
 ## VC Code Extension
 
