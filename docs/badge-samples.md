@@ -402,6 +402,17 @@ Adding the repo name first:
 Note you can also use the `social` style on a plain text shield and it will look grey as well, but it won't have the Github icon.
 
 
+## Code style
+
+Recommended by the [Black](https://github.com/psf/black) README - I updated to readability though like `_` for `%20` and `black` for `000000`.
+
+```markdown
+[![Code style: black](https://img.shields.io/badge/code_style-black-black)](https://github.com/psf/black)
+```
+
+[![Code style: black](https://img.shields.io/badge/code_style-black-black)](https://github.com/psf/black)
+
+
 ## GitHub stats
 
 ```markdown
