@@ -57,7 +57,7 @@
                 label="Click target"
                 v-model="target"
                 placeholder="e.g. https://example.com"
-                note="This doesn't have to be set, but a button without a click destination is not so useful."
+                note="URL or a local path like `/docs/`. This doesn't have to be set, but a button without a click destination is not so useful."
               />
             </fieldset>
 
