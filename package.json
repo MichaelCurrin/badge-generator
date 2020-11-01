@@ -10,6 +10,7 @@
     "url": "https://github.com/MichaelCurrin/badge-generator"
   },
   "scripts": {
+    "start": "yarn run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint:fix": "vue-cli-service lint",
