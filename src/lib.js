@@ -6,7 +6,9 @@ export function stripLeadingSlash(value) {
   return value.replace(/^\/+/, "");
 }
 
-export function slugify(value) {
+export function slugify(...values) {
+  const value = values.join("-");
+
   return value
     .replace(/^\s+|\s+$/g, "") // Trim
     .toLowerCase()
