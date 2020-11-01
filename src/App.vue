@@ -108,7 +108,7 @@ kbd,
 pre {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
     monospace;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 kbd {
