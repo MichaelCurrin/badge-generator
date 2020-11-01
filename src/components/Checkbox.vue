@@ -1,6 +1,8 @@
 <template>
   <div>
-    <span>{{ label }}: </span>
+    <span>
+      {{ label }}
+    </span>
     <input
       type="checkbox"
       v-bind:checked="checked"
