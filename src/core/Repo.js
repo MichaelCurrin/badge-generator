@@ -53,10 +53,11 @@ export class Repo {
     const label = '',
       message = "Use this template",
       color = GITHUB_GREEN,
-      isLarge = false,
-      target = `${this.ghURL()}/generate`;
+      isLarge = true,
+      target = `${this.ghURL()}/generate`,
+      logo = 'github';
 
-    return genericBadge(label, message, color, isLarge, target)
+    return genericBadge(label, message, color, isLarge, target, logo)
   }
 
   /**
