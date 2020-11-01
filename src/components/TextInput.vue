@@ -1,11 +1,12 @@
 <template>
   <div>
-    <span>{{ label }}: </span>
+    <span>{{ labelText }}</span>
     <input
       type="text"
       :value="value"
       v-on:input="$emit('input', $event.target.value)"
       :placeholder="placeholder"
+      :required="isRequired"
     />
     <small class="note" v-if="note">
       <vue-markdown>{{ note }}</vue-markdown>
@@ -26,6 +27,12 @@ export default {
     value: { type: String, required: true },
     placeholder: { type: String, required: false },
     note: { type: String, required: false },
+    isRequired: { type: Boolean, required: false },
+  },
+  computed: {
+    labelText() {
+      return `${this.label}: `;
+    },
   },
 };
 </script>
