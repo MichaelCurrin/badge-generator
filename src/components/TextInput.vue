@@ -3,9 +3,9 @@
     <span>{{ label }}: </span>
     <input
       type="text"
-      v-bind:value="value"
+      :value="value"
       v-on:input="$emit('input', $event.target.value)"
-      v-bind:placeholder="placeholder"
+      :placeholder="placeholder"
     />
     <small class="note" v-if="note">
       <vue-markdown>{{ note }}</vue-markdown>
