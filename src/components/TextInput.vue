@@ -1,6 +1,7 @@
 <template>
   <div>
-    <span>{{ labelText }}</span>
+    <span> {{ label }}<span v-if="isRequired" class="required">*</span> </span>
+
     <input
       type="text"
       :value="value"
@@ -28,11 +29,6 @@ export default {
     placeholder: { type: String, required: false },
     note: { type: String, required: false },
     isRequired: { type: Boolean, required: false },
-  },
-  computed: {
-    labelText() {
-      return `${this.label}: `;
-    },
   },
 };
 </script>

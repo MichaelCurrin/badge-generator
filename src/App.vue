@@ -196,4 +196,8 @@ input {
   /* Prevent user agent stylesheet from making this too small, like in Chrome */
   font-size: initial;
 }
+
+.required {
+  color: red;
+}
 </style>

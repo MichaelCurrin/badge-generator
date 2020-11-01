@@ -18,11 +18,7 @@
               <TextInput label="Label" v-model="label" />
               <br />
 
-              <TextInput
-                label="Message (required)"
-                v-model="message"
-                :isRequired="true"
-              />
+              <TextInput label="Message" v-model="message" :isRequired="true" />
               <br />
             </fieldset>
             <br />
