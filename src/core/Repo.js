@@ -83,16 +83,16 @@ export class Repo {
     if (!this.isValid) {
       return "";
     }
-    const type = isRelease ? "release" : "tag";
-    const params = "?include_prereleases&sort=semver";
 
-    const title = `GitHub ${type}`,
-      imgUrl = `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}`;
+    const type = isRelease ? "release" : "tag",
+      title = `GitHub ${type}`,
+      params = "?include_prereleases&sort=semver",
+      imgUrl = `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${params}`;
 
     const repoUrl = this.ghURL(),
-      extUrl = `${repoUrl}/releases/${params}`;
+      target = `${repoUrl}/releases/`;
 
-    return markdownImageWithLink(title, imgUrl, extUrl);
+    return markdownImageWithLink(title, imgUrl, target);
   }
 
   licenseBadge(licenseType, localLicense = true) {
