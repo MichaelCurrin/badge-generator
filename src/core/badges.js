@@ -68,7 +68,9 @@ function buildUrl(urlStr, params) {
   let url = new URL(urlStr);
 
   for (const [key, value] of Object.entries(params)) {
-    url.searchParams.append(key, value);
+    if (value) {
+      url.searchParams.append(key, value);
+    }
   }
 
   return decodeURI(url.href);
