@@ -12,6 +12,7 @@
       :required="isRequired"
       v-on:input="$emit('input', $event.target.value)"
     />
+
     <small class="note" v-if="note">
       <vue-markdown>{{ note }}</vue-markdown>
     </small>
