@@ -19,6 +19,7 @@
 
 <script>
 import VueMarkdown from "vue-markdown";
+
 import { slugify } from "@/lib";
 
 export default {
@@ -33,7 +34,7 @@ export default {
   },
   computed: {
     slug() {
-      return `checkbox-${slugify(this.label)}`;
+      return slugify("box", this.label);
     },
   },
 };

@@ -1,13 +1,16 @@
 <template>
   <div>
-    <span> {{ label }}<span v-if="isRequired" class="required">*</span> </span>
+    <label :for="slug">
+      {{ label }}<span v-if="isRequired" class="required">*</span>
+    </label>
 
     <input
+      :id="slug"
       type="text"
       :value="value"
-      v-on:input="$emit('input', $event.target.value)"
       :placeholder="placeholder"
       :required="isRequired"
+      v-on:input="$emit('input', $event.target.value)"
     />
     <small class="note" v-if="note">
       <vue-markdown>{{ note }}</vue-markdown>
@@ -17,6 +20,8 @@
 
 <script>
 import VueMarkdown from "vue-markdown";
+
+import { slugify } from "@/lib";
 
 export default {
   name: "TextInput",
@@ -29,6 +34,11 @@ export default {
     placeholder: { type: String, required: false },
     note: { type: String, required: false },
     isRequired: { type: Boolean, required: false },
+  },
+  computed: {
+    slug() {
+      return slugify("text", this.label, this.value);
+    },
   },
 };
 </script>
