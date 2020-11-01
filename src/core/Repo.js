@@ -50,14 +50,14 @@ export class Repo {
     if (!this.isValid) {
       return "";
     }
-    const label = '',
+    const label = "",
       message = "Use this template",
       color = GITHUB_GREEN,
       isLarge = true,
       target = `${this.ghURL()}/generate`,
-      logo = 'github';
+      logo = "github";
 
-    return genericBadge(label, message, color, isLarge, target, logo)
+    return genericBadge(label, message, color, isLarge, target, logo);
   }
 
   /**
@@ -119,14 +119,23 @@ export class Repo {
   gh() {
     const label = this.username,
       message = this.repoName,
-      color = 'blue',
+      color = "blue",
       isLarge = false,
       target = this.ghURL(),
-      logo = 'github',
-      logoColor = '',
+      logo = "github",
+      logoColor = "",
       onlyQueryParams = true;
 
-    return genericBadge(label, message, color, isLarge, target, logo, logoColor, onlyQueryParams)
+    return genericBadge(
+      label,
+      message,
+      color,
+      isLarge,
+      target,
+      logo,
+      logoColor,
+      onlyQueryParams
+    );
   }
 
   _ghSocialShield(type) {
@@ -140,7 +149,6 @@ export class Repo {
     const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "",
       shield = this._ghSocialShield(type),
       target = this.ghURL();
-
 
     return `[${preLabel}![${type} - ${this.repoName}](${shield})](${target})`;
   }

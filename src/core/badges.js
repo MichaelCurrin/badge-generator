@@ -112,7 +112,7 @@ function dashShieldPath(label, message, color) {
 /**
  * Return key-value pairs with appropriate size and logo values.
  */
-function logoParams(isLarge = false, logo = '', logoColor = '') {
+function logoParams(isLarge = false, logo = "", logoColor = "") {
   let params = {};
 
   if (isLarge) {
