@@ -20,10 +20,11 @@
               <legend>Links</legend>
 
               <TextInput
-                label="Source (required)"
+                label="Source"
                 v-model="imgSrc"
                 placeholder="e.g. /sample.png"
                 note="Local path or URL."
+                isRequired
               />
 
               <TextInput
