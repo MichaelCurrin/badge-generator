@@ -19,6 +19,12 @@
   </div>
 </template>
 
+<style scoped>
+label {
+  padding-right: 0.5em;
+}
+</style>
+
 <script>
 import VueMarkdown from "vue-markdown";
 
