@@ -132,7 +132,7 @@ export function genericBadge(
   target = "",
   logo = "",
   logoColor = "",
-  useParamApproach = true
+  allQueryParams = false
 ) {
   if (!message) {
     return "";
@@ -141,8 +141,7 @@ export function genericBadge(
 
   const styleParams = logoParams(isLarge, logo, logoColor);
 
-  // TODO Toggle on frontend, and use this always on the Repo page. Use both.
-  if (useParamApproach) {
+  if (allQueryParams) {
     const params = { label, message, color, ...styleParams };
     const fullImgUrl = buildUrl(SHIELDS_STATIC, params);
 
