@@ -2,11 +2,9 @@
   <div class="images container-lg">
     <div class="row">
       <div class="col-12">
-        <h1>Images</h1>
+        <h1>Image</h1>
 
-        <p>
-          Prepare a logo or sample screenshot image for your README.md file.
-        </p>
+        <p>Prepare a logo or sample screenshot for your README.md file.</p>
       </div>
     </div>
 
@@ -135,7 +133,7 @@ import { markdownImageWithLink } from "@/core/badges";
 import { mkHtmlImg } from "@/core/images";
 
 export default {
-  name: "Images",
+  name: "Image",
   components: {
     Checkbox,
     Help,

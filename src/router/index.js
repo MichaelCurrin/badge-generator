@@ -27,9 +27,9 @@ export const routes = [
     component: () => import("../views/PackageBadges.vue"),
   },
   {
-    path: "/images",
-    name: "Images",
-    component: () => import("../views/Images.vue"),
+    path: "/image",
+    name: "Image",
+    component: () => import("../views/Image.vue"),
   },
   {
     path: "/catalogue",
