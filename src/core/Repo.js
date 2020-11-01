@@ -97,7 +97,7 @@ export class Repo {
   }
 
   licenseBadge(licenseType, localLicense = true) {
-    if (!licenseType && !this.isValid) {
+    if (!licenseType || !this.isValid) {
       return "";
     }
     const label = "License",
@@ -116,19 +116,22 @@ export class Repo {
     return genericBadge(label, message, color, isLarge, target);
   }
 
+  gh() {
+
+  }
+
   _ghSocialShield(type) {
     return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${STYLES.SOCIAL}`;
   }
 
   ghSocial(type, usePreLabel = false) {
-    if (!type && !this.isValid) {
+    if (!type || !this.isValid) {
       return "";
     }
+    const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "",
+      shield = this._ghSocialShield(type),
+      target = this.ghURL();
 
-    const shield = this._ghSocialShield(type);
-    const target = this.ghURL();
-
-    const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "";
 
     return `[${preLabel}![${type} - ${this.repoName}](${shield})](${target})`;
   }
