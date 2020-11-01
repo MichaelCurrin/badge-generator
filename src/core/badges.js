@@ -115,15 +115,17 @@ function logoParams(isLarge, logo, logoColor) {
   return params;
 }
 
-/**
- * Note the typical badge style with X-Y-Z formatting.
- * This is more verbose but it allows use of certain special characters
- * and also does not require encoding.
- * e.g. https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&logo=github&color=blue
- */
-
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
-// Color must be set in the LABEL-MESSAGE-COLOR or MESSAGE-COLOR format.
+/**
+ * Generate markdown for generic badge.
+ *
+ * In the dash style, result is X-Y-Z.
+ * Color **must** be set as either LABEL-MESSAGE-COLOR or MESSAGE-COLOR.
+ * Sample: https://img.shields.io/badge/Foo-Bar--Baz-green
+ *
+ * Use the params style by setting allQueryParams to be true. There result is more verbose but does not required escaping characters.
+ * Sample: https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&logo=github&color=blue
+ */
 export function genericBadge(
   label = "",
   message = "",
@@ -145,7 +147,8 @@ export function genericBadge(
     const params = { label, message, color, ...styleParams };
     const fullImgUrl = buildUrl(SHIELDS_STATIC, params);
 
-    // No encoding. TODO simplify handling maybe encode flag, then the call happens once here.
+    // No encoding.
+    // TODO simplify handling maybe encode flag, then the call happens once here.
     return markdownImageWithLink(title, fullImgUrl, target);
   }
 
