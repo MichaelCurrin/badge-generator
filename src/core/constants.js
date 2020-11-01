@@ -8,6 +8,7 @@ export const SHIELDS_API = "https://img.shields.io",
   SHIELDS_GH = `${SHIELDS_API}/github`,
   GITHUB = "https://github.com",
   DEFAULT_COLOR = "blue",
+  GITHUB_GREEN = "2ea44f", // Such as Use this template or Merge button
   DEFAULT_BRANCH = "master";
 
 // TODO handle as map to make it easy to add multiple params.

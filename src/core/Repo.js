@@ -2,14 +2,14 @@
  * Repo badge module.
  */
 import {
-  SHIELDS_BADGE,
   SHIELDS_GH,
   GITHUB,
   DEFAULT_COLOR,
+  GITHUB_GREEN,
   DEFAULT_BRANCH,
   STYLES,
 } from "./constants";
-import { genericBadge, makeBadge } from "./badges";
+import { genericBadge, markdownImageWithLink } from "./badges";
 
 export class Repo {
   constructor(username, repoName) {
@@ -47,20 +47,16 @@ export class Repo {
   }
 
   useThisTemplateBadge() {
-    if (this.isValid) {
-      // Match the text and color of GitHub's template button.
-      const text = "Use_this_template",
-        color = "2ea44f";
-
-      const title = "Use this template",
-        imgUrl = `${SHIELDS_BADGE}/${text}-${color}${STYLES.FOR_THE_BADGE}&logo=github`,
-        repoUrl = this.ghURL(),
-        extUrl = `${repoUrl}/generate`;
-
-      return makeBadge(title, imgUrl, extUrl);
+    if (!this.isValid) {
+      return "";
     }
+    const label = '',
+      message = "Use this template",
+      color = GITHUB_GREEN,
+      isLarge = false,
+      target = `${this.ghURL()}/generate`;
 
-    return "";
+    return genericBadge(label, message, color, isLarge, target)
   }
 
   /**
@@ -87,7 +83,6 @@ export class Repo {
     if (!this.isValid) {
       return "";
     }
-
     const type = isRelease ? "release" : "tag";
     const params = "?include_prereleases&sort=semver";
 
@@ -97,23 +92,27 @@ export class Repo {
     const repoUrl = this.ghURL(),
       extUrl = `${repoUrl}/releases/${params}`;
 
-    return makeBadge(title, imgUrl, extUrl);
+    return markdownImageWithLink(title, imgUrl, extUrl);
   }
 
   licenseBadge(licenseType, localLicense = true) {
-    if (licenseType && this.isValid) {
-      let target;
-      if (localLicense) {
-        target = "#license";
-      } else {
-        const repoUrl = this.ghURL();
-        target = `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
-      }
+    if (!licenseType && !this.isValid) {
+      return "";
+    }
+    const label = "License",
+      message = licenseType,
+      color = DEFAULT_COLOR,
+      isLarge = false;
 
-      return genericBadge('License', licenseType, DEFAULT_COLOR, false, target);
+    let target;
+    if (localLicense) {
+      target = "#license";
+    } else {
+      const repoUrl = this.ghURL();
+      target = `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
     }
 
-    return "";
+    return genericBadge(label, message, color, isLarge, target);
   }
 
   _ghSocialShield(type) {

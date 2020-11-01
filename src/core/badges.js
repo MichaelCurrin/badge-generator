@@ -133,6 +133,8 @@ function logoParams(isLarge, logo, logoColor) {
 /**
  * Generate markdown for generic badge.
  *
+ * Everything is optional except message.
+ *
  * In the dash style, result is X-Y-Z.
  * Color **must** be set as either LABEL-MESSAGE-COLOR or MESSAGE-COLOR.
  * Sample: https://img.shields.io/badge/Foo-Bar--Baz-green
