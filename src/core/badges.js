@@ -112,7 +112,7 @@ function dashShieldPath(label, message, color) {
 /**
  * Return key-value pairs with appropriate size and logo values.
  */
-function logoParams(isLarge, logo, logoColor) {
+function logoParams(isLarge = false, logo = '', logoColor = '') {
   let params = {};
 
   if (isLarge) {
@@ -121,6 +121,7 @@ function logoParams(isLarge, logo, logoColor) {
 
   if (logo) {
     params.logo = logo;
+
     if (logoColor) {
       params.logoColor = logoColor;
     }
@@ -150,7 +151,7 @@ export function genericBadge(
   target = "",
   logo = "",
   logoColor = "",
-  allQueryParams = false
+  onlyQueryParams = false
 ) {
   if (!message) {
     return "";
@@ -160,7 +161,7 @@ export function genericBadge(
   const styleParams = logoParams(isLarge, logo, logoColor);
 
   let fullImgUrl;
-  if (allQueryParams) {
+  if (onlyQueryParams) {
     const params = { label, message, color, ...styleParams };
     fullImgUrl = buildUrl(SHIELDS_STATIC, params);
   } else {
