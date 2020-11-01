@@ -39,17 +39,21 @@ export function markdownImageWithLink(
  * Note that '>' and '<' are valid on shields.io and should not be encoded.
  *
  * e.g. 'Foo Bar_Baz-Buzz' becomes 'Foo_Bar__Baz--Buzz'.
+ * Note the API itself does funny things if you do use more than one
+ * occurence of dash and space or underscore and space when when this is escaped correctly.
+ * e.g. 'A - B - C' converted to 'A_--_B_--_C' renders as 'A - B_- C'.
+ * So just don't mix them and you'll be ok - like with 'A-B-C'.
  */
 function encode(value, spaceToUnderscore = true) {
-  value = value.replace('-', '--')
-    .replace('_', '__')
+  value = value.replace(/-/g, "--").replace(/_/g, "__");
 
   if (spaceToUnderscore) {
-    value = value.replace(" ", "_");
+    value = value.replace(/ /g, "_");
   }
 
-  return encodeURI(value)
-    .replace("%3E", ">").replace("%3C", "<");
+  const encoded = encodeURI(value);
+
+  return encoded.replace(/%3E/g, ">").replace(/%3C/g, "<");
 }
 
 /**
@@ -153,19 +157,15 @@ export function genericBadge(
 
   const styleParams = logoParams(isLarge, logo, logoColor);
 
+  let fullImgUrl;
   if (allQueryParams) {
     const params = { label, message, color, ...styleParams };
-    const fullImgUrl = buildUrl(SHIELDS_STATIC, params);
+    fullImgUrl = buildUrl(SHIELDS_STATIC, params);
+  } else {
+    const imgPath = dashShieldPath(label, message, color);
+    const imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
 
-    // No encoding.
-    // TODO simplify handling maybe encode flag, then the call happens once here.
-    return markdownImageWithLink(title, fullImgUrl, target);
+    fullImgUrl = buildUrl(imgUrl, styleParams);
   }
-
-  const imgPath = dashShieldPath(label, message, color),
-    imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
-
-  const fullImgUrl = buildUrl(imgUrl, styleParams);
-
   return markdownImageWithLink(title, fullImgUrl, target);
 }
