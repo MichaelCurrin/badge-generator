@@ -101,7 +101,8 @@ export default {
         tag = repo.tagBadge(),
         license = repo.licenseBadge(this.licenseType);
 
-      const stars = repo.ghSocial("stars"),
+      const repoBadge = repo.gh(),
+        stars = repo.ghSocial("stars"),
         forks = repo.ghSocial("forks");
 
       const templateButton = this.useThisTemplate
@@ -122,6 +123,7 @@ ${license}
 
 _Social_
 
+${repoBadge}
 ${stars}
 ${forks}
 
