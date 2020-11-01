@@ -15,7 +15,7 @@
             <fieldset name="ghRepo">
               <legend>Package metadata</legend>
 
-              <TextInput label="Name" v-model="pkgName" />
+              <TextInput label="Name" v-model="pkgName" isRequired />
               <br />
 
               <div>

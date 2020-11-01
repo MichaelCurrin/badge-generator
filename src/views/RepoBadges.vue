@@ -15,10 +15,10 @@
             <fieldset name="ghRepo">
               <legend>GitHub repo metadata</legend>
 
-              <TextInput label="Username" v-model="username" />
+              <TextInput label="Username" v-model="username" isRequired />
               <br />
 
-              <TextInput label="Repo name" v-model="repoName" />
+              <TextInput label="Repo name" v-model="repoName" isRequired />
               <br />
 
               <TextInput label="License" v-model="licenseType" />
