@@ -33,18 +33,23 @@ export function markdownImageWithLink(
 /**
  * Encode a value to safe as a param in a URL.
  *
- * Specifically for this shields.io API, convert spaces to underscores to prevent
- * them be converted to '%20' and so keep them readable. A '+' sign might work too.
- * Note that GH Actions needs a '%20' and not an underscore.
+ * Prepare a value for dash-baseds shields.io API based on notes on the site.
+ * The builtin encodeURI function is used to handle spaces and special characters.
+ *
  * Note that '>' and '<' are valid on shields.io and should not be encoded.
+ *
+ * e.g. 'Foo Bar_Baz-Buzz' becomes 'Foo_Bar__Baz--Buzz'.
  */
 function encode(value, spaceToUnderscore = true) {
+  value = value.replace('-', '--')
+    .replace('_', '__')
+
   if (spaceToUnderscore) {
     value = value.replace(" ", "_");
   }
-  const encoded = encodeURI(value);
 
-  return encoded.replace("%3E", ">").replace("%3C", "<");
+  return encodeURI(value)
+    .replace("%3E", ">").replace("%3C", "<");
 }
 
 /**
@@ -52,6 +57,7 @@ function encode(value, spaceToUnderscore = true) {
  *
  * Escapes URLs.
  * TODO: Avoid escaping if internal URLs.
+ * TODO: Maybe remove this function.
  */
 export function makeBadge(title, imageTarget, linkTarget) {
   return markdownImageWithLink(title, encode(imageTarget), encode(linkTarget));
@@ -81,7 +87,13 @@ function formatTitle(label, message) {
   return label ? [label, message].join(" - ") : message;
 }
 
-function dashShieldUrl(label, message, color) {
+/**
+ * Prepare path for shields.io dash-based API.
+ *
+ * This escapes label and message appropriately based on notes on the
+ * shields.io website, so you can pass in more readable values.
+ */
+function dashShieldPath(label, message, color) {
   label = encode(label);
   message = encode(message);
 
@@ -90,9 +102,7 @@ function dashShieldUrl(label, message, color) {
     pieces.unshift(label);
   }
 
-  const shieldPath = pieces.join("-");
-
-  return `${SHIELDS_BADGE}/${shieldPath}`;
+  return pieces.join("-");
 }
 
 /**
@@ -152,8 +162,10 @@ export function genericBadge(
     return markdownImageWithLink(title, fullImgUrl, target);
   }
 
-  let imgUrl = dashShieldUrl(label, message, color);
-  let fullImgUrl = buildUrl(imgUrl, styleParams);
+  const imgPath = dashShieldPath(label, message, color),
+    imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
 
-  return makeBadge(title, fullImgUrl, target);
+  const fullImgUrl = buildUrl(imgUrl, styleParams);
+
+  return markdownImageWithLink(title, fullImgUrl, target);
 }
