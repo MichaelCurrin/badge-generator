@@ -18,7 +18,7 @@
               <TextInput label="Label" v-model="label" />
               <br />
 
-              <TextInput label="Message" v-model="message" :isRequired="true" />
+              <TextInput label="Message" v-model="message" isRequired />
               <br />
             </fieldset>
             <br />
@@ -30,6 +30,7 @@
                 label="Color"
                 v-model="color"
                 note="Hints: `brightgreen`, `green`, `yellowgreen`, `yellow`, `orange`, `red`, `blue`, `lightgrey`, `success`, `important`, `critical`, `informational`, `inactive`, `blueviolet`, `ff69b4`, `9cf`"
+                isRequired
               />
 
               <Checkbox label="Large" v-model="isLarge" />
