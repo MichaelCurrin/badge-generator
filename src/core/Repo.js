@@ -102,9 +102,6 @@ export class Repo {
 
   licenseBadge(licenseType, localLicense = true) {
     if (licenseType && this.isValid) {
-      const title = `License: ${licenseType}`,
-        imgUrl = `${SHIELDS_BADGE}/License-${licenseType}-${DEFAULT_COLOR}`;
-
       let target;
       if (localLicense) {
         target = "#license";
@@ -113,7 +110,7 @@ export class Repo {
         target = `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
       }
 
-      return makeBadge(title, imgUrl, target);
+      return genericBadge('License', licenseType, DEFAULT_COLOR, false, target);
     }
 
     return "";
