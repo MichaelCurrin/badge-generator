@@ -61,6 +61,7 @@ export function makeBadge(title, imageTarget, linkTarget) {
  * Convenient method to build a URL using search params as key-value pairs.
  *
  * Note the URL must have a protocol or it will be considered invalid.
+ * Any empty values will be dropped to keep the result short.
  *
  * Return a string. The URL API performs encoding, so we reverse this for use in badges.
  */
@@ -140,7 +141,7 @@ export function genericBadge(
 
   const styleParams = logoParams(isLarge, logo, logoColor);
 
-  // TODO Toggle on frontend, and use this always on the Repo page.
+  // TODO Toggle on frontend, and use this always on the Repo page. Use both.
   if (useParamApproach) {
     const params = { label, message, color, ...styleParams };
     const fullImgUrl = buildUrl(SHIELDS_STATIC, params);
