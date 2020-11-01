@@ -117,18 +117,26 @@ export default {
     submit: function () {
       console.debug("Process inputs and render results");
 
-      const badge = genericBadge(
+      const args = [
         this.label,
         this.message,
         this.color,
         this.isLarge,
         this.target,
         this.logo,
-        this.logoColor
-      );
+        this.logoColor,
+      ];
+      const dashBadge = genericBadge(...args),
+        paramBadge = genericBadge(...args, true);
 
       this.result = `\
-${badge}
+_Dash badge_
+
+${dashBadge}
+
+_Query parameter badge_
+
+${paramBadge}
       `;
     },
   },
