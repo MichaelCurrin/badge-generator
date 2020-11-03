@@ -157,12 +157,12 @@ export default {
       return stripLeadingSlash(this.altText || this.imgSrc);
     },
     imgTitleOut() {
-      // If neither is set, then empty string is fine.
+      // If neither is set, then an empty string is fine to pass in.
       return stripLeadingSlash(this.imgTitle || this.altText);
     },
   },
   methods: {
-    submit: function () {
+    submit() {
       console.debug("Process inputs and render results");
 
       const htmlImg = mkHtmlImg(
