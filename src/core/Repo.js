@@ -61,9 +61,9 @@ export class Repo {
   }
 
   _tagBadgeUrl(type) {
-    const params = "?include_prereleases&sort=semver"
+    const params = "?include_prereleases&sort=semver";
 
-    return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${params}`
+    return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${params}`;
   }
 
   /**
