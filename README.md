@@ -3,7 +3,6 @@
 
 [![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/releases/?include_prereleases&sort=semver)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/michaelcurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
 [![Made with Node](https://img.shields.io/badge/Node.js->=10-blue?logo=node.js&logoColor=white)](https://nodejs.org)
