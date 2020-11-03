@@ -75,10 +75,7 @@
 
     <div class="row">
       <div class="col-12">
-        <Help
-          message="Create a fixed badge using arbitrary text and a link. For example, describe a tools or platforms your repo is built on or built for running. This form takes care of encoding characters so they are safe     for the badge URL. Warning: hyphens are not supported and will break
-          the badge."
-        />
+        <Help :message="note" />
       </div>
     </div>
   </div>
@@ -91,6 +88,12 @@ import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { genericBadge } from "@/core/badges";
+
+const note = `
+This form lets you create a fixed badge using arbitrary text and a link.
+
+For example, describe a tools or platforms your repo is built on or built for running. This form takes care of encoding characters so they are safe for the badge URL.
+`;
 
 export default {
   name: "GenericBadges",
@@ -111,6 +114,7 @@ export default {
       logoColor: "",
 
       result: "_Your output will appear here_",
+      note: note,
     };
   },
   methods: {
