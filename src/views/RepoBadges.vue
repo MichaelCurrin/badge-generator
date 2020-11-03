@@ -22,6 +22,24 @@
               <br />
 
               <TextInput label="License" v-model="licenseType" />
+
+              <div>
+                <label>Version type</label>
+                <input
+                  type="radio"
+                  id="one"
+                  value="tag"
+                  v-model="versionType"
+                />
+                <label for="one">Tag</label>
+                <input
+                  type="radio"
+                  id="two"
+                  value="release"
+                  v-model="versionType"
+                />
+                <label for="two">Release</label>
+              </div>
             </fieldset>
             <br />
 
@@ -90,6 +108,7 @@ export default {
       useThisTemplate: false,
       ghPages: false,
       result: "_Your output will appear here_",
+      versionType: "tag",
       note: note,
     };
   },
