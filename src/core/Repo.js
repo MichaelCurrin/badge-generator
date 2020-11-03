@@ -60,6 +60,12 @@ export class Repo {
     return genericBadge(label, message, color, isLarge, target, logo);
   }
 
+  _tagBadgeUrl(type) {
+    const params = "?include_prereleases&sort=semver"
+
+    return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${params}`
+  }
+
   /**
    * Create badge that dynamically shows a tag or release and links to releases.
    *
@@ -87,11 +93,9 @@ export class Repo {
 
     const type = isRelease ? "release" : "tag",
       title = `GitHub ${type}`,
-      params = "?include_prereleases&sort=semver",
-      imgUrl = `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${params}`;
+      imgUrl = this._tagBadgeUrl(type);
 
-    const repoUrl = this.ghURL(),
-      target = `${repoUrl}/releases/`;
+    const target = `${this.ghURL()}/releases/`;
 
     return markdownImageWithLink(title, imgUrl, target);
   }
