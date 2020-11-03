@@ -55,9 +55,7 @@
 
     <div class="row">
       <div class="col-12">
-        <Help
-          message="Note that HTML `align` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the `align` attribute."
-        />
+        <Help :message="note" />
       </div>
     </div>
   </div>
@@ -70,6 +68,11 @@ import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { Repo } from "@/core/Repo";
+
+const note = `
+- If you want to always how the latest tag, even if it has _no release_ yet, use the Tag badge. Otherwise, use the Release badge.
+- For centered badges - note that the HTML \`align\` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the \`align\` attribute.
+`;
 
 export default {
   name: "RepoBadges",
@@ -87,6 +90,7 @@ export default {
       useThisTemplate: false,
       ghPages: false,
       result: "_Your output will appear here_",
+      note: note,
     };
   },
   methods: {
