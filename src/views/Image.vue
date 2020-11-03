@@ -132,8 +132,9 @@ import TextInput from "@/components/TextInput.vue";
 import { markdownImageWithLink } from "@/core/badges";
 import { mkHtmlImg } from "@/core/images";
 
+// 'Image' is reserved in Vue so use alternative.
 export default {
-  name: "Image",
+  name: "ImageView",
   components: {
     Checkbox,
     Help,
