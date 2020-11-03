@@ -89,6 +89,11 @@ import TextInput from "@/components/TextInput.vue";
 import { Repo } from "@/core/Repo";
 
 const note = `
+- Where to put the badges
+    - Use the Social badges on docs site to link back to your repo.
+    - Or use the Social badges to link to repo you don't own.
+    - Use the Repo metadata and the CTA sections at the top of your \`README.md\` and also on your docs site.
+- The first social badge is dumb - so you have to make sure you enter a valid repo. A positive of this is that it works for private repos.
 - If you want to always how the latest tag, even if it has _no release_ yet, use the Tag badge. Otherwise, use the Release badge.
 - For centered badges - note that the HTML \`align\` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the \`align\` attribute.
 `;
@@ -142,17 +147,17 @@ export default {
       const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
       this.result = `\
+_Social buttons_
+
+${repoBadge}
+${stars}
+${forks}
+
 _Repo metadata_
 
 ${versionBadge}
 
 ${license}
-
-_Social_
-
-${repoBadge}
-${stars}
-${forks}
 
 _Call-to-Action buttons_
 
