@@ -22,6 +22,7 @@
               <br />
 
               <TextInput label="License" v-model="licenseType" />
+              <br />
 
               <div>
                 <label>Version type</label>
@@ -115,13 +116,18 @@ export default {
   methods: {
     submit: function () {
       console.debug("Process inputs and render results");
+      console.debug({
+        username: this.username,
+        repoName: this.repoName,
+        licenseType: this.licenseType,
+        useThisTemplate: this.useThisTemplate,
+        versionType: this.versionType,
+        ghPages: this.ghPages,
+      });
 
       const repo = new Repo(this.username, this.repoName);
 
-      const release = repo.tagBadge({
-          isRelease: true,
-        }),
-        tag = repo.tagBadge(),
+      const versionBadge = repo.tagBadge(this.versionType === "release"),
         license = repo.licenseBadge(this.licenseType);
 
       const repoBadge = repo.gh(),
@@ -138,9 +144,7 @@ export default {
       this.result = `\
 _Repo metadata_
 
-${release}
-
-${tag}
+${versionBadge}
 
 ${license}
 
