@@ -126,7 +126,9 @@ export default {
         this.logo,
         this.logoColor,
       ];
-      const dashBadge = genericBadge(...args),
+      console.debug(args);
+
+      const dashBadge = genericBadge(...args, false),
         paramBadge = genericBadge(...args, true);
 
       this.result = `\
