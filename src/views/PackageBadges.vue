@@ -3,6 +3,11 @@
     <div class="row">
       <div class="col-12">
         <h1>Package badges</h1>
+
+        <p>
+          Show your project's dependencies as badges in your docs, including an
+          external link to the package in a registry.
+        </p>
       </div>
     </div>
 
