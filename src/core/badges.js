@@ -75,7 +75,7 @@ export function makeBadge(title, imageTarget, linkTarget) {
  *
  * Return a string. The URL API performs encoding, so we reverse this for use in badges.
  */
-function buildUrl(urlStr, params) {
+export function buildUrl(urlStr, params) {
   let url = new URL(urlStr);
 
   for (const [key, value] of Object.entries(params)) {
@@ -110,9 +110,11 @@ function dashShieldPath(label, message, color) {
 }
 
 /**
- * Return key-value pairs with appropriate size and logo values.
+ * Generate parametes to style a badge.
+ *
+ * Return as key-value pairs with appropriate size (large or standard) and optional logo.
  */
-function logoParams(isLarge = false, logo = "", logoColor = "") {
+export function logoParams(isLarge = false, logo = "", logoColor = "") {
   let params = {};
 
   if (isLarge) {
