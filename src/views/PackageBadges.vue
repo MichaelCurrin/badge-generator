@@ -17,7 +17,7 @@
           <h2>Input values</h2>
 
           <form @submit.prevent.enter="submit">
-            <fieldset name="ghRepo">
+            <fieldset name="package">
               <legend>Package metadata</legend>
 
               <TextInput label="Name" v-model="pkgName" isRequired />
