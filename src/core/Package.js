@@ -1,8 +1,28 @@
 /**
  * Package badge module.
  */
-import { genericBadge } from "./badges";
+import { buildUrl, genericBadge, logoParams } from "./badges";
 import { PACKAGE_INFO } from "./constants";
+
+// TODO refactor into Package or split Package into functions or split this file in two.
+export function packageVersion(
+  username,
+  repoName,
+  pkgName,
+  pkgType,
+  logo = "",
+  logoColor = ""
+) {
+  // TODO empty returns
+
+  if (pkgType === "node") {
+    const url = `https://img.shields.io/github/package-json/dependency-version/${username}/${repoName}/${pkgName}`,
+      params = logoParams(false, logo, logoColor),
+      imgUrl = buildUrl(url, params);
+
+    return `![](${imgUrl})`;
+  }
+}
 
 // TODO: alt styles:
 //      - 'react : 1.2.3'
