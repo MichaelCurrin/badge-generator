@@ -5,7 +5,7 @@ import {
   buildUrl,
   genericBadge,
   logoParams,
-  markdownImageWithLink,
+  markdownImageWithLink
 } from "./badges";
 import { PACKAGE_INFO } from "./constants";
 
@@ -30,12 +30,14 @@ export class Package {
   }
 
   badge() {
+    const url = `${this.metadata.url}/${this.name}`;
+
     return genericBadge(
       this.metadata.label,
       this.name,
       this.color,
       this.isLarge,
-      this.metadata.url
+      url
     );
   }
 }
@@ -74,8 +76,8 @@ export function versionBadge(
   }
 
   const badgeMakers = {
-      node: nodeVersionBadge,
-    },
+    node: nodeVersionBadge,
+  },
     badgeMaker = badgeMakers[pkgType];
   if (badgeMaker) {
     return badgeMaker(username, repoName, pkgName, logo, logoColor);
