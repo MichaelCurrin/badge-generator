@@ -132,6 +132,7 @@ export function logoParams(isLarge = false, logo = "", logoColor = "") {
   return params;
 }
 
+// TODO: Move business logic for specific badges to separate module from general markdown and URL handling.
 /** Image URL for param-based static badge. */
 function staticParamsUrl({ label, message, color, styleParams }) {
   const params = { label, message, color, ...styleParams };

@@ -1,7 +1,12 @@
 /**
  * Package badges module.
  */
-import { buildUrl, genericBadge, logoParams } from "./badges";
+import {
+  buildUrl,
+  genericBadge,
+  logoParams,
+  markdownImageWithLink
+} from "./badges";
 import { PACKAGE_INFO } from "./constants";
 
 // This may not be so useful. 'depenency: foo' instead of 'npm: foo'? With Node.js logo?
@@ -35,6 +40,27 @@ export class Package {
   }
 }
 
+function nodeVersionBadge(
+  username,
+  repoName,
+  pkgName = "",
+  logo = "",
+  logoColor = ""
+) {
+  if (!pkgName) {
+    pkgName = repoName;
+  }
+
+  const title = `Package - ${pkgName}`;
+
+  const imgUrl = `https://img.shields.io/github/package-json/dependency-version/${username}/${repoName}/${pkgName}`,
+    params = logoParams(false, logo, logoColor),
+    fullImgUrl = buildUrl(imgUrl, params),
+    target = `${PACKAGE_INFO.node.url}/${pkgName}`;
+
+  return markdownImageWithLink(title, fullImgUrl, target);
+}
+
 export function versionBadge(
   username,
   repoName,
@@ -48,11 +74,7 @@ export function versionBadge(
   }
 
   if (pkgType === "node") {
-    const url = `https://img.shields.io/github/package-json/dependency-version/${username}/${repoName}/${pkgName}`,
-      params = logoParams(false, logo, logoColor),
-      imgUrl = buildUrl(url, params);
-
-    return `![Package - ${pkgName}](${imgUrl})`;
+    return nodeVersionBadge(username, repoName, pkgName, logo, logoColor);
   }
 
   return "";
