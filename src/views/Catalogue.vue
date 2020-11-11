@@ -31,14 +31,37 @@ import { genericBadge } from "@/core/badges";
 
 const tools = [
   {
-    label: "Hosted on",
+    label: "OS",
+    message: "Linux",
+    target: "https://www.linux.org/",
+    logo: "apple",
+  },
+  {
+    label: "OS",
+    message: "macOS",
+    target: "https://www.apple.com/macos/",
+    logo: "apple",
+  },  {
+    label: "Hosted with",
     message: "GitHub Pages",
     target: "https://pages.github.com/",
     logo: "github",
   },
   {
-    label: "Made for",
-    message: "Bash",
+    label: "Uses",
+    message: "GitHub Actions",
+    target: "https://github.com/features/actions",
+    logo: "githubactions",
+  },
+  {
+    label: "Made with",
+    message: "Docker",
+    target: "https://www.docker.com/",
+    logo: "docker",
+  },
+  {
+    label: "Bash",
+    message: ">=3",
     target: "https://www.gnu.org/software/bash/",
     logo: "gnu-bash",
   },
@@ -50,7 +73,7 @@ const tools = [
   },
   {
     label: "Node.js",
-    message: ">=10.X",
+    message: ">=12",
     target: "https://nodejs.org",
     logo: "node.js",
   },
@@ -59,6 +82,18 @@ const tools = [
     message: "4",
     target: "https://typescriptlang.org",
     logo: "typescript",
+  },
+  {
+    label: "React",
+    message: "17",
+    target: "https://www.npmjs.com/package/react",
+    logo: "react",
+  },
+  {
+    label: "Vue",
+    message: "2",
+    target: "https://www.npmjs.com/package/vue",
+    logo: "vue.js",
   },
   {
     label: "Jekyll",
