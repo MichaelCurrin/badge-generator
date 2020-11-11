@@ -18,17 +18,18 @@ export const STYLES = {
 };
 
 // TODO add function to handle nodePackageUrl etc.
+// Excluding trailing slash makes URL joins more natural.
 export const PACKAGE_INFO = {
   python: {
     label: "PyPI",
-    url: "https://pypi.org/project/",
+    url: "https://pypi.org/project",
   },
   node: {
     label: "npm",
-    url: "https://www.npmjs.com/package/",
+    url: "https://www.npmjs.com/package",
   },
   ruby: {
     label: "rubygems",
-    url: "https://rubygems.org/gems/",
+    url: "https://rubygems.org/gems",
   },
 };
