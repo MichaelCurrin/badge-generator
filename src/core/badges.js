@@ -132,6 +132,21 @@ export function logoParams(isLarge = false, logo = "", logoColor = "") {
   return params;
 }
 
+/** Image URL for param-based static badge. */
+function staticParamsUrl({ label, message, color, styleParams }) {
+  const params = { label, message, color, ...styleParams };
+
+  return buildUrl(SHIELDS_STATIC, params);
+}
+
+/** Image URL for dash-based static badge. */
+function staticDashUrl({ label, message, color, styleParams }) {
+  const imgPath = dashShieldPath(label, message, color),
+    imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
+
+  return buildUrl(imgUrl, styleParams);
+}
+
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
 /**
  * Generate markdown for generic badge.
@@ -160,17 +175,12 @@ export function genericBadge(
   }
   const title = formatTitle(label, message);
 
-  const styleParams = logoParams(isLarge, logo, logoColor);
+  const styleParams = logoParams(isLarge, logo, logoColor),
+    badgeFields = { label, message, color, styleParams };
 
-  let fullImgUrl;
-  if (onlyQueryParams) {
-    const params = { label, message, color, ...styleParams };
-    fullImgUrl = buildUrl(SHIELDS_STATIC, params);
-  } else {
-    const imgPath = dashShieldPath(label, message, color),
-      imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
+  const fullImgUrl = onlyQueryParams
+    ? staticParamsUrl(badgeFields)
+    : staticDashUrl(badgeFields);
 
-    fullImgUrl = buildUrl(imgUrl, styleParams);
-  }
   return markdownImageWithLink(title, fullImgUrl, target);
 }
