@@ -10,12 +10,10 @@ import {
 } from "./badges";
 import { PACKAGE_INFO } from "./constants";
 
-// This may not be so useful. 'dependency: foo' instead of 'npm: foo'? With Node.js logo?
-// TODO: alt styles:
-//      - 'react : 1.2.3'
-//      - Get dynamically from package.json
-//      - 'dependency: react'
-// TODO add logo for Python etc.
+// TODO all functions or all classes? and one or two classes?
+
+// TODO: A badge like 'react : 1'
+// as generic badge page but with package type to infer the package URL.
 export class Package {
   constructor(name, type) {
     this.name = name;
@@ -33,13 +31,7 @@ export class Package {
   badge() {
     const url = `${this.metadata.url}/${this.name}`;
 
-    return genericBadge(
-      this.metadata.label,
-      this.name,
-      this.color,
-      this.isLarge,
-      url
-    );
+    return genericBadge("dependency", this.name, this.color, this.isLarge, url);
   }
 }
 
