@@ -5,7 +5,7 @@ import {
   buildUrl,
   genericBadge,
   logoParams,
-  markdownImageWithLink
+  markdownImageWithLink,
 } from "./badges";
 import { PACKAGE_INFO } from "./constants";
 
@@ -73,8 +73,12 @@ export function versionBadge(
     return "";
   }
 
-  if (pkgType === "node") {
-    return nodeVersionBadge(username, repoName, pkgName, logo, logoColor);
+  const badgeMakers = {
+      node: nodeVersionBadge,
+    },
+    badgeMaker = badgeMakers[pkgType];
+  if (badgeMaker) {
+    return badgeMaker(username, repoName, pkgName, logo, logoColor);
   }
 
   return "";
