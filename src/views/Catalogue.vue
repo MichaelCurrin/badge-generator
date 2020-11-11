@@ -41,14 +41,17 @@ const tools = [
     message: "macOS",
     target: "https://www.apple.com/macos/",
     logo: "apple",
-  },  {
+  },
+  // Netlify is best as its own badge.
+  {
     label: "Hosted with",
     message: "GitHub Pages",
     target: "https://pages.github.com/",
     logo: "github",
   },
+  // Use an actual GitHub Actions workflow badge if you prefer. But this could be useful it is Made for GitHub Actions.
   {
-    label: "Uses",
+    label: "CI",
     message: "GitHub Actions",
     target: "https://github.com/features/actions",
     logo: "githubactions",
