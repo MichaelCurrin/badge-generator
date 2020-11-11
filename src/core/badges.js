@@ -167,8 +167,8 @@ export function genericBadge(
     const params = { label, message, color, ...styleParams };
     fullImgUrl = buildUrl(SHIELDS_STATIC, params);
   } else {
-    const imgPath = dashShieldPath(label, message, color);
-    const imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
+    const imgPath = dashShieldPath(label, message, color),
+      imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
 
     fullImgUrl = buildUrl(imgUrl, styleParams);
   }
