@@ -4,7 +4,7 @@
 import { buildUrl, genericBadge, logoParams } from "./badges";
 import { PACKAGE_INFO } from "./constants";
 
-// This may not be so useful. 'depenency: foo' instead of 'npm: foo'?
+// This may not be so useful. 'depenency: foo' instead of 'npm: foo'? With Node.js logo?
 // TODO: alt styles:
 //      - 'react : 1.2.3'
 //      - Get dynamically from package.json
