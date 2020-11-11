@@ -5,6 +5,7 @@ import {
   buildUrl,
   genericBadge,
   logoParams,
+  // eslint-disable-next-line prettier/prettier
   markdownImageWithLink
 } from "./badges";
 import { PACKAGE_INFO } from "./constants";
@@ -77,8 +78,8 @@ export function versionBadge(
 
   const badgeMakers = {
     node: nodeVersionBadge,
-  },
-    badgeMaker = badgeMakers[pkgType];
+  };
+  const badgeMaker = badgeMakers[pkgType];
   if (badgeMaker) {
     return badgeMaker(username, repoName, pkgName, logo, logoColor);
   }
