@@ -114,9 +114,13 @@ yarn add -D babel-runtime
 
 This area has a few pieces.
 
+- TS and JS Language Features
+    - Appears builtin - not an extension.
+    - Applies formatting on save.
 - ESLint extension
     - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) on VS Code marketplace.
-    - Applies formatting on save.
+    - Applies formatting on save - but the TS and JS part seems to take precedence over this.
+    - Applies formatting on command-prompt - "ESLint: Fix all...".
     - Shows warnings in the file editor.
 - ESLint CLI
     - Run through a Yarn command setup in `package.json`.
@@ -125,7 +129,7 @@ This area has a few pieces.
     - Configured as the formatter for ESLint. So this Prettier is then used when running ESLint through either approach above.
     - A `.prettier` JSON config was added to be explicit, but it didn't help so was removed. Also, having it meant markdown files got seen as 2 spaces by VS Code.
         - There were conflicts before this was setup.
-            - The trailing comma (only for imports, not for variables) was _removed_ by the IDE extension and _added_ back by the CLI. Setting the config to have `"trailingComma": "all"` didn't help as the "JavaScript and TypeScript Languages Features" extension (not ESLint extension, which asks for the comma) removes the comma each time. So the only options are using an ignore statement above the import as `// eslint-disable-next-line prettier/prettier` so that it remains without a comma, or configure as `"none"` which affects the whole project.
+            - The trailing comma (only for imports, not for variables) was _removed_ by the IDE extension and _added_ back by the CLI. Setting the config to have `"trailingComma": "all"` didn't help as the "JavaScript and TypeScript Languages Features" extension (not ESLint extension, which asks for the comma) removes the comma each time. So the only options are using an ignore statement above the import as `// eslint-disable-next-line prettier/prettier` so that it remains without a comma, or configure as `"none"` which affects the whole project. The whole issue is confusing - the extension doesn't want trailing commands on imports and function definitions or calls but keeps them on object definitions. And ESLint without Prettier configured only differs from the extension on the import part.
             - Also, indentation for comma-separated `const` variables also differed when the first item is an associative array. It's easiest just to use `const` for the second item.
             ```javascript
             const badgeMakers = {
