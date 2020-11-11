@@ -17,6 +17,7 @@ export const STYLES = {
   SOCIAL: "?style=social",
 };
 
+// TODO add function to handle nodePackageUrl etc.
 export const PACKAGE_INFO = {
   python: {
     label: "PyPI",
