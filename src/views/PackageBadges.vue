@@ -107,7 +107,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { packageVersion, Package } from "@/core/Package";
+import { versionBadge, Package } from "@/core/Package";
 
 const note = `
 Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
@@ -140,7 +140,7 @@ export default {
       const pkg = new Package(this.pkgName, this.pkgType),
         badge = pkg.badge();
 
-      const lockedPkgBadge = packageVersion(
+      const lockedPkgBadge = versionBadge(
         this.username,
         this.repoName,
         this.pkgName,

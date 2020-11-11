@@ -1,29 +1,10 @@
 /**
- * Package badge module.
+ * Package badges module.
  */
 import { buildUrl, genericBadge, logoParams } from "./badges";
 import { PACKAGE_INFO } from "./constants";
 
-// TODO refactor into Package or split Package into functions or split this file in two.
-export function packageVersion(
-  username,
-  repoName,
-  pkgName,
-  pkgType,
-  logo = "",
-  logoColor = ""
-) {
-  // TODO empty returns
-
-  if (pkgType === "node") {
-    const url = `https://img.shields.io/github/package-json/dependency-version/${username}/${repoName}/${pkgName}`,
-      params = logoParams(false, logo, logoColor),
-      imgUrl = buildUrl(url, params);
-
-    return `![](${imgUrl})`;
-  }
-}
-
+// This may not be so useful. 'depenency: foo' instead of 'npm: foo'?
 // TODO: alt styles:
 //      - 'react : 1.2.3'
 //      - Get dynamically from package.json
@@ -52,4 +33,27 @@ export class Package {
       this.metadata.url
     );
   }
+}
+
+export function versionBadge(
+  username,
+  repoName,
+  pkgName,
+  pkgType,
+  logo = "",
+  logoColor = ""
+) {
+  if (!username || !repoName || !pkgName || !pkgType) {
+    return "";
+  }
+
+  if (pkgType === "node") {
+    const url = `https://img.shields.io/github/package-json/dependency-version/${username}/${repoName}/${pkgName}`,
+      params = logoParams(false, logo, logoColor),
+      imgUrl = buildUrl(url, params);
+
+    return `![Package - ${pkgName}](${imgUrl})`;
+  }
+
+  return "";
 }
