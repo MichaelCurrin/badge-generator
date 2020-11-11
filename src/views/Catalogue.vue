@@ -81,6 +81,12 @@ const tools = [
     logo: "node.js",
   },
   {
+    label: "Yarn",
+    message: ">=1",
+    target: "https://classic.yarnpkg.com",
+    logo: "yarn",
+  },  
+  {
     label: "TypeScript",
     message: "4",
     target: "https://typescriptlang.org",
