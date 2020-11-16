@@ -54,7 +54,7 @@ const tools = [
     label: "CI",
     message: "GitHub Actions",
     target: "https://github.com/features/actions",
-    logo: "githubactions",
+    logo: "github-actions",
   },
   {
     label: "Made with",
@@ -85,7 +85,7 @@ const tools = [
     message: ">=1",
     target: "https://classic.yarnpkg.com",
     logo: "yarn",
-  },  
+  },
   {
     label: "TypeScript",
     message: "4",
