@@ -42,7 +42,7 @@ const tools = [
     target: "https://www.apple.com/macos/",
     logo: "apple",
   },
-  // Netlify is best as its own badge.
+  // Netlify is best created on Netlify itself and not here.
   {
     label: "Hosted with",
     message: "GitHub Pages",
@@ -125,8 +125,8 @@ const renderedTools = tools.map((tool) =>
     undefined,
     null,
     tool.target,
-    tool.logo,
-    "white"
+    tool.logo || "",
+    tool.logo ? "white" : ""
   )
 );
 
