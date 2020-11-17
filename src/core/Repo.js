@@ -1,15 +1,16 @@
 /**
  * Repo badge module.
  */
-import {
-  SHIELDS_GH,
-  GITHUB,
-  DEFAULT_COLOR,
-  GITHUB_GREEN,
-  DEFAULT_BRANCH,
-  STYLES,
-} from "./constants";
 import { genericBadge, markdownImageWithLink } from "./badges";
+import {
+  DEFAULT_BRANCH,
+  DEFAULT_COLOR,
+  GITHUB,
+  GITHUB_GREEN,
+  SHIELDS_GH,
+  // eslint-disable-next-line prettier/prettier
+  STYLES
+} from "./constants";
 
 export class Repo {
   constructor(username, repoName) {

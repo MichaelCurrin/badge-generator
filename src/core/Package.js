@@ -1,8 +1,8 @@
 /**
  * Package badge module.
  */
-import { PACKAGE_INFO } from "./constants";
 import { genericBadge } from "./badges";
+import { PACKAGE_INFO } from "./constants";
 
 // TODO: alt styles:
 //      - 'react : 1.2.3'
