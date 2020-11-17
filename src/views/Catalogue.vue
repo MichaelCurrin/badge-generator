@@ -34,7 +34,7 @@ const tools = [
     label: "OS",
     message: "Linux",
     target: "https://www.linux.org/",
-    logo: "apple",
+    logo: "linux",
   },
   {
     label: "OS",
