@@ -5,9 +5,13 @@
         <h1>Catalogue</h1>
 
         <p>
-          Choose from pre-built badges that can be copied to your docs without
-          any updates needed. These badges are all static, as they used fixed
-          choices of text, logos, colors and external links.
+          Choose from pre-built badges that can be copied to your docs and
+          mostly used as they are. You can tweak the version numbers as needed.
+        </p>
+        <p>
+          The badges are all static so they will always look the same. They not
+          rely on anything in your project to load. External links are included
+          with a homepage of the tool.
         </p>
       </div>
     </div>
@@ -30,6 +34,12 @@ import VueMarkdown from "vue-markdown";
 import { genericBadge } from "@/core/badges";
 
 const tools = [
+  // Not a tool, but useful here anyway.
+  {
+    label: "view",
+    message: "Documentation",
+    target: "/docs/",
+  },
   {
     label: "OS",
     message: "Linux",
@@ -42,7 +52,13 @@ const tools = [
     target: "https://www.apple.com/macos/",
     logo: "apple",
   },
-  // Netlify is best created on Netlify itself and not here.
+  {
+    label: "OS",
+    message: "Windows",
+    target: "https://www.microsoft.com/",
+    logo: "windows",
+  },
+  // Netlify badge is best created on Netlify itself and not here.
   {
     label: "Hosted with",
     message: "GitHub Pages",
