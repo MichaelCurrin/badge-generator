@@ -68,7 +68,7 @@
             <br />
 
             <fieldset name="appearance">
-              <legend>Appearance</legend>
+              <legend>Dynamic badge appearance</legend>
               <TextInput
                 label="Logo"
                 v-model="logo"
@@ -110,9 +110,8 @@ import TextInput from "@/components/TextInput.vue";
 import { versionBadge, dependency } from "@/core/packages";
 
 const note = `
-Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
-
-Only NPM is currently supported for the dynamic package.
+- Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
+- Only NPM is currently supported for the dynamic package.
 `;
 
 export default {
