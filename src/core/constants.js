@@ -10,6 +10,7 @@ export const SHIELDS_API = "https://img.shields.io",
 export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io",
   DEFAULT_COLOR = "blue",
+  GREEN = "green",
   GITHUB_GREEN = "2ea44f", // Such as Use this template or Merge button
   DEFAULT_BRANCH = "master";
 

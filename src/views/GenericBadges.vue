@@ -88,6 +88,7 @@ import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { genericBadge } from "@/core/badges";
+import { GREEN } from "@/core/constants";
 
 const note = `
 This form lets you create a fixed badge using arbitrary text and a link.
@@ -107,7 +108,7 @@ export default {
     return {
       label: "Foo",
       message: "Bar",
-      color: "green",
+      color: GREEN,
       isLarge: false,
       target: "https://",
       logo: "",

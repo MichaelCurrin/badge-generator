@@ -8,6 +8,7 @@ import {
   GITHUB_DOMAIN,
   GITHUB_GREEN,
   GITHUB_IO,
+  GREEN,
   SHIELDS_GH,
   // eslint-disable-next-line prettier/prettier
   STYLES
@@ -41,7 +42,7 @@ export class Repo {
   ghPagesBadge() {
     const label = "View site",
       message = "GH Pages",
-      color = "green",
+      color = GREEN,
       isLarge = true,
       target = this.ghPagesURL();
 
