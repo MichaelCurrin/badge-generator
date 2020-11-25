@@ -7,7 +7,8 @@ export const SHIELDS_API = "https://img.shields.io",
   SHIELDS_STATIC = `${SHIELDS_API}/static/v1`, // Param-based
   SHIELDS_GH = `${SHIELDS_API}/github`;
 
-export const GITHUB = "https://github.com",
+export const GITHUB_DOMAIN = "https://github.com",
+  GITHUB_IO = "github.io",
   DEFAULT_COLOR = "blue",
   GITHUB_GREEN = "2ea44f", // Such as Use this template or Merge button
   DEFAULT_BRANCH = "master";

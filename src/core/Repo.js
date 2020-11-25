@@ -5,8 +5,9 @@ import { genericBadge, markdownImageWithLink } from "./badges";
 import {
   DEFAULT_BRANCH,
   DEFAULT_COLOR,
-  GITHUB,
+  GITHUB_DOMAIN,
   GITHUB_GREEN,
+  GITHUB_IO,
   SHIELDS_GH,
   // eslint-disable-next-line prettier/prettier
   STYLES
@@ -20,14 +21,14 @@ export class Repo {
   }
 
   ghURL() {
-    return `${GITHUB}/${this.username}/${this.repoName}`;
+    return `${GITHUB_DOMAIN}/${this.username}/${this.repoName}`;
   }
 
   ghPagesURL() {
     // Domain will get lower-cased by GH after a redirect so just make it lowercase now.
     // But preserve case for the comparison. Note Project page needs trailing forward slash
     // but User page is without.
-    const ghDomain = `${this.username}.github.io`,
+    const ghDomain = `${this.username}.${GITHUB_IO}`,
       fullDomain = `https://${ghDomain.toLowerCase()}`;
 
     if (this.repoName === ghDomain) {
