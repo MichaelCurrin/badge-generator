@@ -15,6 +15,8 @@ Apply ESLint and Prettier formatting fixes.
 $ yarn lint:fix
 ```
 
+Note that this is run as part of the `start` command above.
+
 
 ## Build
 

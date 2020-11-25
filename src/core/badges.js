@@ -75,7 +75,7 @@ export function makeBadge(title, imageTarget, linkTarget) {
  *
  * Return a string. The URL API performs encoding, so we reverse this for use in badges.
  */
-function buildUrl(urlStr, params) {
+export function buildUrl(urlStr, params) {
   let url = new URL(urlStr);
 
   for (const [key, value] of Object.entries(params)) {
@@ -110,9 +110,11 @@ function dashShieldPath(label, message, color) {
 }
 
 /**
- * Return key-value pairs with appropriate size and logo values.
+ * Generate parametes to style a badge.
+ *
+ * Return as key-value pairs with appropriate size (large or standard) and optional logo.
  */
-function logoParams(isLarge = false, logo = "", logoColor = "") {
+export function logoParams(isLarge = false, logo = "", logoColor = "") {
   let params = {};
 
   if (isLarge) {
@@ -128,6 +130,22 @@ function logoParams(isLarge = false, logo = "", logoColor = "") {
   }
 
   return params;
+}
+
+// TODO: Move business logic for specific badges to separate module from general markdown and URL handling.
+/** Image URL for param-based static badge. */
+function staticParamsUrl({ label, message, color, styleParams }) {
+  const params = { label, message, color, ...styleParams };
+
+  return buildUrl(SHIELDS_STATIC, params);
+}
+
+/** Image URL for dash-based static badge. */
+function staticDashUrl({ label, message, color, styleParams }) {
+  const imgPath = dashShieldPath(label, message, color),
+    imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
+
+  return buildUrl(imgUrl, styleParams);
 }
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
@@ -158,17 +176,12 @@ export function genericBadge(
   }
   const title = formatTitle(label, message);
 
-  const styleParams = logoParams(isLarge, logo, logoColor);
+  const styleParams = logoParams(isLarge, logo, logoColor),
+    badgeFields = { label, message, color, styleParams };
 
-  let fullImgUrl;
-  if (onlyQueryParams) {
-    const params = { label, message, color, ...styleParams };
-    fullImgUrl = buildUrl(SHIELDS_STATIC, params);
-  } else {
-    const imgPath = dashShieldPath(label, message, color);
-    const imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
+  const fullImgUrl = onlyQueryParams
+    ? staticParamsUrl(badgeFields)
+    : staticDashUrl(badgeFields);
 
-    fullImgUrl = buildUrl(imgUrl, styleParams);
-  }
   return markdownImageWithLink(title, fullImgUrl, target);
 }

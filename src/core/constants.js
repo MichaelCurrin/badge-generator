@@ -5,8 +5,9 @@ export const DESCRIPTION = pkg.description;
 export const SHIELDS_API = "https://img.shields.io",
   SHIELDS_BADGE = `${SHIELDS_API}/badge`, // Dash-based
   SHIELDS_STATIC = `${SHIELDS_API}/static/v1`, // Param-based
-  SHIELDS_GH = `${SHIELDS_API}/github`,
-  GITHUB = "https://github.com",
+  SHIELDS_GH = `${SHIELDS_API}/github`;
+
+export const GITHUB = "https://github.com",
   DEFAULT_COLOR = "blue",
   GITHUB_GREEN = "2ea44f", // Such as Use this template or Merge button
   DEFAULT_BRANCH = "master";
@@ -17,17 +18,19 @@ export const STYLES = {
   SOCIAL: "?style=social",
 };
 
+// TODO add function to handle nodePackageUrl etc.
+// Excluding trailing slash makes URL joins more natural.
 export const PACKAGE_INFO = {
   python: {
     label: "PyPI",
-    url: "https://pypi.org/project/",
+    url: "https://pypi.org/project",
   },
   node: {
     label: "npm",
-    url: "https://www.npmjs.com/package/",
+    url: "https://www.npmjs.com/package",
   },
   ruby: {
     label: "rubygems",
-    url: "https://rubygems.org/gems/",
+    url: "https://rubygems.org/gems",
   },
 };
