@@ -124,7 +124,7 @@ export class Repo {
   gh() {
     const label = this.username,
       message = this.repoName,
-      color = "blue",
+      color = DEFAULT_COLOR,
       isLarge = false,
       target = this.ghURL(),
       logo = "github",
