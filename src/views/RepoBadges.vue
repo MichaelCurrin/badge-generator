@@ -13,7 +13,7 @@
 
           <form @submit.prevent.enter="submit">
             <fieldset name="ghRepo">
-              <legend>GitHub repo metadata</legend>
+              <legend>GitHub repo</legend>
 
               <TextInput label="Username" v-model="username" isRequired />
               <br />
