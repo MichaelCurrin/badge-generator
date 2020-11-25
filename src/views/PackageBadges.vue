@@ -58,7 +58,7 @@
             <br />
 
             <fieldset name="ghRepo">
-              <legend>GitHub repo metadata</legend>
+              <legend>GitHub repo</legend>
 
               <TextInput label="Username" v-model="username" />
               <br />
@@ -107,10 +107,12 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { versionBadge, Package } from "@/core/Package";
+import { versionBadge, dependency } from "@/core/packages";
 
 const note = `
 Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
+
+Only NPM is currently supported for the dynamic package.
 `;
 
 export default {
@@ -137,8 +139,7 @@ export default {
     submit: function () {
       console.debug("Process inputs and render results");
 
-      const pkg = new Package(this.pkgName, this.pkgType),
-        badge = pkg.badge();
+      const dependencyBadge = dependency(this.pkgName, this.pkgType);
 
       const lockedPkgBadge = versionBadge(
         this.username,
@@ -150,7 +151,7 @@ export default {
       );
 
       this.result = `\
-${badge}
+${dependencyBadge}
 
 ${lockedPkgBadge}
         `;

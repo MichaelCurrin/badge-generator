@@ -8,31 +8,17 @@ import {
   // eslint-disable-next-line prettier/prettier
   markdownImageWithLink
 } from "./badges";
-import { PACKAGE_INFO } from "./constants";
+import { DEFAULT_COLOR, PACKAGE_INFO } from "./constants";
 
-// TODO all functions or all classes? and one or two classes?
-
-// TODO: A badge like 'react : 1'
-// as generic badge page but with package type to infer the package URL.
-export class Package {
-  constructor(name, type) {
-    this.name = name;
-    this.type = type;
-
-    this.color = "blue";
-    this.isLarge = false;
-
-    this.metadata = PACKAGE_INFO[type];
-    if (!this.metadata) {
-      throw new Error("Unable to find matching provider");
-    }
+export function dependency(name, type) {
+  const metadata = PACKAGE_INFO[type];
+  if (!metadata) {
+    throw new Error("Unable to find matching provider");
   }
+  const isLarge = false;
+  const url = `${metadata.url}/${name}`;
 
-  badge() {
-    const url = `${this.metadata.url}/${this.name}`;
-
-    return genericBadge("dependency", this.name, this.color, this.isLarge, url);
-  }
+  return genericBadge("dependency", name, DEFAULT_COLOR, isLarge, url);
 }
 
 function nodeVersionBadge(
