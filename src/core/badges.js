@@ -1,7 +1,7 @@
 /**
  * Handle rendering of each badge and all badges.
  */
-import { SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
+import { DEFAULT_COLOR, SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
 
 // TODO combine link/target functions in a class.
 function markdownLink(altText, linkTarget) {
@@ -164,7 +164,7 @@ function staticDashUrl({ label, message, color, styleParams }) {
 export function genericBadge(
   label = "",
   message = "",
-  color = "blue",
+  color = DEFAULT_COLOR,
   isLarge = false,
   target = "",
   logo = "",
