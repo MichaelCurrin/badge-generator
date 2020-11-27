@@ -4,13 +4,14 @@
       <div class="col-12">
         <h1>Home</h1>
 
+        <!-- It would look better on page load to use height=250 except that on mobile the image gets squashed. The image needs to actually get a smaller heigh when the width is made to be smaller and CSS can't help here it seems. -->
         <div class="hero">
           <a href="https://unsplash.com/photos/FHTxbpRWEsE">
             <img
               alt="Logo"
               src="https://source.unsplash.com/FHTxbpRWEsE/1300x250"
               width="100%"
-              height="250"
+              height="auto"
             />
           </a>
           <br />
