@@ -66,7 +66,7 @@ export default {
 /**
  * GitHub Pages
  *
- * Based on GitHub Pages built markdown site (without Jekyll).
+ * Based on markdown site built on GitHub Pages without Jekyll.
  */
 
 /* Center app. */
@@ -171,10 +171,21 @@ summary {
   background: linear-gradient(to top, #42b983, #3aa776);
 }
 
-/* Flexbox - based on GH pages, Bootstrap and the GH Readme Generator. There is a better to do this using @media instead of min-width values (the min-width goes off-screen on a really small resolution when tested on desktop but this could be unrealistic). */
+/*
+  Flexbox
+
+  Based on GH pages, Bootstrap and the GH Readme Generator. There is a better way to do this using @media instead of min-width values (the min-width goes off-screen on a really small resolution when tested on desktop but this could be unrealistic).
+
+  Setting row width as 100% was my own setup to avoid having the col-12 element look to narrow on mobile at min-width 200px, unless I set a min-width like 300px Setting row width also means min-width can be left off and the col-12 will still look good instead of very squashed to the left.
+
+  In another app I looked at, there was 100% width on the container rather than the row, but that did not help here.
+*/
 .row {
+  display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+
+  width: 100%;
 }
 
 .col-6 {
