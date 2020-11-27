@@ -1,4 +1,5 @@
 <template>
+  <!-- Badge generator ouput pane -->
   <div class="app-results">
     <h2>Output values</h2>
 
