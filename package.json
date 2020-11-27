@@ -1,7 +1,7 @@
 {
   "name": "badge-generator",
   "description": "Magically generate custom badges that you can paste in your docs",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "author": "MichaelCurrin",
   "license": "MIT",
   "homepage": "https://github.com/MichaelCurrin/badge-generator#readme",
