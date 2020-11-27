@@ -149,6 +149,7 @@ export class Repo {
     return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${STYLES.SOCIAL}`;
   }
 
+  /* Stars or forks counter */
   ghSocial(type, usePreLabel = false) {
     if (!type || !this.isValid) {
       return "";
