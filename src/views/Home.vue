@@ -9,8 +9,8 @@
             <img
               alt="Logo"
               src="https://source.unsplash.com/hh4R3gAbhs8/650x250"
-              width="650"
-              height="250"
+              width="100%"
+              height="auto"
             />
           </a>
           <br />
