@@ -5,22 +5,22 @@
         <h1>Home</h1>
 
         <div class="hero">
-          <a href="https://unsplash.com/photos/hh4R3gAbhs8">
+          <a href="https://unsplash.com/photos/FHTxbpRWEsE">
             <img
               alt="Logo"
-              src="https://source.unsplash.com/hh4R3gAbhs8/650x250"
+              src="https://source.unsplash.com/FHTxbpRWEsE/1300x250"
               width="100%"
-              height="auto"
+              height="250"
             />
           </a>
           <br />
 
-          <small>
+          <small class="note">
             <span>
               Photo by
               <a
                 href="https://unsplash.com/@technobulka?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
-                >Stanislav Kondratiev</a
+                >Kevin Luarte</a
               >
               on
               <a
