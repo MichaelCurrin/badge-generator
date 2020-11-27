@@ -4,7 +4,11 @@
       <div class="col-12">
         <h1>Image</h1>
 
-        <p>Prepare a logo or sample screenshot for your README.md file.</p>
+        <p>
+          Add an image to your README.md file, such as your logo or a sample
+          screenshot of your app. This is just a badge section, but displaying
+          an image using markdown and HTML.
+        </p>
       </div>
     </div>
 
