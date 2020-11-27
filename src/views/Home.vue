@@ -30,13 +30,9 @@
             </span>
           </small>
 
-          <!-- TODO replace with better GH badge and with markdown maybe. Need new style to handle hyphen. A corner badge would help too -->
-          <p>
-            GitHub repo:
-            <a href="https://github.com/MichaelCurrin/badge-generator"
-              >MichaelCurrin/badge-generator</a
-            >
-          </p>
+          <vue-markdown>
+            {{ repoBadge }}
+          </vue-markdown>
 
           <p>
             <i>{{ description }}</i>
@@ -77,12 +73,21 @@
 </template>
 
 <script>
+import VueMarkdown from "vue-markdown";
+
 import { DESCRIPTION } from "@/core/constants";
+import { Repo } from "@/core/Repo";
 
 export default {
   name: "Home",
+  components: {
+    VueMarkdown,
+  },
   data() {
+    const repo = new Repo("MichaelCurrin", "badge-generator");
+
     return {
+      repoBadge: repo.gh(),
       description: DESCRIPTION,
     };
   },
