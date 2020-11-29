@@ -20,14 +20,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import { routes } from "@/router/index";
 
-export default {
+export default defineComponent({
+  name: "App",
   data() {
     return { routes };
   },
-};
+});
 </script>
 
 <style>
