@@ -17,7 +17,12 @@ export function dependency(name: string, registry: REGISTRY) {
   return genericBadge("dependency", name, DEFAULT_COLOR, isLarge, url);
 }
 
-function nodeVersionBadge(
+/**
+ * Supports NPM packages.
+ *
+ * Shields.io supports Pipenv lock files but not requirements.txt file, it seems. And not Gemfile either.
+ */
+export function nodeVersionBadge(
   username: string,
   repoName: string,
   pkgName?: string,
@@ -27,32 +32,13 @@ function nodeVersionBadge(
   if (!pkgName) {
     pkgName = repoName;
   }
-
   const title = `Package - ${pkgName}`;
 
   const imgUrl = `${SHIELDS_PACKAGE}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
-    fullImgUrl = buildUrl(imgUrl, params),
-    target = `${REGISTRY.NPM}/${pkgName}`;
+    fullImgUrl = buildUrl(imgUrl, params);
+
+  const target = `${REGISTRY.Node}/${pkgName}`;
 
   return markdownImageWithLink(title, fullImgUrl, target);
-}
-
-export function versionBadge(
-  username: string,
-  repoName: string,
-  pkgName: string,
-  pkgType: string,
-  logo?: string,
-  logoColor?: string
-) {
-  const badgeMakers = {
-    node: nodeVersionBadge,
-  };
-  const badgeMaker = badgeMakers[pkgType];
-  if (badgeMaker) {
-    return badgeMaker(username, repoName, pkgName, logo, logoColor);
-  }
-
-  return "";
 }
