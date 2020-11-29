@@ -1,19 +1,14 @@
 {
   "name": "badge-generator",
-  "description": "Magically generate custom badges that you can paste in your docs",
   "version": "1.8.0",
+  "description": "Magically generate custom badges that you can paste in your docs",
   "author": "MichaelCurrin",
-  "license": "MIT",
-  "homepage": "https://github.com/MichaelCurrin/badge-generator#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MichaelCurrin/badge-generator"
-  },
   "scripts": {
     "lint:fix": "vue-cli-service lint",
     "lint:check": "vue-cli-service lint --no-fix",
     "serve": "vue-cli-service serve",
     "start": "yarn lint:fix && yarn run serve",
+    "compile": "rm -rf dist && tsc -p . --outDir dist --sourceMap false",
     "build": "vue-cli-service build",
     "preversion": "yarn lint:check",
     "version": "yarn build",
@@ -23,20 +18,25 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.12",
     "vue-markdown": "^2.2.4",
-    "vue-router": "^3.4.3"
+    "vue-router": "^3.4.9"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "^4.5.6",
     "@vue/cli-plugin-eslint": "^4.5.6",
     "@vue/cli-plugin-router": "^4.5.6",
+    "@vue/cli-plugin-typescript": "^4.5.6",
     "@vue/cli-service": "^4.5.6",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
     "babel-eslint": "^10.1.0",
     "babel-runtime": "^6.26.0",
-    "eslint": "^7.8.1",
+    "eslint": "6.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.1.1",
+    "typescript": "^4.1.2",
     "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
@@ -47,10 +47,11 @@
     "extends": [
       "plugin:vue/essential",
       "eslint:recommended",
-      "@vue/prettier"
+      "@vue/prettier",
+      "@vue/typescript"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@typescript-eslint/parser"
     },
     "rules": {}
   },
@@ -58,5 +59,11 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "homepage": "https://github.com/MichaelCurrin/badge-generator#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichaelCurrin/badge-generator"
+  }
 }

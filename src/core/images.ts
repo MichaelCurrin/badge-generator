@@ -4,13 +4,13 @@
 
 // TODO There must be cleaner way to calculate this and lay it out. Use Vue?
 export function mkHtmlImg(
-  src,
-  alt,
-  title,
+  src: string,
+  alt: string,
+  title: string,
   target = "",
-  width,
-  height,
-  alignAttr
+  width: string,
+  height: string,
+  alignAttr: string
 ) {
   const htmlTitle = title ? ` title="${title}"` : "",
     htmlAltText = alt ? ` alt="${alt}"` : "",

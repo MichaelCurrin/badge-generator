@@ -30,7 +30,7 @@
                   type="radio"
                   id="python"
                   name="package-type"
-                  value="python"
+                  value="Python"
                   v-model="pkgType"
                   checked
                 />
@@ -40,7 +40,7 @@
                   type="radio"
                   id="node"
                   name="package-type"
-                  value="node"
+                  value="Node"
                   v-model="pkgType"
                 />
                 <label for="node">Node (NPM)</label>
@@ -49,7 +49,7 @@
                   type="radio"
                   id="ruby"
                   name="package-type"
-                  value="ruby"
+                  value="Ruby"
                   v-model="pkgType"
                 />
                 <label for="ruby">Ruby (Rubygems)</label>
@@ -107,7 +107,8 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { versionBadge, dependency } from "@/core/packages";
+import { REGISTRY } from "@/core/constants";
+import { dependency, nodeVersionBadge } from "@/core/packages";
 
 const note = `
 - Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
@@ -124,7 +125,7 @@ export default {
   data() {
     return {
       pkgName: "vue",
-      pkgType: "node",
+      pkgType: "Node",
       username: "MichaelCurrin",
       repoName: "badge-generator",
       logo: "vue.js",
@@ -138,16 +139,22 @@ export default {
     submit: function () {
       console.debug("Process inputs and render results");
 
-      const dependencyBadge = dependency(this.pkgName, this.pkgType);
+      const registry = REGISTRY[this.pkgType];
 
-      const lockedPkgBadge = versionBadge(
-        this.username,
-        this.repoName,
-        this.pkgName,
-        this.pkgType,
-        this.logo,
-        this.logoColor
-      );
+      const dependencyBadge = registry
+        ? dependency(this.pkgName, registry)
+        : "";
+
+      const lockedPkgBadge =
+        registry === REGISTRY.Node
+          ? nodeVersionBadge(
+              this.username,
+              this.repoName,
+              this.pkgName,
+              this.logo,
+              this.logoColor
+            )
+          : "";
 
       this.result = `\
 ${dependencyBadge}
