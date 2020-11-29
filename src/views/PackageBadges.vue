@@ -107,7 +107,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { REGISTRY } from "@/src/constants";
+import { REGISTRY } from "@/core/constants";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 
 const note = `
