@@ -3,15 +3,17 @@ import * as pkg from "../../package.json";
 export const DESCRIPTION = pkg.description;
 
 export const SHIELDS_API = "https://img.shields.io",
-  SHIELDS_BADGE = `${SHIELDS_API}/badge`, // Dash-based
-  SHIELDS_STATIC = `${SHIELDS_API}/static/v1`, // Param-based
-  SHIELDS_GH = `${SHIELDS_API}/github`;
+  SHIELDS_BADGE = `${SHIELDS_API}/badge`, // Dash-based URL.
+  SHIELDS_STATIC = `${SHIELDS_API}/static/v1`, // Param-based URL.
+  SHIELDS_GH = `${SHIELDS_API}/github`,
+  SHIELDS_PACKAGE = `${SHIELDS_API}/github/package-json/dependency-version/`;
 
 export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io",
   DEFAULT_COLOR = "blue",
   GREEN = "green",
-  GITHUB_GREEN = "2ea44f", // Such as Use this template or Merge button
+  // From 'Use this template' or 'Merge' button.
+  GITHUB_GREEN = "2ea44f",
   DEFAULT_BRANCH = "master";
 
 // TODO handle as map to make it easy to add multiple params.

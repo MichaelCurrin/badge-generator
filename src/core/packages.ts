@@ -8,10 +8,10 @@ import {
   // eslint-disable-next-line prettier/prettier
   markdownImageWithLink
 } from "./badges";
-import { DEFAULT_COLOR, PACKAGE_INFO } from "./constants";
+import { DEFAULT_COLOR, PACKAGE_INFO, SHIELDS_PACKAGE } from "./constants";
 
-export function dependency(name, type) {
-  const metadata = PACKAGE_INFO[type];
+export function dependency(name: string, depType: string) {
+  const metadata = PACKAGE_INFO[depType];
   if (!metadata) {
     throw new Error("Unable to find matching provider");
   }
@@ -22,11 +22,11 @@ export function dependency(name, type) {
 }
 
 function nodeVersionBadge(
-  username,
-  repoName,
-  pkgName = "",
-  logo = "",
-  logoColor = ""
+  username: string,
+  repoName: string,
+  pkgName?: string,
+  logo?: string,
+  logoColor?: string
 ) {
   if (!pkgName) {
     pkgName = repoName;
@@ -34,7 +34,7 @@ function nodeVersionBadge(
 
   const title = `Package - ${pkgName}`;
 
-  const imgUrl = `https://img.shields.io/github/package-json/dependency-version/${username}/${repoName}/${pkgName}`,
+  const imgUrl = `${SHIELDS_PACKAGE}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
     fullImgUrl = buildUrl(imgUrl, params),
     target = `${PACKAGE_INFO.node.url}/${pkgName}`;
@@ -43,17 +43,13 @@ function nodeVersionBadge(
 }
 
 export function versionBadge(
-  username,
-  repoName,
-  pkgName,
-  pkgType,
-  logo = "",
-  logoColor = ""
+  username: string,
+  repoName: string,
+  pkgName: string,
+  pkgType: string,
+  logo?: string,
+  logoColor?: string
 ) {
-  if (!username || !repoName || !pkgName || !pkgType) {
-    return "";
-  }
-
   const badgeMakers = {
     node: nodeVersionBadge,
   };

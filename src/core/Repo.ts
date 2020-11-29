@@ -15,10 +15,10 @@ import {
 } from "./constants";
 
 export class Repo {
-  constructor(username, repoName) {
-    this.username = username;
-    this.repoName = repoName;
-    this.isValid = username && repoName;
+  constructor(public username: string, public repoName: string) {}
+
+  _isValid() {
+    return this.username && this.repoName;
   }
 
   ghURL() {
@@ -50,7 +50,7 @@ export class Repo {
   }
 
   useThisTemplateBadge() {
-    if (!this.isValid) {
+    if (!this._isValid()) {
       return "";
     }
     const label = "",
@@ -63,7 +63,7 @@ export class Repo {
     return genericBadge(label, message, color, isLarge, target, logo);
   }
 
-  _tagBadgeUrl(type) {
+  _tagBadgeUrl(type: string) {
     const params = "?include_prereleases&sort=semver";
 
     return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${params}`;
@@ -72,7 +72,7 @@ export class Repo {
   /**
    * Create badge that dynamically shows a tag or release and links to releases.
    *
-   * TODO move these to the docs and link from there. It is useful for maintaining built badges.
+   * TODO: move these to the docs and link from there. It is useful for maintaining built badges.
    *
    * The tag shield shows the latest tag. The shield badge shows the latest release,
    * which must be created by hand on the Releases tab of your repo. Therefore, showing
@@ -90,7 +90,7 @@ export class Repo {
    *   old commits can show up as the latest tag when you don't want them to.
    */
   tagBadge(isRelease = false) {
-    if (!this.isValid) {
+    if (!this._isValid()) {
       return "";
     }
 
@@ -103,8 +103,8 @@ export class Repo {
     return markdownImageWithLink(title, imgUrl, target);
   }
 
-  licenseBadge(licenseType, localLicense = true) {
-    if (!licenseType || !this.isValid) {
+  licenseBadge(licenseType: string, localLicense = true) {
+    if (!licenseType || !this._isValid()) {
       return "";
     }
     const label = "License",
@@ -145,13 +145,14 @@ export class Repo {
     );
   }
 
-  _ghSocialShield(type) {
+  _ghSocialShield(type: string) {
     return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${STYLES.SOCIAL}`;
   }
 
   /* Stars or forks counter */
-  ghSocial(type, usePreLabel = false) {
-    if (!type || !this.isValid) {
+  // TODO use enum for type.
+  ghSocial(type: string, usePreLabel = false) {
+    if (!type || !this._isValid()) {
       return "";
     }
     const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "",
