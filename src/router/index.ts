@@ -1,9 +1,5 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-
+import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-
-Vue.use(VueRouter);
 
 export const routes = [
   {
@@ -38,8 +34,9 @@ export const routes = [
   },
 ];
 
-const router = new VueRouter({
-  routes,
+const router = createRouter({
+  history: createWebHistory(),
+  routes
 });
 
 export default router;
