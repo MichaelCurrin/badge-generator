@@ -1,6 +1,5 @@
-import * as pkg from "../../package.json";
-
-export const DESCRIPTION = pkg.description;
+export const DESCRIPTION =
+  "Magically generate custom badges that you can paste in your docs";
 
 export const SHIELDS_API = "https://img.shields.io",
   SHIELDS_BADGE = `${SHIELDS_API}/badge`, // Dash-based URL.
@@ -25,6 +24,6 @@ export const STYLES = {
 // Excluding trailing slash makes URL joins more natural.
 export enum REGISTRY {
   Python = "https://pypi.org/project",
-  NPM = "https://www.npmjs.com/package",
-  Ruby = "https://rubygems.org/gems"
-};
+  Node = "https://www.npmjs.com/package",
+  Ruby = "https://rubygems.org/gems",
+}
