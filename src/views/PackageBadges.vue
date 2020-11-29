@@ -107,6 +107,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
+import { REGISTRY } from "@/src/constants";
 import { versionBadge, dependency } from "@/core/packages";
 
 const note = `
@@ -138,7 +139,10 @@ export default {
     submit: function () {
       console.debug("Process inputs and render results");
 
-      const dependencyBadge = dependency(this.pkgName, this.pkgType);
+      const registry = REGISTRY[this.pkgType];
+      const dependencyBadge = registry
+        ? dependency(this.pkgName, registry)
+        : "";
 
       const lockedPkgBadge = versionBadge(
         this.username,

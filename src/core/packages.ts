@@ -8,15 +8,11 @@ import {
   // eslint-disable-next-line prettier/prettier
   markdownImageWithLink
 } from "./badges";
-import { DEFAULT_COLOR, PACKAGE_INFO, SHIELDS_PACKAGE } from "./constants";
+import { DEFAULT_COLOR, REGISTRY, SHIELDS_PACKAGE } from "./constants";
 
-export function dependency(name: string, depType: string) {
-  const metadata = PACKAGE_INFO[depType];
-  if (!metadata) {
-    throw new Error("Unable to find matching provider");
-  }
+export function dependency(name: string, registry: REGISTRY) {
   const isLarge = false;
-  const url = `${metadata.url}/${name}`;
+  const url = `${registry}/${name}`;
 
   return genericBadge("dependency", name, DEFAULT_COLOR, isLarge, url);
 }
@@ -37,7 +33,7 @@ function nodeVersionBadge(
   const imgUrl = `${SHIELDS_PACKAGE}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
     fullImgUrl = buildUrl(imgUrl, params),
-    target = `${PACKAGE_INFO.node.url}/${pkgName}`;
+    target = `${REGISTRY.NPM}/${pkgName}`;
 
   return markdownImageWithLink(title, fullImgUrl, target);
 }
