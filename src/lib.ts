@@ -2,11 +2,11 @@
  * Lib helper functions for Vue app.
  */
 
-export function stripLeadingSlash(value) {
+export function stripLeadingSlash(value: string) {
   return value.replace(/^\/+/, "");
 }
 
-export function slugify(...values) {
+export function slugify(...values: string[]) {
   const value = values.join("-");
 
   return value
