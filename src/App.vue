@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { routes } from "@/router/index.js";
+import { routes } from "@/router/index.ts";
 
 export default {
   data() {
