@@ -35,25 +35,17 @@ Start creating badges for your docs.
 
 ### Generate badges
 
-_Enter form details and generated markdown code and badge preview_
+_Enter form details and then generate markdown code and badge previews_
 
 <!-- It's best to have these each on their own line for readability. -->
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
-        <img src="/docs/_media/inputs.png" alt="Home screenshot" title="Inputs screenshot" width="350" />
-    </a>
-</div>
-
-<div align="center">
-    <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
-        <img src="/docs/_media/shields.png" alt="Shields screenshot" title="Shields screenshot" width="350" />
-    </a>
-</div>
-
-<div align="center">
-    <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
-        <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="350" />
+        <img src="/docs/_media/inputs.png" alt="Home screenshot" title="Inputs screenshot" height="200" />
+        <br>
+        <img src="/docs/_media/shields.png" alt="Shields screenshot" title="Shields screenshot" height="300" />
+        <br>
+        <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="400" />
     </a>
 </div>
 
