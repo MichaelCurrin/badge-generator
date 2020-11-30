@@ -125,7 +125,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
+
 import { stripLeadingSlash } from "@/lib";
 
 import Checkbox from "@/components/Checkbox.vue";
@@ -137,7 +139,7 @@ import { markdownImageWithLink } from "@/core/badges";
 import { mkHtmlImg } from "@/core/images";
 
 // 'Image' is reserved in Vue so use alternative.
-export default {
+export default Vue.extend({
   name: "ImageView",
   components: {
     Checkbox,
@@ -158,10 +160,10 @@ export default {
     };
   },
   computed: {
-    altTextOut() {
+    altTextOut(): string {
       return stripLeadingSlash(this.altText || this.imgSrc);
     },
-    imgTitleOut() {
+    imgTitleOut(): string {
       // If neither is set, then an empty string is fine to pass in.
       return stripLeadingSlash(this.imgTitle || this.altText);
     },
@@ -197,5 +199,5 @@ ${mdImg}
       `;
     },
   },
-};
+});
 </script>

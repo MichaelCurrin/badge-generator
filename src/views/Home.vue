@@ -73,13 +73,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import VueMarkdown from "vue-markdown";
 
 import { DESCRIPTION } from "@/core/constants";
 import { Repo } from "@/core/Repo";
 
-export default {
+export default Vue.extend({
   name: "Home",
   components: {
     VueMarkdown,
@@ -92,5 +93,5 @@ export default {
       description: DESCRIPTION,
     };
   },
-};
+});
 </script>

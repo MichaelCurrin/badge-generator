@@ -80,7 +80,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
+
 import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
 import Results from "@/components/Results.vue";
@@ -98,7 +100,7 @@ const note = `
 - For centered badges - note that the HTML \`align\` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the \`align\` attribute.
 `;
 
-export default {
+export default Vue.extend({
   name: "RepoBadges",
   components: {
     Checkbox,
@@ -140,7 +142,7 @@ export default {
         forks = repo.ghSocial("forks");
 
       const templateButton = this.useThisTemplate
-        ? repo.useThisTemplateBadge(this.useThisTemplate)
+        ? repo.useThisTemplateBadge()
         : "";
       // For now just GH pages but can be extended to have badges
       // focused docs. A custom URL independent of repo can be generated in a separate section or maybe here - just add output URL and assume the other data.
@@ -170,5 +172,5 @@ ${ghPagesButton}
       `;
     },
   },
-};
+});
 </script>
