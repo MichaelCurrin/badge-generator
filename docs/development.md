@@ -6,6 +6,7 @@
 
 - [ ] Add tests
 - [ ] Refactor JS to be DRY and OO
+- [ ] Add TS support
 - [X] Make into multi-page JS app - possibly with Vue, React or Preact, or Jekyll and mustache
 - [X] Split view into left and right (or top and bottom) optionally mobile friendly
 
@@ -137,3 +138,27 @@ This area has a few pieces.
             },
               badgeMaker = badgeMakers[pkgType];
             ```
+
+## Computed
+
+Note in `Image.vue` that after adding TypeScript support is necessary to reference a data attribute using `$attrs` rather than the attribute directly. This only an issue both `computed` and `methods`.
+
+```
+  data() {
+    return {
+      altText: "Sample screenshot",
+    };
+  },
+  computed: {
+    altTextOut() {
+      return stripLeadingSlash(this.$attrs.altText || this.$attrs.imgSrc);
+    },
+
+
+  methods: {
+    submit() {
+      const htmlImg = mkHtmlImg(
+          this.$attrs.imgSrc,
+          this.altTextOut,
+      )
+```
