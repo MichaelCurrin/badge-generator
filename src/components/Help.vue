@@ -9,10 +9,11 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import VueMarkdown from "vue-markdown";
 
-export default {
+export default Vue.extend({
   name: "Checkbox",
   components: {
     VueMarkdown,
@@ -20,5 +21,5 @@ export default {
   props: {
     message: { type: String, required: true },
   },
-};
+});
 </script>

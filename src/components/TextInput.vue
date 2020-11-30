@@ -25,12 +25,13 @@ label {
 }
 </style>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import VueMarkdown from "vue-markdown";
 
 import { slugify } from "@/lib";
 
-export default {
+export default Vue.extend({
   name: "TextInput",
   components: {
     VueMarkdown,
@@ -47,5 +48,5 @@ export default {
       return slugify("text", this.label, this.value);
     },
   },
-};
+});
 </script>

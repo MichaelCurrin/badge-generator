@@ -17,12 +17,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import VueMarkdown from "vue-markdown";
 
 import { slugify } from "@/lib";
 
-export default {
+export default Vue.extend({
   name: "Checkbox",
   components: {
     VueMarkdown,
@@ -37,5 +38,5 @@ export default {
       return slugify("box", this.label);
     },
   },
-};
+});
 </script>
