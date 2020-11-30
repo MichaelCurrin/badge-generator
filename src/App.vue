@@ -20,14 +20,16 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
+
 import { routes } from "@/router/index";
 
-export default {
+export default Vue.extend({
   data() {
     return { routes };
   },
-};
+});
 </script>
 
 <style>
