@@ -5,10 +5,11 @@
 ## Roadmap
 
 - [ ] Add tests
-- [ ] Refactor JS to be DRY and OO
-- [ ] Add TS support
-- [X] Make into multi-page JS app - possibly with Vue, React or Preact, or Jekyll and mustache
-- [X] Split view into left and right (or top and bottom) optionally mobile friendly
+- [ ] Refactor JS to be DRY
+- [x] Add TS support
+- [ ] Use interfaces and types
+- [x] Make into multi-page JS app - possibly with Vue, React or Preact, or Jekyll and mustache
+- [x] Split view into left and right (or top and bottom) optionally mobile friendly
 
 
 ## Project structure
