@@ -81,7 +81,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
+
 import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
@@ -96,7 +98,7 @@ This form lets you create a fixed badge using arbitrary text and a link.
 For example, describe a tools or platforms your repo is built on or built for running. This form takes care of encoding characters so they are safe for the badge URL.
 `;
 
-export default {
+export default Vue.extend({
   name: "GenericBadges",
   components: {
     Checkbox,
@@ -133,8 +135,26 @@ export default {
       ];
       console.debug(args);
 
-      const dashBadge = genericBadge(...args, false),
-        paramBadge = genericBadge(...args, true);
+      const dashBadge = genericBadge(
+          this.label,
+          this.message,
+          this.color,
+          this.isLarge,
+          this.target,
+          this.logo,
+          this.logoColor,
+          false
+        ),
+        paramBadge = genericBadge(
+          this.label,
+          this.message,
+          this.color,
+          this.isLarge,
+          this.target,
+          this.logo,
+          this.logoColor,
+          true
+        );
 
       this.result = `\
 _Dash badge_
@@ -147,5 +167,5 @@ ${paramBadge}
       `;
     },
   },
-};
+});
 </script>

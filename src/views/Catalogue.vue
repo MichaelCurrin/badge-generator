@@ -28,7 +28,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import VueMarkdown from "vue-markdown";
 
 import { genericBadge } from "@/core/badges";
@@ -138,15 +139,15 @@ const renderedTools = tools.map((tool) =>
   genericBadge(
     tool.label,
     tool.message,
-    undefined,
-    null,
+    "",
+    false,
     tool.target,
     tool.logo || "",
     tool.logo ? "white" : ""
   )
 );
 
-export default {
+export default Vue.extend({
   name: "Catalogue",
   components: {
     VueMarkdown,
@@ -156,5 +157,5 @@ export default {
       badges: renderedTools,
     };
   },
-};
+});
 </script>

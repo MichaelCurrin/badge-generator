@@ -5,9 +5,11 @@
 ## Roadmap
 
 - [ ] Add tests
-- [ ] Refactor JS to be DRY and OO
-- [X] Make into multi-page JS app - possibly with Vue, React or Preact, or Jekyll and mustache
-- [X] Split view into left and right (or top and bottom) optionally mobile friendly
+- [ ] Refactor JS to be DRY
+- [x] Add TS support
+- [ ] Use interfaces and types
+- [x] Make into multi-page JS app - possibly with Vue, React or Preact, or Jekyll and mustache
+- [x] Split view into left and right (or top and bottom) optionally mobile friendly
 
 
 ## Project structure
@@ -137,3 +139,12 @@ This area has a few pieces.
             },
               badgeMaker = badgeMakers[pkgType];
             ```
+
+
+## Vue components
+
+Note that in [Image.vue](/src/views/Image.vue) that return types had to be set explicitly on the `computed` functions. This has been noted in the Vue TS docs.
+
+Without this, I found that getting attributes as `this.imgSrc` failed compilation check. It was possible to use `this.$attrs.imgSrc` but this gave issues when it came to updating `this.results`. Since `this.$attrs` is read-only.
+
+Using return types was the easier and better solution.

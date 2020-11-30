@@ -102,7 +102,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
+
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
@@ -115,7 +117,7 @@ const note = `
 - Only NPM is currently supported for the dynamic package.
 `;
 
-export default {
+export default Vue.extend({
   name: "PackageBadges",
   components: {
     Help,
@@ -136,10 +138,11 @@ export default {
     };
   },
   methods: {
-    submit: function () {
+    submit() {
       console.debug("Process inputs and render results");
 
-      const registry = REGISTRY[this.pkgType];
+      const key = this.pkgType as keyof typeof REGISTRY,
+        registry = REGISTRY[key];
 
       const dependencyBadge = registry
         ? dependency(this.pkgName, registry)
@@ -163,5 +166,5 @@ ${lockedPkgBadge}
         `;
     },
   },
-};
+});
 </script>

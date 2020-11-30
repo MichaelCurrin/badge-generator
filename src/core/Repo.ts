@@ -17,7 +17,7 @@ import {
 export class Repo {
   constructor(public username: string, public repoName: string) {}
 
-  _isValid() {
+  private _isValid() {
     return this.username && this.repoName;
   }
 
@@ -63,7 +63,7 @@ export class Repo {
     return genericBadge(label, message, color, isLarge, target, logo);
   }
 
-  _tagBadgeUrl(type: string) {
+  private _tagBadgeUrl(type: string) {
     const params = "?include_prereleases&sort=semver";
 
     return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${params}`;
@@ -145,7 +145,7 @@ export class Repo {
     );
   }
 
-  _ghSocialShield(type: string) {
+  private _ghSocialShield(type: string) {
     return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${STYLES.SOCIAL}`;
   }
 

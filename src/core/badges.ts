@@ -181,13 +181,17 @@ function staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
 export function genericBadge(
   label = "",
   message: string,
-  color = DEFAULT_COLOR,
+  color = "",
   isLarge = false,
   target = "",
   logo = "",
   logoColor = "",
   onlyQueryParams = false
 ) {
+  if (!color) {
+    color = DEFAULT_COLOR;
+  }
+
   const title = formatTitle(label, message);
 
   const styleParams = logoParams(isLarge, logo, logoColor),
