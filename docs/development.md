@@ -140,26 +140,11 @@ This area has a few pieces.
               badgeMaker = badgeMakers[pkgType];
             ```
 
-## Computed
 
-Note in `Image.vue` that after adding TypeScript support is necessary to reference a data attribute using `$attrs` rather than the attribute directly. This only an issue both `computed` and `methods`.
+## Vue components
 
-```
-  data() {
-    return {
-      altText: "Sample screenshot",
-    };
-  },
-  computed: {
-    altTextOut() {
-      return stripLeadingSlash(this.$attrs.altText || this.$attrs.imgSrc);
-    },
+Note that in [Image.vue](/src/views/Image.vue) that return types had to be set explicitly on the `computed` functions. This has been noted in the Vue TS docs.
 
+Without this, I found that getting attributes as `this.imgSrc` failed compilation check. It was possible to use `this.$attrs.imgSrc` but this gave issues when it came to updating `this.results`. Since `this.$attrs` is read-only.
 
-  methods: {
-    submit() {
-      const htmlImg = mkHtmlImg(
-          this.$attrs.imgSrc,
-          this.altTextOut,
-      )
-```
+Using return types was the easier and better solution.
