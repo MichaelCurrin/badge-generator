@@ -7,13 +7,10 @@
 
       <div id="nav">
         <!-- Build menu based on configured app routes. -->
+        <!-- Keep router-link on one line for underlining -->
         <span v-for="(item, index) in routes" v-bind:key="item.path">
-          <span>
-            {{ index !== 0 ? " | " : "" }}
-          </span>
-          <router-link :to="item.path">
-            {{ item.name }}
-          </router-link>
+          <span>{{ index !== 0 ? " | " : "" }}</span>
+          <router-link :to="item.path">{{ item.name }}</router-link>
         </span>
       </div>
     </div>
@@ -225,7 +222,7 @@ summary {
 }
 
 input {
-  /* Prevent user agent stylesheet from making this too small, like in Chrome. */
+  /* Prevent user agent stylesheet from making this too small, such as in Chrome. */
   font-size: initial;
 }
 
