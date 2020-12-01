@@ -35,6 +35,11 @@ export default Vue.extend({
 </script>
 
 <style>
+:root {
+  --green: #42b983;
+  --green-dark: #3aa776;
+  --grey: #2c3e50;
+}
 /**
  * Basic Vue.
  *
@@ -44,7 +49,7 @@ export default Vue.extend({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: var(--grey);
 
   padding-top: 10px;
 }
@@ -57,7 +62,7 @@ export default Vue.extend({
 
 #nav a {
   font-weight: bold;
-  color: #42b983;
+  color: var(--green);
   text-decoration: none;
 }
 
@@ -66,7 +71,7 @@ export default Vue.extend({
 }
 
 #nav a.router-link-exact-active {
-  color: #2c3e50;
+  color: var(--grey);
 }
 
 /**
@@ -160,7 +165,7 @@ summary {
 /* Revert link styling. */
 #logo > a {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--grey);
 }
 #logo > a:hover {
   text-decoration: underline;
@@ -179,12 +184,12 @@ summary {
   border-radius: 12px;
   color: white;
   font-size: 21px;
-  background: linear-gradient(to bottom, #42b983, #3aa776);
+  background: linear-gradient(to bottom, var(--green), var(--green-dark));
   padding: 10px 20px 10px 20px;
 }
 
 .btn:hover {
-  background: linear-gradient(to top, #42b983, #3aa776);
+  background: linear-gradient(to top, var(--green), var(--green-dark));
 }
 
 /**
@@ -226,5 +231,8 @@ input {
 
 .required {
   color: red;
+}
+input:checked ~ .checkmark {
+  background-color: red;
 }
 </style>
