@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="container-lg">
-      <span id="logo">Badge Generator</span>
+      <span id="logo">
+        <a href="/">Badge Generator</a>
+      </span>
 
       <div id="nav">
         <!-- Build menu based on configured app routes. -->
@@ -34,7 +36,9 @@ export default Vue.extend({
 
 <style>
 /**
- * Based on Vue quickstart styles.
+ * Basic Vue.
+ *
+ * Based on the Vue quickstart's styles.
  */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -49,7 +53,7 @@ export default Vue.extend({
   padding-top: 10px;
 }
 
-/* Cleanup menu to remove default of underline and then add it back on hover. */
+/* Clean-up menu to remove default of underline and then add it back on hover. */
 
 #nav a {
   font-weight: bold;
@@ -66,7 +70,7 @@ export default Vue.extend({
 }
 
 /**
- * GitHub Pages
+ * GitHub Pages styles.
  *
  * Based on markdown site built on GitHub Pages without Jekyll.
  */
@@ -148,9 +152,19 @@ summary {
 /**
  * Custom
  */
+
 #logo {
   font-weight: bold;
   font-size: 3em;
+}
+/* Revert link styling. */
+#logo > a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+#logo > a:hover {
+  text-decoration: underline;
+  color: #41576d;
 }
 
 #nav {
@@ -173,15 +187,15 @@ summary {
   background: linear-gradient(to top, #42b983, #3aa776);
 }
 
-/*
-  Flexbox
-
-  Based on GH pages, Bootstrap and the GH Readme Generator. There is a better way to do this using @media instead of min-width values (the min-width goes off-screen on a really small resolution when tested on desktop but this could be unrealistic).
-
-  Setting row width as 100% was my own setup to avoid having the col-12 element look to narrow on mobile at min-width 200px, unless I set a min-width like 300px Setting row width also means min-width can be left off and the col-12 will still look good instead of very squashed to the left.
-
-  In another app I looked at, there was 100% width on the container rather than the row, but that did not help here.
-*/
+/**
+ * Flexbox
+ *
+ * Based on GH pages, Bootstrap and the GH Readme Generator. There is a better way to do this using @media instead of min-width values (the min-width goes off-screen on a really small resolution when tested on desktop but this could be unrealistic).
+ *
+ * Setting row width as 100% was my own setup to avoid having the col-12 element look to narrow on mobile at min-width 200px, unless I set a min-width like 300px Setting row width also means min-width can be left off and the col-12 will still look good instead of very squashed to the left.
+ *
+ * In another app I looked at, there was 100% width on the container rather than the row, but that did not help here.
+ */
 .row {
   display: -ms-flexbox;
   display: flex;
@@ -206,7 +220,7 @@ summary {
 }
 
 input {
-  /* Prevent user agent stylesheet from making this too small, like in Chrome */
+  /* Prevent user agent stylesheet from making this too small, like in Chrome. */
   font-size: initial;
 }
 
