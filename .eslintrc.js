@@ -12,9 +12,5 @@ module.exports = {
   parserOptions: {
     parser: "@typescript-eslint/parser",
   },
-  rules: {
-    semi: [2, "always"],
-    "comma-dangle": [2, "always-multiline"],
-    quotes: [2, "double"],
-  },
+  rules: {},
 };
