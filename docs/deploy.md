@@ -3,13 +3,17 @@
 
 ## Build
 
-Do a production build and output to the `dist` directory. This directory will always be deleted first, so a _clean_ step is not needed.
+Do a production build and output to the `dist` directory.
 
 ```sh
 $ yarn build
 ```
 
+The directory will always be deleted first, so a _clean_ step is not needed.
+
 This runs `vue-cli-service build` which uses `--mode production` by default.
+
+Note that this used TypeScript internally - you do **not** need to run a compile command as part of this command.
 
 
 ## Release
