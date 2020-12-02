@@ -2,6 +2,12 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
+     "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
@@ -18,12 +24,6 @@
     },
     "types": [
       "webpack-env"
-    ],
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
     ]
   },
   "include": [
