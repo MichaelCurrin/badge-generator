@@ -6,7 +6,7 @@
 Do a production build and output to the `dist` directory.
 
 ```sh
-$ yarn build:clean
+$ make build
 ```
 
 This runs Vue's build command including cleaning the output directory. This can be done locally to preview a build.
@@ -18,12 +18,10 @@ The command uses the `--mode production` by default.
 
 ## Release
 
-Create a tag locally using the CLI.
-
-NPM is simpler than Yarn for tagging.
+Increment the tag using NPM CLI. This includes fetching and pushing.
 
 ```sh
-$ npm version minor
+$ make tag
 ```
 
 

@@ -6,6 +6,8 @@ This will perform lint fixes, compile TS to JS and serve the app.
 
 ```sh
 $ yarn start
+$ # Or
+$ make serve
 ```
 
 Open in the browser:
@@ -19,6 +21,8 @@ Apply ESLint and Prettier formatting fixes.
 
 ```sh
 $ yarn lint:fix
+$ # Or
+$ make lint
 ```
 
 Note that this is run as part of the `start` command above.
