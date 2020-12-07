@@ -12,7 +12,7 @@
     "build:clean": "vue-cli-service build",
     "build:keep": "vue-cli-service build --no-clean",
     "preversion": "git fetch --tags && yarn lint:check",
-    "version": "yarn build",
+    "version": "yarn build:clean",
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
