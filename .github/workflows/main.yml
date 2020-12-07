@@ -25,7 +25,7 @@ jobs:
         run: yarn lint:check
 
       - name: Build 🏗️
-        run: yarn build
+        run: yarn build:keep
         env:
           NODE_ENV: production
 
