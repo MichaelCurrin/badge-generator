@@ -49,9 +49,16 @@ Quickstart:
 ```
 
 
+## Vue components
+
+Note that in [Image.vue](/src/views/Image.vue) that _return types_ had to be set explicitly on the `computed` functions. This has been recommended in the Vue TS docs.
+
+Without this, I found that getting attributes as `this.imgSrc` failed compilation check. It was possible to use `this.$attrs.imgSrc` but this gave issues when it came to updating `this.results`. Since `this.$attrs` is read-only.
+
+
 ## How to run locally
 
-See the install and usage docs.
+See the [Installation](installation.md) and [Usage](usage.md) docs.
 
 For plain development, just run the _serve_ task from the CLI or from the Tasks Explorer in VS Code.
 
@@ -159,10 +166,20 @@ Therefore formatting rules can be set at a few levels, which makes things confus
 - Editor Config file (for indentation at least.)
 
 
-## Vue components
+## Packages
 
-Note that in [Image.vue](/src/views/Image.vue) that return types had to be set explicitly on the `computed` functions. This has been noted in the Vue TS docs.
+On upgrading packages.
 
-Without this, I found that getting attributes as `this.imgSrc` failed compilation check. It was possible to use `this.$attrs.imgSrc` but this gave issues when it came to updating `this.results`. Since `this.$attrs` is read-only.
+I attempted to upgrade these outdated packages as follows:
 
-Using return types was the easier and better solution.
+```
+yarn add @typescript-eslint/eslint-plugin@4.9.1 @typescript-eslint/parser@4.9.1 @vue/eslint-config-typescript@7.0.0 eslint-plugin-vue@7.2.0
+```
+
+But got a warning because of ESLint being less than 7.
+
+But the `@vue/cli-plugin-eslint` actually needs ESLint to be less than 7 otherwise it gives a warning. So I am waiting on a newer version of that.
+
+```
+warning "@vue/cli-plugin-eslint > eslint-loader@2.2.1" has incorrect peer dependency "eslint@>=1.6.0 <7.0.0".
+```
