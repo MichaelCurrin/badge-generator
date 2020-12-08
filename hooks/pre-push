@@ -1,4 +1,5 @@
 #!/bin/sh -e
 
 git pull --rebase
-make all
+yarn install --frozen-lockfile
+make build
