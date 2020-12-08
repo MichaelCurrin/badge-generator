@@ -1,8 +1,5 @@
 default: install
 
-# Local pre-push check.
-all: install build
-
 h help:
 	@egrep '^\S|^$$' Makefile
 
