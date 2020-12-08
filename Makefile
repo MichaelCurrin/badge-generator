@@ -7,11 +7,14 @@ h help:
 	@egrep '^\S|^$$' Makefile
 
 
-i install:
+install:
 	yarn install
 
-build:
+
+l lint:
 	yarn lint:fix
+
+build: lint
 	yarn build:clean
 
 s serve:
