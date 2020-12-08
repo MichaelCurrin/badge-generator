@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+git pull --rebase
+make all
