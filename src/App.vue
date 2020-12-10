@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container-lg">
       <span id="logo">
-        <a href="/">Badge Generator</a>
+        Badge Generator
       </span>
 
       <div id="nav">
