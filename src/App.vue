@@ -37,11 +37,13 @@ export default Vue.extend({
   --green-dark: #3aa776;
   --grey: #2c3e50;
 }
+
 /**
  * Basic Vue.
  *
  * Based on the Vue quickstart's styles.
  */
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
