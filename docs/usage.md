@@ -28,6 +28,17 @@ $ make lint
 Note that this is run as part of the `start` command above.
 
 
+## Tests
+
+Run unit tests.
+
+```sh
+$ yarn test:unit
+```
+
+Note that this does need or produce any output directory. It operates directly on the `.ts` files.
+
+
 ## Compile
 
 Compile TS files to JS.
