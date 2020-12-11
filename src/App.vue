@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <div class="container-lg">
-      <span id="logo">
-        Badge Generator
-      </span>
+      <span id="logo">Badge Generator</span>
 
       <div id="nav">
         <!-- Build menu based on configured app routes. -->
