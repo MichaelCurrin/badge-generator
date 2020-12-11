@@ -28,6 +28,9 @@ jobs:
       - name: Lint 🧐
         run: yarn lint:check
 
+      - name: Test 🚨
+        run: yarn test:unit
+
       - name: Build 🏗️
         run: yarn build:keep
         env:
