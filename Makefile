@@ -21,6 +21,6 @@ build: lint
 s serve:
 	yarn start
 
-# Run build and then tag and push.
+# Build, tag and push.
 tag:
 	npm version minor
