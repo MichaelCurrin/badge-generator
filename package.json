@@ -22,6 +22,7 @@
     "vue-router": "^3.4.9"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.19",
     "@types/vue-markdown": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -29,9 +30,11 @@
     "@vue/cli-plugin-eslint": "^4.5.6",
     "@vue/cli-plugin-router": "^4.5.6",
     "@vue/cli-plugin-typescript": "^4.5.6",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "^4.5.6",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "babel-runtime": "^6.26.0",
     "eslint": "6.0.0",
