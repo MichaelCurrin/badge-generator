@@ -6,12 +6,13 @@
   "scripts": {
     "lint:fix": "vue-cli-service lint",
     "lint:check": "vue-cli-service lint --no-fix",
+    "test:unit": "vue-cli-service test:unit",
     "serve": "vue-cli-service serve",
     "start": "yarn lint:fix && yarn run serve",
     "compile": "rm -rf dist && tsc -p . --outDir dist --sourceMap false",
     "build:clean": "vue-cli-service build",
     "build:keep": "vue-cli-service build --no-clean",
-    "preversion": "git fetch --tags && yarn lint:check",
+    "preversion": "git fetch --tags && yarn lint:check && yarn test:unit",
     "version": "yarn build:clean",
     "postversion": "git push --follow-tags"
   },
