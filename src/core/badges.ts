@@ -8,7 +8,11 @@ export function markdownLink(altText: string, linkTarget: string) {
   return `[${altText}](${linkTarget})`;
 }
 
-export function markdownImage(altText: string, imageTarget: string, hoverTitle = "") {
+export function markdownImage(
+  altText: string,
+  imageTarget: string,
+  hoverTitle = ""
+) {
   if (hoverTitle) {
     imageTarget = `${imageTarget} "${hoverTitle}"`;
   }
