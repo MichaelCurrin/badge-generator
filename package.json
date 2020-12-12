@@ -10,10 +10,9 @@
     "serve": "vue-cli-service serve",
     "start": "yarn lint:fix && yarn run serve",
     "compile": "rm -rf dist && tsc -p . --outDir dist --sourceMap false",
-    "build:clean": "vue-cli-service build",
-    "build:keep": "vue-cli-service build --no-clean",
+    "build": "vue-cli-service build",
     "preversion": "git fetch --tags && yarn lint:check && yarn test:unit",
-    "version": "yarn build:clean",
+    "version": "yarn build",
     "postversion": "git push --follow-tags"
   },
   "dependencies": {

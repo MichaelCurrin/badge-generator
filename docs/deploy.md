@@ -33,15 +33,22 @@ Push to `master` or a feature branch with a PR and you'll trigger a build with G
 
 For pushes to `master` branch only, the app will build to the `gh-pages` branch. This is used to deploy to the GitHub Pages site.
 
-### Selective cleaning
+### Keeping assets across deploys
 
-There was an issue where viewing a cached HTML page in the browser where it a blank page when a hashed JS script is not found, after a push and deploy to master.
+A flag was added to the GH Actions workflow to keep existing files on `gh-pages` branch on each deploy
 
-The Vue build command covered under [Build](#build) above automatically deletes the output directory each time.
-
-So to stop cleaning and keep hashed assets persisted across builds, we add a flag to the one build command in [package.json](/package.json). This is done along with a setting on an Action in the workflow to ensure assets persist on `gh-pages` branch across deploys.
-. There is no actual browser trigger like a page load to watch for.
-
-Though, maybe if the scripts on the page do all run top to bottom, an alternative fix would be a script last on the page which checks if the app `div` element is empty and if so then it forces a page reload, which will get the latest HTML and JS. This script must only run _after_ the Vue script runs and succeeds, to avoid running to soon.
+This is because there was an issue after deploy when viewing a cached HTML page in the browser. It gave a blank page as hashed JS script was not found.
 
 Occasionally, we may want to delete old files on the `gh-pages` branch, especially after a few deploys where it is more likely that the latest page has been viewed and newer assets requested.
+
+#### Alternative approaches
+
+The approach above is simple but it takes up some extra storage space and doesn't get the user to reload.
+
+This is fine for me because I know I deployed, but maybe I can push users to reload another way. Especially as navigating with the app when assets are valid does not actually refresh the HTML page.
+
+Maybe if the scripts on the page do all run top to bottom, an alternative fix would be a script last on the page which checks if the app `div` element is empty and if so then it forces a page reload, which will get the latest HTML and JS.
+
+This script must only run _after_ the Vue script runs and succeeds, to avoid running too soon.
+
+I also experienced a related issue when if the page is kept open during a deploy, then viewing the page later it does not work an a reload is needed. I need to check what scripts load and run here if any, so I can add another script.

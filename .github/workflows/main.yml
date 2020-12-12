@@ -32,7 +32,7 @@ jobs:
         run: yarn test:unit
 
       - name: Build 🏗️
-        run: yarn build:keep
+        run: yarn build
         env:
           NODE_ENV: production
 

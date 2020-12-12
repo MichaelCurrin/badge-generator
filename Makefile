@@ -18,7 +18,7 @@ t test:
 	yarn test:unit
 
 build: lint
-	yarn build:clean
+	yarn build
 
 s serve:
 	yarn start
