@@ -1,5 +1,19 @@
+/*
+Template:
+
+describe("#foo", () => {
+  it("", () => {
+    expect(
+      foo(
+        ""
+      )
+    ).toBe("");
+  });
+});
+*/
+
 import {
-  markdownImage,
+  encode, markdownImage,
   markdownImageWithLink,
   markdownLink
 } from "@/core/badges";
@@ -44,5 +58,76 @@ describe("#markdownImageWithLink", () => {
         "My foo"
       )
     ).toBe('[![Alt text](foo.png "My foo")](https://example.com)');
+  });
+});
+
+describe("#encode", () => {
+  it("convert a space to an underscore", () => {
+    expect(
+      encode(
+        "Foo Bar"
+      )
+    ).toBe("Foo_Bar");
+  })
+
+  it("converts a single dash to two", () => {
+    expect(
+      encode(
+        "Foo-Bar"
+      )
+    ).toBe("Foo--Bar");
+  });
+
+  it("converts a single underscore to two", () => {
+    expect(
+      encode(
+        "Foo_Bar"
+      )
+    ).toBe("Foo__Bar");
+  });
+
+  it("converts a mix of space, underscore and a dash correctly", () => {
+    expect(
+      encode(
+        "Foo Bar_Baz-Buzz"
+      )
+    ).toBe("Foo_Bar__Baz--Buzz");
+  });
+
+  // These could appear when putting a URL as a value in the path, so need to be escaped.
+  it("encodes special characters likely correctly", () => {
+    expect(
+      encode(
+        "&"
+      )
+    ).toBe("%26");
+
+    expect(
+      encode(
+        "/"
+      )
+    ).toBe("%2F");
+
+
+    expect(
+      encode(
+        "?"
+      )
+    ).toBe("%3F");
+  });
+
+  // Note that '>' and '<' are valid on shields.io and should not be encoded.
+  it("encodes a string correctly without converting angle brackets", () => {
+    expect(
+      encode(
+        ">=3"
+      )
+    ).toBe(">%3D3");
+
+    expect(
+      encode(
+        "<2"
+      )
+    ).toBe("<2");
   });
 });
