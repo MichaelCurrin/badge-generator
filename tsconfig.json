@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-     "lib": [
+    "lib": [
       "esnext",
       "dom",
       "dom.iterable",
@@ -23,7 +23,8 @@
       ]
     },
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "jest"
     ]
   },
   "include": [

@@ -14,6 +14,8 @@ install:
 
 l lint:
 	yarn lint:fix
+t test:
+	yarn test:unit
 
 build: lint
 	yarn build:clean
@@ -21,6 +23,7 @@ build: lint
 s serve:
 	yarn start
 
-# Build, tag and push.
+
+# Build, increment tag and push release.
 tag:
 	npm version minor

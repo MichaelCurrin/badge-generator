@@ -28,6 +28,21 @@ $ make lint
 Note that this is run as part of the `start` command above.
 
 
+## Tests
+
+Jest is the test runner and it is run using the Jest plugin for view. See [cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins/unit-jest.html) in the Vue CLI docs.
+
+Run unit tests.
+
+```sh
+$ yarn test:unit
+$ # Or
+$ make test
+```
+
+Note that this does need or produce any output directory. It operates directly on the `.ts` files.
+
+
 ## Compile
 
 Compile TS files to JS.
