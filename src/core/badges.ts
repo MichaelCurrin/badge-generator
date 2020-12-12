@@ -3,8 +3,8 @@
  */
 import { DEFAULT_COLOR, SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
 
-// TODO combine link/target functions in a class.
-function markdownLink(altText: string, linkTarget: string) {
+// TODO combine link/target functions in a module.
+export function markdownLink(altText: string, linkTarget: string) {
   return `[${altText}](${linkTarget})`;
 }
 
