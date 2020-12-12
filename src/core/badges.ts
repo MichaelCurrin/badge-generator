@@ -1,7 +1,7 @@
 /**
  * Handle rendering of each badge and all badges.
  */
-import { DEFAULT_COLOR, SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
+import { SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
 
 // TODO combine link/target functions in a module.
 export function markdownLink(altText: string, linkTarget: string) {
@@ -172,27 +172,23 @@ function staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
  * Everything is optional except message.
  *
  * In the dash style, the result is LABEL-MESSAGE-COLOR or MESSABE-COLOR. The API needs color to be
- * set.
- * Sample: https://img.shields.io/badge/Foo-Bar--Baz-green
+ * set, so this is made a required param here on this function.
+ * Sample URL: https://img.shields.io/badge/Foo-Bar--Baz-green
  *
- * Use the params style by setting onlyQueryParams to be true. There result is more verbose but does
- * not required escaping characters. Sample:
+ * Use the params style by setting onlyQueryParams to be true. The result is more verbose but does
+ * not require escaping characters. Sample:
  * https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&logo=github&color=blue
  */
 export function genericBadge(
   label = "",
   message: string,
-  color = "",
+  color: string,
   isLarge = false,
   target = "",
   logo = "",
   logoColor = "",
   onlyQueryParams = false
 ) {
-  if (!color) {
-    color = DEFAULT_COLOR;
-  }
-
   const title = formatTitle(label, message);
 
   const styleParams = logoParams(isLarge, logo, logoColor),
