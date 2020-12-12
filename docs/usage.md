@@ -30,6 +30,8 @@ Note that this is run as part of the `start` command above.
 
 ## Tests
 
+Jest is the test runner and it is run using the Jest plugin for view. See [cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins/unit-jest.html) in the Vue CLI docs.
+
 Run unit tests.
 
 ```sh
