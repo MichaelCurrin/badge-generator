@@ -8,7 +8,7 @@
     "lint:check": "vue-cli-service lint --no-fix",
     "test:unit": "vue-cli-service test:unit",
     "serve": "vue-cli-service serve",
-    "start": "yarn lint:fix && yarn run serve",
+    "start": "yarn serve",
     "compile": "rm -rf dist && tsc -p . --outDir dist --sourceMap false",
     "build": "vue-cli-service build",
     "preversion": "git fetch --tags && yarn lint:check && yarn test:unit",

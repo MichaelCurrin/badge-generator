@@ -2,11 +2,14 @@
 
 ## Run dev server
 
-This will perform lint fixes, compile TS to JS and serve the app.
-
+This will compile TS to JS and serve the app.
 ```sh
 $ yarn start
-$ # Or
+```
+
+This does the same but adds lint fixes and tests first.
+
+```sh
 $ make serve
 ```
 

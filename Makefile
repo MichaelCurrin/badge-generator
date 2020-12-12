@@ -17,12 +17,12 @@ l lint:
 t test:
 	yarn test:unit
 
-build: lint
-	yarn build
-
-s serve:
+s serve: lint test
 	yarn start
 
+
+build: lint test
+	yarn build
 
 # Build, increment tag and push release.
 tag:
