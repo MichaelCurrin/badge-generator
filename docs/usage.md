@@ -3,6 +3,7 @@
 ## Run dev server
 
 This will compile TS to JS and serve the app.
+
 ```sh
 $ yarn start
 ```
@@ -39,11 +40,16 @@ Run unit tests.
 
 ```sh
 $ yarn test:unit
-$ # Or
+```
+
+Note that it able to work with the TS files directly. It this does need or produce any output JS files.
+
+To add the ability to get errors from the TypeScript compiler (such as bad use of arguments) before the tests are run, use this:
+
+```sh
 $ make test
 ```
 
-Note that this does need or produce any output directory. It operates directly on the `.ts` files.
 
 
 ## Compile
