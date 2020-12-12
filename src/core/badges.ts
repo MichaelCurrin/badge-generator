@@ -37,25 +37,22 @@ export function markdownImageWithLink(
 /**
  * Encode a value to safe as a param in a URL.
  *
- * Prepare a value for dash-baseds shields.io API based on notes on the site.
- * The builtin encodeURI function is used to handle spaces and special characters.
+ * Prepare a value for dash-based shields.io API based on notes on the site. See badges.spec.ts for cases.
  *
- * Note that '>' and '<' are valid on shields.io and should not be encoded.
+ * A builtin function is used to handle spaces and special characters.
  *
- * e.g. 'Foo Bar_Baz-Buzz' becomes 'Foo_Bar__Baz--Buzz'.
- * Note the API itself does funny things if you do use more than one
- * occurence of dash and space or underscore and space when when this is escaped correctly.
- * e.g. 'A - B - C' converted to 'A_--_B_--_C' renders as 'A - B_- C'.
- * So just don't mix them and you'll be ok - like with 'A-B-C'.
+ * Note the shields.io API itself does funny things if you do use more than one
+ * occurence of dash and space or underscore and space when this is escaped correctly.
+ * e.g. 'A - B - C' converted to 'A_--_B_--_C' unfortunately renders in the SVG result 'A - B_- C'.
+ * So just don't mix them and you'll be ok. Like do 'A-B-C'.
  */
-function encode(value: string, spaceToUnderscore = true) {
+export function encode(value: string, spaceToUnderscore = true) {
   value = value.replace(/-/g, "--").replace(/_/g, "__");
 
   if (spaceToUnderscore) {
     value = value.replace(/ /g, "_");
   }
-
-  const encoded = encodeURI(value);
+  const encoded = encodeURIComponent(value);
 
   return encoded.replace(/%3E/g, ">").replace(/%3C/g, "<");
 }
