@@ -14,7 +14,9 @@ install:
 
 l lint:
 	yarn lint:fix
+
 t test:
+	yarn compile
 	yarn test:unit
 
 s serve: lint test
