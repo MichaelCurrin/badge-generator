@@ -34,6 +34,8 @@ Run unit tests.
 
 ```sh
 $ yarn test:unit
+$ # Or
+$ make test
 ```
 
 Note that this does need or produce any output directory. It operates directly on the `.ts` files.
