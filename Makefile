@@ -19,7 +19,7 @@ t test:
 	yarn compile
 	yarn test:unit
 
-s serve: lint test
+s serve: lint
 	yarn start
 
 
