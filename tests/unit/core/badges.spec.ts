@@ -1,11 +1,9 @@
 import {
   encodeParam,
   genericBadge,
-
-
-
-  markdownImage, markdownImageWithLink,
-  markdownLink
+  markdownImage,
+  markdownImageWithLink,
+  markdownLink,
 } from "@/core/badges";
 
 describe("#markdownLink", () => {
@@ -49,10 +47,10 @@ describe("#markdownImageWithLink", () => {
       )
     ).toBe('[![Alt text](foo.png "My foo")](https://example.com)');
 
-    expect(markdownImageWithLink("My title", "/example.png", "https://example.com")).toBe(
-      "[![My title](/example.png)](https://example.com)"
-    );
-  })
+    expect(
+      markdownImageWithLink("My title", "/example.png", "https://example.com")
+    ).toBe("[![My title](/example.png)](https://example.com)");
+  });
   it("Does not encode special characters", () => {
     expect(
       markdownImageWithLink(

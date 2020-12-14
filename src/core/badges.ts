@@ -160,7 +160,12 @@ interface GenericBadge {
 
 // TODO: Move business logic for specific badges to separate module from general markdown and URL handling.
 /** Image URL for param-based static badge. */
-function _staticParamsUrl({ label, message, color, styleParams }: GenericBadge) {
+function _staticParamsUrl({
+  label,
+  message,
+  color,
+  styleParams,
+}: GenericBadge) {
   const params = { label, message, color, ...styleParams };
 
   return buildUrl(SHIELDS_STATIC, params);
