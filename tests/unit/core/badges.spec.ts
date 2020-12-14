@@ -1,23 +1,10 @@
-/*
-Template:
-
-describe("#foo", () => {
-  it("", () => {
-    expect(
-      foo(
-        ""
-      )
-    ).toBe("");
-  });
-});
-*/
-
 import {
-  encode,
+  encodeParam,
   genericBadge,
+
   markdownImage,
   markdownImageWithLink,
-  markdownLink,
+  markdownLink
 } from "@/core/badges";
 
 describe("#markdownLink", () => {
@@ -63,41 +50,39 @@ describe("#markdownImageWithLink", () => {
   });
 });
 
-describe("#encode", () => {
+describe("#encodeParam", () => {
   it("convert a space to an underscore", () => {
-    expect(encode("Foo Bar")).toBe("Foo_Bar");
+    expect(encodeParam("Foo Bar")).toBe("Foo_Bar");
   });
 
   it("converts a single dash to two", () => {
-    expect(encode("Foo-Bar")).toBe("Foo--Bar");
+    expect(encodeParam("Foo-Bar")).toBe("Foo--Bar");
   });
 
   it("converts a single underscore to two", () => {
-    expect(encode("Foo_Bar")).toBe("Foo__Bar");
+    expect(encodeParam("Foo_Bar")).toBe("Foo__Bar");
   });
 
   it("converts a mix of space, underscore and a dash correctly", () => {
-    expect(encode("Foo Bar_Baz-Buzz")).toBe("Foo_Bar__Baz--Buzz");
+    expect(encodeParam("Foo Bar_Baz-Buzz")).toBe("Foo_Bar__Baz--Buzz");
   });
 
   // These could appear when putting a URL as a value in the path, so need to be escaped.
-  it("encodes special characters likely correctly", () => {
-    expect(encode("&")).toBe("%26");
-
-    expect(encode("/")).toBe("%2F");
-
-    expect(encode("?")).toBe("%3F");
+  it("encodes special characters correctly", () => {
+    expect(encodeParam("&")).toBe("%26");
+    expect(encodeParam("/")).toBe("%2F");
+    expect(encodeParam("?")).toBe("%3F");
   });
 
   // Note that '>' and '<' are valid on shields.io and should not be encoded.
   it("encodes a string correctly without converting angle brackets", () => {
-    expect(encode(">=3")).toBe(">%3D3");
+    expect(encodeParam(">=3")).toBe(">%3D3");
 
-    expect(encode("<2")).toBe("<2");
+    expect(encodeParam("<2")).toBe("<2");
   });
 });
 
-// These cases are based on common choices and defaults in the UI, to save on testing the frontend directly.
+// These cases are based on the common choices and defaults in the UI, which approximates testing the frontend.
 describe("#genericBadge", () => {
   it("displays a badge given a message and a color", () => {
     expect(genericBadge("", "Bar", "green")).toBe(
