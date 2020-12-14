@@ -116,7 +116,7 @@ function formatTitle(label: string, message: string) {
  * This appropriately escapes label and message for you, based on notes on the shields.io website.
  * So you can pass in more readable values.
  */
-function dashShieldPath(message: string, color: string, label?: string) {
+function _dashShieldPath(message: string, color: string, label?: string) {
   message = encodeParam(message);
 
   let pieces = [message, color];
@@ -160,15 +160,15 @@ interface GenericBadge {
 
 // TODO: Move business logic for specific badges to separate module from general markdown and URL handling.
 /** Image URL for param-based static badge. */
-function staticParamsUrl({ label, message, color, styleParams }: GenericBadge) {
+function _staticParamsUrl({ label, message, color, styleParams }: GenericBadge) {
   const params = { label, message, color, ...styleParams };
 
   return buildUrl(SHIELDS_STATIC, params);
 }
 
 /** Image URL for dash-based static badge. */
-function staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
-  const imgPath = dashShieldPath(message, color, label),
+function _staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
+  const imgPath = _dashShieldPath(message, color, label),
     imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
 
   return buildUrl(imgUrl, styleParams);
@@ -204,8 +204,8 @@ export function genericBadge(
     badgeFields = { label, message, color, styleParams };
 
   const fullImgUrl = onlyQueryParams
-    ? staticParamsUrl(badgeFields)
-    : staticDashUrl(badgeFields);
+    ? _staticParamsUrl(badgeFields)
+    : _staticDashUrl(badgeFields);
 
   return markdownImageWithLink(title, fullImgUrl, target);
 }
