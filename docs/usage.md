@@ -8,7 +8,7 @@ This will compile TS to JS and serve the app.
 $ yarn start
 ```
 
-This does the same but adds lint fixes and tests first.
+This does the same but adds lint fixes first. Tests are left out so the app can still be used without passing tests.
 
 ```sh
 $ make serve
@@ -50,6 +50,7 @@ To add the ability to get errors from the TypeScript compiler (such as bad use o
 $ make test
 ```
 
+Or just look for TypeScript errors in the IDE.
 
 
 ## Compile
