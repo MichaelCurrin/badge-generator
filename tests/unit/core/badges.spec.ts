@@ -47,6 +47,21 @@ describe("#markdownImageWithLink", () => {
         "My foo"
       )
     ).toBe('[![Alt text](foo.png "My foo")](https://example.com)');
+
+    expect(markdownImageWithLink("My title", "/example.png", "https://example.com")).toBe(
+      "[![My title](/example.png)](https://example.com)"
+    );
+  })
+  it("Does not encode special characters", () => {
+    expect(
+      markdownImageWithLink(
+        "My title",
+        "/example.png",
+        "https://example.com?foo=bar&fizz_buzz=baz&x>=2"
+      )
+    ).toBe(
+      "[![My title](/example.png)](https://example.com?foo=bar&fizz_buzz=baz&x>=2)"
+    );
   });
 });
 
@@ -77,7 +92,6 @@ describe("#encodeParam", () => {
   // Note that '>' and '<' are valid on shields.io and should not be encoded.
   it("encodes a string correctly without converting angle brackets", () => {
     expect(encodeParam(">=3")).toBe(">%3D3");
-
     expect(encodeParam("<2")).toBe("<2");
   });
 });
