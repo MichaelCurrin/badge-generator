@@ -35,41 +35,45 @@ export function markdownImageWithLink(
 }
 
 /**
- * Encode a value to safe as a param in a URL.
+ * Replace dashes, underscores and spaces to match shields.io API format.
  *
- * Prepare a value for dash-based shields.io API based on notes on the site. See badges.spec.ts for cases.
+ * Spaces are converted to underscores - so if you pass the result to an encode functions they won't become '%20'.
+ */
+export function _encodeSeparators(value: string, spaceToUnderscore: boolean) {
+  value = value.replace(/-/g, "--").replace(/_/g, "__");
+
+  if (spaceToUnderscore) {
+    value = value.replace(/ /g, "_");
+  }
+
+  return value;
+}
+
+/**
+ * Turn URL-encoded '<' and '>' back into characters.
+ */
+export function _decodeAngleBrackets(value: string) {
+  return value.replace(/%3E/g, ">").replace(/%3C/g, "<");
+}
+
+/**
+ * Encode a value to be safe as a param in a URL.
  *
- * A builtin function is used to handle spaces and special characters.
+ * See badges.spec.ts for cases.
+ *
+ * Prepare a value for dash-based shields.io API based on notes on that site.
  *
  * Note the shields.io API itself does funny things if you do use more than one
  * occurence of dash and space or underscore and space when this is escaped correctly.
  * e.g. 'A - B - C' converted to 'A_--_B_--_C' unfortunately renders in the SVG result 'A - B_- C'.
  * So just don't mix them and you'll be ok. Like do 'A-B-C'.
  */
-export function encode(value: string, spaceToUnderscore = true) {
-  value = value.replace(/-/g, "--").replace(/_/g, "__");
+export function encodeParam(value: string, spaceToUnderscore = true) {
+  value = _encodeSeparators(value, spaceToUnderscore);
 
-  if (spaceToUnderscore) {
-    value = value.replace(/ /g, "_");
-  }
   const encoded = encodeURIComponent(value);
 
-  return encoded.replace(/%3E/g, ">").replace(/%3C/g, "<");
-}
-
-/**
- * Make a fixed markdown badge using any given inputs.
- *
- * Escapes URLs.
- * TODO: Avoid escaping if internal URLs.
- * TODO: Maybe remove this function.
- */
-export function makeBadge(
-  title: string,
-  imageTarget: string,
-  linkTarget: string
-) {
-  return markdownImageWithLink(title, encode(imageTarget), encode(linkTarget));
+  return _decodeAngleBrackets(encoded);
 }
 
 /**
@@ -108,11 +112,11 @@ function formatTitle(label: string, message: string) {
  * So you can pass in more readable values.
  */
 function dashShieldPath(message: string, color: string, label?: string) {
-  message = encode(message);
+  message = encodeParam(message);
 
   let pieces = [message, color];
   if (label) {
-    label = encode(label);
+    label = encodeParam(label);
     pieces.unshift(label);
   }
 
