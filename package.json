@@ -19,6 +19,7 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.12",
     "vue-markdown": "^2.2.4",
+    "vue-markdown-render": "^1.0.2",
     "vue-router": "^3.4.9"
   },
   "devDependencies": {
