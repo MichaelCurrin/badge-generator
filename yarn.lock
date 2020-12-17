@@ -1408,13 +1408,6 @@
   dependencies:
     source-map "^0.6.1"
 
-"@types/vue-markdown@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@types/vue-markdown/-/vue-markdown-2.2.1.tgz#dd302c67349e0e591d3fcb84e924eb8bf9314fea"
-  integrity sha512-pqa1RU0GZybdtqqadOWT8rTwMSchH1PR+oYeenscTT8Nrq/gniL7hpibhH40+aZBjx3Ps0syaTSiSae4Inw7GQ==
-  dependencies:
-    vue "^2.5.16"
-
 "@types/webpack-dev-server@^3.11.0":
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/@types/webpack-dev-server/-/webpack-dev-server-3.11.1.tgz#f8f4dac1da226d530bd15a1d5dc34b23ba766ccb"
@@ -10315,7 +10308,7 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.5.16, vue@^2.6.12:
+vue@^2.6.12:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
