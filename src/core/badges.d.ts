@@ -1,8 +1,8 @@
-type strMap = { [key: string]: string };
+type StrMap = { [key: string]: string };
 
 export type GenericBadge = {
   label: string;
   message: string;
   color: string;
-  styleParams: strMap;
+  styleParams: StrMap;
 };

@@ -1,7 +1,7 @@
 /**
  * Handle rendering of each badge and all badges.
  */
-import { GenericBadge } from "./badges.d";
+import { GenericBadge, StrMap } from "./badges.d";
 import { SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
 
 // TODO combine link/target functions in a module.
@@ -87,10 +87,7 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
  * The URL must have a protocol or it will be considered invalid. We drop any empty values to keep
  * the result short.
  */
-export function buildUrl(
-  urlStr: string,
-  params: { [key: string]: string }
-): string {
+export function buildUrl(urlStr: string, params: StrMap): string {
   let url = new URL(urlStr);
 
   for (const [key, value] of Object.entries(params)) {
@@ -134,7 +131,7 @@ export function _dashShieldPath(
  * Generate parameters for stying a badge.
  */
 export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
-  let params: { [key: string]: string } = {};
+  let params: StrMap = {};
 
   if (isLarge) {
     params.style = "for-the-badge";
