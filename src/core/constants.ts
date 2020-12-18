@@ -15,6 +15,8 @@ export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_GREEN = "2ea44f",
   DEFAULT_BRANCH = "master";
 
+export const LICENSE_LABEL = "License";
+
 // TODO handle as map to make it easy to add multiple params.
 export const STYLES = {
   FOR_THE_BADGE: "for-the-badge",

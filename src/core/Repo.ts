@@ -9,6 +9,7 @@ import {
   GITHUB_GREEN,
   GITHUB_IO,
   GREEN,
+  LICENSE_LABEL,
   SHIELDS_GH,
   // eslint-disable-next-line prettier/prettier
   STYLES
@@ -116,11 +117,10 @@ export class Repo {
     if (!licenseType || !this._isValid()) {
       return "";
     }
-    const label = "License",
+    const label = LICENSE_LABEL,
       message = licenseType,
       color = DEFAULT_COLOR,
       isLarge = false;
-
     const target = this._licenseTarget(localLicense);
 
     return genericBadge(label, message, color, isLarge, target);
