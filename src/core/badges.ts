@@ -1,6 +1,7 @@
 /**
  * Handle rendering of each badge and all badges.
  */
+import { GenericBadge } from "./badges.d";
 import { SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
 
 // TODO combine link/target functions in a module.
@@ -148,13 +149,6 @@ export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
   }
 
   return params;
-}
-
-interface GenericBadge {
-  label: string;
-  message: string;
-  color: string;
-  styleParams: { [key: string]: string };
 }
 
 // TODO: Move business logic for specific badges to separate module from general markdown and URL
