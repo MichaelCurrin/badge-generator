@@ -3,7 +3,9 @@ import {
   markdownImage,
   markdownImageWithLink,
   markdownLink,
-  _encodeParam,
+
+
+  _decodeAngleBrackets, _encodeParam,
   _encodeSeparators
 } from "@/core/badges";
 
@@ -86,6 +88,16 @@ describe("#_encodeSeparators", () => {
   });
 });
 
+describe("#_decodeAngleBrackets", () => {
+  it("decodes a left angle bracket", () => {
+    expect(_decodeAngleBrackets("%3E%3D1")).toBe(">%3D1");
+  });
+
+  it("decodes a right angle bracket", () => {
+    expect(_decodeAngleBrackets("foo%3C1")).toBe("foo<1");
+  });
+})
+
 describe("#_encodeParam", () => {
   it("converts a space to an underscore", () => {
     expect(_encodeParam("Foo Bar")).toBe("Foo_Bar");
@@ -110,7 +122,6 @@ describe("#_encodeParam", () => {
     expect(_encodeParam("?")).toBe("%3F");
   });
 
-  // Note that '>' and '<' are valid on shields.io and should not be encoded.
   it("encodes a string correctly without converting angle brackets", () => {
     expect(_encodeParam(">=3")).toBe(">%3D3");
     expect(_encodeParam("<2")).toBe("<2");

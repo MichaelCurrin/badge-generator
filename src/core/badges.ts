@@ -54,16 +54,17 @@ export function _encodeSeparators(value: string, spaceToUnderscore: boolean) {
 }
 
 /**
- * Turn URL-encoded '<' and '>' back into characters.
+ * Turn URL-encoded '<' and '>' symbols back into readable characters.
+ *
+ * These are allowed in shields.io URLs so should not be encoded.
  */
 export function _decodeAngleBrackets(value: string) {
-  return value.replace(/%3E/g, ">").replace(/%3C/g, "<");
+  return value.replace(/%3E/g, ">")
+    .replace(/%3C/g, "<");
 }
 
 /**
  * Encode a value to be safe as a param in a URL.
- *
- * See badges.spec.ts for cases.
  *
  * Prepare a value for dash-based shields.io API based on notes on that site.
  *
