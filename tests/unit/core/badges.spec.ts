@@ -1,6 +1,7 @@
 import {
   buildUrl,
   genericBadge,
+  logoParams,
   markdownImage,
   markdownImageWithLink,
   markdownLink,
@@ -187,6 +188,39 @@ describe("#_dashShieldPath", () => {
     expect(_dashShieldPath(">=1.0.0", "green", "Foo")).toBe(
       "Foo->%3D1.0.0-green"
     );
+  });
+});
+
+describe("#logoParams", () => {
+  it("returns null params", () => {
+    expect(logoParams(false)).toStrictEqual({});
+  });
+
+  it("returns a large badge", () => {
+    expect(logoParams(true)).toStrictEqual({ style: "for-the-badge" });
+  });
+
+  it("returns a logo name", () => {
+    expect(logoParams(false, "foo")).toStrictEqual({ logo: "foo" });
+  });
+
+  it("returns a logo name and logo color", () => {
+    expect(logoParams(false, "foo", "white")).toStrictEqual({
+      logo: "foo",
+      logoColor: "white",
+    });
+  });
+
+  it("returns a logo name and logo color for a large badge", () => {
+    expect(logoParams(true, "foo", "white")).toStrictEqual({
+      style: "for-the-badge",
+      logo: "foo",
+      logoColor: "white",
+    });
+  });
+
+  it("ignores a logo color with no logo name", () => {
+    expect(logoParams(false, "", "white")).toStrictEqual({});
   });
 });
 

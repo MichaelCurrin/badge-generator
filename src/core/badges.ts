@@ -130,9 +130,7 @@ export function _dashShieldPath(
 }
 
 /**
- * Generate parametes to style a badge.
- *
- * Return as key-value pairs with appropriate size (large or standard) and optional logo.
+ * Generate parameters for stying a badge.
  */
 export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
   let params: { [key: string]: string } = {};
