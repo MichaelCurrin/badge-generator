@@ -30,7 +30,7 @@ export function dependency(name: string, registry: REGISTRY) {
 export function nodeVersionBadge(
   username: string,
   repoName: string,
-  pkgName?: string,
+  pkgName: string,
   logo?: string,
   logoColor?: string
 ) {
