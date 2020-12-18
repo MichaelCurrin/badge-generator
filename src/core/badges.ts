@@ -1,7 +1,8 @@
 /**
  * Handle rendering of each badge and all badges.
  */
-import { DEFAULT_COLOR, SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
+import { GenericBadge, StrMap } from "./badges.d";
+import { SHIELDS_BADGE, SHIELDS_STATIC, STYLES } from "./constants";
 
 // TODO combine link/target functions in a module.
 export function markdownLink(altText: string, linkTarget: string) {
@@ -20,6 +21,12 @@ export function markdownImage(
 }
 
 // TODO: Add pre-label as social badges have.
+/**
+ * Create a markdown image tag with external link.
+ *
+ * This performs no encoding - the inputs should be encoded already to be a URL without spaces and
+ * to be a valid URL for shields.io API.
+ */
 export function markdownImageWithLink(
   altText: string,
   imageTarget: string,
@@ -35,58 +42,52 @@ export function markdownImageWithLink(
 }
 
 /**
- * Encode a value to safe as a param in a URL.
- *
- * Prepare a value for dash-baseds shields.io API based on notes on the site.
- * The builtin encodeURI function is used to handle spaces and special characters.
- *
- * Note that '>' and '<' are valid on shields.io and should not be encoded.
- *
- * e.g. 'Foo Bar_Baz-Buzz' becomes 'Foo_Bar__Baz--Buzz'.
- * Note the API itself does funny things if you do use more than one
- * occurence of dash and space or underscore and space when when this is escaped correctly.
- * e.g. 'A - B - C' converted to 'A_--_B_--_C' renders as 'A - B_- C'.
- * So just don't mix them and you'll be ok - like with 'A-B-C'.
+ * Replace dashes, underscores and spaces to match shields.io API format.
  */
-function encode(value: string, spaceToUnderscore = true) {
+export function _encodeSeparators(value: string, spaceToUnderscore: boolean) {
   value = value.replace(/-/g, "--").replace(/_/g, "__");
 
   if (spaceToUnderscore) {
     value = value.replace(/ /g, "_");
   }
 
-  const encoded = encodeURI(value);
-
-  return encoded.replace(/%3E/g, ">").replace(/%3C/g, "<");
+  return value;
 }
 
 /**
- * Make a fixed markdown badge using any given inputs.
+ * Turn URL-encoded '<' and '>' symbols back into readable characters.
  *
- * Escapes URLs.
- * TODO: Avoid escaping if internal URLs.
- * TODO: Maybe remove this function.
+ * These are allowed in shields.io URLs so should not be encoded.
  */
-export function makeBadge(
-  title: string,
-  imageTarget: string,
-  linkTarget: string
-) {
-  return markdownImageWithLink(title, encode(imageTarget), encode(linkTarget));
+export function _decodeAngleBrackets(value: string) {
+  return value.replace(/%3E/g, ">").replace(/%3C/g, "<");
 }
 
 /**
- * Serialize a URL from query params.
+ * Encode a value to be safe as a param in a URL.
  *
- * Note the URL must have a protocal or it will be considered invalid. Any empty values get
- * dropped to keep the result short.
+ * Prepare a value for dash-based shields.io API based on notes on that site.
  *
- * The URL types's API performs encoding, so at the end we must reverse this so the result works for badges.
+ * Note the shields.io API itself does funny things if you do use more than one
+ * occurence of dash and space or underscore and space when this is escaped correctly.
+ * e.g. 'A - B - C' converted to 'A_--_B_--_C' unfortunately renders in the SVG result 'A - B_- C'.
+ * So just don't mix them and you'll be ok. Like do 'A-B-C'.
  */
-export function buildUrl(
-  urlStr: string,
-  params: { [key: string]: string }
-): string {
+export function _encodeParam(value: string, spaceToUnderscore = true) {
+  value = _encodeSeparators(value, spaceToUnderscore);
+
+  const encoded = encodeURIComponent(value);
+
+  return _decodeAngleBrackets(encoded);
+}
+
+/**
+ * Serialize a URL using query params.
+ *
+ * The URL must have a protocol or it will be considered invalid. We drop any empty values to keep
+ * the result short.
+ */
+export function buildUrl(urlStr: string, params: StrMap): string {
   let url = new URL(urlStr);
 
   for (const [key, value] of Object.entries(params)) {
@@ -98,24 +99,25 @@ export function buildUrl(
   return decodeURI(url.href);
 }
 
-function formatTitle(label: string, message: string) {
+export function _formatTitle(label: string, message: string) {
   return label ? [label, message].join(" - ") : message;
 }
 
 /**
- * Prepare path for shields.io dash-based API.
+ * Create a URL path for the shields.io dash-based API.
  *
  * The API requires MESSAGE-COLOR at the least and also accepts LABEL-MESSAGE-COLOR.
  *
  * This appropriately escapes label and message for you, based on notes on the shields.io website.
  * So you can pass in more readable values.
  */
-function dashShieldPath(message: string, color: string, label?: string) {
-  message = encode(message);
+export function _dashShieldPath(badge: GenericBadge) {
+  const message = _encodeParam(badge.message);
+  let label = badge.label;
 
-  let pieces = [message, color];
+  let pieces = [message, badge.color];
   if (label) {
-    label = encode(label);
+    label = _encodeParam(label);
     pieces.unshift(label);
   }
 
@@ -123,15 +125,13 @@ function dashShieldPath(message: string, color: string, label?: string) {
 }
 
 /**
- * Generate parametes to style a badge.
- *
- * Return as key-value pairs with appropriate size (large or standard) and optional logo.
+ * Generate parameters for stying a badge.
  */
 export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
-  let params: { [key: string]: string } = {};
+  let params: StrMap = {};
 
   if (isLarge) {
-    params.style = "for-the-badge";
+    params.style = STYLES.FOR_THE_BADGE;
   }
 
   if (logo) {
@@ -145,24 +145,23 @@ export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
   return params;
 }
 
-interface GenericBadge {
-  label: string;
-  message: string;
-  color: string;
-  styleParams: { [key: string]: string };
-}
-
-// TODO: Move business logic for specific badges to separate module from general markdown and URL handling.
+// TODO: Move business logic for specific badges to separate module from general markdown and URL
+// handling.
 /** Image URL for param-based static badge. */
-function staticParamsUrl({ label, message, color, styleParams }: GenericBadge) {
-  const params = { label, message, color, ...styleParams };
+export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
+  const params = {
+    label: badge.label!,
+    message: badge.message,
+    color: badge.color,
+    ...styleParams,
+  };
 
   return buildUrl(SHIELDS_STATIC, params);
 }
 
-/** Image URL for dash-based static badge. */
-function staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
-  const imgPath = dashShieldPath(message, color, label),
+/** Image URL for a dash-based static badge. */
+export function _staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
+  const imgPath = _dashShieldPath(badge),
     imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
 
   return buildUrl(imgUrl, styleParams);
@@ -175,35 +174,31 @@ function staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
  * Everything is optional except message.
  *
  * In the dash style, the result is LABEL-MESSAGE-COLOR or MESSABE-COLOR. The API needs color to be
- * set.
- * Sample: https://img.shields.io/badge/Foo-Bar--Baz-green
+ * set, so this is made a required param here on this function.
+ * Sample URL: https://img.shields.io/badge/Foo-Bar--Baz-green
  *
- * Use the params style by setting onlyQueryParams to be true. There result is more verbose but does
- * not required escaping characters. Sample:
+ * Use the params style by setting onlyQueryParams to be true. The result is more verbose but does
+ * not require escaping characters. Sample:
  * https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&logo=github&color=blue
  */
 export function genericBadge(
   label = "",
   message: string,
-  color = "",
+  color: string,
   isLarge = false,
   target = "",
   logo = "",
   logoColor = "",
   onlyQueryParams = false
 ) {
-  if (!color) {
-    color = DEFAULT_COLOR;
-  }
+  const title = _formatTitle(label, message);
 
-  const title = formatTitle(label, message);
-
-  const styleParams = logoParams(isLarge, logo, logoColor),
-    badgeFields = { label, message, color, styleParams };
+  const badgeFields = { label, message, color },
+    styleParams = logoParams(isLarge, logo, logoColor);
 
   const fullImgUrl = onlyQueryParams
-    ? staticParamsUrl(badgeFields)
-    : staticDashUrl(badgeFields);
+    ? _staticParamsUrl(badgeFields, styleParams)
+    : _staticDashUrl(badgeFields, styleParams);
 
   return markdownImageWithLink(title, fullImgUrl, target);
 }

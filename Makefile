@@ -1,7 +1,7 @@
 default: install
 
 h help:
-	@egrep '^\S|^$$' Makefile
+	@egrep '^[a-z#]' Makefile
 
 
 .PHONY: hooks
@@ -14,10 +14,12 @@ install:
 
 l lint:
 	yarn lint:fix
+
 t test:
+	yarn compile
 	yarn test:unit
 
-s serve: lint test
+s serve: lint
 	yarn start
 
 

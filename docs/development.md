@@ -4,7 +4,7 @@
 
 ## Roadmap
 
-- [ ] Add tests
+- [x] Add tests
 - [ ] Refactor JS to be DRY
 - [x] Add TS support
 - [ ] Use interfaces and types
@@ -166,9 +166,48 @@ Therefore formatting rules can be set at a few levels, which makes things confus
 - Editor Config file (for indentation at least.)
 
 
+## Tests
+
+All functions tested needed `export` so they can be imported. A leading underscore is used to indicate functions are private - intended for use only within a module and not to be called directly (except in tests).
+
+A template for new tests:
+
+```
+describe("#foo", () => {
+  it("", () => {
+    expect(
+      foo(
+        ""
+      )
+    ).toBe("");
+  });
+});
+```
+
+
 ## Packages
 
 On upgrading packages.
+
+Check outdated plugins:
+
+```sh
+$ npx vue outdated
+```
+
+Outdated packages:
+
+```sh
+$ yarn outdated
+```
+
+Upgrade:
+
+```sh
+$ yarn add foo
+```
+
+That will use the high available without conflicting with extant packages.
 
 I attempted to upgrade these outdated packages as follows:
 

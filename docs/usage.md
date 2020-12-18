@@ -3,11 +3,12 @@
 ## Run dev server
 
 This will compile TS to JS and serve the app.
+
 ```sh
 $ yarn start
 ```
 
-This does the same but adds lint fixes and tests first.
+This does the same but adds lint fixes first. Tests are left out so the app can still be used without passing tests.
 
 ```sh
 $ make serve
@@ -39,11 +40,17 @@ Run unit tests.
 
 ```sh
 $ yarn test:unit
-$ # Or
+```
+
+Note that it able to work with the TS files directly. It this does need or produce any output JS files.
+
+To add the ability to get errors from the TypeScript compiler (such as bad use of arguments) before the tests are run, use this:
+
+```sh
 $ make test
 ```
 
-Note that this does need or produce any output directory. It operates directly on the `.ts` files.
+Or just look for TypeScript errors in the IDE.
 
 
 ## Compile

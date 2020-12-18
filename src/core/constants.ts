@@ -11,17 +11,22 @@ export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io",
   DEFAULT_COLOR = "blue",
   GREEN = "green",
-  // From 'Use this template' or 'Merge' button.
+  // From 'Use this template' or 'Merge' button on GitHub.
   GITHUB_GREEN = "2ea44f",
   DEFAULT_BRANCH = "master";
 
-// TODO handle as map to make it easy to add multiple params.
-export const STYLES = {
-  FOR_THE_BADGE: "?style=for-the-badge",
-  SOCIAL: "?style=social",
+export const LICENSE = {
+  LABEL: "License",
+  COLOR: DEFAULT_COLOR,
+  IS_LARGE: false,
 };
 
-// Excluding trailing slash makes URL joins more natural.
+// TODO handle as map to make it easy to add multiple params.
+export const STYLES = {
+  FOR_THE_BADGE: "for-the-badge",
+  SOCIAL: "social",
+};
+
 export enum REGISTRY {
   Python = "https://pypi.org/project",
   Node = "https://www.npmjs.com/package",

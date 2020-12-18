@@ -9,6 +9,7 @@ import {
   GITHUB_GREEN,
   GITHUB_IO,
   GREEN,
+  LICENSE,
   SHIELDS_GH,
   // eslint-disable-next-line prettier/prettier
   STYLES
@@ -103,24 +104,27 @@ export class Repo {
     return markdownImageWithLink(title, imgUrl, target);
   }
 
+  _licenseTarget(localLicense: boolean) {
+    if (localLicense) {
+      return "#license";
+    }
+    const repoUrl = this.ghURL();
+
+    return `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
+  }
+
   licenseBadge(licenseType: string, localLicense = true) {
     if (!licenseType || !this._isValid()) {
       return "";
     }
-    const label = "License",
-      message = licenseType,
-      color = DEFAULT_COLOR,
-      isLarge = false;
 
-    let target;
-    if (localLicense) {
-      target = "#license";
-    } else {
-      const repoUrl = this.ghURL();
-      target = `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
-    }
-
-    return genericBadge(label, message, color, isLarge, target);
+    return genericBadge(
+      LICENSE.LABEL,
+      licenseType,
+      LICENSE.COLOR,
+      LICENSE.IS_LARGE,
+      this._licenseTarget(localLicense)
+    );
   }
 
   gh() {
@@ -146,7 +150,7 @@ export class Repo {
   }
 
   private _ghSocialShield(type: string) {
-    return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${STYLES.SOCIAL}`;
+    return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
   }
 
   /* Stars or forks counter */
