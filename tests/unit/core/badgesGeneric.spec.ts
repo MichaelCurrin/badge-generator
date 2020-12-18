@@ -1,7 +1,7 @@
 import { genericBadge } from "@/core/badges";
 
 /**
-* Test that the UI defaults and common choices associated with the Generic view are working.
+ * Test that the UI defaults and common choices associated with the Generic view are working.
  */
 describe("#genericBadge", () => {
   describe("Basic", () => {
