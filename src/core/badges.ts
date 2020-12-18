@@ -23,7 +23,8 @@ export function markdownImage(
 /**
  * Create a markdown image tag with external link.
  *
- * This performs no encoding - the inputs should be encoded already to be a URL without spaces and to be a valid URL for shields.io API.
+ * This performs no encoding - the inputs should be encoded already to be a URL without spaces and
+ * to be a valid URL for shields.io API.
  */
 export function markdownImageWithLink(
   altText: string,
@@ -42,7 +43,8 @@ export function markdownImageWithLink(
 /**
  * Replace dashes, underscores and spaces to match shields.io API format.
  *
- * Spaces are converted to underscores - so if you pass the result to an encode functions they won't become '%20'.
+ * Spaces are converted to underscores - so if you pass the result to an encode functions they won't
+ * become '%20'.
  */
 export function _encodeSeparators(value: string, spaceToUnderscore: boolean) {
   value = value.replace(/-/g, "--").replace(/_/g, "__");
@@ -84,10 +86,11 @@ export function encodeParam(value: string, spaceToUnderscore = true) {
 /**
  * Serialize a URL from query params.
  *
- * Note the URL must have a protocal or it will be considered invalid. Any empty values get
- * dropped to keep the result short.
+ * Note the URL must have a protocal or it will be considered invalid. Any empty values get dropped
+ * to keep the result short.
  *
- * The URL types's API performs encoding, so at the end we must reverse this so the result works for badges.
+ * The URL types's API performs encoding, so at the end we must reverse this so the result works for
+ * badges.
  */
 export function buildUrl(
   urlStr: string,
@@ -158,7 +161,8 @@ interface GenericBadge {
   styleParams: { [key: string]: string };
 }
 
-// TODO: Move business logic for specific badges to separate module from general markdown and URL handling.
+// TODO: Move business logic for specific badges to separate module from general markdown and URL
+// handling.
 /** Image URL for param-based static badge. */
 function _staticParamsUrl({
   label,
