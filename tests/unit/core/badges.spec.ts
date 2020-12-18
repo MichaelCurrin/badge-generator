@@ -2,11 +2,8 @@ import {
   genericBadge,
   markdownImage,
   markdownImageWithLink,
-  markdownLink, _encodeParam,
-
-
-
-
+  markdownLink,
+  _encodeParam,
   _encodeSeparators
 } from "@/core/badges";
 
