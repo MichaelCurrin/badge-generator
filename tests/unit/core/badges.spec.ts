@@ -1,12 +1,13 @@
 import {
   buildUrl,
+
   genericBadge,
   markdownImage,
   markdownImageWithLink,
   markdownLink,
   _decodeAngleBrackets,
   _encodeParam,
-  _encodeSeparators
+  _encodeSeparators, _formatTitle
 } from "@/core/badges";
 
 describe("#markdownLink", () => {
@@ -161,6 +162,24 @@ describe("#buildUrl", () => {
         "http://example.com", { "foo": "bar", "bar": 'bazz' }
       )
     ).toBe("http://example.com/?foo=bar&bar=bazz");
+  });
+});
+
+describe("#_formatTitle", () => {
+  it("formats a message alone", () => {
+    expect(
+      _formatTitle(
+        "", "foo"
+      )
+    ).toBe("foo");
+  });
+
+  it("formats a label and message together", () => {
+    expect(
+      _formatTitle(
+        "bar", "foo"
+      )
+    ).toBe("bar - foo");
   });
 });
 

@@ -102,7 +102,7 @@ export function buildUrl(
   return decodeURI(url.href);
 }
 
-function formatTitle(label: string, message: string) {
+export function _formatTitle(label: string, message: string) {
   return label ? [label, message].join(" - ") : message;
 }
 
@@ -202,7 +202,7 @@ export function genericBadge(
   logoColor = "",
   onlyQueryParams = false
 ) {
-  const title = formatTitle(label, message);
+  const title = _formatTitle(label, message);
 
   const styleParams = logoParams(isLarge, logo, logoColor),
     badgeFields = { label, message, color, styleParams };
