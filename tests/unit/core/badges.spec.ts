@@ -1,4 +1,5 @@
 import {
+  buildUrl,
   genericBadge,
   markdownImage,
   markdownImageWithLink,
@@ -70,7 +71,7 @@ describe("#_encodeSeparators", () => {
   it("converts a space to an underscore", () => {
     expect(_encodeSeparators("Foo Bar", true)).toBe("Foo_Bar");
   });
-  it("can ignore transforming a space", () => {
+  it("will ignore transforming a space", () => {
     expect(_encodeSeparators("Foo Bar", false)).toBe("Foo Bar");
   });
 
@@ -127,7 +128,44 @@ describe("#_encodeParam", () => {
   });
 });
 
-// These cases are based on the common choices and defaults in the UI, which approximates testing the frontend.
+
+describe("#buildUrl", () => {
+  it("handles empty query params", () => {
+    expect(
+      buildUrl(
+        "http://example.com", {}
+      )
+    ).toBe("http://example.com/");
+  });
+
+  it("ignores a param which is null", () => {
+    expect(
+      buildUrl(
+        "http://example.com", { "foo": "" }
+      )
+    ).toBe("http://example.com/");
+  });
+
+  it("adds a single query param", () => {
+    expect(
+      buildUrl(
+        "http://example.com", { "foo": "bar" }
+      )
+    ).toBe("http://example.com/?foo=bar");
+  });
+
+
+  it("adds two query params", () => {
+    expect(
+      buildUrl(
+        "http://example.com", { "foo": "bar", "bar": 'bazz' }
+      )
+    ).toBe("http://example.com/?foo=bar&bar=bazz");
+  });
+});
+
+// These cases are based on the common choices and defaults in the UI, to simulate testing the
+// frontend.
 describe("#genericBadge", () => {
   it("displays a badge given a message and a color", () => {
     expect(genericBadge("", "Bar", "green")).toBe(

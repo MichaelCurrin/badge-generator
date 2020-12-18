@@ -82,13 +82,10 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
 }
 
 /**
- * Serialize a URL from query params.
+ * Serialize a URL using query params.
  *
- * Note the URL must have a protocal or it will be considered invalid. Any empty values get dropped
- * to keep the result short.
- *
- * The URL types's API performs encoding, so at the end we must reverse this so the result works for
- * badges.
+ * The URL must have a protocol or it will be considered invalid. We drop any empty values to keep
+ * the result short.
  */
 export function buildUrl(
   urlStr: string,
