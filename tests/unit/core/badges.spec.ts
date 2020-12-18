@@ -170,25 +170,29 @@ describe("#_formatTitle", () => {
 
 describe("#_dashShieldPath", () => {
   it("combines 2 fields", () => {
-    expect(_dashShieldPath("Foo", "green")).toBe("Foo-green");
+    expect(_dashShieldPath({ message: "Foo", color: "green" })).toBe(
+      "Foo-green"
+    );
   });
 
   it("combines 2 fields", () => {
-    expect(_dashShieldPath("Foo", "green", "Bar")).toBe("Bar-Foo-green");
+    expect(
+      _dashShieldPath({ message: "Foo", color: "green", label: "Bar" })
+    ).toBe("Bar-Foo-green");
   });
 
   it("combines 2 fields and applies encoding", () => {
-    expect(_dashShieldPath("Foo Bar", "green", "Baz")).toBe(
-      "Baz-Foo_Bar-green"
-    );
+    expect(
+      _dashShieldPath({ message: "Foo Bar", color: "green", label: "Baz" })
+    ).toBe("Baz-Foo_Bar-green");
 
-    expect(_dashShieldPath("Foo", "green", "Baz-Buzz")).toBe(
-      "Baz--Buzz-Foo-green"
-    );
+    expect(
+      _dashShieldPath({ message: "Foo", color: "green", label: "Baz-Buzz" })
+    ).toBe("Baz--Buzz-Foo-green");
 
-    expect(_dashShieldPath(">=1.0.0", "green", "Foo")).toBe(
-      "Foo->%3D1.0.0-green"
-    );
+    expect(
+      _dashShieldPath({ label: "Foo", message: ">=1.0.0", color: "green" })
+    ).toBe("Foo->%3D1.0.0-green");
   });
 });
 
@@ -228,12 +232,14 @@ describe("#logoParams", () => {
 describe("#_staticParamsUrl", () => {
   it("returns a valid params URL with empty style params", () => {
     expect(
-      _staticParamsUrl({
-        label: "Foo",
-        message: "Bar",
-        color: "green",
-        styleParams: {},
-      })
+      _staticParamsUrl(
+        {
+          label: "Foo",
+          message: "Bar",
+          color: "green",
+        },
+        {}
+      )
     ).toBe(
       "https://img.shields.io/static/v1?label=Foo&message=Bar&color=green"
     );
@@ -241,12 +247,14 @@ describe("#_staticParamsUrl", () => {
 
   it("returns a valid params URL with style params", () => {
     expect(
-      _staticParamsUrl({
-        label: "Foo",
-        message: "Bar",
-        color: "green",
-        styleParams: { fizz: "buzz" },
-      })
+      _staticParamsUrl(
+        {
+          label: "Foo",
+          message: "Bar",
+          color: "green",
+        },
+        { fizz: "buzz" }
+      )
     ).toBe(
       "https://img.shields.io/static/v1?label=Foo&message=Bar&color=green&fizz=buzz"
     );

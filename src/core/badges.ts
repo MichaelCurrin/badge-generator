@@ -111,14 +111,11 @@ export function _formatTitle(label: string, message: string) {
  * This appropriately escapes label and message for you, based on notes on the shields.io website.
  * So you can pass in more readable values.
  */
-export function _dashShieldPath(
-  message: string,
-  color: string,
-  label?: string
-) {
-  message = _encodeParam(message);
+export function _dashShieldPath(badge: GenericBadge) {
+  const message = _encodeParam(badge.message);
+  let label = badge.label;
 
-  let pieces = [message, color];
+  let pieces = [message, badge.color];
   if (label) {
     label = _encodeParam(label);
     pieces.unshift(label);
@@ -151,20 +148,20 @@ export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
 // TODO: Move business logic for specific badges to separate module from general markdown and URL
 // handling.
 /** Image URL for param-based static badge. */
-export function _staticParamsUrl({
-  label,
-  message,
-  color,
-  styleParams,
-}: GenericBadge) {
-  const params = { label, message, color, ...styleParams };
+export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
+  const params = {
+    label: badge.label!,
+    message: badge.message,
+    color: badge.color,
+    ...styleParams,
+  };
 
   return buildUrl(SHIELDS_STATIC, params);
 }
 
 /** Image URL for a dash-based static badge. */
-export function _staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
-  const imgPath = _dashShieldPath(message, color, label),
+export function _staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
+  const imgPath = _dashShieldPath(badge),
     imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
 
   return buildUrl(imgUrl, styleParams);
@@ -196,12 +193,12 @@ export function genericBadge(
 ) {
   const title = _formatTitle(label, message);
 
-  const styleParams = logoParams(isLarge, logo, logoColor),
-    badgeFields = { label, message, color, styleParams };
+  const badgeFields = { label, message, color },
+    styleParams = logoParams(isLarge, logo, logoColor);
 
   const fullImgUrl = onlyQueryParams
-    ? _staticParamsUrl(badgeFields)
-    : _staticDashUrl(badgeFields);
+    ? _staticParamsUrl(badgeFields, styleParams)
+    : _staticDashUrl(badgeFields, styleParams);
 
   return markdownImageWithLink(title, fullImgUrl, target);
 }
