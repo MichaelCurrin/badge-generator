@@ -21,11 +21,16 @@ export function dependency(name: string, registry: REGISTRY) {
 }
 
 /**
- * Dynamic NPM package badge.
+ * Dynamic Node package badge.
  *
- * The badge will dynamically display given package's locked version number, using your repo's package.json file.
+ * The badge will dynamically display given package's locked version number, using your repo's
+ * package.json file.
  *
- * Shields.io does Pipenv lock files, but not requirements.txt file, it seems. And not Gemfile either.
+ * Note - the badge URL needs something added to work for dev dependencies. I'm happy to not support
+ * that now.
+ *
+ * Shields.io does Pipenv lock files, but not requirements.txt file, it seems. And not Gemfile
+ * either.
  */
 export function nodeVersionBadge(
   username: string,
