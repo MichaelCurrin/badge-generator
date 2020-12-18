@@ -59,8 +59,7 @@ export function _encodeSeparators(value: string, spaceToUnderscore: boolean) {
  * These are allowed in shields.io URLs so should not be encoded.
  */
 export function _decodeAngleBrackets(value: string) {
-  return value.replace(/%3E/g, ">")
-    .replace(/%3C/g, "<");
+  return value.replace(/%3E/g, ">").replace(/%3C/g, "<");
 }
 
 /**
@@ -107,14 +106,18 @@ export function _formatTitle(label: string, message: string) {
 }
 
 /**
- * Prepare path for shields.io dash-based API.
+ * Create a URL path for the shields.io dash-based API.
  *
  * The API requires MESSAGE-COLOR at the least and also accepts LABEL-MESSAGE-COLOR.
  *
  * This appropriately escapes label and message for you, based on notes on the shields.io website.
  * So you can pass in more readable values.
  */
-function _dashShieldPath(message: string, color: string, label?: string) {
+export function _dashShieldPath(
+  message: string,
+  color: string,
+  label?: string
+) {
   message = _encodeParam(message);
 
   let pieces = [message, color];
@@ -170,7 +173,7 @@ function _staticParamsUrl({
   return buildUrl(SHIELDS_STATIC, params);
 }
 
-/** Image URL for dash-based static badge. */
+/** Image URL for a dash-based static badge. */
 function _staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
   const imgPath = _dashShieldPath(message, color, label),
     imgUrl = `${SHIELDS_BADGE}/${imgPath}`;

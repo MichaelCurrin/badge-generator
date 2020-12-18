@@ -1,13 +1,14 @@
 import {
   buildUrl,
-
   genericBadge,
   markdownImage,
   markdownImageWithLink,
   markdownLink,
+  _dashShieldPath,
   _decodeAngleBrackets,
   _encodeParam,
-  _encodeSeparators, _formatTitle
+  _encodeSeparators,
+  _formatTitle,
 } from "@/core/badges";
 
 describe("#markdownLink", () => {
@@ -85,7 +86,9 @@ describe("#_encodeSeparators", () => {
   });
 
   it("converts a mix of space, underscore and a dash correctly", () => {
-    expect(_encodeSeparators("Foo Bar_Baz-Buzz", true)).toBe("Foo_Bar__Baz--Buzz");
+    expect(_encodeSeparators("Foo Bar_Baz-Buzz", true)).toBe(
+      "Foo_Bar__Baz--Buzz"
+    );
   });
 });
 
@@ -97,7 +100,7 @@ describe("#_decodeAngleBrackets", () => {
   it("decodes a right angle bracket", () => {
     expect(_decodeAngleBrackets("foo%3C1")).toBe("foo<1");
   });
-})
+});
 
 describe("#_encodeParam", () => {
   it("converts a space to an underscore", () => {
@@ -129,57 +132,61 @@ describe("#_encodeParam", () => {
   });
 });
 
-
 describe("#buildUrl", () => {
   it("handles empty query params", () => {
-    expect(
-      buildUrl(
-        "http://example.com", {}
-      )
-    ).toBe("http://example.com/");
+    expect(buildUrl("http://example.com", {})).toBe("http://example.com/");
   });
 
   it("ignores a param which is null", () => {
-    expect(
-      buildUrl(
-        "http://example.com", { "foo": "" }
-      )
-    ).toBe("http://example.com/");
+    expect(buildUrl("http://example.com", { foo: "" })).toBe(
+      "http://example.com/"
+    );
   });
 
   it("adds a single query param", () => {
-    expect(
-      buildUrl(
-        "http://example.com", { "foo": "bar" }
-      )
-    ).toBe("http://example.com/?foo=bar");
+    expect(buildUrl("http://example.com", { foo: "bar" })).toBe(
+      "http://example.com/?foo=bar"
+    );
   });
 
-
   it("adds two query params", () => {
-    expect(
-      buildUrl(
-        "http://example.com", { "foo": "bar", "bar": 'bazz' }
-      )
-    ).toBe("http://example.com/?foo=bar&bar=bazz");
+    expect(buildUrl("http://example.com", { foo: "bar", bar: "bazz" })).toBe(
+      "http://example.com/?foo=bar&bar=bazz"
+    );
   });
 });
 
 describe("#_formatTitle", () => {
   it("formats a message alone", () => {
-    expect(
-      _formatTitle(
-        "", "foo"
-      )
-    ).toBe("foo");
+    expect(_formatTitle("", "foo")).toBe("foo");
   });
 
   it("formats a label and message together", () => {
-    expect(
-      _formatTitle(
-        "bar", "foo"
-      )
-    ).toBe("bar - foo");
+    expect(_formatTitle("bar", "foo")).toBe("bar - foo");
+  });
+});
+
+describe("#_dashShieldPath", () => {
+  it("combines 2 fields", () => {
+    expect(_dashShieldPath("Foo", "green")).toBe("Foo-green");
+  });
+
+  it("combines 2 fields", () => {
+    expect(_dashShieldPath("Foo", "green", "Bar")).toBe("Bar-Foo-green");
+  });
+
+  it("combines 2 fields and applies encoding", () => {
+    expect(_dashShieldPath("Foo Bar", "green", "Baz")).toBe(
+      "Baz-Foo_Bar-green"
+    );
+
+    expect(_dashShieldPath("Foo", "green", "Baz-Buzz")).toBe(
+      "Baz--Buzz-Foo-green"
+    );
+
+    expect(_dashShieldPath(">=1.0.0", "green", "Foo")).toBe(
+      "Foo->%3D1.0.0-green"
+    );
   });
 });
 
