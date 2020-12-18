@@ -4,6 +4,7 @@ import {
   markdownImage,
   markdownImageWithLink,
   markdownLink,
+  _encodeSeparators
 } from "@/core/badges";
 
 describe("#markdownLink", () => {
@@ -64,8 +65,29 @@ describe("#markdownImageWithLink", () => {
   });
 });
 
+describe("#_encodeSeparators", () => {
+  it("converts a space to an underscore", () => {
+    expect(_encodeSeparators("Foo Bar", true)).toBe("Foo_Bar");
+  });
+  it("can ignore transforming a space", () => {
+    expect(_encodeSeparators("Foo Bar", false)).toBe("Foo Bar");
+  });
+
+  it("converts a single dash to two", () => {
+    expect(_encodeSeparators("Foo-Bar", true)).toBe("Foo--Bar");
+  });
+
+  it("converts a single underscore to two", () => {
+    expect(_encodeSeparators("Foo_Bar", true)).toBe("Foo__Bar");
+  });
+
+  it("converts a mix of space, underscore and a dash correctly", () => {
+    expect(_encodeSeparators("Foo Bar_Baz-Buzz", true)).toBe("Foo_Bar__Baz--Buzz");
+  });
+});
+
 describe("#encodeParam", () => {
-  it("convert a space to an underscore", () => {
+  it("converts a space to an underscore", () => {
     expect(encodeParam("Foo Bar")).toBe("Foo_Bar");
   });
 

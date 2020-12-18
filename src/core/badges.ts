@@ -42,9 +42,6 @@ export function markdownImageWithLink(
 
 /**
  * Replace dashes, underscores and spaces to match shields.io API format.
- *
- * Spaces are converted to underscores - so if you pass the result to an encode functions they won't
- * become '%20'.
  */
 export function _encodeSeparators(value: string, spaceToUnderscore: boolean) {
   value = value.replace(/-/g, "--").replace(/_/g, "__");
