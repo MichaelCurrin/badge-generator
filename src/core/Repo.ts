@@ -103,6 +103,15 @@ export class Repo {
     return markdownImageWithLink(title, imgUrl, target);
   }
 
+  _licenseTarget(localLicense: boolean) {
+    if (localLicense) {
+      return "#license";
+    }
+    const repoUrl = this.ghURL();
+
+    return `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
+  }
+
   licenseBadge(licenseType: string, localLicense = true) {
     if (!licenseType || !this._isValid()) {
       return "";
@@ -112,13 +121,7 @@ export class Repo {
       color = DEFAULT_COLOR,
       isLarge = false;
 
-    let target;
-    if (localLicense) {
-      target = "#license";
-    } else {
-      const repoUrl = this.ghURL();
-      target = `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
-    }
+    const target = this._licenseTarget(localLicense);
 
     return genericBadge(label, message, color, isLarge, target);
   }
