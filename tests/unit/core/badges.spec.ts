@@ -3,9 +3,8 @@ import {
   markdownImage,
   markdownImageWithLink,
   markdownLink,
-
-
-  _decodeAngleBrackets, _encodeParam,
+  _decodeAngleBrackets,
+  _encodeParam,
   _encodeSeparators
 } from "@/core/badges";
 
