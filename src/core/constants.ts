@@ -17,8 +17,8 @@ export const GITHUB_DOMAIN = "https://github.com",
 
 // TODO handle as map to make it easy to add multiple params.
 export const STYLES = {
-  FOR_THE_BADGE: "?style=for-the-badge",
-  SOCIAL: "?style=social",
+  FOR_THE_BADGE: "for-the-badge",
+  SOCIAL: "social",
 };
 
 // Excluding trailing slash makes URL joins more natural.

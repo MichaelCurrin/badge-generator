@@ -146,7 +146,7 @@ export class Repo {
   }
 
   private _ghSocialShield(type: string) {
-    return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}${STYLES.SOCIAL}`;
+    return `${SHIELDS_GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
   }
 
   /* Stars or forks counter */

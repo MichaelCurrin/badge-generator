@@ -2,7 +2,7 @@
  * Handle rendering of each badge and all badges.
  */
 import { GenericBadge, StrMap } from "./badges.d";
-import { SHIELDS_BADGE, SHIELDS_STATIC } from "./constants";
+import { SHIELDS_BADGE, SHIELDS_STATIC, STYLES } from "./constants";
 
 // TODO combine link/target functions in a module.
 export function markdownLink(altText: string, linkTarget: string) {
@@ -131,7 +131,7 @@ export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
   let params: StrMap = {};
 
   if (isLarge) {
-    params.style = "for-the-badge";
+    params.style = STYLES.FOR_THE_BADGE;
   }
 
   if (logo) {
