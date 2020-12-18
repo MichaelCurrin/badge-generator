@@ -192,13 +192,13 @@ On upgrading packages.
 Check outdated plugins:
 
 ```sh
-$ npx vue outdatded
+$ npx vue outdated
 ```
 
 Outdated packages:
 
 ```sh
-$ yarn oudated
+$ yarn outdated
 ```
 
 Upgrade:
