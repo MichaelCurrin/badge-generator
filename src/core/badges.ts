@@ -72,7 +72,7 @@ export function _decodeAngleBrackets(value: string) {
  * e.g. 'A - B - C' converted to 'A_--_B_--_C' unfortunately renders in the SVG result 'A - B_- C'.
  * So just don't mix them and you'll be ok. Like do 'A-B-C'.
  */
-export function encodeParam(value: string, spaceToUnderscore = true) {
+export function _encodeParam(value: string, spaceToUnderscore = true) {
   value = _encodeSeparators(value, spaceToUnderscore);
 
   const encoded = encodeURIComponent(value);
@@ -117,11 +117,11 @@ function formatTitle(label: string, message: string) {
  * So you can pass in more readable values.
  */
 function _dashShieldPath(message: string, color: string, label?: string) {
-  message = encodeParam(message);
+  message = _encodeParam(message);
 
   let pieces = [message, color];
   if (label) {
-    label = encodeParam(label);
+    label = _encodeParam(label);
     pieces.unshift(label);
   }
 

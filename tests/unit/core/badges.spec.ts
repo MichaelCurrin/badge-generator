@@ -1,9 +1,12 @@
 import {
-  encodeParam,
   genericBadge,
   markdownImage,
   markdownImageWithLink,
-  markdownLink,
+  markdownLink, _encodeParam,
+
+
+
+
   _encodeSeparators
 } from "@/core/badges";
 
@@ -86,34 +89,34 @@ describe("#_encodeSeparators", () => {
   });
 });
 
-describe("#encodeParam", () => {
+describe("#_encodeParam", () => {
   it("converts a space to an underscore", () => {
-    expect(encodeParam("Foo Bar")).toBe("Foo_Bar");
+    expect(_encodeParam("Foo Bar")).toBe("Foo_Bar");
   });
 
   it("converts a single dash to two", () => {
-    expect(encodeParam("Foo-Bar")).toBe("Foo--Bar");
+    expect(_encodeParam("Foo-Bar")).toBe("Foo--Bar");
   });
 
   it("converts a single underscore to two", () => {
-    expect(encodeParam("Foo_Bar")).toBe("Foo__Bar");
+    expect(_encodeParam("Foo_Bar")).toBe("Foo__Bar");
   });
 
   it("converts a mix of space, underscore and a dash correctly", () => {
-    expect(encodeParam("Foo Bar_Baz-Buzz")).toBe("Foo_Bar__Baz--Buzz");
+    expect(_encodeParam("Foo Bar_Baz-Buzz")).toBe("Foo_Bar__Baz--Buzz");
   });
 
   // These could appear when putting a URL as a value in the path, so need to be escaped.
   it("encodes special characters correctly", () => {
-    expect(encodeParam("&")).toBe("%26");
-    expect(encodeParam("/")).toBe("%2F");
-    expect(encodeParam("?")).toBe("%3F");
+    expect(_encodeParam("&")).toBe("%26");
+    expect(_encodeParam("/")).toBe("%2F");
+    expect(_encodeParam("?")).toBe("%3F");
   });
 
   // Note that '>' and '<' are valid on shields.io and should not be encoded.
   it("encodes a string correctly without converting angle brackets", () => {
-    expect(encodeParam(">=3")).toBe(">%3D3");
-    expect(encodeParam("<2")).toBe("<2");
+    expect(_encodeParam(">=3")).toBe(">%3D3");
+    expect(_encodeParam("<2")).toBe("<2");
   });
 });
 
