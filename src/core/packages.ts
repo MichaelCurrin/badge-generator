@@ -10,6 +10,9 @@ import {
 } from "./badges";
 import { DEFAULT_COLOR, REGISTRY, SHIELDS_PACKAGE } from "./constants";
 
+/**
+ * Static dependency badge.
+ */
 export function dependency(name: string, registry: REGISTRY) {
   const isLarge = false;
   const url = `${registry}/${name}`;
@@ -18,9 +21,11 @@ export function dependency(name: string, registry: REGISTRY) {
 }
 
 /**
- * Supports NPM packages.
+ * Dynamic NPM package badge.
  *
- * Shields.io supports Pipenv lock files but not requirements.txt file, it seems. And not Gemfile either.
+ * The badge will dynamically display given package's locked version number, using your repo's package.json file.
+ *
+ * Shields.io does Pipenv lock files, but not requirements.txt file, it seems. And not Gemfile either.
  */
 export function nodeVersionBadge(
   username: string,
