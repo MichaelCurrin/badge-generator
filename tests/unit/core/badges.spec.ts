@@ -10,6 +10,7 @@ import {
   _encodeParam,
   _encodeSeparators,
   _formatTitle,
+  _staticDashUrl,
   _staticParamsUrl,
 } from "@/core/badges";
 
@@ -258,6 +259,34 @@ describe("#_staticParamsUrl", () => {
     ).toBe(
       "https://img.shields.io/static/v1?label=Foo&message=Bar&color=green&fizz=buzz"
     );
+  });
+});
+
+describe("#_staticDashUrl", () => {
+  it("returns a valid dash URL with empty style params", () => {
+    expect(
+      _staticDashUrl(
+        {
+          label: "Foo",
+          message: "Bar",
+          color: "green",
+        },
+        {}
+      )
+    ).toBe("https://img.shields.io/badge/Foo-Bar-green");
+  });
+
+  it("returns a valid dash URL with style params", () => {
+    expect(
+      _staticDashUrl(
+        {
+          label: "Foo",
+          message: "Bar",
+          color: "green",
+        },
+        { fizz: "buzz" }
+      )
+    ).toBe("https://img.shields.io/badge/Foo-Bar-green?fizz=buzz");
   });
 });
 
