@@ -10,6 +10,7 @@ import {
   _encodeParam,
   _encodeSeparators,
   _formatTitle,
+  _staticParamsUrl,
 } from "@/core/badges";
 
 describe("#markdownLink", () => {
@@ -221,6 +222,34 @@ describe("#logoParams", () => {
 
   it("ignores a logo color with no logo name", () => {
     expect(logoParams(false, "", "white")).toStrictEqual({});
+  });
+});
+
+describe("#_staticParamsUrl", () => {
+  it("returns a valid params URL with empty style params", () => {
+    expect(
+      _staticParamsUrl({
+        label: "Foo",
+        message: "Bar",
+        color: "green",
+        styleParams: {},
+      })
+    ).toBe(
+      "https://img.shields.io/static/v1?label=Foo&message=Bar&color=green"
+    );
+  });
+
+  it("returns a valid params URL with style params", () => {
+    expect(
+      _staticParamsUrl({
+        label: "Foo",
+        message: "Bar",
+        color: "green",
+        styleParams: { fizz: "buzz" },
+      })
+    ).toBe(
+      "https://img.shields.io/static/v1?label=Foo&message=Bar&color=green&fizz=buzz"
+    );
   });
 });
 
