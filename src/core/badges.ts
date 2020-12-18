@@ -163,7 +163,7 @@ export function _staticParamsUrl({
 }
 
 /** Image URL for a dash-based static badge. */
-function _staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
+export function _staticDashUrl({ label, message, color, styleParams }: GenericBadge) {
   const imgPath = _dashShieldPath(message, color, label),
     imgUrl = `${SHIELDS_BADGE}/${imgPath}`;
 
