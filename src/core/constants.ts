@@ -11,7 +11,7 @@ export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io",
   DEFAULT_COLOR = "blue",
   GREEN = "green",
-  // From 'Use this template' or 'Merge' button.
+  // From 'Use this template' or 'Merge' button on GitHub.
   GITHUB_GREEN = "2ea44f",
   DEFAULT_BRANCH = "master";
 
@@ -21,7 +21,6 @@ export const STYLES = {
   SOCIAL: "social",
 };
 
-// Excluding trailing slash makes URL joins more natural.
 export enum REGISTRY {
   Python = "https://pypi.org/project",
   Node = "https://www.npmjs.com/package",
