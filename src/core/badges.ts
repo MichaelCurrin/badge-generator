@@ -171,11 +171,13 @@ export function _staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
 /**
  * Generate markdown for generic badge.
  *
- * Everything is optional except message.
+ * Everything is optional except message and color. The guard statements to prevent empty strings do
+ * not prevent compile-time errors, but they can show up in nests for safety.
  *
  * In the dash style, the result is LABEL-MESSAGE-COLOR or MESSABE-COLOR. The API needs color to be
  * set, so this is made a required param here on this function.
- * Sample URL: https://img.shields.io/badge/Foo-Bar--Baz-green
+ * Sample URL:
+ *   https://img.shields.io/badge/Foo-Bar--Baz-green
  *
  * Use the params style by setting onlyQueryParams to be true. The result is more verbose but does
  * not require escaping characters. Sample:
@@ -191,6 +193,13 @@ export function genericBadge(
   logoColor = "",
   onlyQueryParams = false
 ) {
+  if (!message) {
+    throw new Error("`message` may not be empty");
+  }
+  if (!color) {
+    throw new Error("`color` may not be empty");
+  }
+
   const title = _formatTitle(label, message);
 
   const badgeFields = { label, message, color },
