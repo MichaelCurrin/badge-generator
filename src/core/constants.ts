@@ -7,6 +7,7 @@ export const SHIELDS_API = "https://img.shields.io",
   SHIELDS_GH = `${SHIELDS_API}/github`,
   SHIELDS_PACKAGE = `${SHIELDS_API}/github/package-json/dependency-version`;
 
+// TODO create object of just COLORS
 export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io",
   DEFAULT_COLOR = "blue",
