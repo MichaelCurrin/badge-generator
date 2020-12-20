@@ -135,7 +135,6 @@ const tools = [
   },
 ];
 const renderedTools = tools.map((tool) =>
-  // So far they all look best as white or default to white.
   genericBadge(
     tool.label,
     tool.message,
