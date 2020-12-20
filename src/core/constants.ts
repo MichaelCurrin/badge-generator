@@ -13,6 +13,7 @@ export const GITHUB_DOMAIN = "https://github.com",
   GREEN = "green",
   // From 'Use this template' or 'Merge' button on GitHub.
   GITHUB_GREEN = "2ea44f",
+  DEFAULT_LOGO_COLOR = "white",
   DEFAULT_BRANCH = "master";
 
 export const LICENSE = {

@@ -33,7 +33,13 @@ import Vue from "vue";
 import VueMarkdown from "vue-markdown";
 
 import { genericBadge } from "@/core/badges";
-import { CATALOGUE_BADGES, DEFAULT_COLOR } from "@/core/constants";
+import {
+  CATALOGUE_BADGES,
+  DEFAULT_COLOR,
+  DEFAULT_LOGO_COLOR,
+} from "@/core/constants";
+
+const DEFAULT_IS_LARGE = false;
 
 function renderBadges() {
   return CATALOGUE_BADGES.map((badge) =>
@@ -41,10 +47,10 @@ function renderBadges() {
       badge.label,
       badge.message,
       DEFAULT_COLOR,
-      badge.isLarge || false,
+      badge.isLarge || DEFAULT_IS_LARGE,
       badge.target,
       badge.logo || "",
-      badge.logo ? "white" : ""
+      badge.logo ? DEFAULT_LOGO_COLOR : ""
     )
   );
 }
