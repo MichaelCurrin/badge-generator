@@ -79,7 +79,7 @@
               <TextInput
                 label="Logo color"
                 v-model="logoColor"
-                note="The badge's own color will be used unless you specify an override. Using `white` is great for readability against the dark label background."
+                note="You can override with your own color, or leave blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is bland but most readable)."
               />
             </fieldset>
             <br />
@@ -109,7 +109,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { REGISTRY } from "@/core/constants";
+import { DEFAULT_LOGO_COLOR, REGISTRY } from "@/core/constants";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 
 const note = `
@@ -131,7 +131,7 @@ export default Vue.extend({
       username: "MichaelCurrin",
       repoName: "badge-generator",
       logo: "vue.js",
-      logoColor: "white",
+      logoColor: DEFAULT_LOGO_COLOR,
 
       result: "_Your output will appear here_",
       note: note,
