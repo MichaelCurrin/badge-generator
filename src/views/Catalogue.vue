@@ -40,22 +40,20 @@ export default Vue.extend({
   components: {
     VueMarkdown,
   },
-  data() {
-    const renderedBadges = CATALOGUE_BADGES.map((badge) =>
-      genericBadge(
-        badge.label,
-        badge.message,
-        DEFAULT_COLOR,
-        false,
-        badge.target,
-        badge.logo || "",
-        badge.logo ? "white" : ""
-      )
-    );
-
-    return {
-      renderedBadges,
-    };
+  computed: {
+    renderedBadges() {
+      return CATALOGUE_BADGES.map((badge) =>
+        genericBadge(
+          badge.label,
+          badge.message,
+          DEFAULT_COLOR,
+          false,
+          badge.target,
+          badge.logo || "",
+          badge.logo ? "white" : ""
+        )
+      );
+    },
   },
 });
 </script>
