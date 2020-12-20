@@ -35,6 +35,20 @@ import VueMarkdown from "vue-markdown";
 import { genericBadge } from "@/core/badges";
 import { CATALOGUE_BADGES, DEFAULT_COLOR } from "@/core/constants";
 
+function renderBadges() {
+  return CATALOGUE_BADGES.map((badge) =>
+    genericBadge(
+      badge.label,
+      badge.message,
+      DEFAULT_COLOR,
+      false,
+      badge.target,
+      badge.logo || "",
+      badge.logo ? "white" : ""
+    )
+  );
+}
+
 export default Vue.extend({
   name: "Catalogue",
   components: {
@@ -42,17 +56,7 @@ export default Vue.extend({
   },
   computed: {
     renderedBadges() {
-      return CATALOGUE_BADGES.map((badge) =>
-        genericBadge(
-          badge.label,
-          badge.message,
-          DEFAULT_COLOR,
-          false,
-          badge.target,
-          badge.logo || "",
-          badge.logo ? "white" : ""
-        )
-      );
+      return renderBadges();
     },
   },
 });
