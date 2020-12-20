@@ -39,6 +39,7 @@ export const CATALOGUE_BADGES = [
     message: "Documentation",
     target: "/docs/",
     logo: "",
+    isLarge: true,
   },
   {
     label: "OS",

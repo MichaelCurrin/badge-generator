@@ -41,7 +41,7 @@ function renderBadges() {
       badge.label,
       badge.message,
       DEFAULT_COLOR,
-      false,
+      badge.isLarge || false,
       badge.target,
       badge.logo || "",
       badge.logo ? "white" : ""
