@@ -4,7 +4,15 @@ import { genericBadge } from "@/core/badges";
  * Test that the UI defaults and common choices associated with the Generic view are working.
  */
 describe("#genericBadge", () => {
-  describe("Basic", () => {
+  describe("Label, message and color", () => {
+    it("gives an error if `message` is empty", () => {
+      expect(() => genericBadge("", "", "green")).toThrow();
+    });
+
+    it("gives an error if `color` is empty", () => {
+      expect(() => genericBadge("", "Bar", "")).toThrow();
+    });
+
     it("displays a badge given a message and a color", () => {
       expect(genericBadge("", "Bar", "green")).toBe(
         "![Bar](https://img.shields.io/badge/Bar-green)"
