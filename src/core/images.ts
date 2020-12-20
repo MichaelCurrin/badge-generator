@@ -1,8 +1,13 @@
 /**
- * Handle image form.
+ * Image module.
+ *
+ * This was attempted using a Vue compontent instead with templating. But rendering proved an issue
+ * as the finished element was shown even inside pre and code tags.
+ *
+ * The indentation here is not smart because of the nested rendering but it works well enough to use
+ * it.
  */
 
-// TODO There must be cleaner way to calculate this and lay it out. Use Vue?
 export function mkHtmlImg(
   src: string,
   alt: string,
