@@ -99,7 +99,7 @@ const tools = [
   },
   {
     label: "Yarn",
-    message: ">=1",
+    message: "1",
     target: "https://classic.yarnpkg.com",
     logo: "yarn",
   },
@@ -117,7 +117,7 @@ const tools = [
   },
   {
     label: "Vue",
-    message: "2",
+    message: "3",
     target: "https://www.npmjs.com/package/vue",
     logo: "vue.js",
   },
