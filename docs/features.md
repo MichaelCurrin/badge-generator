@@ -1,6 +1,6 @@
 # Features
 
-# How it works
+## How it works
 
 - Quickly and easily generate badges
 - Preview your badges and then copy the markdown when you're happy
