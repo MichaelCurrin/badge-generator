@@ -1,8 +1,8 @@
 # Badge generator :shield: :badger: :mage:
 > Magically generate custom badges that you can paste in your docs
 
-[![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions)
-![CodeQL](https://github.com/MichaelCurrin/badge-generator/workflows/CodeQL/badge.svg)
+[![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions?query=workflow%3A%22GH+Pages+Deploy%22)
+[![CodeQL](https://github.com/MichaelCurrin/badge-generator/workflows/CodeQL/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions?query=workflow%3ACodeQL)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/releases/?include_prereleases&sort=semver)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
@@ -10,17 +10,6 @@
 [![Package - Yarn](https://img.shields.io/badge/Yarn->=1-blue?logo=yarn&logoColor=white)](https://classic.yarnpkg.com)
 [![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue)
 [![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript)
-
-
-## Online tool
-
-<div align="center">
-
-Start creating badges for your docs.
-
-[![GitHub Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
-
-</div>
 
 
 ## Preview
@@ -47,6 +36,17 @@ _Enter form details and then generate markdown code and badge previews_
         <br>
         <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="400" />
     </a>
+</div>
+
+
+## Open the web app
+
+<div align="center">
+
+Start creating badges for your docs.
+
+[![GitHub Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+
 </div>
 
 
