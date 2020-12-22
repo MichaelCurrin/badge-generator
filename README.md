@@ -13,7 +13,6 @@
 
 ## Online tool
 
-
 <div align="center">
 
 Start creating badges for your docs.
