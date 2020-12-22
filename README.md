@@ -41,22 +41,16 @@ _Enter form details and then generate markdown code and badge previews_
 
 ## Open the web app
 
-<div align="center">
-
 Start creating badges for your docs.
 
-[![GitHub Pages site](https://img.shields.io/badge/Github_Pages-Badge_Generator-green?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+<div align="center">
+
+[![GitHub Pages site](https://img.shields.io/badge/GitHub_Pages-Badge_Generator-2ea44f?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
 
 </div>
 
 
 ## Documentation
-
-The steps to install and run locally and to then deploy on GH pages can be followed from my [vue-quickstart docs][]. Just change the cloned project name to `badge-generator` instead of `vue-quickstart`.
-
-[vue-quickstart docs]: https://github.com/MichaelCurrin/vue-quickstart/tree/master/docs
-
-See also the docs folder:
 
 <div align="center">
 
