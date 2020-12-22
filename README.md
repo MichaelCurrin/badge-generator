@@ -2,6 +2,7 @@
 > Magically generate custom badges that you can paste in your docs
 
 [![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions)
+![CodeQL](https://github.com/MichaelCurrin/badge-generator/workflows/CodeQL/badge.svg)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/releases/?include_prereleases&sort=semver)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
