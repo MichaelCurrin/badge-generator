@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container-lg">
-      <span id="logo">Badge Generator</span>
+      <a id="logo" :href="baseUrl">Badge Generator</a>
 
       <div id="nav">
         <!-- Build menu based on configured app routes. -->
@@ -24,7 +24,10 @@ import { routes } from "@/router/index";
 
 export default Vue.extend({
   data() {
-    return { routes };
+    return {
+      routes,
+      baseUrl: process.env.BASE_URL,
+    };
   },
 });
 </script>
@@ -158,13 +161,12 @@ summary {
 #logo {
   font-weight: bold;
   font-size: 3em;
-}
-/* Revert link styling. */
-#logo > a {
+
   text-decoration: none;
   color: var(--grey);
 }
-#logo > a:hover {
+
+#logo:hover {
   text-decoration: underline;
   color: #41576d;
 }
