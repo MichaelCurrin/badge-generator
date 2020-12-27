@@ -11,6 +11,18 @@ In Dec 2020, the [@vue/cli-plugin-unit-jest](https://www.npmjs.com/package/@vue/
 
 On the initial upgrade, the tests failed because of a lack of `babel-jest` and `@babel/core`. On running `yarn upgrade`, that issue was fixed.
 
+### Add tests
+
+The Vue Jest plugin was added to the project.
+
+See release [2.2.0](https://github.com/MichaelCurrin/badge-generator/releases/tag/v2.2.0).
+
+The followed dev dependencies were added:
+
+- `@types/jest"`
+- `@vue/cli-plugin-unit-jest`
+- `@vue/test-utils`
+
 ### VueMarkdown
 
 This 3rd party package is no longer maintained. I started using a fork which is published by another author on NPM. I was added as a contributor.
@@ -19,6 +31,22 @@ I decided to update my `package.json` file to use an alias. An alternative is to
 
 
 ## Mid 2020
+
+### Add TypeScript support
+
+The Vue TypeScript plugin was added to the project, which added some base files and added packages.
+
+See release [2.0.0](https://github.com/MichaelCurrin/badge-generator/releases/tag/v2.0.0).
+
+The following dev dependencies were added:
+
+- `@types/vue-markdown`
+- `@typescript-eslint/eslint-plugin`
+- `@typescript-eslint/parser`
+- `@vue/cli-plugin-typescript`
+- `@vue/eslint-config-typescript`
+- `eslint` (downgraded from `7.X`)
+- `typescript`
 
 ### Lint plugin
 
@@ -37,7 +65,9 @@ warning "@vue/cli-plugin-eslint > eslint-loader@2.2.1" has incorrect peer depend
 ```
 
 
-## Converting to Vue site - installing VueMarkdown
+## Converting to Vue site
+
+### Installing VueMarkdown
 > Notes from setting up VueMarkdown for the first time
 
 VueMarkdown has dev dependencies, which are noted in a compile error:
@@ -66,4 +96,25 @@ So I tried using the top-level name and not the full name. And that fixed the er
 
 ```sh
 yarn add -D babel-runtime
+```
+
+### Base dev dependencies
+
+Copied from my [Vue Quickstart](https://github.com/MichaelCurrin/vue-quickstart) for Vue 2, here are standard dev dependencies that come with a Vue project. This helps explain why they exist in [package.json](/package.json).
+
+```json
+{
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.6",
+    "@vue/cli-plugin-eslint": "~4.5.6",
+    "@vue/cli-service": "~4.5.6",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.1.1",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
 ```
