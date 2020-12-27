@@ -22,7 +22,7 @@ export function mkHtmlImg(
     htmlWidth = width ? ` width="${width}"` : "",
     htmlHeight = height ? ` height="${height}"` : "";
 
-  var htmlImg = `<img src="${src}"${htmlAltText}${htmlTitle}${htmlWidth}${htmlHeight} />`;
+  let htmlImg = `<img src="${src}"${htmlAltText}${htmlTitle}${htmlWidth}${htmlHeight} />`;
   if (target) {
     htmlImg = `\
 <a href="${target}">

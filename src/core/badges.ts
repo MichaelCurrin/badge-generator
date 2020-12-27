@@ -88,7 +88,7 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
  * the result short.
  */
 export function buildUrl(urlStr: string, params: StrMap): string {
-  let url = new URL(urlStr);
+  const url = new URL(urlStr);
 
   for (const [key, value] of Object.entries(params)) {
     if (value) {
@@ -115,7 +115,7 @@ export function _dashShieldPath(badge: GenericBadge) {
   const message = _encodeParam(badge.message);
   let label = badge.label;
 
-  let pieces = [message, badge.color];
+  const pieces = [message, badge.color];
   if (label) {
     label = _encodeParam(label);
     pieces.unshift(label);
@@ -128,7 +128,7 @@ export function _dashShieldPath(badge: GenericBadge) {
  * Generate parameters for stying a badge.
  */
 export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
-  let params: StrMap = {};
+  const params: StrMap = {};
 
   if (isLarge) {
     params.style = STYLES.FOR_THE_BADGE;
