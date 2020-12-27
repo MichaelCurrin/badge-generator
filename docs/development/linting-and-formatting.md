@@ -1,6 +1,4 @@
-
-
-## Linting and formatting
+# Linting and formatting
 
 This topic has a few pieces relevant for maintaining this project.
 
