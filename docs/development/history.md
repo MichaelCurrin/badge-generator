@@ -1,6 +1,6 @@
 # History
 
-Notable changes in the project. Including attempts and successes in installing and upgrade packages.
+Notable changes in the project. Including attempts and successes in installing and upgrade packages. The most recent changes are first.
 
 
 ## Dec 2020
@@ -58,11 +58,13 @@ yarn add @typescript-eslint/eslint-plugin@4.9.1 @typescript-eslint/parser@4.9.1 
 
 But got a warning because of ESLint being less than 7.
 
-But the `@vue/cli-plugin-eslint` actually needs ESLint to be less than 7 otherwise it gives a warning. So I am waiting on a newer version of that.
+Though the `@vue/cli-plugin-eslint` actually needs ESLint to be less than 7 otherwise it gives a warning. So I am waiting on a newer version of that.
 
 ```
 warning "@vue/cli-plugin-eslint > eslint-loader@2.2.1" has incorrect peer dependency "eslint@>=1.6.0 <7.0.0".
 ```
+
+Note that `eslint-plugin-vue@7.3.0` works with ESLint `6.2.0` and `7.0.0`.
 
 
 ## Converting to Vue site
