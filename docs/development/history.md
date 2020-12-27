@@ -70,6 +70,8 @@ warning "@vue/cli-plugin-eslint > eslint-loader@2.2.1" has incorrect peer depend
 ### Installing VueMarkdown
 > Notes from setting up VueMarkdown for the first time
 
+Update: This may note have been necessary to add as an explicit dependencies as doing a fresh install solves this.
+
 VueMarkdown has dev dependencies, which are noted in a compile error:
 
 - `babel-runtime/core-js/get-iterator`
