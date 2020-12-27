@@ -1,7 +1,7 @@
 default: install
 
 h help:
-	@egrep '^[a-z#]' Makefile
+	@grep '^[a-z#]' Makefile
 
 
 .PHONY: hooks
