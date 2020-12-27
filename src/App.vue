@@ -68,9 +68,11 @@ export default Vue.extend({
 
 #nav a:hover {
   text-decoration: underline;
+  color: var(--green-dark);
 }
 
 #nav a.router-link-exact-active {
+  text-decoration: underline;
   color: var(--grey);
 }
 
