@@ -19,8 +19,12 @@ t test:
 	yarn compile
 	yarn test:unit
 
+
 s serve: lint
 	yarn start
+
+serve-prod:
+	NODE_ENV=production $(MAKE) serve
 
 
 build: lint test

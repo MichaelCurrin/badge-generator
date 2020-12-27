@@ -1,22 +1,35 @@
 # Usage
 
-## Run dev server
 
-This will compile TS to JS and serve the app.
+## Start a dev server
 
-```sh
-$ yarn start
-```
-
-This does the same but adds lint fixes first. Tests are left out so the app can still be used without passing tests.
+This will compile TS to JS and serve the app. Tests are left out so the app can still be used without passing tests.
 
 ```sh
 $ make serve
 ```
 
-Open in the browser:
+Then open in the browser at:
 
-- http:localhost:8080
+- http://localhost:8080
+
+That commands applies [Lint](#lint) fixes before starting the app - if you prefer to skip that linting, just run:
+
+```sh
+$ yarn start
+```
+
+If you need to check that the site works on a subpath, run this:
+
+```sh
+$ make serve-prod
+```
+
+Then open in the browser at:
+
+- http://localhost:8080/badge-generator/
+
+See use of `baseUrl` in the codebase.
 
 
 ## Lint
@@ -24,12 +37,8 @@ Open in the browser:
 Apply ESLint and Prettier formatting fixes.
 
 ```sh
-$ yarn lint:fix
-$ # Or
 $ make lint
 ```
-
-Note that this is run as part of the `start` command above.
 
 
 ## Tests
@@ -39,18 +48,18 @@ Jest is the test runner and it is run using the Jest plugin for view. See [cli-p
 Run unit tests.
 
 ```sh
-$ yarn test:unit
-```
-
-Note that it able to work with the TS files directly. It this does need or produce any output JS files.
-
-To add the ability to get errors from the TypeScript compiler (such as bad use of arguments) before the tests are run, use this:
-
-```sh
 $ make test
 ```
 
-Or just look for TypeScript errors in the IDE.
+That includes a step to compile to TypeScript to give validation.
+
+The compiled JS is not actually needed. If you need to run tests alone you can do:
+
+```sh
+$ yarn test:unit
+```
+
+The IDE should also give TypeScript errors as hints.
 
 
 ## Compile
