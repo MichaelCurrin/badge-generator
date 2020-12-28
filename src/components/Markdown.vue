@@ -1,6 +1,6 @@
 // Based on VueMarkdown but much lighter - fewer features and dependencies.
 <template>
-  <div v-html="render(content)"></div>
+  <div v-html="toHTML(content)"></div>
 </template>
 
 <script lang="ts">
@@ -17,7 +17,8 @@ export default Vue.extend({
     content: String,
   },
   methods: {
-    render: (value: string) => md.render(value),
+    // Warning: render is a reserved method so toHTML is safe.
+    toHTML: (value: string) => md.render(value),
   },
 });
 </script>
