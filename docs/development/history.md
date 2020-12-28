@@ -31,7 +31,11 @@ I decided to update my `package.json` file to use an alias.
 
 Later I went with verbose with `@adapttive/vue-markdown` to keep `package.json` simpler. This also required imports to be updated.
 
-UPDA
+And then I found types need to be set too - using `@types/vue-markdown` worked before (though it would have drifted eventually) and doesn't work anymore. And there is no equivalent for the fork. I tried adding `vue-markdown.d.ts` with the declaration as per the TS CLI help. That then said I was using `VueMarkdown` as an interface rather than as a value, so that didn't work.
+
+I decided then to go to the core and use [markdown-it](https://github.com/markdown-it/markdown-it) package and my own [Markdown.vue](/src/components/Markdown.vue) component.
+
+Also of interest is [markdown-it-vue](https://github.com/ravenq/markdown-it-vue/). That and `vue-markdown` handle many things I don't need like Katex. The `markdown-it` docs explain how to use highlighting which I haven't figured out, but I don't need for rendering code this project.
 
 
 ## Mid 2020
