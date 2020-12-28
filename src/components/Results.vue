@@ -12,8 +12,7 @@
 
     <div>
       <h3>Code</h3>
-      <!-- To reduce whitespace, make sure to keep everything on one line here. -->
-      <pre><code>{{ result }}</code></pre>
+      <Pre>{{ result }}</Pre>
     </div>
   </div>
 </template>
@@ -21,12 +20,14 @@
 <script lang="ts">
 import Vue from "vue";
 
+import Pre from "@/components/Pre.vue";
 import Markdown from "@/components/Markdown.vue";
 
 export default Vue.extend({
   name: "Results",
   components: {
     Markdown,
+    Pre,
   },
   props: {
     result: String,
