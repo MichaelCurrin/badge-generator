@@ -12,21 +12,21 @@
     />
 
     <small class="note" v-if="note">
-      <vue-markdown>{{ note }}</vue-markdown>
+      <Markdown :content="note"></Markdown>
     </small>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import VueMarkdown from "@adapttive/vue-markdown";
 
+import Markdown from "@/components/Markdown.vue";
 import { slugify } from "@/lib";
 
 export default Vue.extend({
   name: "Checkbox",
   components: {
-    VueMarkdown,
+    Markdown,
   },
   props: {
     label: { type: String, required: true },

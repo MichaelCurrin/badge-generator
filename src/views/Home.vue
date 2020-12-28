@@ -29,9 +29,7 @@
             </span>
           </small>
 
-          <vue-markdown>
-            {{ repoBadge }}
-          </vue-markdown>
+          <Markdown :content="repoBadge"></Markdown>
 
           <p>
             <i>{{ description }}</i>
@@ -73,15 +71,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-import VueMarkdown from "@adapttive/vue-markdown";
 
+import Markdown from "@/components/Markdown.vue";
 import { DESCRIPTION } from "@/core/constants";
 import { Repo } from "@/core/Repo";
 
 export default Vue.extend({
   name: "Home",
   components: {
-    VueMarkdown,
+    Markdown,
   },
   data() {
     const repo = new Repo("MichaelCurrin", "badge-generator");

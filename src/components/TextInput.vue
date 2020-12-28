@@ -14,7 +14,7 @@
     />
 
     <small class="note" v-if="note">
-      <vue-markdown>{{ note }}</vue-markdown>
+      <Markdown :content="note"></Markdown>
     </small>
   </div>
 </template>
@@ -27,14 +27,14 @@ label {
 
 <script lang="ts">
 import Vue from "vue";
-import VueMarkdown from "@adapttive/vue-markdown";
 
 import { slugify } from "@/lib";
+import Markdown from "@/components/Markdown.vue";
 
 export default Vue.extend({
   name: "TextInput",
   components: {
-    VueMarkdown,
+    Markdown,
   },
   props: {
     label: { type: String, required: true },

@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-12">
         <div v-for="item in renderedBadges" v-bind:key="item">
-          <vue-markdown>{{ item }}</vue-markdown>
+          <Markdown :content="item"></Markdown>
           <pre><code>{{ item }}</code></pre>
           <br />
         </div>
@@ -30,14 +30,14 @@
 
 <script lang="ts">
 import Vue from "vue";
-import VueMarkdown from "@adapttive/vue-markdown";
 
+import Markdown from "@/components/Markdown.vue";
 import { renderBadges } from "@/core/catalogue";
 
 export default Vue.extend({
   name: "Catalogue",
   components: {
-    VueMarkdown,
+    Markdown,
   },
   computed: {
     renderedBadges() {

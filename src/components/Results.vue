@@ -7,7 +7,7 @@
       <h3>Preview</h3>
       <!-- Make sure to not add result on a new line otherwise it will indent and format. -->
       <!-- Make sure to use :source since {{ result }} as inner text will fail to update on UI changes. -->
-      <vue-markdown :source="result"></vue-markdown>
+      <Markdown :content="result"></Markdown>
     </div>
 
     <div>
@@ -20,12 +20,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import VueMarkdown from "@adapttive/vue-markdown";
+
+import Markdown from "@/components/Markdown.vue";
 
 export default Vue.extend({
   name: "Results",
   components: {
-    VueMarkdown,
+    Markdown,
   },
   props: {
     result: String,
