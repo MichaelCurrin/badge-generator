@@ -73,7 +73,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import VueMarkdown from "vue-markdown";
+import VueMarkdown from "@adapttive/vue-markdown";
 
 import { DESCRIPTION } from "@/core/constants";
 import { Repo } from "@/core/Repo";

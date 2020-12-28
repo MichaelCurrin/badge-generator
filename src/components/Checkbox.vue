@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import VueMarkdown from "vue-markdown";
+import VueMarkdown from "@adapttive/vue-markdown";
 
 import { slugify } from "@/lib";
 

@@ -27,7 +27,11 @@ The followed dev dependencies were added:
 
 This 3rd party package is no longer maintained. I started using a fork which is published by another author on NPM. I was added as a contributor.
 
-I decided to update my `package.json` file to use an alias. An alternative is to make the import statements more verbose with `@author/vue-markdown` instead of just `vue-markdown`.
+I decided to update my `package.json` file to use an alias.
+
+Later I went with verbose with `@adapttive/vue-markdown` to keep `package.json` simpler. This also required imports to be updated.
+
+UPDA
 
 
 ## Mid 2020
