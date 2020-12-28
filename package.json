@@ -13,7 +13,7 @@
     "build": "vue-cli-service build",
     "preversion": "git fetch --tags && yarn lint:check && yarn test:unit",
     "version": "yarn build",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags --no-verify"
   },
   "dependencies": {
     "core-js": "^3.6.5",
