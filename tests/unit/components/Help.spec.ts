@@ -5,10 +5,10 @@ describe("Help.vue", () => {
   it("renders props.message when passed", () => {
     const wrapper = shallowMount(Help, {
       propsData: {
-        message: "Help text"
+        message: "Help text",
       },
     });
 
-    expect(wrapper.html()).toMatch("Help text");
+    expect(wrapper.html()).toContain("Help text");
   });
 });
