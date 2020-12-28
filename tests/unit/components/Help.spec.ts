@@ -3,11 +3,12 @@ import { shallowMount } from "@vue/test-utils";
 
 describe("Help.vue", () => {
   it("renders props.message when passed", () => {
-    const message = "Help text";
     const wrapper = shallowMount(Help, {
-      propsData: { message },
+      propsData: {
+        message: "Help text"
+      },
     });
 
-    expect(wrapper.text()).toMatch(message);
+    expect(wrapper.html()).toMatch("Help text");
   });
 });
