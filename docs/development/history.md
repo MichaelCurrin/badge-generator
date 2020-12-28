@@ -25,17 +25,21 @@ The followed dev dependencies were added:
 
 ### VueMarkdown
 
-This 3rd party package is no longer maintained. I started using a fork which is published by another author on NPM. I was added as a contributor.
+**Summary**
 
-I decided to update my `package.json` file to use an alias.
+I had issues using the `vue-markdown` package. The original is insecure. The fork is complex - it requires permissions for network when running tests, the types are not available and adding type definitions in the project caused a break. So the easiest was to go with a low level package - `markdown-it`.
 
-Later I went with verbose with `@adapttive/vue-markdown` to keep `package.json` simpler. This also required imports to be updated.
+**2.3.0**
 
-And then I found types need to be set too - using `@types/vue-markdown` worked before (though it would have drifted eventually) and doesn't work anymore. And there is no equivalent for the fork. I tried adding `vue-markdown.d.ts` with the declaration as per the TS CLI help. That then said I was using `VueMarkdown` as an interface rather than as a value, so that didn't work.
+The 3rd party package `vue-markdown` is no longer maintained. I started using a fork which is published by another author on NPM. I was added as a contributor. I decided to update my `package.json` file to use an alias.
 
-I decided then to go to the core and use [markdown-it](https://github.com/markdown-it/markdown-it) package and my own [Markdown.vue](/src/components/Markdown.vue) component.
+**2.6.0**
 
-Also of interest is [markdown-it-vue](https://github.com/ravenq/markdown-it-vue/). That and `vue-markdown` handle many things I don't need like Katex. The `markdown-it` docs explain how to use highlighting which I haven't figured out, but I don't need for rendering code this project.
+Later I went trying going with verbose with `@adapttive/vue-markdown` to keep `package.json` simpler. This also required imports to be updated. But the change caused a break - I found types need to be set too - using `@types/vue-markdown` worked before (though it would have drifted eventually) and doesn't work anymore. And there is no equivalent for the fork. I tried adding `vue-markdown.d.ts` with the declaration as per the TS CLI help. That then said I was using `VueMarkdown` as an interface rather than as a value, so that didn't work.
+
+I decided then to go to the core code and use [markdown-it](https://github.com/markdown-it/markdown-it) package and my own [Markdown.vue](/src/components/Markdown.vue) component. That works great.
+
+Also of interest is [markdown-it-vue](https://github.com/ravenq/markdown-it-vue/). That and `vue-markdown` both handle many things I don't need like code fence blocks, emojis and Katex. The `markdown-it` docs explain how to use highlighting which I haven't figured out even from looking at `vue-markdown`, but I don't need highlighting for this project so I am fine without it.
 
 
 ## Mid 2020
