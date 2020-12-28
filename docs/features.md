@@ -32,6 +32,6 @@ These could also be available as JS to include in other projects and not just th
 - It focuses on the badge choices I commonly use and bundles the badges together as output, to avoid sifting through [shields.io](https://shields.io/) docs every time and to keep my projects looking consistent.
 - Ideal for these topics:
     - JS, Python, Jekyll and Bash projects
-    - Github Actions badges
-    - Tags, license and Use this Template badges in the Github environment
+    - GitHub Actions badges
+    - Tags, license and Use this Template badges in the GitHub environment
 - Need a badge which has custom text, color and URL? The generator can do that too.

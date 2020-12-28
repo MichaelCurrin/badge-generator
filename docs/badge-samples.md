@@ -30,7 +30,7 @@ Choices:
 - `flat` - no shading, round edges
 - `flat-square` - square edges
 - `for-the-badge` - large badge
-- `social` - useful for [Github project](#github-project) badges.
+- `social` - useful for [GitHub project](#github-project) badges.
 
 ### Logos
 
@@ -61,7 +61,7 @@ Use a button with static content which just has styling.
 - Spaces must be `%20` or `_` (the latter is more readable in code).
 - For emojis
     - You can use unicode emoji (e.g. `🛡️`) in the shield label. Not all symbols work such as `🇬🇧`.
-    - But Github emoji as text (`:shield:`) will not work. But you can convert from symbol to unicode - you can always test a Git emoji in your markdown file then copy the rendered unicode.
+    - But GitHub emoji as text (`:shield:`) will not work. But you can convert from symbol to unicode - you can always test a Git emoji in your markdown file then copy the rendered unicode.
 - `.svg` suffix is optional.
 
 ### Two-part label
@@ -71,7 +71,7 @@ Separate into `PRE_LABEL-MAIN_LABEL-COLOR`. Where the first part is black by def
 e.g
 
 ```
-https://img.shields.io/badge/site-Github_Pages-blue
+https://img.shields.io/badge/site-GitHub_Pages-blue
 ```
 
 From shields.io site, you can set colors by parameters:
@@ -131,11 +131,11 @@ Link to docs `/docs` directory.
 
 Link to docs site.
 
-[![Docs site](https://img.shields.io/badge/docs-Github_Pages-blue)](https://michaelcurrin.github.io/badge-generator)
+[![Docs site](https://img.shields.io/badge/docs-GitHub_Pages-blue)](https://michaelcurrin.github.io/badge-generator)
 
 
 ```markdown
-[![Docs site](https://img.shields.io/badge/docs-Github_Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
+[![Docs site](https://img.shields.io/badge/docs-GitHub_Pages-blue)](https://michaelcurrin.github.io/badge-generator/)
 ```
 
 Using large badge and green for stronger call-to-action for application, compared with calmer docs site blue.
@@ -203,7 +203,7 @@ Example of the badge itself, without a link:
 ![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python%20package/badge.svg)
 ```
 
-Note that GitHub Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax as the one above, though Github's tool provides many choices on configuring the badge.
+Note that GitHub Actions now includes a tool on the right of the Actions page for creating badges. This uses the same badge syntax as the one above, though GitHub's tool provides many choices on configuring the badge.
 
 ### GH Pages
 
@@ -399,7 +399,7 @@ Adding the repo name first:
 [mkdocs/mkdocs ![Repo stars](https://img.shields.io/github/stars/mkdocs/mkdocs?style=social)](https://github.com/mkdocs/mkdocs)
 ```
 
-Note you can also use the `social` style on a plain text shield and it will look grey as well, but it won't have the Github icon.
+Note you can also use the `social` style on a plain text shield and it will look grey as well, but it won't have the GitHub icon.
 
 
 ## Code style
@@ -491,7 +491,7 @@ From [vscode-taskexplorer README](https://github.com/spmeesseman/vscode-taskexpl
 
 ## Jekyll variables
 
-In Jekyll, with a Github plugin, you use the following variables in the link and image URLs:
+In Jekyll, with a GitHub plugin, you use the following variables in the link and image URLs:
 
 - Full repo URL: `site.github.owner_url`
 - User name: `site.github.owner_name`
