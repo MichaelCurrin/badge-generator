@@ -73,7 +73,7 @@
 import Vue from "vue";
 
 import Markdown from "@/components/Markdown.vue";
-import { DESCRIPTION } from "@/constants/urls";
+import { DESCRIPTION } from "@/constants/appearance";
 import { Repo } from "@/core/Repo";
 
 export default Vue.extend({

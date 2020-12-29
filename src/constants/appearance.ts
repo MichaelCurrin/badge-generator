@@ -1,3 +1,6 @@
+export const DESCRIPTION =
+  "Magically generate custom badges that you can paste in your docs";
+
 export const STYLES = {
   FOR_THE_BADGE: "for-the-badge",
   SOCIAL: "social",

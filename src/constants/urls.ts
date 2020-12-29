@@ -1,6 +1,3 @@
-export const DESCRIPTION =
-  "Magically generate custom badges that you can paste in your docs";
-
 const SHIELDS_API_BASE = "https://img.shields.io";
 
 export const SHIELDS_API = {
