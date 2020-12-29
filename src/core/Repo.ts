@@ -5,6 +5,7 @@ import { genericBadge, markdownImageWithLink } from "./badges";
 import {
   COLOR,
   DEFAULT_BRANCH,
+  GH_PAGES_BADGE,
   GITHUB_DOMAIN,
   GITHUB_IO,
   LICENSE,
@@ -40,13 +41,15 @@ export class Repo {
   }
   // TODO add variation that has a docs site for the text. And add custom text options.
   ghPagesBadge() {
-    const label = "View site",
-      message = "GH Pages",
-      color = COLOR.Green,
-      isLarge = true,
-      target = this.ghPagesURL();
+    const target = this.ghPagesURL();
 
-    return genericBadge(label, message, color, isLarge, target);
+    return genericBadge(
+      GH_PAGES_BADGE.LABEL,
+      GH_PAGES_BADGE.MESSGE,
+      GH_PAGES_BADGE.COLOR,
+      GH_PAGES_BADGE.IS_LARGE,
+      target
+    );
   }
 
   useThisTemplateBadge() {

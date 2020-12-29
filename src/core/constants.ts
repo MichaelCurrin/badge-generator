@@ -35,6 +35,13 @@ export const LICENSE = {
   IS_LARGE: false,
 };
 
+export const GH_PAGES_BADGE = {
+  LABEL: "View site",
+  MESSGE: "GH Pages",
+  COLOR: COLOR.Green,
+  IS_LARGE: true,
+};
+
 export const TEMPLATE_BADGE = {
   LABEL: "",
   MESSAGE: "Use this template",
