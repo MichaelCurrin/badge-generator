@@ -1,7 +1,8 @@
 /**
  * Package badges module.
  */
-import { COLOR, REGISTRY, SHIELDS_API } from "../constants/urls";
+import { COLOR } from "../constants/appearance";
+import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import {
   buildUrl,
   genericBadge,

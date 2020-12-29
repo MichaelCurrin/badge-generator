@@ -2,6 +2,10 @@
  * Repo badge module.
  */
 import {
+  // eslint-disable-next-line prettier/prettier
+  STYLES
+} from "../constants/appearance";
+import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
@@ -13,8 +17,6 @@ import {
   GITHUB_DOMAIN,
   GITHUB_IO,
   SHIELDS_API,
-  // eslint-disable-next-line prettier/prettier
-  STYLES
 } from "../constants/urls";
 import { genericBadge, markdownImageWithLink } from "./badges";
 

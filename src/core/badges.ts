@@ -1,7 +1,8 @@
 /**
  * Handle rendering of each badge and all badges.
  */
-import { SHIELDS_API, STYLES } from "../constants/urls";
+import { STYLES } from "../constants/appearance";
+import { SHIELDS_API } from "../constants/urls";
 import { GenericBadge, StrMap } from "./badges.d";
 
 // TODO combine link/target functions in a module.

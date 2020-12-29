@@ -1,4 +1,4 @@
-import { COLOR } from "./urls";
+import { COLOR } from "./appearance";
 
 export const LICENSE_BADGE = {
   LABEL: "License",
