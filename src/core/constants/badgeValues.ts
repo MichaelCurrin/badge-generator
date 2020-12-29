@@ -1,4 +1,4 @@
-import { COLOR } from "./constants";
+import { COLOR } from "../constants";
 
 export const LICENSE_BADGE = {
   LABEL: "License",

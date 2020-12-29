@@ -3,13 +3,6 @@
  */
 import { genericBadge, markdownImageWithLink } from "./badges";
 import {
-  GH_BADGE,
-  GH_PAGES_BADGE,
-  LICENSE_BADGE,
-  // eslint-disable-next-line prettier/prettier
-  TEMPLATE_BADGE
-} from "./badgeValues";
-import {
   DEFAULT_BRANCH,
   GITHUB_DOMAIN,
   GITHUB_IO,
@@ -17,6 +10,13 @@ import {
   // eslint-disable-next-line prettier/prettier
   STYLES
 } from "./constants";
+import {
+  GH_BADGE,
+  GH_PAGES_BADGE,
+  LICENSE_BADGE,
+  // eslint-disable-next-line prettier/prettier
+  TEMPLATE_BADGE
+} from "./constants/badgeValues";
 
 export class Repo {
   constructor(public username: string, public repoName: string) {}
