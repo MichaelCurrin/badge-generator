@@ -35,6 +35,14 @@ export const LICENSE = {
   IS_LARGE: false,
 };
 
+export const TEMPLATE_BADGE = {
+  LABEL: "",
+  MESSAGE: "Use this template",
+  COLOR: COLOR.Green,
+  IS_LARGE: true,
+  LOGO: "github",
+};
+
 // TODO handle as map to make it easy to add multiple params.
 export const STYLES = {
   FOR_THE_BADGE: "for-the-badge",

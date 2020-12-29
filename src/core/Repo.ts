@@ -9,8 +9,9 @@ import {
   GITHUB_IO,
   LICENSE,
   SHIELDS_API,
+  STYLES,
   // eslint-disable-next-line prettier/prettier
-  STYLES
+  TEMPLATE_BADGE
 } from "./constants";
 
 export class Repo {
@@ -52,12 +53,12 @@ export class Repo {
     if (!this._isValid()) {
       return "";
     }
-    const label = "",
-      message = "Use this template",
-      color = COLOR.Green,
-      isLarge = true,
+    const label = TEMPLATE_BADGE.LABEL,
+      message = TEMPLATE_BADGE.MESSAGE,
+      color = TEMPLATE_BADGE.COLOR,
+      isLarge = TEMPLATE_BADGE.IS_LARGE,
       target = `${this.ghURL()}/generate`,
-      logo = "github";
+      logo = TEMPLATE_BADGE.LOGO;
 
     return genericBadge(label, message, color, isLarge, target, logo);
   }
