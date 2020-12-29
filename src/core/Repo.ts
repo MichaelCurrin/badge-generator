@@ -1,10 +1,7 @@
 /**
  * Repo badge module.
  */
-import {
-  // eslint-disable-next-line prettier/prettier
-  STYLES
-} from "../constants/appearance";
+import { STYLES } from "../constants/appearance";
 import {
   GH_BADGE,
   GH_PAGES_BADGE,
@@ -158,12 +155,15 @@ export class Repo {
     return `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
   }
 
-  /* Stars or forks counter */
-  // TODO use enum for type.
+  /* Counter for stars or forks. */
   ghSocial(type: string, usePreLabel = false) {
     if (!type || !this._isValid()) {
       return "";
     }
+    if (!(type === "stars" || type === "fork")) {
+      throw new Error(`Invalid type - must stars or forks. Got: ${type}`);
+    }
+
     const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "",
       shield = this._ghSocialShield(type),
       target = this.ghURL();
