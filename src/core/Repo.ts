@@ -8,7 +8,7 @@ import {
   GITHUB_DOMAIN,
   GITHUB_IO,
   LICENSE,
-  SHIELDS,
+  SHIELDS_URL,
   // eslint-disable-next-line prettier/prettier
   STYLES
 } from "./constants";
@@ -65,7 +65,7 @@ export class Repo {
   private _tagBadgeUrl(type: string) {
     const params = "?include_prereleases&sort=semver";
 
-    return `${SHIELDS.GH}/${type}/${this.username}/${this.repoName}${params}`;
+    return `${SHIELDS_URL.GH}/${type}/${this.username}/${this.repoName}${params}`;
   }
 
   /**
@@ -148,7 +148,7 @@ export class Repo {
   }
 
   private _ghSocialShield(type: string) {
-    return `${SHIELDS.GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
+    return `${SHIELDS_URL.GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
   }
 
   /* Stars or forks counter */

@@ -3,9 +3,9 @@ export const DESCRIPTION =
 
 const SHIELDS_API = "https://img.shields.io";
 
-export const SHIELDS = {
-  BADGE: `${SHIELDS_API}/badge`, // Dash-based URL.
-  STATIC: `${SHIELDS_API}/static/v1`, // Param-based URL.
+export const SHIELDS_URL = {
+  DASH: `${SHIELDS_API}/badge`,
+  PARAM: `${SHIELDS_API}/static/v1`,
   GH: `${SHIELDS_API}/github`,
   PACKAGE: `${SHIELDS_API}/github/package-json/dependency-version`,
 };
