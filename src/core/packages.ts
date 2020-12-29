@@ -44,7 +44,7 @@ export function nodeVersionBadge(
   }
   const title = `Package - ${pkgName}`;
 
-  const imgUrl = `${SHIELDS.package}/${username}/${repoName}/${pkgName}`,
+  const imgUrl = `${SHIELDS.PACKAGE}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
     fullImgUrl = buildUrl(imgUrl, params);
 

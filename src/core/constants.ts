@@ -4,10 +4,10 @@ export const DESCRIPTION =
 const SHIELDS_API = "https://img.shields.io";
 
 export const SHIELDS = {
-  badge: `${SHIELDS_API}/badge`, // Dash-based URL.
-  static: `${SHIELDS_API}/static/v1`, // Param-based URL.
-  gh: `${SHIELDS_API}/github`,
-  package: `${SHIELDS_API}/github/package-json/dependency-version`,
+  BADGE: `${SHIELDS_API}/badge`, // Dash-based URL.
+  STATIC: `${SHIELDS_API}/static/v1`, // Param-based URL.
+  GH: `${SHIELDS_API}/github`,
+  PACKAGE: `${SHIELDS_API}/github/package-json/dependency-version`,
 };
 
 export enum REGISTRY {

@@ -156,13 +156,13 @@ export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
     ...styleParams,
   };
 
-  return buildUrl(SHIELDS.static, params);
+  return buildUrl(SHIELDS.STATIC, params);
 }
 
 /** Image URL for a dash-based static badge. */
 export function _staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
   const imgPath = _dashShieldPath(badge),
-    imgUrl = `${SHIELDS.badge}/${imgPath}`;
+    imgUrl = `${SHIELDS.BADGE}/${imgPath}`;
 
   return buildUrl(imgUrl, styleParams);
 }

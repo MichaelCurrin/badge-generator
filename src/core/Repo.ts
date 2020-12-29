@@ -65,7 +65,7 @@ export class Repo {
   private _tagBadgeUrl(type: string) {
     const params = "?include_prereleases&sort=semver";
 
-    return `${SHIELDS.gh}/${type}/${this.username}/${this.repoName}${params}`;
+    return `${SHIELDS.GH}/${type}/${this.username}/${this.repoName}${params}`;
   }
 
   /**
@@ -148,7 +148,7 @@ export class Repo {
   }
 
   private _ghSocialShield(type: string) {
-    return `${SHIELDS.gh}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
+    return `${SHIELDS.GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
   }
 
   /* Stars or forks counter */
