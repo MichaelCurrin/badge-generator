@@ -1,5 +1,5 @@
 import { genericBadge } from "@/core/badges";
-import { COLORS } from "@/core/constants";
+import { COLOR } from "@/core/constants";
 
 const DEFAULT_IS_LARGE = false;
 const BADGE_DETAILS = [
@@ -110,11 +110,11 @@ export function renderBadges() {
     genericBadge(
       badge.label,
       badge.message,
-      COLORS.Default,
+      COLOR.Default,
       badge.isLarge || DEFAULT_IS_LARGE,
       badge.target,
       badge.logo || "",
-      badge.logo ? COLORS.LogoDefault : ""
+      badge.logo ? COLOR.LogoDefault : ""
     )
   );
 }

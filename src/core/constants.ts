@@ -13,7 +13,7 @@ export const SHIELDS = {
 export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io";
 
-export enum COLORS {
+export enum COLOR {
   Default = "blue",
   Green = "green",
   GitHubGreen = "2ea44f",
@@ -24,7 +24,7 @@ export const DEFAULT_BRANCH = "master";
 
 export const LICENSE = {
   LABEL: "License",
-  COLOR: COLORS.Default,
+  COLOR: COLOR.Default,
   IS_LARGE: false,
 };
 
