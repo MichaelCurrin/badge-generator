@@ -7,19 +7,21 @@ export const SHIELDS_API = "https://img.shields.io",
   SHIELDS_GH = `${SHIELDS_API}/github`,
   SHIELDS_PACKAGE = `${SHIELDS_API}/github/package-json/dependency-version`;
 
-// TODO create object of just COLORS
 export const GITHUB_DOMAIN = "https://github.com",
-  GITHUB_IO = "github.io",
-  DEFAULT_COLOR = "blue",
-  GREEN = "green",
-  // From 'Use this template' or 'Merge' button on GitHub.
-  GITHUB_GREEN = "2ea44f",
-  DEFAULT_LOGO_COLOR = "white",
-  DEFAULT_BRANCH = "master";
+  GITHUB_IO = "github.io";
+
+export enum COLORS {
+  Default = "blue",
+  Green = "green",
+  GitHubGreen = "2ea44f",
+  LogoDefault = "white",
+}
+
+export const DEFAULT_BRANCH = "master";
 
 export const LICENSE = {
   LABEL: "License",
-  COLOR: DEFAULT_COLOR,
+  COLOR: COLORS.Default,
   IS_LARGE: false,
 };
 

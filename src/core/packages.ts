@@ -8,7 +8,7 @@ import {
   // eslint-disable-next-line prettier/prettier
   markdownImageWithLink
 } from "./badges";
-import { DEFAULT_COLOR, REGISTRY, SHIELDS_PACKAGE } from "./constants";
+import { COLORS, REGISTRY, SHIELDS_PACKAGE } from "./constants";
 
 /**
  * Static dependency badge.
@@ -17,7 +17,7 @@ export function dependency(name: string, registry: REGISTRY) {
   const isLarge = false;
   const url = `${registry}/${name}`;
 
-  return genericBadge("dependency", name, DEFAULT_COLOR, isLarge, url);
+  return genericBadge("dependency", name, COLORS.Default, isLarge, url);
 }
 
 /**

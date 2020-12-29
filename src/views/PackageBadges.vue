@@ -109,7 +109,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { DEFAULT_LOGO_COLOR, REGISTRY } from "@/core/constants";
+import { COLORS, REGISTRY } from "@/core/constants";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 
 const note = `
@@ -131,7 +131,7 @@ export default Vue.extend({
       username: "MichaelCurrin",
       repoName: "badge-generator",
       logo: "vue.js",
-      logoColor: DEFAULT_LOGO_COLOR,
+      logoColor: COLORS.LogoDefault,
 
       result: "_Your output will appear here_",
       note: note,

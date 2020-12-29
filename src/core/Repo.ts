@@ -3,12 +3,10 @@
  */
 import { genericBadge, markdownImageWithLink } from "./badges";
 import {
+  COLORS,
   DEFAULT_BRANCH,
-  DEFAULT_COLOR,
   GITHUB_DOMAIN,
-  GITHUB_GREEN,
   GITHUB_IO,
-  GREEN,
   LICENSE,
   SHIELDS_GH,
   // eslint-disable-next-line prettier/prettier
@@ -43,7 +41,7 @@ export class Repo {
   ghPagesBadge() {
     const label = "View site",
       message = "GH Pages",
-      color = GREEN,
+      color = COLORS.Green,
       isLarge = true,
       target = this.ghPagesURL();
 
@@ -56,7 +54,7 @@ export class Repo {
     }
     const label = "",
       message = "Use this template",
-      color = GITHUB_GREEN,
+      color = COLORS.GitHubGreen,
       isLarge = true,
       target = `${this.ghURL()}/generate`,
       logo = "github";
@@ -130,7 +128,7 @@ export class Repo {
   gh() {
     const label = this.username,
       message = this.repoName,
-      color = DEFAULT_COLOR,
+      color = COLORS.Default,
       isLarge = false,
       target = this.ghURL(),
       logo = "github",
