@@ -3,16 +3,19 @@
  */
 import { genericBadge, markdownImageWithLink } from "./badges";
 import {
-  DEFAULT_BRANCH,
   GH_BADGE,
   GH_PAGES_BADGE,
-  GITHUB_DOMAIN,
-  GITHUB_IO,
   LICENSE_BADGE,
-  SHIELDS_API,
-  STYLES,
   // eslint-disable-next-line prettier/prettier
   TEMPLATE_BADGE
+} from "./badgeValues";
+import {
+  DEFAULT_BRANCH,
+  GITHUB_DOMAIN,
+  GITHUB_IO,
+  SHIELDS_API,
+  // eslint-disable-next-line prettier/prettier
+  STYLES
 } from "./constants";
 
 export class Repo {
