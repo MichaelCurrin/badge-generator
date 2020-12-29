@@ -1,4 +1,10 @@
-export const DEFAULT_IS_LARGE = false;
+import { COLOR } from "./appearance";
+
+export const BADGE_DEFAULTS = {
+  IS_LARGE: false,
+  COLOR: COLOR.Default,
+  LOGO_COLOR: COLOR.LogoDefault,
+};
 
 export const BADGE_DETAILS = [
   {
