@@ -21,6 +21,12 @@ export const GITHUB_DOMAIN = "https://github.com",
 
 export const DEFAULT_BRANCH = "master";
 
+// TODO handle as map to make it easy to add multiple params.
+export const STYLES = {
+  FOR_THE_BADGE: "for-the-badge",
+  SOCIAL: "social",
+};
+
 // Note that a "green" badge with white text has poor contrast. But green hex from GitHub reads much
 // better and fits in well on a GitHub README.md file.
 export enum COLOR {
@@ -55,10 +61,4 @@ export const TEMPLATE_BADGE = {
   COLOR: COLOR.Green,
   IS_LARGE: true,
   LOGO: "github",
-};
-
-// TODO handle as map to make it easy to add multiple params.
-export const STYLES = {
-  FOR_THE_BADGE: "for-the-badge",
-  SOCIAL: "social",
 };
