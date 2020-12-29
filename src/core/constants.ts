@@ -3,7 +3,7 @@ export const DESCRIPTION =
 
 const SHIELDS_API_BASE = "https://img.shields.io";
 
-export const SHIELDS_URL = {
+export const SHIELDS_API = {
   DASH: `${SHIELDS_API_BASE}/badge`,
   PARAM: `${SHIELDS_API_BASE}/static/v1`,
   GH: `${SHIELDS_API_BASE}/github`,

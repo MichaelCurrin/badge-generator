@@ -2,7 +2,7 @@
  * Handle rendering of each badge and all badges.
  */
 import { GenericBadge, StrMap } from "./badges.d";
-import { SHIELDS_URL, STYLES } from "./constants";
+import { SHIELDS_API, STYLES } from "./constants";
 
 // TODO combine link/target functions in a module.
 export function markdownLink(altText: string, linkTarget: string) {
@@ -156,13 +156,13 @@ export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
     ...styleParams,
   };
 
-  return buildUrl(SHIELDS_URL.PARAM, params);
+  return buildUrl(SHIELDS_API.PARAM, params);
 }
 
 /** Image URL for a dash-based static badge. */
 export function _staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
   const imgPath = _dashShieldPath(badge),
-    imgUrl = `${SHIELDS_URL.DASH}/${imgPath}`;
+    imgUrl = `${SHIELDS_API.DASH}/${imgPath}`;
 
   return buildUrl(imgUrl, styleParams);
 }

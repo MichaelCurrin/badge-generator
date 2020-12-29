@@ -8,7 +8,7 @@ import {
   // eslint-disable-next-line prettier/prettier
   markdownImageWithLink
 } from "./badges";
-import { COLOR, REGISTRY, SHIELDS_URL } from "./constants";
+import { COLOR, REGISTRY, SHIELDS_API } from "./constants";
 
 /**
  * Static dependency badge.
@@ -44,7 +44,7 @@ export function nodeVersionBadge(
   }
   const title = `Package - ${pkgName}`;
 
-  const imgUrl = `${SHIELDS_URL.PACKAGE}/${username}/${repoName}/${pkgName}`,
+  const imgUrl = `${SHIELDS_API.PACKAGE}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
     fullImgUrl = buildUrl(imgUrl, params);
 
