@@ -53,14 +53,16 @@ export class Repo {
     if (!this._isValid()) {
       return "";
     }
-    const label = TEMPLATE_BADGE.LABEL,
-      message = TEMPLATE_BADGE.MESSAGE,
-      color = TEMPLATE_BADGE.COLOR,
-      isLarge = TEMPLATE_BADGE.IS_LARGE,
-      target = `${this.ghURL()}/generate`,
-      logo = TEMPLATE_BADGE.LOGO;
+    const target = `${this.ghURL()}/generate`;
 
-    return genericBadge(label, message, color, isLarge, target, logo);
+    return genericBadge(
+      TEMPLATE_BADGE.LABEL,
+      TEMPLATE_BADGE.MESSAGE,
+      TEMPLATE_BADGE.COLOR,
+      TEMPLATE_BADGE.IS_LARGE,
+      target,
+      TEMPLATE_BADGE.LOGO
+    );
   }
 
   private _tagBadgeUrl(type: string) {
