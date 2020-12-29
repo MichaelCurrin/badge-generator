@@ -1,11 +1,14 @@
 export const DESCRIPTION =
   "Magically generate custom badges that you can paste in your docs";
 
-export const SHIELDS_API = "https://img.shields.io",
-  SHIELDS_BADGE = `${SHIELDS_API}/badge`, // Dash-based URL.
-  SHIELDS_STATIC = `${SHIELDS_API}/static/v1`, // Param-based URL.
-  SHIELDS_GH = `${SHIELDS_API}/github`,
-  SHIELDS_PACKAGE = `${SHIELDS_API}/github/package-json/dependency-version`;
+const SHIELDS_API = "https://img.shields.io";
+
+export const SHIELDS = {
+  badge: `${SHIELDS_API}/badge`, // Dash-based URL.
+  static: `${SHIELDS_API}/static/v1`, // Param-based URL.
+  gh: `${SHIELDS_API}/github`,
+  package: `${SHIELDS_API}/github/package-json/dependency-version`,
+};
 
 export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io";
