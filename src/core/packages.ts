@@ -1,6 +1,7 @@
 /**
  * Package badges module.
  */
+import { COLOR, REGISTRY, SHIELDS_API } from "../constants/urls";
 import {
   buildUrl,
   genericBadge,
@@ -8,7 +9,6 @@ import {
   // eslint-disable-next-line prettier/prettier
   markdownImageWithLink
 } from "./badges";
-import { COLOR, REGISTRY, SHIELDS_API } from "./constants";
 
 /**
  * Static dependency badge.

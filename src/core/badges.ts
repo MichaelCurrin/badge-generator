@@ -1,8 +1,8 @@
 /**
  * Handle rendering of each badge and all badges.
  */
+import { SHIELDS_API, STYLES } from "../constants/urls";
 import { GenericBadge, StrMap } from "./badges.d";
-import { SHIELDS_API, STYLES } from "./constants";
 
 // TODO combine link/target functions in a module.
 export function markdownLink(altText: string, linkTarget: string) {

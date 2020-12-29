@@ -1,4 +1,4 @@
-import { REGISTRY } from "@/core/constants";
+import { REGISTRY } from "@/constants/urls";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 
 describe("#dependency", () => {

@@ -90,7 +90,7 @@ import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { genericBadge } from "@/core/badges";
-import { COLOR } from "@/core/constants";
+import { COLOR } from "@/constants/urls";
 
 const note = `
 This form lets you create a fixed badge using arbitrary text and a link.

@@ -109,7 +109,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { COLOR, REGISTRY } from "@/core/constants";
+import { COLOR, REGISTRY } from "@/constants/urls";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 
 const note = `

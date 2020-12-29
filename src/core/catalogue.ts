@@ -1,5 +1,5 @@
 import { genericBadge } from "@/core/badges";
-import { COLOR } from "@/core/constants";
+import { COLOR } from "../constants/urls";
 
 const DEFAULT_IS_LARGE = false;
 const BADGE_DETAILS = [
