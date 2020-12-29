@@ -3,8 +3,8 @@
  */
 import { genericBadge, markdownImageWithLink } from "./badges";
 import {
-  COLOR,
   DEFAULT_BRANCH,
+  GH_BADGE,
   GH_PAGES_BADGE,
   GITHUB_DOMAIN,
   GITHUB_IO,
@@ -134,21 +134,17 @@ export class Repo {
   gh() {
     const label = this.username,
       message = this.repoName,
-      color = COLOR.Default,
-      isLarge = false,
       target = this.ghURL(),
-      logo = "github",
-      logoColor = "",
       onlyQueryParams = true;
 
     return genericBadge(
       label,
       message,
-      color,
-      isLarge,
+      GH_BADGE.COLOR,
+      GH_BADGE.IS_LARGE,
       target,
-      logo,
-      logoColor,
+      GH_BADGE.LOGO,
+      GH_BADGE.LOGO_COLOR,
       onlyQueryParams
     );
   }
