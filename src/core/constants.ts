@@ -1,13 +1,13 @@
 export const DESCRIPTION =
   "Magically generate custom badges that you can paste in your docs";
 
-const SHIELDS_API = "https://img.shields.io";
+const SHIELDS_API_BASE = "https://img.shields.io";
 
 export const SHIELDS_URL = {
-  DASH: `${SHIELDS_API}/badge`,
-  PARAM: `${SHIELDS_API}/static/v1`,
-  GH: `${SHIELDS_API}/github`,
-  PACKAGE: `${SHIELDS_API}/github/package-json/dependency-version`,
+  DASH: `${SHIELDS_API_BASE}/badge`,
+  PARAM: `${SHIELDS_API_BASE}/static/v1`,
+  GH: `${SHIELDS_API_BASE}/github`,
+  PACKAGE: `${SHIELDS_API_BASE}/github/package-json/dependency-version`,
 };
 
 export enum REGISTRY {
