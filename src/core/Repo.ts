@@ -8,7 +8,7 @@ import {
   GH_PAGES_BADGE,
   GITHUB_DOMAIN,
   GITHUB_IO,
-  LICENSE,
+  LICENSE_BADGE,
   SHIELDS_API,
   STYLES,
   // eslint-disable-next-line prettier/prettier
@@ -123,10 +123,10 @@ export class Repo {
     }
 
     return genericBadge(
-      LICENSE.LABEL,
+      LICENSE_BADGE.LABEL,
       licenseType,
-      LICENSE.COLOR,
-      LICENSE.IS_LARGE,
+      LICENSE_BADGE.COLOR,
+      LICENSE_BADGE.IS_LARGE,
       this._licenseTarget(localLicense)
     );
   }

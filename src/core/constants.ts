@@ -35,7 +35,7 @@ export enum COLOR {
   LogoDefault = "white",
 }
 
-export const LICENSE = {
+export const LICENSE_BADGE = {
   LABEL: "License",
   COLOR: COLOR.Default,
   IS_LARGE: false,
