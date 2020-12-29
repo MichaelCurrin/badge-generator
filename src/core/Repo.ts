@@ -13,12 +13,12 @@ import {
   DEFAULT_BRANCH,
   GITHUB_DOMAIN,
   GITHUB_IO,
-  SHIELDS_API,
+  SHIELDS_API
 } from "../constants/urls";
 import { genericBadge, markdownImageWithLink } from "./badges";
 
 export class Repo {
-  constructor(public username: string, public repoName: string) {}
+  constructor(public username: string, public repoName: string) { }
 
   private _isValid() {
     return this.username && this.repoName;
@@ -160,7 +160,7 @@ export class Repo {
     if (!type || !this._isValid()) {
       return "";
     }
-    if (!(type === "stars" || type === "fork")) {
+    if (!(type === "stars" || type === "forks")) {
       throw new Error(`Invalid type - must stars or forks. Got: ${type}`);
     }
 
