@@ -54,7 +54,7 @@ export class Repo {
     }
     const label = "",
       message = "Use this template",
-      color = COLOR.GitHubGreen,
+      color = COLOR.Green,
       isLarge = true,
       target = `${this.ghURL()}/generate`,
       logo = "github";

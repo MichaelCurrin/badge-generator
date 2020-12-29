@@ -21,10 +21,11 @@ export const GITHUB_DOMAIN = "https://github.com",
 
 export const DEFAULT_BRANCH = "master";
 
+// Note that a "green" badge with white text has poor contrast. But green hex from GitHub reads much
+// better and fits in well on a GitHub README.md file.
 export enum COLOR {
   Default = "blue",
-  Green = "green",
-  GitHubGreen = "2ea44f",
+  Green = "2ea44f",
   LogoDefault = "white",
 }
 
