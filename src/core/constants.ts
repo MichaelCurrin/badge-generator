@@ -10,8 +10,16 @@ export const SHIELDS = {
   package: `${SHIELDS_API}/github/package-json/dependency-version`,
 };
 
+export enum REGISTRY {
+  Python = "https://pypi.org/project",
+  Node = "https://www.npmjs.com/package",
+  Ruby = "https://rubygems.org/gems",
+}
+
 export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io";
+
+export const DEFAULT_BRANCH = "master";
 
 export enum COLOR {
   Default = "blue",
@@ -19,8 +27,6 @@ export enum COLOR {
   GitHubGreen = "2ea44f",
   LogoDefault = "white",
 }
-
-export const DEFAULT_BRANCH = "master";
 
 export const LICENSE = {
   LABEL: "License",
@@ -33,9 +39,3 @@ export const STYLES = {
   FOR_THE_BADGE: "for-the-badge",
   SOCIAL: "social",
 };
-
-export enum REGISTRY {
-  Python = "https://pypi.org/project",
-  Node = "https://www.npmjs.com/package",
-  Ruby = "https://rubygems.org/gems",
-}
