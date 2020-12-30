@@ -19,22 +19,22 @@ That commands applies [Lint](#lint) fixes before starting the app - if you prefe
 $ yarn start
 ```
 
-If you need to check that the site works on a subpath, run this:
+If you need to check that the site works on a GitHub Pages subpath, run this:
 
 ```sh
-$ make serve-prod
+$ make serve-subpath
 ```
 
 Then open in the browser at:
 
 - http://localhost:8080/badge-generator/
 
-See use of `baseUrl` in the codebase.
+The Vue Router package handles navigation for us. For links outside of the navbar, search for use of `baseUrl` in the codebase.
 
 
 ## Lint
 
-Apply ESLint and Prettier formatting fixes.
+Apply ESLint and Prettier formatting fixes and show an errors that could no be resolved.
 
 ```sh
 $ make lint
@@ -62,16 +62,16 @@ $ yarn test:unit
 The IDE should also give TypeScript errors as hints.
 
 
-## Compile
+## Check types
 
-Compile TS files to JS.
+Validate that TS compiles without errors. This does not persist anything.
 
 ```sh
 $ yarn compile
 ```
 
-The build and serve commands handle TypeScript as part of the Vue and Babel setup. But you can run the TypeScript compilation alone to check errors, as this is quicker to run. Notes this does not work on `.vue` files, as the Vue integration is left out here.
+This step is optional as the `build` or `serve` commands handle TypeScript internally. But running this compile step alone is much faster. See also use in [Makefile](/Makefile).
 
-That commands includes specifying parameters which are only needed for this command - they are kept out of the TS config as Vue doesn't need them.
+Note that does **not** check the `.vue` files, as the Vue integration is left out here.
 
 See [Deploy](deploy.md) for using the build command.
