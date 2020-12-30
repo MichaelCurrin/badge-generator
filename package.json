@@ -9,7 +9,7 @@
     "test:unit": "vue-cli-service test:unit",
     "serve": "vue-cli-service serve",
     "start": "yarn serve",
-    "compile": "rm -rf dist && tsc -p . --outDir dist --sourceMap false",
+    "compile": "tsc -p . --noEmit",
     "build": "vue-cli-service build",
     "preversion": "git fetch --tags && yarn lint:check && yarn test:unit",
     "version": "yarn build",
