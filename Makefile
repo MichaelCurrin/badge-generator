@@ -23,7 +23,7 @@ t test:
 s serve: lint
 	yarn start
 
-serve-prod:
+serve-subpath:
 	NODE_ENV=production $(MAKE) serve
 
 
