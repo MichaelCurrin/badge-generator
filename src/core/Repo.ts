@@ -115,7 +115,7 @@ export class Repo {
     return `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
   }
 
-  licenseBadge(localLicense = true) {
+  licenseBadge(localLicense: boolean) {
     if (!this.licenseType) {
       return "";
     }
