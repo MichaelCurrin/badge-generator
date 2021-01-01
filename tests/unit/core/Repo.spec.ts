@@ -41,20 +41,6 @@ describe("#Repo", () => {
     });
   });
 
-  describe("#_tagBadgeUrl", () => {
-    it("returns a correct tag badge", () => {
-      expect(repoNoLicense._tagBadgeUrl("tag")).toBe(
-        "https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver"
-      );
-    });
-
-    it("returns a correct release badge", () => {
-      expect(repoNoLicense._tagBadgeUrl("release")).toBe(
-        "https://img.shields.io/github/release/MichaelCurrin/badge-generator?include_prereleases=&sort=semver"
-      );
-    });
-  });
-
   describe("#_templateURL", () => {
     it("returns a valid generate template URL", () => {
       expect(repoNoLicense._templateURL()).toBe(
@@ -67,6 +53,20 @@ describe("#Repo", () => {
     it("returns a valid generate template badge", () => {
       expect(repoNoLicense.useThisTemplateBadge()).toBe(
         "[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github)](https://github.com/MichaelCurrin/badge-generator/generate)"
+      );
+    });
+  });
+
+  describe("#_tagBadgeUrl", () => {
+    it("returns a correct tag badge", () => {
+      expect(repoNoLicense._tagBadgeUrl("tag")).toBe(
+        "https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver"
+      );
+    });
+
+    it("returns a correct release badge", () => {
+      expect(repoNoLicense._tagBadgeUrl("release")).toBe(
+        "https://img.shields.io/github/release/MichaelCurrin/badge-generator?include_prereleases=&sort=semver"
       );
     });
   });
