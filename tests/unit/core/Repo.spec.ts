@@ -37,6 +37,26 @@ describe("#Repo", () => {
     });
   });
 
+  describe("#_templateURL", () => {
+    const repo = new Repo("MichaelCurrin", "badge-generator");
+
+    it("returns a valid generate template URL", () => {
+      expect(repo._templateURL()).toBe(
+        "https://github.com/MichaelCurrin/badge-generator/generate"
+      );
+    });
+  });
+
+  describe("#useThisTemplateBadge", () => {
+    const repo = new Repo("MichaelCurrin", "badge-generator");
+
+    it("returns a valid generate template badge", () => {
+      expect(repo.useThisTemplateBadge()).toBe(
+        "[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github)](https://github.com/MichaelCurrin/badge-generator/generate)"
+      );
+    });
+  });
+
   describe("#licenseBadge", () => {
     const repo = new Repo("MichaelCurrin", "badge-generator", "MIT");
 
@@ -48,7 +68,7 @@ describe("#Repo", () => {
 
     it("return a badge for a remote license", () => {
       const target =
-        "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE",
+          "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE",
         expectedBadge = `[![License - MIT](https://img.shields.io/badge/License-MIT-blue)](${target})`;
 
       expect(repo.licenseBadge(false)).toBe(expectedBadge);
