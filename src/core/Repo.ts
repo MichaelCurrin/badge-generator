@@ -13,6 +13,7 @@ import {
   DEFAULT_BRANCH,
   GITHUB_DOMAIN,
   GITHUB_IO,
+  LICENSE_PATH,
   // eslint-disable-next-line prettier/prettier
   SHIELDS_API
 } from "../constants/urls";
@@ -139,6 +140,21 @@ export class Repo {
       LICENSE_BADGE.IS_LARGE,
       this._licenseTarget(localLicense)
     );
+  }
+
+  licenseMessage(licenseType: string) {
+    if (!licenseType || !this._isValid()) {
+      return "";
+    }
+
+    const license = `[${licenseType}](${LICENSE_PATH})`
+    const user = `[@${this.username}](${GITHUB_DOMAIN}/${this.username})`
+
+    return `\
+## License
+
+Released under ${license} by ${user}.
+`
   }
 
   gh() {
