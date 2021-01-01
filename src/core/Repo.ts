@@ -17,7 +17,12 @@ import {
   // eslint-disable-next-line prettier/prettier
   SHIELDS_API
 } from "../constants/urls";
-import { genericBadge, markdownImageWithLink, markdownLink } from "./badges";
+import {
+  buildUrl,
+  genericBadge,
+  markdownImageWithLink,
+  markdownLink,
+} from "./badges";
 
 export class Repo {
   constructor(
@@ -26,10 +31,10 @@ export class Repo {
     public licenseType?: string
   ) {
     if (!username) {
-      throw new Error("username cannot be empty");
+      throw new Error("`username` cannot be empty");
     }
     if (!repoName) {
-      throw new Error("repoName cannot be empty");
+      throw new Error("`repoName` cannot be empty");
     }
   }
 
@@ -82,9 +87,12 @@ export class Repo {
   }
 
   _tagBadgeUrl(type: string) {
-    const params = "?include_prereleases&sort=semver";
+    // See Tag badges section of the /docs/badge-notes.md doc.
+    const params = { include_prereleases: "", sort: "semver" };
 
-    return `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}${params}`;
+    const url = `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}`;
+
+    return buildUrl(url, params);
   }
 
   /**
