@@ -135,11 +135,11 @@ export default Vue.extend({
       const repo = new Repo(this.username, this.repoName);
 
       const versionBadge = repo.tagBadge(this.versionType === "release"),
-        license = repo.licenseBadge(this.licenseType);
+        licenseBadge = repo.licenseBadge(this.licenseType);
 
       const repoBadge = repo.gh(),
-        stars = repo.ghSocial("stars"),
-        forks = repo.ghSocial("forks");
+        starsBadge = repo.ghSocial("stars"),
+        forksBadge = repo.ghSocial("forks");
 
       const templateButton = this.useThisTemplate
         ? repo.useThisTemplateBadge()
@@ -152,14 +152,13 @@ export default Vue.extend({
 _Social buttons_
 
 ${repoBadge}
-${stars}
-${forks}
+${starsBadge}
+${forksBadge}
 
 _Repo metadata_
 
 ${versionBadge}
-
-${license}
+${licenseBadge}
 
 _Call-to-Action buttons_
 
