@@ -86,18 +86,14 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
  * Serialize a URL with given query params.
  *
  * @param url Protocol, domain and path. This must have a protocol or it will be considered invalid.
- * @param queryParams Key-value pairs for the query params. We drop any empty values to keep
- *   the result short.
+ * @param queryParams Key-value pairs to be used as URL query parameters.
  */
 export function buildUrl(url: string, queryParams: StrMap): string {
   const urlObj = new URL(url);
 
   for (const [key, value] of Object.entries(queryParams)) {
-    if (value) {
-      urlObj.searchParams.append(key, value);
-    }
+    urlObj.searchParams.append(key, value);
   }
-
   return decodeURI(urlObj.href);
 }
 

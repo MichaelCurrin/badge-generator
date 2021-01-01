@@ -35,7 +35,7 @@ describe("#genericBadge", () => {
       expect(
         genericBadge("", "Bar", "green", false, target, "", "", true)
       ).toBe(
-        "[![Bar](https://img.shields.io/static/v1?message=Bar&color=green)](https://example.com)"
+        "[![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)](https://example.com)"
       );
     });
 
@@ -50,7 +50,7 @@ describe("#genericBadge", () => {
         expect(
           genericBadge("", "Bar", "green", displayLarge, "", "", "", true)
         ).toBe(
-          "![Bar](https://img.shields.io/static/v1?message=Bar&color=green&style=for-the-badge)"
+          "![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green&style=for-the-badge)"
         );
       });
     });
@@ -65,7 +65,7 @@ describe("#genericBadge", () => {
       );
 
       expect(genericBadge("", "Bar", "green", false, "", logo, "", true)).toBe(
-        "![Bar](https://img.shields.io/static/v1?message=Bar&color=green&logo=github)"
+        "![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green&logo=github)"
       );
     });
 
@@ -80,7 +80,7 @@ describe("#genericBadge", () => {
       expect(
         genericBadge("", "Bar", "green", false, "", logo, logoColor, true)
       ).toBe(
-        "![Bar](https://img.shields.io/static/v1?message=Bar&color=green&logo=github&logoColor=yellow)"
+        "![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green&logo=github&logoColor=yellow)"
       );
     });
   });

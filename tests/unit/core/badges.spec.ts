@@ -139,9 +139,10 @@ describe("#buildUrl", () => {
     expect(buildUrl("http://example.com", {})).toBe("http://example.com/");
   });
 
-  it("ignores a param which is null", () => {
+  // The browser sees `foo=` and `foo` as the same - with a value of `true`.
+  it("handles an empty value", () => {
     expect(buildUrl("http://example.com", { foo: "" })).toBe(
-      "http://example.com/"
+      "http://example.com/?foo="
     );
   });
 
