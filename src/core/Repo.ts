@@ -64,8 +64,12 @@ export class Repo {
     );
   }
 
+  _templateURL() {
+    return `${this.ghURL()}/generate`;
+  }
+
   useThisTemplateBadge() {
-    const target = `${this.ghURL()}/generate`;
+    const target = this._templateURL();
 
     return genericBadge(
       TEMPLATE_BADGE.LABEL,
