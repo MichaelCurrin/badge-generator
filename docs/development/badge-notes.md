@@ -1,8 +1,8 @@
 # Badge notes
 
 
-## Tag badges
-> About the tag and release badges use in this project.
+## Version badges
+> About the tag and release version badges use in this project
 
 ## Static badges
 
