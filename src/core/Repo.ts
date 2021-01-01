@@ -6,16 +6,15 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  // eslint-disable-next-line prettier/prettier
-  TEMPLATE_BADGE
+  TEMPLATE_BADGE,
 } from "../constants/badgeValues";
 import {
   DEFAULT_BRANCH,
   GITHUB_DOMAIN,
   GITHUB_IO,
   LICENSE_PATH,
-  // eslint-disable-next-line prettier/prettier
-  SHIELDS_API
+  SHIELDS_API,
+  TAG_PARAMS,
 } from "../constants/urls";
 import {
   buildUrl,
