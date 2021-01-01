@@ -22,10 +22,10 @@ import { genericBadge, markdownImageWithLink, markdownLink } from "./badges";
 export class Repo {
   constructor(public username: string, public repoName: string) {
     if (!username) {
-      throw new Error("username cannot be empty")
+      throw new Error("username cannot be empty");
     }
     if (!repoName) {
-      throw new Error("repoName cannot be empty")
+      throw new Error("repoName cannot be empty");
     }
   }
 
@@ -147,14 +147,17 @@ export class Repo {
       return "";
     }
 
-    const license = markdownLink(licenseType, LICENSE_PATH)
-    const user = markdownLink(`@${this.username}`, `${GITHUB_DOMAIN}/${this.username}`)
+    const license = markdownLink(licenseType, LICENSE_PATH);
+    const user = markdownLink(
+      `@${this.username}`,
+      `${GITHUB_DOMAIN}/${this.username}`
+    );
 
     return `\
 ## License
 
 Released under ${license} by ${user}.
-`
+`;
   }
 
   gh() {

@@ -18,4 +18,4 @@ export const GITHUB_DOMAIN = "https://github.com",
 
 export const DEFAULT_BRANCH = "master";
 
-export const LICENSE_PATH = "/LICENSE"
+export const LICENSE_PATH = "/LICENSE";
