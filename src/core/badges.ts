@@ -83,21 +83,22 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
 }
 
 /**
- * Serialize a URL using query params.
+ * Serialize a URL with given query params.
  *
- * The URL must have a protocol or it will be considered invalid. We drop any empty values to keep
- * the result short.
+ * @param url Protocol, domain and path. This must have a protocol or it will be considered invalid.
+ * @param queryParams Key-value pairs for the query params. We drop any empty values to keep
+ *   the result short.
  */
-export function buildUrl(urlStr: string, params: StrMap): string {
-  const url = new URL(urlStr);
+export function buildUrl(url: string, queryParams: StrMap): string {
+  const urlObj = new URL(url);
 
-  for (const [key, value] of Object.entries(params)) {
+  for (const [key, value] of Object.entries(queryParams)) {
     if (value) {
-      url.searchParams.append(key, value);
+      urlObj.searchParams.append(key, value);
     }
   }
 
-  return decodeURI(url.href);
+  return decodeURI(urlObj.href);
 }
 
 export function _formatTitle(label: string, message: string) {
