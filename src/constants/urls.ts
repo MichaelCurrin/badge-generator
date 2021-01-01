@@ -19,3 +19,6 @@ export const GITHUB_DOMAIN = "https://github.com",
 export const DEFAULT_BRANCH = "master";
 
 export const LICENSE_PATH = "/LICENSE";
+
+// See Tag badges section of the /docs/badge-notes.md doc.
+export const TAG_PARAMS = { include_prereleases: "", sort: "semver" };

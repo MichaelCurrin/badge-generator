@@ -87,12 +87,9 @@ export class Repo {
   }
 
   _tagBadgeUrl(type: string) {
-    // See Tag badges section of the /docs/badge-notes.md doc.
-    const params = { include_prereleases: "", sort: "semver" };
-
     const url = `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}`;
 
-    return buildUrl(url, params);
+    return buildUrl(url, TAG_PARAMS);
   }
 
   /**
