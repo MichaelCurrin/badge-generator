@@ -27,6 +27,16 @@ describe("#Repo", () => {
     });
   });
 
+  describe("#ghPagesBadge", () => {
+    const repo = new Repo("MichaelCurrin", "badge-generator");
+
+    it("returns a valid GitHub Pages badge", () => {
+      expect(repo.ghPagesBadge()).toBe(
+        "[![View site - GH Pages](https://img.shields.io/badge/View_site-GH_Pages-2ea44f?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)"
+      );
+    });
+  });
+
   describe("#licenseBadge", () => {
     const repo = new Repo("MichaelCurrin", "badge-generator", "MIT");
 
