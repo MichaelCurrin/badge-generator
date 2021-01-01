@@ -148,6 +148,8 @@ export default Vue.extend({
       // focused on docs. A custom URL independent of repo can be generated in a separate section or maybe here - just add output URL and assume the other data.
       const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
+      const licenseMessage = repo.licenseMessage(this.licenseType);
+
       this.result = `\
 _Social buttons_
 
@@ -168,6 +170,8 @@ ${templateButton}
 ${ghPagesButton}
 
 </div>
+
+${licenseMessage}
       `;
     },
   },
