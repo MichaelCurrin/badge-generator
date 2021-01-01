@@ -72,8 +72,8 @@ Start creating badges for your docs.
 
 ## License
 
-- Released under [MIT License](/LICENSE).
-- Freely modify and reuse.
-- Original license must be included with copies of this software
-- Please link back to this repo if you use the source code.
-- The generated badges are yours, but a link back to this repo in your README somewhere would be appreciated.
+Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
+
+- You can freely modify and reuse.
+- The original license must be included with copies of this software.
+- Please link back to this repo if you use a significant portion the source code.
