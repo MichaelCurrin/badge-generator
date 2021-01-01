@@ -89,6 +89,7 @@ import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { Repo } from "@/core/Repo";
+import { TagTypes } from "@/core/Repo.d";
 
 const note = `
 - Where to put the badges
@@ -132,10 +133,10 @@ export default Vue.extend({
         ghPages: this.ghPages,
       });
 
-      const repo = new Repo(this.username, this.repoName);
+      const repo = new Repo(this.username, this.repoName, this.licenseType);
 
-      const versionBadge = repo.tagBadge(this.versionType === "release"),
-        licenseBadge = repo.licenseBadge(this.licenseType);
+      const versionBadge = repo.tagBadge(this.versionType as TagTypes),
+        licenseBadge = repo.licenseBadge(true);
 
       const repoBadge = repo.gh(),
         starsBadge = repo.ghSocial("stars"),
@@ -148,7 +149,7 @@ export default Vue.extend({
       // focused on docs. A custom URL independent of repo can be generated in a separate section or maybe here - just add output URL and assume the other data.
       const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
-      const licenseMessage = repo.licenseMessage(this.licenseType);
+      const licenseMessage = repo.licenseMessage();
 
       this.result = `\
 _Social buttons_
