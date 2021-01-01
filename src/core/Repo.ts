@@ -20,7 +20,7 @@ import {
 import { genericBadge, markdownImageWithLink, markdownLink } from "./badges";
 
 export class Repo {
-  constructor(public username: string, public repoName: string) {
+  constructor(public username: string, public repoName: string, public licenseType?: string) {
     if (!username) {
       throw new Error("username cannot be empty");
     }
@@ -117,26 +117,26 @@ export class Repo {
     return `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
   }
 
-  licenseBadge(licenseType: string, localLicense = true) {
-    if (!licenseType) {
+  licenseBadge(localLicense = true) {
+    if (!this.licenseType) {
       return "";
     }
 
     return genericBadge(
       LICENSE_BADGE.LABEL,
-      licenseType,
+      this.licenseType,
       LICENSE_BADGE.COLOR,
       LICENSE_BADGE.IS_LARGE,
       this._licenseTarget(localLicense)
     );
   }
 
-  licenseMessage(licenseType: string) {
-    if (!licenseType) {
+  licenseMessage() {
+    if (!this.licenseType) {
       return "";
     }
 
-    const license = markdownLink(licenseType, LICENSE_PATH);
+    const license = markdownLink(this.licenseType, LICENSE_PATH);
     const user = markdownLink(
       `@${this.username}`,
       `${GITHUB_DOMAIN}/${this.username}`
