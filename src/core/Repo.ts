@@ -6,7 +6,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "../constants/badgeValues";
 import {
   DEFAULT_BRANCH,
@@ -14,13 +14,13 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  TAG_PARAMS,
+  VERSION_PARAMS
 } from "../constants/urls";
 import {
   buildUrl,
   genericBadge,
   markdownImageWithLink,
-  markdownLink,
+  markdownLink
 } from "./badges";
 import { TagTypes } from "./Repo.d";
 
@@ -89,7 +89,7 @@ export class Repo {
   _tagBadgeUrl(type: string) {
     const url = `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}`;
 
-    return buildUrl(url, TAG_PARAMS);
+    return buildUrl(url, VERSION_PARAMS);
   }
 
   /**

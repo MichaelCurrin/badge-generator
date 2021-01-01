@@ -21,4 +21,4 @@ export const DEFAULT_BRANCH = "master";
 export const LICENSE_PATH = "/LICENSE";
 
 // See Tag badges section of the /docs/badge-notes.md doc.
-export const TAG_PARAMS = { include_prereleases: "", sort: "semver" };
+export const VERSION_PARAMS = { include_prereleases: "", sort: "semver" };
