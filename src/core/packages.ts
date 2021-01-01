@@ -7,8 +7,7 @@ import {
   buildUrl,
   genericBadge,
   logoParams,
-  // eslint-disable-next-line prettier/prettier
-  markdownImageWithLink
+  markdownImageWithLink,
 } from "./badges";
 
 /**
