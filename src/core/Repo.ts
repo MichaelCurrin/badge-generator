@@ -50,6 +50,7 @@ export class Repo {
 
     return `${fullDomain}/${this.repoName}/`;
   }
+
   // TODO add variation that has a docs site for the text. And add custom text options.
   ghPagesBadge() {
     const target = this.ghPagesURL();
