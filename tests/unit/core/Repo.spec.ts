@@ -11,6 +11,22 @@ describe("#Repo", () => {
     });
   });
 
+  describe("#ghPagesURL", () => {
+    it("returns a valid GitHub Pages project URL", () => {
+      const repo = new Repo("MichaelCurrin", "badge-generator");
+
+      expect(repo.ghPagesURL()).toBe(
+        "https://michaelcurrin.github.io/badge-generator/"
+      );
+    });
+
+    it("returns a valid GitHub Pages user URL", () => {
+      const repo = new Repo("MichaelCurrin", "MichaelCurrin.github.io");
+
+      expect(repo.ghPagesURL()).toBe("https://michaelcurrin.github.io");
+    });
+  });
+
   describe("#licenseBadge", () => {
     const repo = new Repo("MichaelCurrin", "badge-generator", "MIT");
 
@@ -22,7 +38,7 @@ describe("#Repo", () => {
 
     it("return a badge for a remote license", () => {
       const target =
-          "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE",
+        "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE",
         expectedBadge = `[![License - MIT](https://img.shields.io/badge/License-MIT-blue)](${target})`;
 
       expect(repo.licenseBadge(false)).toBe(expectedBadge);
