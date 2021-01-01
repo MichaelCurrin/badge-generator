@@ -17,7 +17,7 @@ import {
   // eslint-disable-next-line prettier/prettier
   SHIELDS_API
 } from "../constants/urls";
-import { genericBadge, markdownImageWithLink } from "./badges";
+import { genericBadge, markdownImageWithLink, markdownLink } from "./badges";
 
 export class Repo {
   constructor(public username: string, public repoName: string) {
@@ -147,8 +147,8 @@ export class Repo {
       return "";
     }
 
-    const license = `[${licenseType}](${LICENSE_PATH})`
-    const user = `[@${this.username}](${GITHUB_DOMAIN}/${this.username})`
+    const license = markdownLink(licenseType, LICENSE_PATH)
+    const user = markdownLink(`@${this.username}`, `${GITHUB_DOMAIN}/${this.username}`)
 
     return `\
 ## License
