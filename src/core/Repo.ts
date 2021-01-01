@@ -20,7 +20,11 @@ import {
 import { genericBadge, markdownImageWithLink, markdownLink } from "./badges";
 
 export class Repo {
-  constructor(public username: string, public repoName: string, public licenseType?: string) {
+  constructor(
+    public username: string,
+    public repoName: string,
+    public licenseType?: string
+  ) {
     if (!username) {
       throw new Error("username cannot be empty");
     }
