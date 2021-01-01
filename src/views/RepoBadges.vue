@@ -145,7 +145,7 @@ export default Vue.extend({
         ? repo.useThisTemplateBadge()
         : "";
       // For now just GH pages but can be extended to have badges
-      // focused docs. A custom URL independent of repo can be generated in a separate section or maybe here - just add output URL and assume the other data.
+      // focused on docs. A custom URL independent of repo can be generated in a separate section or maybe here - just add output URL and assume the other data.
       const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
       this.result = `\
