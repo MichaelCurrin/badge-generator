@@ -81,7 +81,7 @@ export class Repo {
     );
   }
 
-  private _tagBadgeUrl(type: string) {
+  _tagBadgeUrl(type: string) {
     const params = "?include_prereleases&sort=semver";
 
     return `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}${params}`;
@@ -176,7 +176,7 @@ Released under ${license} by ${user}.
     );
   }
 
-  private _ghSocialShield(type: string) {
+  _ghSocialShield(type: string) {
     return `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
   }
 
