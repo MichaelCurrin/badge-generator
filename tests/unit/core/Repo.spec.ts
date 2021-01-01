@@ -98,8 +98,8 @@ describe("#Repo", () => {
 
     it("return a badge for a remote license", () => {
       const target =
-        "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE",
-        expectedBadge = `[![License - MIT](https://img.shields.io/badge/License-MIT-blue)](${target})`;
+        "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE";
+      const expectedBadge = `[![License - MIT](https://img.shields.io/badge/License-MIT-blue)](${target})`;
 
       expect(repoWithLicense.licenseBadge(false)).toBe(expectedBadge);
     });
