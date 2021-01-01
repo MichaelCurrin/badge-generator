@@ -58,15 +58,29 @@ describe("#Repo", () => {
   });
 
   describe("#_tagBadgeUrl", () => {
-    it("returns a correct tag badge", () => {
+    it("returns a correct tag badge URL", () => {
       expect(repoNoLicense._tagBadgeUrl("tag")).toBe(
         "https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver"
       );
     });
 
-    it("returns a correct release badge", () => {
+    it("returns a correct release badge URL", () => {
       expect(repoNoLicense._tagBadgeUrl("release")).toBe(
         "https://img.shields.io/github/release/MichaelCurrin/badge-generator?include_prereleases=&sort=semver"
+      );
+    });
+  });
+
+  describe("#tagBadge", () => {
+    it("returns a correct tag badge", () => {
+      expect(repoNoLicense.tagBadge(false)).toBe(
+        "[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/badge-generator/releases/)"
+      );
+    });
+
+    it("returns a correct release badge", () => {
+      expect(repoNoLicense.tagBadge(true)).toBe(
+        "[![GitHub release](https://img.shields.io/github/release/MichaelCurrin/badge-generator?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/badge-generator/releases/)"
       );
     });
   });
