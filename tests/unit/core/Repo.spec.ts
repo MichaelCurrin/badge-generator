@@ -58,6 +58,10 @@ describe("#Repo", () => {
   });
 
   describe("#licenseBadge", () => {
+    it("returns a null string for no license set", () => {
+      expect(repoNoLicense.licenseBadge(true)).toBe("");
+    });
+
     it("returns a badge for a local license", () => {
       expect(repoWithLicense.licenseBadge(true)).toBe(
         "[![License - MIT](https://img.shields.io/badge/License-MIT-blue)](#license)"
