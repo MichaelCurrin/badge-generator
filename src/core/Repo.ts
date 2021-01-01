@@ -56,7 +56,7 @@ export class Repo {
 
     return genericBadge(
       GH_PAGES_BADGE.LABEL,
-      GH_PAGES_BADGE.MESSGE,
+      GH_PAGES_BADGE.MESSAGE,
       GH_PAGES_BADGE.COLOR,
       GH_PAGES_BADGE.IS_LARGE,
       target

@@ -15,7 +15,7 @@ export const GH_BADGE = {
 
 export const GH_PAGES_BADGE = {
   LABEL: "View site",
-  MESSGE: "GH Pages",
+  MESSAGE: "GH Pages",
   COLOR: COLOR.Green,
   IS_LARGE: true,
 };
