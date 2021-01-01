@@ -73,13 +73,13 @@ describe("#Repo", () => {
 
   describe("#tagBadge", () => {
     it("returns a correct tag badge", () => {
-      expect(repoNoLicense.tagBadge(false)).toBe(
+      expect(repoNoLicense.tagBadge("tag")).toBe(
         "[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/badge-generator/releases/)"
       );
     });
 
     it("returns a correct release badge", () => {
-      expect(repoNoLicense.tagBadge(true)).toBe(
+      expect(repoNoLicense.tagBadge("release")).toBe(
         "[![GitHub release](https://img.shields.io/github/release/MichaelCurrin/badge-generator?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/badge-generator/releases/)"
       );
     });
@@ -98,7 +98,7 @@ describe("#Repo", () => {
 
     it("return a badge for a remote license", () => {
       const target =
-          "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE",
+        "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE",
         expectedBadge = `[![License - MIT](https://img.shields.io/badge/License-MIT-blue)](${target})`;
 
       expect(repoWithLicense.licenseBadge(false)).toBe(expectedBadge);

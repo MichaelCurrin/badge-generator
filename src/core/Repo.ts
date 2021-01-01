@@ -22,6 +22,7 @@ import {
   markdownImageWithLink,
   markdownLink,
 } from "./badges";
+import { TagTypes } from "./Repo.d";
 
 export class Repo {
   constructor(
@@ -96,9 +97,8 @@ export class Repo {
    *
    * See Tag badges section of the /docs/badge-notes.md doc.
    */
-  tagBadge(isRelease = false) {
-    const type = isRelease ? "release" : "tag",
-      title = `GitHub ${type}`,
+  tagBadge(type: TagTypes) {
+    const title = `GitHub ${type}`,
       imgUrl = this._tagBadgeUrl(type);
 
     const target = `${this.ghURL()}/releases/`;
