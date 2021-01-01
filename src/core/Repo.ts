@@ -29,10 +29,6 @@ export class Repo {
     }
   }
 
-  private _isValid() {
-    return this.username && this.repoName;
-  }
-
   ghURL() {
     return `${GITHUB_DOMAIN}/${this.username}/${this.repoName}`;
   }
@@ -64,9 +60,6 @@ export class Repo {
   }
 
   useThisTemplateBadge() {
-    if (!this._isValid()) {
-      return "";
-    }
     const target = `${this.ghURL()}/generate`;
 
     return genericBadge(
@@ -93,23 +86,19 @@ export class Repo {
    * The tag shield shows the latest tag. The shield badge shows the latest release,
    * which must be created by hand on the Releases tab of your repo. Therefore, showing
    * releases will be behind the latest tag. The release flow of your app and if you want
-   * people to start using a tag without a release influences which badge makes sense to yu.
+   * people to start using a tag without a release influences which badge makes sense to you.
    *
    * Notes on setting of the badge params:
    * - It is best to always link to releases page, since all tags on are shown on that page
    *   but you get the benefit of the release titles.
    * - Including pre-released is done based on example on shields.io tool.
    *   If you have a releases before v1, they will not appear as missing unless you add the flag.
-   *   The tags before v1 will show either way, but with the flag the alpha tags will show too,
+   * - The tags before v1 will show either way, but with the flag the alpha tags will show too,
    *   so you may not want the flag.
    * - Use semvar for natural sorting. The default is to sort by date, which means tags added to
    *   old commits can show up as the latest tag when you don't want them to.
    */
   tagBadge(isRelease = false) {
-    if (!this._isValid()) {
-      return "";
-    }
-
     const type = isRelease ? "release" : "tag",
       title = `GitHub ${type}`,
       imgUrl = this._tagBadgeUrl(type);
@@ -129,7 +118,7 @@ export class Repo {
   }
 
   licenseBadge(licenseType: string, localLicense = true) {
-    if (!licenseType || !this._isValid()) {
+    if (!licenseType) {
       return "";
     }
 
@@ -143,7 +132,7 @@ export class Repo {
   }
 
   licenseMessage(licenseType: string) {
-    if (!licenseType || !this._isValid()) {
+    if (!licenseType) {
       return "";
     }
 
@@ -184,7 +173,7 @@ Released under ${license} by ${user}.
 
   /* Counter for stars or forks. */
   ghSocial(type: string, usePreLabel = false) {
-    if (!type || !this._isValid()) {
+    if (!type) {
       return "";
     }
     if (!(type === "stars" || type === "forks")) {
