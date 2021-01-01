@@ -1,7 +1,8 @@
 /**
  * Badge values constants module.
  *
- * Fixed values used for generating certain generic values. For consistency, these should only cover keys that genericBadges function accepts, but there is no minimum requirement here for keys.
+ * Fixed values used for generating certain generic values. For consistency, these should only cover
+ * keys that genericBadges function accepts, but there is no minimum requirement here for keys.
  */
 import { COLOR } from "./appearance";
 
