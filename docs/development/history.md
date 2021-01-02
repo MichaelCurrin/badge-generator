@@ -23,23 +23,42 @@ The followed dev dependencies were added:
 - `@vue/cli-plugin-unit-jest`
 - `@vue/test-utils`
 
-### VueMarkdown
+### Vue
 
 **Summary**
 
-I had issues using the `vue-markdown` package. The original is insecure. The fork is complex - it requires permissions for network when running tests, the types are not available and adding type definitions in the project caused a break. So the easiest was to go with a low level package - `markdown-it`.
+- I had issues using the `vue-markdown` package. 
+- The original is insecure. 
+- The fork I used is complicated - it requires permissions for network when running tests, the types are not available and adding type definitions in the project caused a break. 
+- So the easiest was to go with a low level package called `markdown-it` and build a small custom component around that.
 
-**2.3.0**
+**2.8.0**
 
-The 3rd party package `vue-markdown` is no longer maintained. I started using a fork which is published by another author on NPM. I was added as a contributor. I decided to update my `package.json` file to use an alias.
+I installed `markdown-it`. See repo https://github.com/markdown-it/markdown-it and demo https://markdown-it.github.io/
+
+I created [Markdown.vue](https://github.com/MichaelCurrin/badge-generator/blob/v2.8.0/src/components/Markdown.vue), which works great.
+
+That gets used like this such as in `Help.vue`.
+
+```vue
+<template>
+  <div>
+      <Markdown :content="message"></Markdown>
+  </div>
+</template>
+```
+
+The `markdown-it` one already has things handled in `package.json` which it must used, like emojis, footnotes and highlighting code blocks. These can be enabled with `.use(plugin)` as per the README.
 
 **2.6.0**
 
 Later I went trying going with verbose with `@adapttive/vue-markdown` to keep `package.json` simpler. This also required imports to be updated. But the change caused a break - I found types need to be set too - using `@types/vue-markdown` worked before (though it would have drifted eventually) and doesn't work anymore. And there is no equivalent for the fork. I tried adding `vue-markdown.d.ts` with the declaration as per the TS CLI help. That then said I was using `VueMarkdown` as an interface rather than as a value, so that didn't work.
 
-I decided then to go to the core code and use [markdown-it](https://github.com/markdown-it/markdown-it) package and my own [Markdown.vue](/src/components/Markdown.vue) component. That works great.
+Also of interest is [markdown-it-vue](https://github.com/ravenq/markdown-it-vue/). That one and `vue-markdown` both handle more than I need them to. 
 
-Also of interest is [markdown-it-vue](https://github.com/ravenq/markdown-it-vue/). That and `vue-markdown` both handle many things I don't need like code fence blocks, emojis and Katex. The `markdown-it` docs explain how to use highlighting which I haven't figured out even from looking at `vue-markdown`, but I don't need highlighting for this project so I am fine without it.
+**2.3.0**
+
+The 3rd party package `vue-markdown` is no longer maintained. I started using a fork which is published by another author on NPM. I was added as a contributor. I decided to update my `package.json` file to use an alias.
 
 
 ## Mid 2020
