@@ -3,6 +3,7 @@
 
 [![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions?query=workflow%3A%22GH+Pages+Deploy%22)
 [![CodeQL](https://github.com/MichaelCurrin/badge-generator/workflows/CodeQL/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions?query=workflow%3ACodeQL)
+[![Known Vulnerabilities](https://snyk.io/test/github/MichaelCurrin/badge-generator/badge.svg?targetFile=package.json)](https://snyk.io/test/github/MichaelCurrin/badge-generator?targetFile=package.json)
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/releases/?include_prereleases&sort=semver)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue)](#license)
 
