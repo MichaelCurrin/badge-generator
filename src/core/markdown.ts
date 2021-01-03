@@ -1,4 +1,3 @@
-// TODO combine link/target functions in a module.
 export function mdLink(altText: string, linkTarget: string) {
   return `[${altText}](${linkTarget})`;
 }
@@ -6,7 +5,7 @@ export function mdLink(altText: string, linkTarget: string) {
 export function mdImage(
   altText: string,
   imageTarget: string,
-  hoverTitle = ""
+  hoverTitle?: string
 ) {
   if (hoverTitle) {
     imageTarget = `${imageTarget} "${hoverTitle}"`;
@@ -24,8 +23,8 @@ export function mdImage(
 export function mdImageWithLink(
   altText: string,
   imageTarget: string,
-  linkTarget = "",
-  hoverTitle = ""
+  linkTarget?: string,
+  hoverTitle?: string
 ) {
   const image = mdImage(altText, imageTarget, hoverTitle);
 
