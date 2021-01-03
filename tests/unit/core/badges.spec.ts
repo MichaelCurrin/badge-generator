@@ -1,4 +1,4 @@
-import { buildUrl, _formatTitle } from "@/core/badges";
+import { buildUrl, formatTitle } from "@/core/badges";
 
 describe("#buildUrl", () => {
   it("handles empty query params", () => {
@@ -25,12 +25,12 @@ describe("#buildUrl", () => {
   });
 });
 
-describe("#_formatTitle", () => {
+describe("#formatTitle", () => {
   it("formats a message alone", () => {
-    expect(_formatTitle("", "foo")).toBe("foo");
+    expect(formatTitle("", "foo")).toBe("foo");
   });
 
   it("formats a label and message together", () => {
-    expect(_formatTitle("bar", "foo")).toBe("bar - foo");
+    expect(formatTitle("bar", "foo")).toBe("bar - foo");
   });
 });

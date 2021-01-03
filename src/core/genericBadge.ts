@@ -1,4 +1,4 @@
-import { _formatTitle } from "./badges";
+import { formatTitle } from "./badges";
 import { markdownImageWithLink } from "./markdown";
 import { logoParams, _staticDashUrl, _staticParamsUrl } from "./shieldsApi";
 
@@ -29,7 +29,7 @@ export function genericBadge(
     throw new Error("`color` may not be empty");
   }
 
-  const title = _formatTitle(label, message);
+  const title = formatTitle(label, message);
 
   const badgeFields = { label, message, color },
     styleParams = logoParams(isLarge, logo, logoColor);

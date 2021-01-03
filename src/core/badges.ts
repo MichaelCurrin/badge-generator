@@ -15,6 +15,6 @@ export function buildUrl(url: string, queryParams: StrMap): string {
   return decodeURI(urlObj.href);
 }
 
-export function _formatTitle(label: string, message: string) {
+export function formatTitle(label: string, message: string) {
   return label ? [label, message].join(" - ") : message;
 }
