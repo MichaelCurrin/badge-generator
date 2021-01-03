@@ -123,7 +123,7 @@ export function _dashShieldPath(badge: GenericBadge) {
 }
 
 /**
- * Generate parameters for stying a badge.
+ * Generate parameters for styling a badge.
  */
 export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
   const params: StrMap = {};
