@@ -3,15 +3,15 @@ import {
   logoParams,
   markdownImage,
   markdownImageWithLink,
-  markdownLink,
   _dashShieldPath,
   _decodeAngleBrackets,
   _encodeParam,
   _encodeSeparators,
   _formatTitle,
   _staticDashUrl,
-  _staticParamsUrl,
+  _staticParamsUrl
 } from "@/core/badges";
+import { markdownLink } from "@/core/markdown";
 
 describe("#markdownLink", () => {
   it("returns a valid markdown link", () => {

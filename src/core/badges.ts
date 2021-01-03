@@ -4,11 +4,7 @@
 import { STYLES } from "../constants/appearance";
 import { SHIELDS_API } from "../constants/urls";
 import { GenericBadge, StrMap } from "./badges.d";
-
-// TODO combine link/target functions in a module.
-export function markdownLink(altText: string, linkTarget: string) {
-  return `[${altText}](${linkTarget})`;
-}
+import { markdownLink } from "./markdown";
 
 export function markdownImage(
   altText: string,
