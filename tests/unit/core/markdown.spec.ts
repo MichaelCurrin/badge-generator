@@ -1,8 +1,4 @@
-import {
-  mdImage,
-  mdImageWithLink,
-  mdLink
-} from "@/core/markdown";
+import { mdImage, mdImageWithLink, mdLink } from "@/core/markdown";
 
 describe("#mdLink", () => {
   it("returns a valid markdown link", () => {
@@ -37,12 +33,7 @@ describe("#mdImage", () => {
 describe("#mdImageWithLink", () => {
   it("returns a valid tag using all parameters set", () => {
     expect(
-      mdImageWithLink(
-        "Alt text",
-        "foo.png",
-        "https://example.com",
-        "My foo"
-      )
+      mdImageWithLink("Alt text", "foo.png", "https://example.com", "My foo")
     ).toBe('[![Alt text](foo.png "My foo")](https://example.com)');
 
     expect(

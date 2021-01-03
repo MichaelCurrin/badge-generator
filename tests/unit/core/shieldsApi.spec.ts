@@ -1,14 +1,11 @@
 import {
-  dashShieldPath, logoParams,
-
-
-
-
-  staticDashUrl, _decodeAngleBrackets,
+  dashShieldPath,
+  logoParams,
+  staticDashUrl,
+  _decodeAngleBrackets,
   _encodeParam,
   _encodeSeparators,
-
-  _staticParamsUrl
+  _staticParamsUrl,
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
