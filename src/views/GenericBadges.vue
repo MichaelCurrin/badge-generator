@@ -89,7 +89,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { genericBadge } from "@/core/badges";
+import { genericBadge } from "@/core/genericBadge";
 import { COLOR } from "@/constants/appearance";
 
 const note = `

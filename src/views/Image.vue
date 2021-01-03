@@ -135,7 +135,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { mdImageWithLink } from "@/core/badges";
+import { mdImageWithLink } from "@/core/markdown";
 import { mkHtmlImg } from "@/core/images";
 
 // 'Image' is reserved in Vue so use alternative.
