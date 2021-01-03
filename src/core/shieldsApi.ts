@@ -1,7 +1,6 @@
 /**
  * Shields.io API module.
  */
-
 import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
