@@ -1,11 +1,14 @@
 import {
-  logoParams,
-  _dashShieldPath,
-  _decodeAngleBrackets,
+  dashShieldPath, logoParams,
+
+
+
+
+  staticDashUrl, _decodeAngleBrackets,
   _encodeParam,
   _encodeSeparators,
-  _staticDashUrl,
-  _staticParamsUrl,
+
+  _staticParamsUrl
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
@@ -71,30 +74,30 @@ describe("#_encodeParam", () => {
   });
 });
 
-describe("#_dashShieldPath", () => {
+describe("#dashShieldPath", () => {
   it("combines 2 fields", () => {
-    expect(_dashShieldPath({ message: "Foo", color: "green" })).toBe(
+    expect(dashShieldPath({ message: "Foo", color: "green" })).toBe(
       "Foo-green"
     );
   });
 
   it("combines 2 fields", () => {
     expect(
-      _dashShieldPath({ message: "Foo", color: "green", label: "Bar" })
+      dashShieldPath({ message: "Foo", color: "green", label: "Bar" })
     ).toBe("Bar-Foo-green");
   });
 
   it("combines 2 fields and applies encoding", () => {
     expect(
-      _dashShieldPath({ message: "Foo Bar", color: "green", label: "Baz" })
+      dashShieldPath({ message: "Foo Bar", color: "green", label: "Baz" })
     ).toBe("Baz-Foo_Bar-green");
 
     expect(
-      _dashShieldPath({ message: "Foo", color: "green", label: "Baz-Buzz" })
+      dashShieldPath({ message: "Foo", color: "green", label: "Baz-Buzz" })
     ).toBe("Baz--Buzz-Foo-green");
 
     expect(
-      _dashShieldPath({ label: "Foo", message: ">=1.0.0", color: "green" })
+      dashShieldPath({ label: "Foo", message: ">=1.0.0", color: "green" })
     ).toBe("Foo->%3D1.0.0-green");
   });
 });
@@ -164,10 +167,10 @@ describe("#_staticParamsUrl", () => {
   });
 });
 
-describe("#_staticDashUrl", () => {
+describe("#staticDashUrl", () => {
   it("returns a valid dash URL with empty style params", () => {
     expect(
-      _staticDashUrl(
+      staticDashUrl(
         {
           label: "Foo",
           message: "Bar",
@@ -180,7 +183,7 @@ describe("#_staticDashUrl", () => {
 
   it("returns a valid dash URL with style params", () => {
     expect(
-      _staticDashUrl(
+      staticDashUrl(
         {
           label: "Foo",
           message: "Bar",

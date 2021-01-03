@@ -53,7 +53,7 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
  * So you can pass in more readable values.
  */
 
-export function _dashShieldPath(badge: GenericBadge) {
+export function dashShieldPath(badge: GenericBadge) {
   const message = _encodeParam(badge.message);
   let label = badge.label;
 
@@ -100,8 +100,8 @@ export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
 }
 
 /** Image URL for a dash-based static badge. */
-export function _staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
-  const imgPath = _dashShieldPath(badge),
+export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
+  const imgPath = dashShieldPath(badge),
     imgUrl = `${SHIELDS_API.DASH}/${imgPath}`;
 
   return buildUrl(imgUrl, styleParams);
