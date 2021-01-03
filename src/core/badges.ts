@@ -67,7 +67,7 @@ export function _decodeAngleBrackets(value: string) {
 /**
  * Encode a value to be safe as a param in a URL.
  *
- * Prepare a value for dash-based shields.io API based on notes on that site.
+ * Prepare a value for dash-based shields.io API based on notes on the site.
  *
  * Note the shields.io API itself does funny things if you do use more than one
  * occurence of dash and space or underscore and space when this is escaped correctly.
