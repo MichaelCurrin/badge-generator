@@ -95,6 +95,12 @@ export const BADGE_DETAILS = [
     logo: "vue.js",
   },
   {
+    label: "Go",
+    message: "1",
+    target: "https://golang.org",
+    logo: "go",
+  },
+  {
     label: "Jekyll",
     message: "3.9",
     target: "https://jekyllrb.com",
