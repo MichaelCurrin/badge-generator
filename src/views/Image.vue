@@ -135,7 +135,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { markdownImageWithLink } from "@/core/badges";
+import { mdImageWithLink } from "@/core/badges";
 import { mkHtmlImg } from "@/core/images";
 
 // 'Image' is reserved in Vue so use alternative.
@@ -181,7 +181,7 @@ export default Vue.extend({
           this.height,
           this.alignCenter ? "center" : ""
         ),
-        mdImg = markdownImageWithLink(
+        mdImg = mdImageWithLink(
           this.altTextOut,
           this.imgSrc,
           this.linkTarget,

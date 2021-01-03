@@ -6,7 +6,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "../constants/badgeValues";
 import {
   DEFAULT_BRANCH,
@@ -14,11 +14,11 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS,
+  VERSION_PARAMS
 } from "../constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
-import { markdownImageWithLink, markdownLink } from "./markdown";
+import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
 
 export class Repo {
@@ -100,7 +100,7 @@ export class Repo {
 
     const target = `${this.ghURL()}/releases/`;
 
-    return markdownImageWithLink(title, imgUrl, target);
+    return mdImageWithLink(title, imgUrl, target);
   }
 
   _licenseTarget(localLicense: boolean) {
@@ -131,8 +131,8 @@ export class Repo {
       return "";
     }
 
-    const license = markdownLink(this.licenseType, LICENSE_PATH);
-    const user = markdownLink(
+    const license = mdLink(this.licenseType, LICENSE_PATH);
+    const user = mdLink(
       `@${this.username}`,
       `${GITHUB_DOMAIN}/${this.username}`
     );

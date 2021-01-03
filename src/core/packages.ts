@@ -5,7 +5,7 @@ import { COLOR } from "../constants/appearance";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
-import { markdownImageWithLink } from "./markdown";
+import { mdImageWithLink } from "./markdown";
 import { logoParams } from "./shieldsApi";
 
 /**
@@ -48,5 +48,5 @@ export function nodeVersionBadge(
 
   const target = `${REGISTRY.Node}/${pkgName}`;
 
-  return markdownImageWithLink(title, fullImgUrl, target);
+  return mdImageWithLink(title, fullImgUrl, target);
 }

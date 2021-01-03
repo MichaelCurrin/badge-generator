@@ -1,5 +1,5 @@
 import { formatTitle } from "./badges";
-import { markdownImageWithLink } from "./markdown";
+import { mdImageWithLink } from "./markdown";
 import { logoParams, staticDashUrl, _staticParamsUrl } from "./shieldsApi";
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
@@ -38,5 +38,5 @@ export function genericBadge(
     ? _staticParamsUrl(badgeFields, styleParams)
     : staticDashUrl(badgeFields, styleParams);
 
-  return markdownImageWithLink(title, fullImgUrl, target);
+  return mdImageWithLink(title, fullImgUrl, target);
 }

@@ -1,9 +1,9 @@
 // TODO combine link/target functions in a module.
-export function markdownLink(altText: string, linkTarget: string) {
+export function mdLink(altText: string, linkTarget: string) {
   return `[${altText}](${linkTarget})`;
 }
 
-export function markdownImage(
+export function mdImage(
   altText: string,
   imageTarget: string,
   hoverTitle = ""
@@ -21,16 +21,16 @@ export function markdownImage(
  * This performs no encoding - the inputs should be encoded already to be a URL without spaces and
  * to be a valid URL for shields.io API.
  */
-export function markdownImageWithLink(
+export function mdImageWithLink(
   altText: string,
   imageTarget: string,
   linkTarget = "",
   hoverTitle = ""
 ) {
-  const image = markdownImage(altText, imageTarget, hoverTitle);
+  const image = mdImage(altText, imageTarget, hoverTitle);
 
   if (linkTarget) {
-    return markdownLink(image, linkTarget);
+    return mdLink(image, linkTarget);
   }
   return image;
 }
