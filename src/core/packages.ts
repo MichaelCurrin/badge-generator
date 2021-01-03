@@ -3,12 +3,10 @@
  */
 import { COLOR } from "../constants/appearance";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
-import {
-  buildUrl,
-  genericBadge,
-  logoParams,
-  markdownImageWithLink,
-} from "./badges";
+import { buildUrl } from "./badges";
+import { genericBadge } from "./genericBadge";
+import { markdownImageWithLink } from "./markdown";
+import { logoParams } from "./shieldsApi";
 
 /**
  * Static dependency badge.

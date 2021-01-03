@@ -1,5 +1,5 @@
-import { genericBadge } from "@/core/badges";
 import { BADGE_DEFAULTS, BADGE_DETAILS } from "../constants/catalogue";
+import { genericBadge } from "./genericBadge";
 
 export function renderBadges() {
   return BADGE_DETAILS.map((badge) =>

@@ -1,4 +1,4 @@
-import { genericBadge } from "@/core/badges";
+import { genericBadge } from "@/core/genericBadge";
 
 /**
  * Test that the UI defaults and common choices associated with the Generic view are working.
