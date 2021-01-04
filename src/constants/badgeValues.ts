@@ -7,7 +7,7 @@
 import { COLOR } from "./appearance";
 
 export const STATIC_DEPENDENCY = {
-  LABEL: "Dependency",
+  LABEL: "dependency",
   COLOR: COLOR.Default,
   IS_LARGE: false,
 };
