@@ -52,3 +52,25 @@ The tags before v1 will show even if you omit the flag. But with the flag, any a
 If you omit the flag, the default behavior is to sort by date. Which means tags added to  old commits can show up as the latest tag when you don't want them to.
 
 Set the value to `semvar`. This does natural sorting using semantic versioning. It also makes a `0.X` version orange to show it is a prerelease.
+
+
+## Type for fixed badge values
+
+For [badgeValues.d.ts](/src/constants/badgeValues.d.ts)
+
+The `label` and `color` fields are required in `GenericBadge` function, so when you create an object matching the type below you need to use `!` at the end of the value.
+
+e.g. in [package.ts](/src/core/packages.ts).
+
+```
+STATIC_DEPENDENCY.COLOR!,
+```
+
+Otherwise you get error:
+
+```
+Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+```
+
+This changed is needed for the fields which have default values or are optional.

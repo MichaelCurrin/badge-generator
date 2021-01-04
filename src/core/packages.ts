@@ -20,7 +20,7 @@ export function dependency(name: string, registry: REGISTRY) {
   return genericBadge(
     STATIC_DEPENDENCY.LABEL,
     name,
-    STATIC_DEPENDENCY.COLOR,
+    STATIC_DEPENDENCY.COLOR!,
     STATIC_DEPENDENCY.IS_LARGE,
     url
   );

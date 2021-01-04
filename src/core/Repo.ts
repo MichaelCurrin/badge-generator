@@ -59,8 +59,8 @@ export class Repo {
 
     return genericBadge(
       GH_PAGES_BADGE.LABEL,
-      GH_PAGES_BADGE.MESSAGE,
-      GH_PAGES_BADGE.COLOR,
+      GH_PAGES_BADGE.MESSAGE!,
+      GH_PAGES_BADGE.COLOR!,
       GH_PAGES_BADGE.IS_LARGE,
       target
     );
@@ -75,8 +75,8 @@ export class Repo {
 
     return genericBadge(
       TEMPLATE_BADGE.LABEL,
-      TEMPLATE_BADGE.MESSAGE,
-      TEMPLATE_BADGE.COLOR,
+      TEMPLATE_BADGE.MESSAGE!,
+      TEMPLATE_BADGE.COLOR!,
       TEMPLATE_BADGE.IS_LARGE,
       target,
       TEMPLATE_BADGE.LOGO
@@ -120,7 +120,7 @@ export class Repo {
     return genericBadge(
       LICENSE_BADGE.LABEL,
       this.licenseType,
-      LICENSE_BADGE.COLOR,
+      LICENSE_BADGE.COLOR!,
       LICENSE_BADGE.IS_LARGE,
       this._licenseTarget(localLicense)
     );
@@ -153,7 +153,7 @@ Released under ${license} by ${user}.
     return genericBadge(
       label,
       message,
-      GH_BADGE.COLOR,
+      GH_BADGE.COLOR!,
       GH_BADGE.IS_LARGE,
       target,
       GH_BADGE.LOGO,
