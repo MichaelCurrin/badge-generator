@@ -18,7 +18,7 @@ export function dependency(name: string, registry: REGISTRY) {
   const url = `${registry}/${name}`;
 
   return genericBadge(
-    STATIC_DEPENDENCY.LABEL,
+    STATIC_DEPENDENCY.LABEL!,
     name,
     STATIC_DEPENDENCY.COLOR!,
     STATIC_DEPENDENCY.IS_LARGE,

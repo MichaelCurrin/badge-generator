@@ -6,14 +6,19 @@ import { logoParams, staticDashUrl, _staticParamsUrl } from "./shieldsApi";
 /**
  * Generate markdown for generic badge.
  *
- * Everything is optional except message and color. The guard statements to prevent empty strings do
- * not prevent compile-time errors, but they can show up in nests for safety.
+ * The guard statements to prevent empty strings do not prevent compile-time errors, but they can
+ * show up in nests for safety. The label is fine empty string though.
  *
  * See /docs/badge-notes.md doc on output formats.
+ *
+ * The strings with null string defaults could be converted to optional with `?` and tests pass, but
+ * that means actually `string | undefined` and it is more natural to keep everything as a string.
+ *
+ * The args could be converted to a destructured argument (VS Code does this easily), maybe even
+ * multiple typses to capture first few values separately.
  */
-
 export function genericBadge(
-  label = "",
+  label: string,
   message: string,
   color: string,
   isLarge = false,
