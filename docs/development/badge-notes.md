@@ -58,7 +58,7 @@ Set the value to `semvar`. This does natural sorting using semantic versioning. 
 
 For [badgeValues.d.ts](/src/constants/badgeValues.d.ts)
 
-The `label` and `color` fields are required in `GenericBadge` function, so when you create an object matching the type below you need to use `!` at the end of the value.
+There are some fields that are required in `GenericBadge` function, so when you create an object matching the type below you need to use `!` at the end of the value.
 
 e.g. in [package.ts](/src/core/packages.ts).
 
