@@ -1,12 +1,16 @@
 /**
  * Badge values constants module.
  *
- * Fixed values for the frontend to use for badges on the Generic page.
- *
- * For consistency, these should only cover keys that genericBadges function accepts, but there is
- * no minimum requirement here for keys.
+ * All the values set here are fixed, though there is no minimum of fields to set here. Any values
+ * not fixed here will be set by the user.
  */
 import { COLOR } from "./appearance";
+
+export const STATIC_DEPENDENCY = {
+  LABEL: "Dependency",
+  COLOR: COLOR.Default,
+  IS_LARGE: false,
+};
 
 export const LICENSE_BADGE = {
   LABEL: "License",

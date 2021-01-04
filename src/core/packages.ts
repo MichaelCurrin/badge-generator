@@ -1,7 +1,7 @@
 /**
  * Package badges module.
  */
-import { COLOR } from "../constants/appearance";
+import { STATIC_DEPENDENCY } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -10,12 +10,20 @@ import { logoParams } from "./shieldsApi";
 
 /**
  * Static dependency badge.
+ *
+ * TODO: Make a variation that accepts a version number for `foo >= 1` instead of `dependency: foo`.
+ * That is already supported by Generic Page but it can be easier here.
  */
 export function dependency(name: string, registry: REGISTRY) {
-  const isLarge = false;
   const url = `${registry}/${name}`;
 
-  return genericBadge("dependency", name, COLOR.Default, isLarge, url);
+  return genericBadge(
+    STATIC_DEPENDENCY.LABEL,
+    name,
+    STATIC_DEPENDENCY.COLOR,
+    STATIC_DEPENDENCY.IS_LARGE,
+    url
+  );
 }
 
 /**
