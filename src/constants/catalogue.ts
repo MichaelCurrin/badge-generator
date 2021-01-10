@@ -6,7 +6,15 @@ export const BADGE_DEFAULTS = {
   LOGO_COLOR: COLOR.LogoDefault,
 };
 
-export const BADGE_DETAILS = [
+type TBadgeDetails = {
+  label: string;
+  message: string;
+  target: string;
+  logo: string;
+  isLarge?: boolean
+}
+
+export const BADGE_DETAILS: TBadgeDetails[] = [
   {
     label: "view",
     message: "Documentation",
