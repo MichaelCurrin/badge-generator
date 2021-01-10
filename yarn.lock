@@ -1746,7 +1746,7 @@
   optionalDependencies:
     fork-ts-checker-webpack-plugin-v5 "npm:fork-ts-checker-webpack-plugin@^5.0.11"
 
-"@vue/cli-plugin-unit-jest@^5.0.0-alpha.0":
+"@vue/cli-plugin-unit-jest@^5.0.0-alpha.2":
   version "5.0.0-alpha.2"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-unit-jest/-/cli-plugin-unit-jest-5.0.0-alpha.2.tgz#505ff5c98073a425745e11fa5c8463f9e1703cf4"
   integrity sha512-yCTqGBZmcGKWpTf9fdTFd+VykIo518K/VLSpyMeZiP8J2C/B5ZFwdAY6irzyodJZor76QZ/1bDMnvEJ1Iki44w==
