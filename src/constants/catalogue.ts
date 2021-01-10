@@ -14,7 +14,7 @@ export const BADGE_DETAILS = [
     logo: "",
     isLarge: true,
   },
-  
+
   {
     label: "OS",
     message: "Linux",
@@ -33,7 +33,7 @@ export const BADGE_DETAILS = [
     target: "https://www.microsoft.com/",
     logo: "windows",
   },
-  
+
   // Netlify CI badge is best created on Netlify itself and not here. But a plain Made with Netlify might be nice.
   {
     label: "Hosted with",
@@ -48,28 +48,28 @@ export const BADGE_DETAILS = [
     target: "https://github.com/features/actions",
     logo: "github-actions",
   },
-  
+
   {
     label: "Made with",
     message: "Docker",
     target: "https://www.docker.com/",
     logo: "docker",
   },
-  
+
   {
     label: "Bash",
     message: ">=3",
     target: "https://www.gnu.org/software/bash/",
     logo: "gnu-bash",
   },
-  
+
   {
     label: "Python",
     message: ">=3.6",
     target: "https://python.org",
     logo: "python",
   },
-  
+
   {
     label: "Node.js",
     message: ">=12",
@@ -100,14 +100,14 @@ export const BADGE_DETAILS = [
     target: "https://www.npmjs.com/package/vue",
     logo: "vue.js",
   },
-  
+
   {
     label: "Go",
     message: "1",
     target: "https://golang.org",
     logo: "go",
   },
-  
+
   {
     label: "Jekyll",
     message: "3.9",
@@ -120,7 +120,7 @@ export const BADGE_DETAILS = [
     target: "https://ruby-lang.org",
     logo: "ruby",
   },
-  
+
   {
     label: "SQLite",
     message: "3",
@@ -128,7 +128,7 @@ export const BADGE_DETAILS = [
     logo: "sqlite",
   },
   {
-    lable: "PostgreSQL",
+    label: "PostgreSQL",
     message: "13",
     target: "https://www.postgresql.org/",
     logo: "postgresql",
