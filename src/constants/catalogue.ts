@@ -11,8 +11,8 @@ type TBadgeDetails = {
   message: string;
   target: string;
   logo: string;
-  isLarge?: boolean
-}
+  isLarge?: boolean;
+};
 
 export const BADGE_DETAILS: TBadgeDetails[] = [
   {
@@ -89,6 +89,12 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "1",
     target: "https://classic.yarnpkg.com",
     logo: "yarn",
+  },
+  {
+    label: "Deno",
+    message: "1",
+    target: "https://deno.land",
+    logo: "deno",
   },
   {
     label: "TypeScript",
