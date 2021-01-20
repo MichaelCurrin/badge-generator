@@ -34,7 +34,7 @@ export function genericBadge(
     throw new Error("`color` may not be empty");
   }
 
-  const title = formatTitle(label, message);
+  const altText = formatTitle(label, message);
 
   const badgeFields = { label, message, color },
     styleParams = logoParams(isLarge, logo, logoColor);
@@ -43,5 +43,5 @@ export function genericBadge(
     ? _staticParamsUrl(badgeFields, styleParams)
     : staticDashUrl(badgeFields, styleParams);
 
-  return mdImageWithLink(title, fullImgUrl, target);
+  return mdImageWithLink(altText, fullImgUrl, target);
 }
