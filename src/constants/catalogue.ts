@@ -12,9 +12,11 @@ type TBadgeDetails = {
   target: string;
   logo: string;
   isLarge?: boolean;
+  altText?: string;
 };
 
 export const BADGE_DETAILS: TBadgeDetails[] = [
+  // Or message: "Project Docs".
   {
     label: "view",
     message: "Documentation",
@@ -48,6 +50,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "GitHub Pages",
     target: "https://pages.github.com/",
     logo: "github",
+    altText: "Hosted with GH Pages",
   },
   // Use an actual GitHub Actions workflow badge if you prefer. But this could be useful it is Made for GitHub Actions.
   {
@@ -55,6 +58,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "GitHub Actions",
     target: "https://github.com/features/actions",
     logo: "github-actions",
+    altText: "Made with GH Actions",
   },
 
   {
@@ -62,6 +66,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "Docker",
     target: "https://www.docker.com/",
     logo: "docker",
+    altText: "Made with Docker",
   },
 
   {
@@ -69,6 +74,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: ">=3",
     target: "https://www.gnu.org/software/bash/",
     logo: "gnu-bash",
+    altText: "Made with Bash",
   },
 
   {
@@ -76,6 +82,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: ">=3.6",
     target: "https://python.org",
     logo: "python",
+    altText: "Made with Python",
   },
 
   {
@@ -83,36 +90,42 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: ">=12",
     target: "https://nodejs.org",
     logo: "node.js",
+    altText: "Made with Node.js",
   },
   {
     label: "Yarn",
     message: "1",
     target: "https://classic.yarnpkg.com",
     logo: "yarn",
+    altText: "Made with Yarn",
   },
   {
     label: "Deno",
     message: "1",
     target: "https://deno.land",
     logo: "deno",
+    altText: "Made with Deno",
   },
   {
     label: "TypeScript",
     message: "4",
     target: "https://typescriptlang.org",
     logo: "typescript",
+    altText: "Made with TypeScript",
   },
   {
     label: "React",
     message: "17",
     target: "https://www.npmjs.com/package/react",
     logo: "react",
+    altText: "Made with React",
   },
   {
     label: "Vue",
     message: "3",
     target: "https://www.npmjs.com/package/vue",
     logo: "vue.js",
+    altText: "Made with Vue",
   },
 
   {
@@ -120,6 +133,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "1",
     target: "https://golang.org",
     logo: "go",
+    altText: "Made with Go",
   },
 
   {
@@ -127,12 +141,14 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "3.9",
     target: "https://jekyllrb.com",
     logo: "jekyll",
+    altText: "Made with Jekyll",
   },
   {
     label: "Ruby",
     message: ">=2.6",
     target: "https://ruby-lang.org",
     logo: "ruby",
+    altText: "Made with Ruby",
   },
 
   {
@@ -140,11 +156,13 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "3",
     target: "https://www.sqlite.org/index.html",
     logo: "sqlite",
+    altText: "Made with SQLite",
   },
   {
     label: "PostgreSQL",
     message: "13",
     target: "https://www.postgresql.org/",
     logo: "postgresql",
+    altText: "Made with PostgreSQL",
   },
 ];

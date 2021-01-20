@@ -15,7 +15,9 @@ export function renderBadges() {
       isLarge,
       badge.target,
       badge.logo || "",
-      badge.logo ? BADGE_DEFAULTS.LOGO_COLOR : ""
+      badge.logo ? BADGE_DEFAULTS.LOGO_COLOR : "",
+      false,
+      badge.altText || ""
     );
   });
 }
