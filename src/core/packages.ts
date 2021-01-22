@@ -8,6 +8,17 @@ import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";
 import { logoParams } from "./shieldsApi";
 
+// TODO Move.
+// TODO Add type
+// TODO Pass as object that can be used in logoParams without position args.
+const GO_MODULE_SHIELD = {
+  IS_LARGE: false,
+  LOGO: "go",
+  LOGO_COLOR: "white",
+  TARGET: "https://golang.org",
+  ALT_TEXT: "Made with Go",
+};
+
 /**
  * Static dependency badge.
  *
@@ -48,6 +59,7 @@ export function nodeVersionBadge(
   if (!pkgName) {
     pkgName = repoName;
   }
+  // TODO Rename var to alt text.
   const title = `Package - ${pkgName}`;
 
   // TODO Rename PACKAGE and break out to function.
@@ -64,13 +76,17 @@ export function nodeVersionBadge(
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */
 export function goVersionBadge(username: string, repoName: string) {
-  const title = "Made with Go";
-
   const imgUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`,
-    params = logoParams(false, "go", "white"),
+    params = logoParams(
+      GO_MODULE_SHIELD.IS_LARGE,
+      GO_MODULE_SHIELD.LOGO,
+      GO_MODULE_SHIELD.LOGO_COLOR
+    ),
     fullImgUrl = buildUrl(imgUrl, params);
 
-  const target = "https://golang.org";
-
-  return mdImageWithLink(title, fullImgUrl, target);
+  return mdImageWithLink(
+    GO_MODULE_SHIELD.ALT_TEXT,
+    fullImgUrl,
+    GO_MODULE_SHIELD.TARGET
+  );
 }
