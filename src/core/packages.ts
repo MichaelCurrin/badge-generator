@@ -11,6 +11,7 @@ import { logoParams } from "./shieldsApi";
 // TODO Move.
 // TODO Add type
 // TODO Pass as object that can be used in logoParams without position args.
+// TODO URL from somewhere else.
 const GO_MODULE_SHIELD = {
   IS_LARGE: false,
   LOGO: "go",
