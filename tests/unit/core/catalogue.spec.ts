@@ -7,7 +7,7 @@ describe("#renderBadges", () => {
     const badges = renderBadges();
 
     expect(badges[0]).toBe(
-      "[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/)"
+      "[![View - Documentation](https://img.shields.io/badge/View-Documentation-blue?style=for-the-badge)](/docs/)"
     );
 
     expect(badges[1]).toBe(
