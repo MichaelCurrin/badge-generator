@@ -5,6 +5,7 @@ export const SHIELDS_API = {
   PARAM: `${SHIELDS_API_BASE}/static/v1`,
   GH: `${SHIELDS_API_BASE}/github`,
   PACKAGE: `${SHIELDS_API_BASE}/github/package-json/dependency-version`,
+  GO_MODULE: `${SHIELDS_API_BASE}/github/go-mod/go-version`,
 };
 
 export enum REGISTRY {

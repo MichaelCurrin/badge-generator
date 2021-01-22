@@ -50,11 +50,27 @@ export function nodeVersionBadge(
   }
   const title = `Package - ${pkgName}`;
 
+  // TODO Rename PACKAGE and break out to function.
   const imgUrl = `${SHIELDS_API.PACKAGE}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
     fullImgUrl = buildUrl(imgUrl, params);
 
   const target = `${REGISTRY.Node}/${pkgName}`;
+
+  return mdImageWithLink(title, fullImgUrl, target);
+}
+
+/**
+ * Return a Go badge that reflects the Go version in a repo's go.mod file.
+ */
+export function goVersionBadge(username: string, repoName: string) {
+  const title = "Made with Go";
+
+  const imgUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`,
+    params = logoParams(false, "go", "white"),
+    fullImgUrl = buildUrl(imgUrl, params);
+
+  const target = "https://golang.org";
 
   return mdImageWithLink(title, fullImgUrl, target);
 }

@@ -1,5 +1,5 @@
 import { REGISTRY } from "@/constants/urls";
-import { dependency, nodeVersionBadge } from "@/core/packages";
+import { dependency, goVersionBadge, nodeVersionBadge } from "@/core/packages";
 
 describe("#dependency", () => {
   it("returns a standard size static badge for a Node package", () => {
@@ -43,5 +43,17 @@ describe("#nodeVersionBadge", () => {
         "white"
       )
     ).toBe(`[![Package - vue](${imgUrl})](${target})`);
+  });
+});
+
+describe("#goVersionBadge", () => {
+  it("returns a dynamic Go version badge with Go logo", () => {
+    const imgUrl =
+      "https://img.shields.io/github/go-mod/go-version/MichaelCurrin/go-project-template?logo=go&logoColor=white";
+    const target = "https://golang.org";
+
+    expect(goVersionBadge("MichaelCurrin", "go-project-template")).toBe(
+      `[![Made with Go](${imgUrl})](${target})`
+    );
   });
 });
