@@ -8,6 +8,8 @@ import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";
 import { logoParams } from "./shieldsApi";
 
+// TODO Add to frontend. With toggle.
+// TODO Is this a repo badge or package badge - which page and modules?
 // TODO Move.
 // TODO Add type
 // TODO Pass as object that can be used in logoParams without position args.
