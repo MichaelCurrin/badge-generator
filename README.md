@@ -46,7 +46,7 @@ Start creating badges for your docs.
 
 <div align="center">
 
-[![GitHub Pages site](https://img.shields.io/badge/GitHub_Pages-Badge_Generator-2ea44f?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+[![Site](https://img.shields.io/badge/View_site-Badge_Generator-2ea44f?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
 
 </div>
 
