@@ -144,18 +144,18 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
   },
 
   {
-    label: "Jekyll",
-    message: "3.9",
-    target: "https://jekyllrb.com",
-    logo: "jekyll",
-    altText: "Made with Jekyll",
-  },
-  {
     label: "Ruby",
     message: ">=2.6",
     target: "https://ruby-lang.org",
     logo: "ruby",
     altText: "Made with Ruby",
+  },
+  {
+    label: "Jekyll",
+    message: "3.9",
+    target: "https://jekyllrb.com",
+    logo: "jekyll",
+    altText: "Made with Jekyll",
   },
 
   {
