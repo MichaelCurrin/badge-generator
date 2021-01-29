@@ -86,6 +86,8 @@ describe("#genericBadge", () => {
   });
 });
 
+
+// TODO: Currently used in catalogue. This can be added to Generic page if needed.
 describe("Alt text", () => {
   it("displays creates default alt text if not supplied", () => {
     expect(genericBadge("", "Bar", "green", false, "", "", "", true, "")).toBe(
