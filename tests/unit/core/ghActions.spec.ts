@@ -1,6 +1,6 @@
-import { statusData } from "@/core/ghActionsStatus";
+import { statusData } from "@/core/ghActions";
 
-describe("#ghActionsStatusBadge", () => {
+describe("#statusData", () => {
   it("returns a valid CI badge with a link", () => {
     const repo = {
       username: "MichaelCurrin",
