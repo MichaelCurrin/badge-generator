@@ -11,11 +11,16 @@ type Repo = {
 };
 
 export function statusData(repo: Repo, workflowName: string) {
+  // The URL encoded target comes from search in the UI like 'workflow:"Deno CI"'.
   return {
-    altText: "Deno CI",
-    imgUrl:
-      "https://github.com/MichaelCurrin/deno-project-template/workflows/Deno%20CI/badge.svg",
-    target:
-      "https://github.com/MichaelCurrin/deno-project-template/actions?query=workflow%3A%22Deno+CI%22",
+    altText: workflowName,
+    imgUrl: `https://github.com/MichaelCurrin/deno-project-template/workflows/${workflowName.replace(
+      " ",
+      "%20"
+    )}/badge.svg`,
+    target: `https://github.com/MichaelCurrin/deno-project-template/actions?query=workflow%3A%22${workflowName.replace(
+      " ",
+      "+"
+    )}%22`,
   };
 }
