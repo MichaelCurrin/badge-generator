@@ -19,4 +19,22 @@ describe("#statusData", () => {
 
     expect(statusData(repo, workflowName)).toStrictEqual(expected);
   });
+
+  it("returns a valid CI badge with a link", () => {
+    const repo = {
+      username: "foo",
+      repoName: "bar",
+    };
+    // This comes from the `name` field at the top of your YAML file. The file name is irrelevant.
+    const workflowName = "Bazz CI";
+
+    const expected = {
+      altText: "Bazz CI",
+      imgUrl: "https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg",
+      target:
+        "https://github.com/foo/bar/actions?query=workflow%3A%22Bazz+CI%22",
+    };
+
+    expect(statusData(repo, workflowName)).toStrictEqual(expected);
+  });
 });
