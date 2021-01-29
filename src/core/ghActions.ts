@@ -13,6 +13,10 @@ type TRepo = {
   repoName: string;
 };
 
+export function _statusBadgeUrl(ghURL: string, workflowName: string) {
+  return `${ghURL}/workflows/${workflowName.replace(" ", "%20")}/badge.svg`;
+}
+
 export function statusData(repoFields: TRepo, workflowName: string) {
   // The URL encoded target comes from search in the UI like 'workflow:"Deno CI"'.
 
@@ -21,7 +25,7 @@ export function statusData(repoFields: TRepo, workflowName: string) {
 
   return {
     altText: workflowName,
-    imgUrl: `${ghURL}/workflows/${workflowName.replace(" ", "%20")}/badge.svg`,
+    imgUrl: _statusBadgeUrl(ghURL, workflowName),
     target: `${ghURL}/actions?query=workflow%3A%22${workflowName.replace(
       " ",
       "+"
