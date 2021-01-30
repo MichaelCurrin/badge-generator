@@ -105,3 +105,13 @@ export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
 
   return buildUrl(imgUrl, styleParams);
 }
+
+type GHRepo = {
+  username: string;
+  repoName: string;
+};
+export function ghSocialShieldUrl(type: "stars" | "forks", repo: GHRepo) {
+  const path = `${type}/${repo.username}/${repo.repoName}?style=${STYLES.SOCIAL}`;
+
+  return `${SHIELDS_API.GH}/${path}`;
+}

@@ -1,5 +1,6 @@
 import {
   dashShieldPath,
+  ghSocialShieldUrl,
   logoParams,
   staticDashUrl,
   _decodeAngleBrackets,
@@ -189,5 +190,26 @@ describe("#staticDashUrl", () => {
         { fizz: "buzz" }
       )
     ).toBe("https://img.shields.io/badge/Foo-Bar-green?fizz=buzz");
+  });
+});
+
+describe("#ghSocialShieldUrl", () => {
+  const repo = {
+    username: "MichaelCurrin",
+    repoName: "badge-generator",
+  };
+
+  it("return a valid forks counter URL", () => {
+    const expectedUrl =
+      "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
+
+    expect(ghSocialShieldUrl("forks", repo)).toBe(expectedUrl);
+  });
+
+  it("return a valid stars counter URL", () => {
+    const expectedUrl =
+      "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social";
+
+    expect(ghSocialShieldUrl("stars", repo)).toBe(expectedUrl);
   });
 });

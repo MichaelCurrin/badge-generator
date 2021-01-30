@@ -144,22 +144,6 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
     });
   });
 
-  describe("#_ghSocialShieldUrl", () => {
-    it("return a valid forks URL", () => {
-      const expectedUrl =
-        "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
-
-      expect(repoNoLicense._ghSocialShieldUrl("forks")).toBe(expectedUrl);
-    });
-
-    it("return a valid social stars URL", () => {
-      const expectedUrl =
-        "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social";
-
-      expect(repoNoLicense._ghSocialShieldUrl("stars")).toBe(expectedUrl);
-    });
-  });
-
   describe("#ghSocial", () => {
     const target = "https://github.com/MichaelCurrin/badge-generator";
 

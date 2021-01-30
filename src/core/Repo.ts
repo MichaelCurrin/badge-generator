@@ -1,7 +1,6 @@
 /**
  * Repo badge module.
  */
-import { STYLES } from "../constants/appearance";
 import {
   GH_BADGE,
   GH_PAGES_BADGE,
@@ -20,6 +19,7 @@ import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
+import { ghSocialShieldUrl } from "./shieldsApi";
 
 export class Repo {
   constructor(
@@ -169,10 +169,6 @@ Released under ${license} by ${user}.
     );
   }
 
-  _ghSocialShieldUrl(type: "stars" | "forks") {
-    return `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
-  }
-
   /* Counter for stars or forks. */
   ghSocial(type: string, usePreLabel = false) {
     if (!type) {
@@ -183,7 +179,10 @@ Released under ${license} by ${user}.
     }
 
     const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "",
-      shield = this._ghSocialShieldUrl(type),
+      shield = ghSocialShieldUrl(type, {
+        username: this.username,
+        repoName: this.repoName,
+      }),
       target = this.ghURL();
 
     return `[${preLabel}![${type} - ${this.repoName}](${shield})](${target})`;
