@@ -173,8 +173,7 @@ ${ghPagesButton}
 
 </div>
 
-${licenseMessage}
-      `;
+${licenseMessage}`;
     },
   },
 });
