@@ -20,6 +20,7 @@ export const LICENSE_BADGE: genericBadgeBase = {
   LABEL: "License",
   COLOR: COLOR.Default,
   IS_LARGE: false,
+  ALT_TEXT: "License",
 };
 
 export const GH_BADGE: genericBadgeBase = {

@@ -122,7 +122,11 @@ export class Repo {
       this.licenseType,
       LICENSE_BADGE.COLOR!,
       LICENSE_BADGE.IS_LARGE,
-      this._licenseTarget(localLicense)
+      this._licenseTarget(localLicense),
+      "",
+      "",
+      false,
+      LICENSE_BADGE.ALT_TEXT
     );
   }
 

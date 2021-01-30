@@ -9,4 +9,5 @@ export type genericBadgeBase = {
   TARGET?: string;
   LOGO?: string;
   LOGO_COLOR?: string;
+  ALT_TEXT?: string;
 };
