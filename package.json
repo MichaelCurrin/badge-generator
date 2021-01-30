@@ -19,7 +19,7 @@
     "core-js": "^3.6.5",
     "markdown-it": "^12.0.4",
     "vue": "^2.6.12",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",
