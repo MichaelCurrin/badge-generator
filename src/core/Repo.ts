@@ -169,7 +169,7 @@ Released under ${license} by ${user}.
     );
   }
 
-  _ghSocialShield(type: string) {
+  _ghSocialShieldUrl(type: string) {
     return `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
   }
 
@@ -183,7 +183,7 @@ Released under ${license} by ${user}.
     }
 
     const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "",
-      shield = this._ghSocialShield(type),
+      shield = this._ghSocialShieldUrl(type),
       target = this.ghURL();
 
     return `[${preLabel}![${type} - ${this.repoName}](${shield})](${target})`;

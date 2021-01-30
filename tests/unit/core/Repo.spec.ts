@@ -143,4 +143,24 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
       expect(repoNoLicense.gh()).toBe(expectedBadge);
     });
   });
+
+  describe("#_ghSocialShieldUrl", () => {
+    it("return a valid social shield URL", () => {
+      const expectedUrl =
+        "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
+
+      expect(repoNoLicense._ghSocialShieldUrl("forks")).toBe(expectedUrl);
+    });
+  });
+
+  describe("#ghSocial", () => {
+    it("return a valid social shield URL", () => {
+      const badgeUrl =
+        "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
+      const target = "https://github.com/MichaelCurrin/badge-generator";
+      const expectedBadge = `[![forks - badge-generator](${badgeUrl})](${target})`;
+
+      expect(repoNoLicense.ghSocial("forks", false)).toBe(expectedBadge);
+    });
+  });
 });
