@@ -154,7 +154,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
   });
 
   describe("#ghSocial", () => {
-    it("return a valid social shield URL", () => {
+    it("return a valid social shield", () => {
       const badgeUrl =
         "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
       const target = "https://github.com/MichaelCurrin/badge-generator";
