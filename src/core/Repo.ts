@@ -169,7 +169,7 @@ Released under ${license} by ${user}.
     );
   }
 
-  _ghSocialShieldUrl(type: string) {
+  _ghSocialShieldUrl(type: "stars" | "forks") {
     return `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}?style=${STYLES.SOCIAL}`;
   }
 
