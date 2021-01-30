@@ -4,8 +4,8 @@
 import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
+import { CounterType } from "./shieldsApi.d";
 import { GenericBadge, StrMap } from "./types";
-
 /**
  * Encode separators for use on shields.io API.
  *
@@ -110,7 +110,7 @@ type GHRepo = {
   username: string;
   repoName: string;
 };
-export function ghSocialShieldUrl(type: "stars" | "forks", repo: GHRepo) {
+export function ghSocialShieldUrl(type: CounterType, repo: GHRepo) {
   const path = `${type}/${repo.username}/${repo.repoName}?style=${STYLES.SOCIAL}`;
 
   return `${SHIELDS_API.GH}/${path}`;
