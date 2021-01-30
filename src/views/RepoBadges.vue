@@ -168,6 +168,7 @@ _Call-to-Action buttons_
 <div align="center">
 
 ${templateButton}
+
 ${ghPagesButton}
 
 </div>
