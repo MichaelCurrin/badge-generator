@@ -4,8 +4,8 @@
 import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
-import { CounterType } from "./shieldsApi.d";
 import { GenericBadge, GHRepo, StrMap } from "./types";
+import { CounterType } from "./types.d";
 /**
  * Encode separators for use on shields.io API.
  *
