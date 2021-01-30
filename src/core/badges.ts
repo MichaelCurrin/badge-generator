@@ -1,4 +1,4 @@
-import { StrMap } from "./types";
+import { StrMap } from "./types.d";
 
 /**
  * Serialize a URL with given query params.
