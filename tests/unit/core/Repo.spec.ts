@@ -52,7 +52,7 @@ describe("#Repo", () => {
   describe("#useThisTemplateBadge", () => {
     it("returns a valid generate template badge", () => {
       expect(repoNoLicense.useThisTemplateBadge()).toBe(
-        "[![Use this template](https://img.shields.io/badge/Use_this_template-2ea44f?style=for-the-badge&logo=github)](https://github.com/MichaelCurrin/badge-generator/generate)"
+        "[![Use this template](https://img.shields.io/badge/Generate-Use_this_template-2ea44f?style=for-the-badge)](https://github.com/MichaelCurrin/badge-generator/generate)"
       );
     });
   });

@@ -79,7 +79,10 @@ export class Repo {
       TEMPLATE_BADGE.COLOR!,
       TEMPLATE_BADGE.IS_LARGE,
       target,
-      TEMPLATE_BADGE.LOGO
+      TEMPLATE_BADGE.LOGO,
+      "",
+      false,
+      TEMPLATE_BADGE.ALT_TEXT
     );
   }
 

@@ -37,10 +37,13 @@ export const GH_PAGES_BADGE: genericBadgeBase = {
   IS_LARGE: true,
 };
 
+// Keep the message to match what GitHub's own template badge says, so it makes it easier for
+// someone to predict what the button will do. Logo was GitHub before, but it took up too much space
+// and was distracting.
 export const TEMPLATE_BADGE: genericBadgeBase = {
-  LABEL: "",
+  LABEL: "Generate",
   MESSAGE: "Use this template",
   COLOR: COLOR.Green,
   IS_LARGE: true,
-  LOGO: "github",
+  ALT_TEXT: "Use this template",
 };
