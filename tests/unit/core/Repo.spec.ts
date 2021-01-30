@@ -132,4 +132,15 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
       expect(repoWithLicense.licenseMessage()).toBe(message);
     });
   });
+
+  describe("#gh", () => {
+    it("return a valid GH repo badge", () => {
+      const badgeUrl =
+        "https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&color=blue&logo=github";
+      const target = "https://github.com/MichaelCurrin/badge-generator";
+      const expectedBadge = `[![MichaelCurrin - badge-generator](${badgeUrl})](${target})`;
+
+      expect(repoNoLicense.gh()).toBe(expectedBadge);
+    });
+  });
 });
