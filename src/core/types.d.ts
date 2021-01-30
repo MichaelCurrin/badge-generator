@@ -5,3 +5,8 @@ export type GenericBadge = {
   message: string;
   color: string;
 };
+
+export type GHRepo = {
+  username: string;
+  repoName: string;
+};
