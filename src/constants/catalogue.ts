@@ -106,13 +106,8 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "yarn",
     altText: "Made with Yarn",
   },
-  {
-    label: "Deno",
-    message: "1",
-    target: "https://deno.land",
-    logo: "deno",
-    altText: "Made with Deno",
-  },
+
+  // Rather use NPM badges based on package.json but you can use these if needed.
   {
     label: "TypeScript",
     message: "4",
@@ -134,6 +129,14 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "vue.js",
     altText: "Made with Vue",
   },
+  
+  {
+    label: "Deno",
+    message: "1",
+    target: "https://deno.land",
+    logo: "deno",
+    altText: "Made with Deno",
+  },
 
   {
     label: "Go",
@@ -141,6 +144,14 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://golang.org",
     logo: "go",
     altText: "Made with Go",
+  },
+  
+  {
+    label: "Rust",
+    message: "1",
+    target: "https://www.rust-lang.org/",
+    logo: "rust",
+    altText: "Made with Rust",
   },
 
   {
