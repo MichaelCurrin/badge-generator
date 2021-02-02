@@ -14,10 +14,10 @@ export function renderBadges() {
       BADGE_DEFAULTS.COLOR,
       isLarge,
       badge.target,
-      badge.logo || "",
+      badge.logo,
       badge.logo ? BADGE_DEFAULTS.LOGO_COLOR : "",
       false,
-      badge.altText || ""
+      badge.altText
     );
   });
 }
