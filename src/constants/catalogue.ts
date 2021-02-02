@@ -10,7 +10,7 @@ type TBadgeDetails = {
   label: string;
   message: string;
   target: string;
-  logo: string;
+  logo?: string;
   isLarge?: boolean;
   altText?: string;
 };
@@ -21,7 +21,6 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     label: "View",
     message: "Documentation",
     target: "/docs/",
-    logo: "",
     isLarge: true,
   },
 
@@ -88,7 +87,6 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     label: "code style",
     message: "black",
     target: "https://black.readthedocs.io/",
-    logo: "",
   },
 
   {
