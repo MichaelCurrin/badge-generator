@@ -84,6 +84,12 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "python",
     altText: "Made with Python",
   },
+  {
+    label: "code style",
+    message: "black",
+    target: "https://black.readthedocs.io/",
+    logo: "",
+  },
 
   {
     label: "Made with",
@@ -129,7 +135,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "vue.js",
     altText: "Made with Vue",
   },
-  
+
   {
     label: "Deno",
     message: "1",
@@ -145,7 +151,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "go",
     altText: "Made with Go",
   },
-  
+
   {
     label: "Rust",
     message: "1",
