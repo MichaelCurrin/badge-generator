@@ -4,9 +4,9 @@ import { genericBadge } from "./genericBadge";
 export function renderBadges() {
   return BADGE_DETAILS.map((badge) => {
     const isLarge =
-      typeof badge.isLarge === "undefined"
-        ? BADGE_DEFAULTS.IS_LARGE
-        : badge.isLarge;
+      typeof badge.isLarge !== "undefined"
+        ? badge.isLarge
+        : BADGE_DEFAULTS.IS_LARGE;
 
     return genericBadge(
       badge.label,
