@@ -110,6 +110,14 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "yarn",
     altText: "Made with Yarn",
   },
+  // Support 1 and 2 but link to 2.
+  {
+    label: "Yarn",
+    message: ">=1",
+    target: "https://yarnpkg.com/",
+    logo: "yarn",
+    altText: "Made with Yarn",
+  },
 
   // Rather use NPM badges based on package.json but you can use these if needed.
   {
