@@ -11,6 +11,9 @@ hooks:
 install:
 	yarn install
 
+upgrade:
+	yarn update
+
 
 l lint:
 	yarn lint:fix
