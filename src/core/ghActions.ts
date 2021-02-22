@@ -37,11 +37,11 @@ export function _statusTargetUrl(ghURL: string, workflowName: string) {
 
 /**
  * Return data needed to make a GH Actions CI badge.
+ *
+ * Workflow names comes from the `name` value at the top of your YAML file. The actual filename is
+ * irrelevant.
  */
-export function statusData(repoFields: TRepo, workflowName: string) {
-  const repo = new Repo(repoFields.username, repoFields.repoName);
-  const ghURL = repo.ghURL();
-
+export function _statusData(ghURL: string, workflowName: string) {
   return {
     altText: workflowName,
     imgUrl: _statusBadgeUrl(ghURL, workflowName),
