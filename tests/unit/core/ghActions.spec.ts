@@ -1,4 +1,8 @@
-import { _statusBadgeUrl, _statusData } from "@/core/ghActions";
+import {
+  _statusBadgeUrl,
+  _statusData,
+  _statusTargetUrl,
+} from "@/core/ghActions";
 
 describe("#_statusBadgeUrl", () => {
   describe("a valid GH CI badge image URL", () => {
@@ -27,6 +31,38 @@ describe("#_statusBadgeUrl", () => {
         )
       ).toBe(
         "https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg"
+      );
+    });
+  });
+});
+
+describe("#_statusTargetUrl", () => {
+  describe("a valid GH CI workflow target URL", () => {
+    it("handles a foo bar CI project", () => {
+      expect(_statusTargetUrl("https://github.com/foo/bar", "Bazz CI")).toBe(
+        'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"'
+      );
+    });
+
+    it("handles a Deno CI project", () => {
+      expect(
+        _statusTargetUrl(
+          "https://github.com/MichaelCurrin/deno-project-template",
+          "Deno CI"
+        )
+      ).toBe(
+        'https://github.com/MichaelCurrin/deno-project-template/actions?query=workflow:"Deno+CI"'
+      );
+    });
+
+    it("handles a Deno CI project", () => {
+      expect(
+        _statusTargetUrl(
+          "https://github.com/MichaelCurrin/badge-generator",
+          "GH Pages Deploy"
+        )
+      ).toBe(
+        'https://github.com/MichaelCurrin/badge-generator/actions?query=workflow:"GH+Pages+Deploy"'
       );
     });
   });
