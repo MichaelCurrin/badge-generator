@@ -33,6 +33,17 @@ Push to `master` or a feature branch with a PR and you'll trigger a build with G
 
 For pushes to `master` branch only, the app will build to the `gh-pages` branch. This is used to deploy to the GitHub Pages site.
 
+### Linting
+
+The CI flow will run a lint step on the repo, without applying fixes.
+
+This will return an **error** status on non-zero error count.
+
+But it will **pass** quietly if there are only warnings.
+
+Perhaps this should modified to include the `--max-warnings 0` flag, to fail the step if there is at least one warning. For my own work, deploys on master and also contributors' PRs.
+
+
 ### Keeping assets across deploys
 
 A flag was added to the GH Actions workflow to keep existing files on `gh-pages` branch on each deploy
