@@ -33,7 +33,7 @@ export function _decodeAngleBrackets(value: string) {
 /**
  * Encode a value to be safe as a param in a URL.
  *
- * Prepare a value for dash-based shields.io API URL based on notes on the site.
+ * Prepare a value for dash-based shields.io API URL, based on notes on the site.
  */
 export function _encodeParam(value: string, spaceToUnderscore = true) {
   value = _encodeSeparators(value, spaceToUnderscore);
