@@ -83,17 +83,17 @@ export function nodeVersionBadge(
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */
 export function goVersionBadge(username: string, repoName: string) {
-  const imgUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`,
-    params = logoParams(
-      GO_MODULE_SHIELD.IS_LARGE,
-      GO_MODULE_SHIELD.LOGO,
-      GO_MODULE_SHIELD.LOGO_COLOR
-    ),
-    fullImgUrl = buildUrl(imgUrl, params);
+  const imgUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`;
+  const params = logoParams(
+    GO_MODULE_SHIELD.IS_LARGE,
+    GO_MODULE_SHIELD.LOGO,
+    GO_MODULE_SHIELD.LOGO_COLOR
+  );
+  const imageTarget = buildUrl(imgUrl, params);
 
   return mdImageWithLink({
     altText: GO_MODULE_SHIELD.ALT_TEXT,
-    imageTarget: fullImgUrl,
+    imageTarget,
     linkTarget: GO_MODULE_SHIELD.TARGET,
   });
 }
