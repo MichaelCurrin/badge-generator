@@ -14,7 +14,7 @@ describe("#statusData", () => {
       imgUrl:
         "https://github.com/MichaelCurrin/deno-project-template/workflows/Deno%20CI/badge.svg",
       target:
-        "https://github.com/MichaelCurrin/deno-project-template/actions?query=workflow%3A%22Deno+CI%22",
+        'https://github.com/MichaelCurrin/deno-project-template/actions?query=workflow:"Deno+CI"',
     };
 
     expect(statusData(repo, workflowName)).toStrictEqual(expected);
@@ -32,7 +32,7 @@ describe("#statusData", () => {
       altText: "Bazz CI",
       imgUrl: "https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg",
       target:
-        "https://github.com/foo/bar/actions?query=workflow%3A%22Bazz+CI%22",
+        'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"',
     };
 
     expect(statusData(repo, workflowName)).toStrictEqual(expected);

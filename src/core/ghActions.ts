@@ -15,6 +15,8 @@ type TRepo = {
 
 /**
  * Create URL for a GH Actions CI status badge.
+ *
+ * Note that "+" does not work in place of a space. So "%20" must be used.
  */
 export function _statusBadgeUrl(ghURL: string, workflowName: string) {
   const encodedName = workflowName.replace(" ", "%20");
@@ -25,14 +27,12 @@ export function _statusBadgeUrl(ghURL: string, workflowName: string) {
 /**
  * Create URL to view runs for a workflow name.
  *
- * The URL encoded target comes from search in the UI like 'workflow:"Deno CI"'.
- *
- * TODO refactor use to clean URL and then apply encoding to it.
+ * Note that this URL does not need encoding - GitHub handles the unescaped colon and quotes fine.
  */
 export function _statusTargetUrl(ghURL: string, workflowName: string) {
   const encodedName = workflowName.replace(" ", "+");
 
-  return `${ghURL}/actions?query=workflow%3A%22${encodedName}%22`;
+  return `${ghURL}/actions?query=workflow:"${encodedName}"`;
 }
 
 /**
