@@ -63,16 +63,20 @@ export function nodeVersionBadge(
     pkgName = repoName;
   }
   // TODO Rename var to alt text.
-  const title = `Package - ${pkgName}`;
+  const altText = `Package - ${pkgName}`;
 
   // TODO Rename PACKAGE and break out to function.
   const imgUrl = `${SHIELDS_API.PACKAGE}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
-    fullImgUrl = buildUrl(imgUrl, params);
+    imageTarget = buildUrl(imgUrl, params);
 
-  const target = `${REGISTRY.Node}/${pkgName}`;
+  const linkTarget = `${REGISTRY.Node}/${pkgName}`;
 
-  return mdImageWithLink(title, fullImgUrl, target);
+  return mdImageWithLink({
+    altText,
+    imageTarget,
+    linkTarget,
+  });
 }
 
 /**
@@ -87,9 +91,9 @@ export function goVersionBadge(username: string, repoName: string) {
     ),
     fullImgUrl = buildUrl(imgUrl, params);
 
-  return mdImageWithLink(
-    GO_MODULE_SHIELD.ALT_TEXT,
-    fullImgUrl,
-    GO_MODULE_SHIELD.TARGET
-  );
+  return mdImageWithLink({
+    altText: GO_MODULE_SHIELD.ALT_TEXT,
+    imageTarget: fullImgUrl,
+    linkTarget: GO_MODULE_SHIELD.TARGET,
+  });
 }

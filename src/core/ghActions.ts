@@ -40,8 +40,8 @@ export function _statusTargetUrl({ ghURL, workflowName }: TGHWorkflow) {
 export function _statusData({ ghURL, workflowName }: TGHWorkflow) {
   return {
     altText: workflowName,
-    imgUrl: _statusBadgeUrl({ ghURL, workflowName }),
-    target: _statusTargetUrl({ ghURL, workflowName }),
+    imageTarget: _statusBadgeUrl({ ghURL, workflowName }),
+    linkTarget: _statusTargetUrl({ ghURL, workflowName }),
   };
 }
 
@@ -50,8 +50,7 @@ export function _statusData({ ghURL, workflowName }: TGHWorkflow) {
  */
 export function statusBadge(repo: Repo, workflowName: string) {
   const ghURL = repo.ghURL();
-
   const fields = _statusData({ ghURL, workflowName });
 
-  return mdImageWithLink(fields.altText, fields.imgUrl, fields.target);
+  return mdImageWithLink(fields);
 }

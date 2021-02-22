@@ -25,7 +25,7 @@ export function genericBadge(
   message: string,
   color: string,
   isLarge = false,
-  target = "",
+  linkTarget = "",
   logo = "",
   logoColor = "",
   onlyQueryParams = false,
@@ -42,9 +42,13 @@ export function genericBadge(
   const badgeFields = { label, message, color },
     styleParams = logoParams(isLarge, logo, logoColor);
 
-  const fullImgUrl = onlyQueryParams
+  const imageTarget = onlyQueryParams
     ? _staticParamsUrl(badgeFields, styleParams)
     : staticDashUrl(badgeFields, styleParams);
 
-  return mdImageWithLink(altText, fullImgUrl, target);
+  return mdImageWithLink({
+    altText,
+    imageTarget,
+    linkTarget,
+  });
 }

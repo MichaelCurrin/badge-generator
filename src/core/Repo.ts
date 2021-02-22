@@ -99,12 +99,16 @@ export class Repo {
    * See Tag badges section of the /docs/badge-notes.md doc.
    */
   tagBadge(type: TagTypes) {
-    const title = `GitHub ${type}`,
-      imgUrl = this._tagBadgeUrl(type);
+    const altText = `GitHub ${type}`,
+      imageTarget = this._tagBadgeUrl(type);
 
-    const target = `${this.ghURL()}/releases/`;
+    const linkTarget = `${this.ghURL()}/releases/`;
 
-    return mdImageWithLink(title, imgUrl, target);
+    return mdImageWithLink({
+      altText,
+      imageTarget,
+      linkTarget,
+    });
   }
 
   _licenseTarget(localLicense: boolean) {

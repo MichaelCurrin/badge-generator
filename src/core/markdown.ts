@@ -1,4 +1,4 @@
-import { IMdImage } from "./markdown.d";
+import { IMdImage, IMdImageWithLink } from "./markdown.d";
 
 export function mdLink(altText: string, linkTarget: string) {
   return `[${altText}](${linkTarget})`;
@@ -18,12 +18,12 @@ export function mdImage({ altText, imageTarget, hoverTitle }: IMdImage) {
  * This performs no encoding - the inputs should be encoded already to be a URL without spaces and
  * to be a valid URL for shields.io API.
  */
-export function mdImageWithLink(
-  altText: string,
-  imageTarget: string,
-  linkTarget?: string,
-  hoverTitle?: string
-) {
+export function mdImageWithLink({
+  altText,
+  imageTarget,
+  linkTarget,
+  hoverTitle,
+}: IMdImageWithLink) {
   const image = mdImage({ altText, imageTarget, hoverTitle });
 
   if (linkTarget) {

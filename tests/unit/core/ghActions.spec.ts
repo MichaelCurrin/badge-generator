@@ -88,8 +88,9 @@ describe("#_statusData", () => {
 
       const expected = {
         altText: "Bazz CI",
-        imgUrl: "https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg",
-        target: 'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"',
+        imageTarget: "https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg",
+        linkTarget:
+          'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"',
       };
 
       expect(_statusData(ghWorkflow)).toStrictEqual(expected);
@@ -103,9 +104,9 @@ describe("#_statusData", () => {
 
       const expected = {
         altText: "Deno CI",
-        imgUrl:
+        imageTarget:
           "https://github.com/MichaelCurrin/deno-project-template/workflows/Deno%20CI/badge.svg",
-        target:
+        linkTarget:
           'https://github.com/MichaelCurrin/deno-project-template/actions?query=workflow:"Deno+CI"',
       };
 
@@ -120,9 +121,9 @@ describe("#_statusData", () => {
 
       const expected = {
         altText: "GH Pages Deploy",
-        imgUrl:
+        imageTarget:
           "https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg",
-        target:
+        linkTarget:
           'https://github.com/MichaelCurrin/badge-generator/actions?query=workflow:"GH+Pages+Deploy"',
       };
 
