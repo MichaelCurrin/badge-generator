@@ -7,32 +7,34 @@ import {
 describe("#_statusBadgeUrl", () => {
   describe("a valid GH CI badge image URL", () => {
     it("handles a foo bar CI project", () => {
-      expect(
-        _statusBadgeUrl({
-          ghURL: "https://github.com/foo/bar",
-          workflowName: "Bazz CI",
-        })
-      ).toBe("https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg");
+      const ghWorkflow = {
+        ghURL: "https://github.com/foo/bar",
+        workflowName: "Bazz CI",
+      };
+
+      expect(_statusBadgeUrl(ghWorkflow)).toBe(
+        "https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg"
+      );
     });
 
     it("handles a Deno CI project", () => {
-      expect(
-        _statusBadgeUrl({
-          ghURL: "https://github.com/MichaelCurrin/deno-project-template",
-          workflowName: "Deno CI",
-        })
-      ).toBe(
+      const ghWorkflow = {
+        ghURL: "https://github.com/MichaelCurrin/deno-project-template",
+        workflowName: "Deno CI",
+      };
+
+      expect(_statusBadgeUrl(ghWorkflow)).toBe(
         "https://github.com/MichaelCurrin/deno-project-template/workflows/Deno%20CI/badge.svg"
       );
     });
 
     it("handles a Deno CI project", () => {
-      expect(
-        _statusBadgeUrl({
-          ghURL: "https://github.com/MichaelCurrin/badge-generator",
-          workflowName: "GH Pages Deploy",
-        })
-      ).toBe(
+      const ghWorkflow = {
+        ghURL: "https://github.com/MichaelCurrin/badge-generator",
+        workflowName: "GH Pages Deploy",
+      };
+
+      expect(_statusBadgeUrl(ghWorkflow)).toBe(
         "https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg"
       );
     });
@@ -42,32 +44,34 @@ describe("#_statusBadgeUrl", () => {
 describe("#_statusTargetUrl", () => {
   describe("a valid GH CI workflow target URL", () => {
     it("handles a foo bar CI project", () => {
-      expect(
-        _statusTargetUrl({
-          ghURL: "https://github.com/foo/bar",
-          workflowName: "Bazz CI",
-        })
-      ).toBe('https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"');
+      const ghWorkflow = {
+        ghURL: "https://github.com/foo/bar",
+        workflowName: "Bazz CI",
+      };
+
+      expect(_statusTargetUrl(ghWorkflow)).toBe(
+        'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"'
+      );
     });
 
     it("handles a Deno CI project", () => {
-      expect(
-        _statusTargetUrl({
-          ghURL: "https://github.com/MichaelCurrin/deno-project-template",
-          workflowName: "Deno CI",
-        })
-      ).toBe(
+      const ghWorkflow = {
+        ghURL: "https://github.com/MichaelCurrin/deno-project-template",
+        workflowName: "Deno CI",
+      };
+
+      expect(_statusTargetUrl(ghWorkflow)).toBe(
         'https://github.com/MichaelCurrin/deno-project-template/actions?query=workflow:"Deno+CI"'
       );
     });
 
     it("handles a Deno CI project", () => {
-      expect(
-        _statusTargetUrl({
-          ghURL: "https://github.com/MichaelCurrin/badge-generator",
-          workflowName: "GH Pages Deploy",
-        })
-      ).toBe(
+      const ghWorkflow = {
+        ghURL: "https://github.com/MichaelCurrin/badge-generator",
+        workflowName: "GH Pages Deploy",
+      };
+
+      expect(_statusTargetUrl(ghWorkflow)).toBe(
         'https://github.com/MichaelCurrin/badge-generator/actions?query=workflow:"GH+Pages+Deploy"'
       );
     });
