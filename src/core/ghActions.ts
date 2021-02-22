@@ -1,10 +1,12 @@
 /**
  * Generate a status badge around GH Actions.
  *
- * In GitHub on the Actions tab, go to a workflow run and under options on the right choose "Create status badge".
- * This is added to this generator project for convenience. Plus with a smart target URL added.
+ * In GitHub on the Actions tab, go to a workflow run and under options on the right choose "Create
+ * status badge". This is added to this generator project for convenience. Plus with a smart target
+ * URL added.
  */
 
+import { mdImageWithLink } from "./markdown";
 import { Repo } from "./Repo";
 
 // TODO Move to related file or to a lib file that can be shared.
@@ -47,4 +49,16 @@ export function _statusData(ghURL: string, workflowName: string) {
     imgUrl: _statusBadgeUrl(ghURL, workflowName),
     target: _statusTargetUrl(ghURL, workflowName),
   };
+}
+
+/**
+ * Return markdown text for a GH Actions status badge.
+ */
+export function statusBadge(repoFields: TRepo, workflowName: string) {
+  const repo = new Repo(repoFields.username, repoFields.repoName);
+  const ghURL = repo.ghURL();
+
+  const fields = _statusData(ghURL, workflowName);
+
+  return mdImageWithLink(fields.altText, fields.imgUrl, fields.target);
 }
