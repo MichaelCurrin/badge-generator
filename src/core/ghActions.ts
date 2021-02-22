@@ -9,12 +9,6 @@ import { GHWorkflow } from "./ghActions.d";
 import { mdImageWithLink } from "./markdown";
 import { Repo } from "./Repo";
 
-// TODO Move to related file or to a lib file that can be shared.
-type TRepo = {
-  username: string;
-  repoName: string;
-};
-
 /**
  * Create URL for a GH Actions CI status badge.
  *
@@ -43,7 +37,6 @@ export function _statusTargetUrl({
   return `${ghURL}/actions?query=workflow:"${encodedName}"`;
 }
 
-
 /**
  * Return data needed to make a GH Actions CI badge.
  *
@@ -64,8 +57,7 @@ export function _statusData({
 /**
  * Return markdown text for a GH Actions status badge.
  */
-export function statusBadge(repoFields: TRepo, workflowName: string) {
-  const repo = new Repo(repoFields.username, repoFields.repoName);
+export function statusBadge(repo: Repo, workflowName: string) {
   const ghURL = repo.ghURL();
 
   const fields = _statusData({ ghURL, workflowName });

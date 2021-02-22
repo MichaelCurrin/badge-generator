@@ -156,10 +156,7 @@ export default Vue.extend({
       const repo = new Repo(this.username, this.repoName, this.licenseType);
 
       const ghActionsBadge = this.workflowName
-        ? statusBadge(
-            { username: this.username, repoName: this.repoName },
-            this.workflowName
-          )
+        ? statusBadge(repo, this.workflowName)
         : "";
 
       const versionBadge = repo.tagBadge(this.versionType as TagTypes),
