@@ -1,9 +1,41 @@
-import { _statusData } from "@/core/ghActions";
+import { _statusBadgeUrl, _statusData } from "@/core/ghActions";
+
+describe("#_statusBadgeUrl", () => {
+  describe("a valid GH CI badge image URL", () => {
+    it("handles a foo bar CI project", () => {
+      expect(_statusBadgeUrl("https://github.com/foo/bar", "Bazz CI")).toBe(
+        "https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg"
+      );
+    });
+
+    it("handles a Deno CI project", () => {
+      expect(
+        _statusBadgeUrl(
+          "https://github.com/MichaelCurrin/deno-project-template",
+          "Deno CI"
+        )
+      ).toBe(
+        "https://github.com/MichaelCurrin/deno-project-template/workflows/Deno%20CI/badge.svg"
+      );
+    });
+
+    it("handles a Deno CI project", () => {
+      expect(
+        _statusBadgeUrl(
+          "https://github.com/MichaelCurrin/badge-generator",
+          "GH Pages Deploy"
+        )
+      ).toBe(
+        "https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg"
+      );
+    });
+  });
+});
 
 describe("#_statusData", () => {
-  describe("returns a valid CI badge with a link", () => {
+  describe("valid CI badge with a link", () => {
     it("handles a foo bar CI project", () => {
-      const ghUrl = "https://github.com/foo/bar"
+      const ghUrl = "https://github.com/foo/bar";
       const workflowName = "Bazz CI";
 
       const expected = {
@@ -16,7 +48,7 @@ describe("#_statusData", () => {
     });
 
     it("handles Deno CI for deno-project-template", () => {
-      const ghUrl = "https://github.com/MichaelCurrin/deno-project-template"
+      const ghUrl = "https://github.com/MichaelCurrin/deno-project-template";
       const workflowName = "Deno CI";
 
       const expected = {
@@ -31,7 +63,7 @@ describe("#_statusData", () => {
     });
 
     it("handles GH Pages Deploy for badge-generator", () => {
-      const ghUrl = "https://github.com/MichaelCurrin/badge-generator"
+      const ghUrl = "https://github.com/MichaelCurrin/badge-generator";
       const workflowName = "GH Pages Deploy";
 
       const expected = {
