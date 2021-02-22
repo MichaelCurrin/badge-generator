@@ -5,7 +5,7 @@
  * status badge". This is added to this generator project for convenience. Plus with a smart target
  * URL added.
  */
-
+import { GHWorkflow } from "./ghActions.d";
 import { mdImageWithLink } from "./markdown";
 import { Repo } from "./Repo";
 
@@ -23,10 +23,7 @@ type TRepo = {
 export function _statusBadgeUrl({
   ghURL,
   workflowName,
-}: {
-  ghURL: string;
-  workflowName: string;
-}) {
+}: GHWorkflow) {
   const encodedName = encodeURIComponent(workflowName);
 
   return `${ghURL}/workflows/${encodedName}/badge.svg`;
@@ -40,14 +37,12 @@ export function _statusBadgeUrl({
 export function _statusTargetUrl({
   ghURL,
   workflowName,
-}: {
-  ghURL: string;
-  workflowName: string;
-}) {
+}: GHWorkflow) {
   const encodedName = workflowName.replace(/ /g, "+");
 
   return `${ghURL}/actions?query=workflow:"${encodedName}"`;
 }
+
 
 /**
  * Return data needed to make a GH Actions CI badge.
@@ -58,10 +53,7 @@ export function _statusTargetUrl({
 export function _statusData({
   ghURL,
   workflowName,
-}: {
-  ghURL: string;
-  workflowName: string;
-}) {
+}: GHWorkflow) {
   return {
     altText: workflowName,
     imgUrl: _statusBadgeUrl({ ghURL, workflowName }),
