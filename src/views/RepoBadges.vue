@@ -3,6 +3,10 @@
     <div class="row">
       <div class="col-12">
         <h1>Repo badges</h1>
+
+        <p>
+          Generate shields about your repo and add them to your README.md file.
+        </p>
       </div>
     </div>
 
@@ -12,7 +16,7 @@
           <h2>Input values</h2>
 
           <form @submit.prevent.enter="submit">
-            <fieldset name="ghRepo">
+            <fieldset name="gh-repo">
               <legend>GitHub repo</legend>
 
               <TextInput label="Username" v-model="username" isRequired />
@@ -44,7 +48,7 @@
             </fieldset>
             <br />
 
-            <fieldset name="buttons">
+            <fieldset name="large-cta-buttons">
               <legend>Large CTA buttons</legend>
 
               <Checkbox
@@ -58,6 +62,18 @@
                 label="GitHub Pages"
                 v-model="ghPages"
                 note="Add link to a GitHub Pages site."
+              />
+            </fieldset>
+            <br />
+
+            <fieldset name="gh-actions">
+              <legend>GitHub Actions workflow</legend>
+
+              <TextInput
+                label="Name"
+                placeholder="Node CI"
+                note='From the "name" field of a GH Actions workflow file.'
+                v-model="workflowName"
               />
             </fieldset>
             <br />
@@ -90,13 +106,15 @@ import TextInput from "@/components/TextInput.vue";
 
 import { Repo } from "@/core/Repo";
 import { TagTypes } from "@/core/Repo.d";
+import { statusBadge } from "@/core/ghActions";
 
 const note = `
-- Where to put the badges
-    - Use the Social badges on docs site to link back to your repo.
-    - Or use the Social badges to link to repo you don't own.
-    - Use the Repo metadata and the CTA sections at the top of your \`README.md\` and also on your docs site.
-- The first social badge is dumb - so you have to make sure you enter a valid repo. A positive of this is that it works for private repos.
+- Where to put repo metadata badges.
+    - In your \`README.md\` file.
+- Where to put the social badges.
+    - On a docs site to link back to your repo.
+    - Link to a repo you don't own - such as if you want to link to the Vue repo and show its star count.
+- The first social badge has fixed display logic - so make sure you enter a valid repo as the badge can't tell you it is broken. A positive of this is that it works to point to private repos.
 - If you want to always how the latest tag, even if it has _no release_ yet, use the Tag badge. Otherwise, use the Release badge.
 - For centered badges - note that the HTML \`align\` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the \`align\` attribute.
 `;
@@ -116,6 +134,7 @@ export default Vue.extend({
       licenseType: "MIT",
       useThisTemplate: false,
       ghPages: false,
+      workflowName: "",
       result: "_Your output will appear here_",
       versionType: "tag",
       note: note,
@@ -131,9 +150,14 @@ export default Vue.extend({
         useThisTemplate: this.useThisTemplate,
         versionType: this.versionType,
         ghPages: this.ghPages,
+        workflowName: this.workflowName,
       });
 
       const repo = new Repo(this.username, this.repoName, this.licenseType);
+
+      const ghActionsBadge = this.workflowName
+        ? statusBadge(repo, this.workflowName)
+        : "";
 
       const versionBadge = repo.tagBadge(this.versionType as TagTypes),
         licenseBadge = repo.licenseBadge(true);
@@ -160,6 +184,7 @@ ${forksBadge}
 
 _Repo metadata_
 
+${ghActionsBadge}
 ${versionBadge}
 ${licenseBadge}
 

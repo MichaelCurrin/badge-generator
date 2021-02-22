@@ -1,0 +1,66 @@
+/**
+ * Generate a status badge around GH Actions.
+ *
+ * In GitHub on the Actions tab, go to a workflow run and under options on the right choose "Create
+ * status badge". This is added to this generator project for convenience. Plus with a smart target
+ * URL added.
+ */
+import { GHWorkflow } from "./ghActions.d";
+import { mdImageWithLink } from "./markdown";
+import { Repo } from "./Repo";
+
+/**
+ * Create URL for a GH Actions CI status badge.
+ *
+ * Note that "+" does not work in place of a space, so "%20" must be used.
+ */
+export function _statusBadgeUrl({
+  ghURL,
+  workflowName,
+}: GHWorkflow) {
+  const encodedName = encodeURIComponent(workflowName);
+
+  return `${ghURL}/workflows/${encodedName}/badge.svg`;
+}
+
+/**
+ * Create URL to view runs for a workflow name.
+ *
+ * Note that this URL does not need encoding - GitHub handles the unescaped colon and quotes fine.
+ */
+export function _statusTargetUrl({
+  ghURL,
+  workflowName,
+}: GHWorkflow) {
+  const encodedName = workflowName.replace(/ /g, "+");
+
+  return `${ghURL}/actions?query=workflow:"${encodedName}"`;
+}
+
+/**
+ * Return data needed to make a GH Actions CI badge.
+ *
+ * Workflow names comes from the `name` value at the top of your YAML file. The actual filename is
+ * irrelevant.
+ */
+export function _statusData({
+  ghURL,
+  workflowName,
+}: GHWorkflow) {
+  return {
+    altText: workflowName,
+    imgUrl: _statusBadgeUrl({ ghURL, workflowName }),
+    target: _statusTargetUrl({ ghURL, workflowName }),
+  };
+}
+
+/**
+ * Return markdown text for a GH Actions status badge.
+ */
+export function statusBadge(repo: Repo, workflowName: string) {
+  const ghURL = repo.ghURL();
+
+  const fields = _statusData({ ghURL, workflowName });
+
+  return mdImageWithLink(fields.altText, fields.imgUrl, fields.target);
+}
