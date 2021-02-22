@@ -77,8 +77,10 @@ describe("#_statusTargetUrl", () => {
 describe("#_statusData", () => {
   describe("valid CI badge with a link", () => {
     it("handles a foo bar CI project", () => {
-      const ghUrl = "https://github.com/foo/bar";
-      const workflowName = "Bazz CI";
+      const ghWorkflow = {
+        ghURL: "https://github.com/foo/bar",
+        workflowName: "Bazz CI",
+      };
 
       const expected = {
         altText: "Bazz CI",
@@ -86,14 +88,14 @@ describe("#_statusData", () => {
         target: 'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"',
       };
 
-      expect(_statusData({ ghURL: ghUrl, workflowName })).toStrictEqual(
-        expected
-      );
+      expect(_statusData(ghWorkflow)).toStrictEqual(expected);
     });
 
     it("handles Deno CI for deno-project-template", () => {
-      const ghUrl = "https://github.com/MichaelCurrin/deno-project-template";
-      const workflowName = "Deno CI";
+      const ghWorkflow = {
+        ghURL: "https://github.com/MichaelCurrin/deno-project-template",
+        workflowName: "Deno CI",
+      };
 
       const expected = {
         altText: "Deno CI",
@@ -103,14 +105,14 @@ describe("#_statusData", () => {
           'https://github.com/MichaelCurrin/deno-project-template/actions?query=workflow:"Deno+CI"',
       };
 
-      expect(_statusData({ ghURL: ghUrl, workflowName })).toStrictEqual(
-        expected
-      );
+      expect(_statusData(ghWorkflow)).toStrictEqual(expected);
     });
 
     it("handles GH Pages Deploy for badge-generator", () => {
-      const ghUrl = "https://github.com/MichaelCurrin/badge-generator";
-      const workflowName = "GH Pages Deploy";
+      const ghWorkflow = {
+        ghURL: "https://github.com/MichaelCurrin/badge-generator",
+        workflowName: "GH Pages Deploy",
+      };
 
       const expected = {
         altText: "GH Pages Deploy",
@@ -120,9 +122,7 @@ describe("#_statusData", () => {
           'https://github.com/MichaelCurrin/badge-generator/actions?query=workflow:"GH+Pages+Deploy"',
       };
 
-      expect(_statusData({ ghURL: ghUrl, workflowName })).toStrictEqual(
-        expected
-      );
+      expect(_statusData(ghWorkflow)).toStrictEqual(expected);
     });
   });
 });
