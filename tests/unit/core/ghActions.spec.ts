@@ -29,5 +29,20 @@ describe("#_statusData", () => {
 
       expect(_statusData(ghUrl, workflowName)).toStrictEqual(expected);
     });
+
+    it("handles GH Pages Deploy for badge-generator", () => {
+      const ghUrl = "https://github.com/MichaelCurrin/badge-generator"
+      const workflowName = "GH Pages Deploy";
+
+      const expected = {
+        altText: "GH Pages Deploy",
+        imgUrl:
+          "https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg",
+        target:
+          'https://github.com/MichaelCurrin/badge-generator/actions?query=workflow:"GH+Pages+Deploy"',
+      };
+
+      expect(_statusData(ghUrl, workflowName)).toStrictEqual(expected);
+    });
   });
 });
