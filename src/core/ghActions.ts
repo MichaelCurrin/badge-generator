@@ -16,10 +16,10 @@ type TRepo = {
 /**
  * Create URL for a GH Actions CI status badge.
  *
- * Note that "+" does not work in place of a space. So "%20" must be used.
+ * Note that "+" does not work in place of a space, so "%20" must be used.
  */
 export function _statusBadgeUrl(ghURL: string, workflowName: string) {
-  const encodedName = workflowName.replace(" ", "%20");
+  const encodedName = encodeURIComponent(workflowName)
 
   return `${ghURL}/workflows/${encodedName}/badge.svg`;
 }
