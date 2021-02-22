@@ -14,10 +14,7 @@ import { Repo } from "./Repo";
  *
  * Note that "+" does not work in place of a space, so "%20" must be used.
  */
-export function _statusBadgeUrl({
-  ghURL,
-  workflowName,
-}: GHWorkflow) {
+export function _statusBadgeUrl({ ghURL, workflowName }: GHWorkflow) {
   const encodedName = encodeURIComponent(workflowName);
 
   return `${ghURL}/workflows/${encodedName}/badge.svg`;
@@ -28,10 +25,7 @@ export function _statusBadgeUrl({
  *
  * Note that this URL does not need encoding - GitHub handles the unescaped colon and quotes fine.
  */
-export function _statusTargetUrl({
-  ghURL,
-  workflowName,
-}: GHWorkflow) {
+export function _statusTargetUrl({ ghURL, workflowName }: GHWorkflow) {
   const encodedName = workflowName.replace(/ /g, "+");
 
   return `${ghURL}/actions?query=workflow:"${encodedName}"`;
@@ -43,10 +37,7 @@ export function _statusTargetUrl({
  * Workflow names comes from the `name` value at the top of your YAML file. The actual filename is
  * irrelevant.
  */
-export function _statusData({
-  ghURL,
-  workflowName,
-}: GHWorkflow) {
+export function _statusData({ ghURL, workflowName }: GHWorkflow) {
   return {
     altText: workflowName,
     imgUrl: _statusBadgeUrl({ ghURL, workflowName }),
