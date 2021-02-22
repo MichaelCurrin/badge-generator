@@ -2,11 +2,15 @@ export function mdLink(altText: string, linkTarget: string) {
   return `[${altText}](${linkTarget})`;
 }
 
-export function mdImage(
-  altText: string,
-  imageTarget: string,
-  hoverTitle?: string
-) {
+export function mdImage({
+  altText,
+  imageTarget,
+  hoverTitle,
+}: {
+  altText: string;
+  imageTarget: string;
+  hoverTitle?: string;
+}) {
   if (hoverTitle) {
     imageTarget = `${imageTarget} "${hoverTitle}"`;
   }
@@ -26,7 +30,7 @@ export function mdImageWithLink(
   linkTarget?: string,
   hoverTitle?: string
 ) {
-  const image = mdImage(altText, imageTarget, hoverTitle);
+  const image = mdImage({ altText, imageTarget, hoverTitle });
 
   if (linkTarget) {
     return mdLink(image, linkTarget);

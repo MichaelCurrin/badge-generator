@@ -12,21 +12,34 @@ describe("#mdLink", () => {
 
 describe("#mdImage", () => {
   it("returns a valid markdown image", () => {
-    expect(mdImage("Alt text", "foo.png")).toBe("![Alt text](foo.png)");
-
-    expect(mdImage("Example", "https://example.com/foo.png")).toBe(
-      "![Example](https://example.com/foo.png)"
+    expect(mdImage({ altText: "Alt text", imageTarget: "foo.png" })).toBe(
+      "![Alt text](foo.png)"
     );
+
+    expect(
+      mdImage({
+        altText: "Example",
+        imageTarget: "https://example.com/foo.png",
+      })
+    ).toBe("![Example](https://example.com/foo.png)");
   });
 
   it("returns a valid markdown image with hover text", () => {
-    expect(mdImage("Alt text", "foo.png", "My hover text")).toBe(
-      '![Alt text](foo.png "My hover text")'
-    );
+    expect(
+      mdImage({
+        altText: "Alt text",
+        imageTarget: "foo.png",
+        hoverTitle: "My hover text",
+      })
+    ).toBe('![Alt text](foo.png "My hover text")');
 
-    expect(mdImage("Example", "https://example.com", "My example")).toBe(
-      '![Example](https://example.com "My example")'
-    );
+    expect(
+      mdImage({
+        altText: "Example",
+        imageTarget: "https://example.com",
+        hoverTitle: "My example",
+      })
+    ).toBe('![Example](https://example.com "My example")');
   });
 });
 
