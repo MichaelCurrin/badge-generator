@@ -30,7 +30,7 @@ export function _statusBadgeUrl(ghURL: string, workflowName: string) {
  * Note that this URL does not need encoding - GitHub handles the unescaped colon and quotes fine.
  */
 export function _statusTargetUrl(ghURL: string, workflowName: string) {
-  const encodedName = workflowName.replace(" ", "+");
+  const encodedName = workflowName.replace(/ /g, "+");
 
   return `${ghURL}/actions?query=workflow:"${encodedName}"`;
 }
