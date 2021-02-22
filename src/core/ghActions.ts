@@ -19,7 +19,7 @@ type TRepo = {
  * Note that "+" does not work in place of a space, so "%20" must be used.
  */
 export function _statusBadgeUrl(ghURL: string, workflowName: string) {
-  const encodedName = encodeURIComponent(workflowName)
+  const encodedName = encodeURIComponent(workflowName);
 
   return `${ghURL}/workflows/${encodedName}/badge.svg`;
 }

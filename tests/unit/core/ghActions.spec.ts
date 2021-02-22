@@ -32,8 +32,7 @@ describe("#statusData", () => {
     const expected = {
       altText: "Bazz CI",
       imgUrl: "https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg",
-      target:
-        'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"',
+      target: 'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"',
     };
 
     expect(statusData(repo, workflowName)).toStrictEqual(expected);
