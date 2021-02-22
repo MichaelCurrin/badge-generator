@@ -17,7 +17,7 @@ describe("#_statusData", () => {
       expect(_statusData(ghUrl, workflowName)).toStrictEqual(expected);
     });
 
-    it("returns a valid CI badge with a link", () => {
+    it("handles a foo bar project", () => {
       const ghUrl = "https://github.com/foo/bar"
       const workflowName = "Bazz CI";
 
