@@ -1,16 +1,10 @@
+import { IMdImage } from "./markdown.d";
+
 export function mdLink(altText: string, linkTarget: string) {
   return `[${altText}](${linkTarget})`;
 }
 
-export function mdImage({
-  altText,
-  imageTarget,
-  hoverTitle,
-}: {
-  altText: string;
-  imageTarget: string;
-  hoverTitle?: string;
-}) {
+export function mdImage({ altText, imageTarget, hoverTitle }: IMdImage) {
   if (hoverTitle) {
     imageTarget = `${imageTarget} "${hoverTitle}"`;
   }
