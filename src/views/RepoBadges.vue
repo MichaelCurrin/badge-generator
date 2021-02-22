@@ -106,6 +106,7 @@ import TextInput from "@/components/TextInput.vue";
 
 import { Repo } from "@/core/Repo";
 import { TagTypes } from "@/core/Repo.d";
+import { statusBadge } from "@/core/ghActions";
 
 const note = `
 - Where to put repo metadata badges.
@@ -149,9 +150,17 @@ export default Vue.extend({
         useThisTemplate: this.useThisTemplate,
         versionType: this.versionType,
         ghPages: this.ghPages,
+        workflowName: this.workflowName,
       });
 
       const repo = new Repo(this.username, this.repoName, this.licenseType);
+
+      const ghActionsBadge = this.workflowName
+        ? statusBadge(
+            { username: this.username, repoName: this.repoName },
+            this.workflowName
+          )
+        : "";
 
       const versionBadge = repo.tagBadge(this.versionType as TagTypes),
         licenseBadge = repo.licenseBadge(true);
@@ -178,6 +187,7 @@ ${forksBadge}
 
 _Repo metadata_
 
+${ghActionsBadge}
 ${versionBadge}
 ${licenseBadge}
 
