@@ -6,7 +6,8 @@ describe("#statusData", () => {
       username: "MichaelCurrin",
       repoName: "deno-project-template",
     };
-    // This comes from the `name` field at the top of your YAML file. The file name is irrelevant.
+    // This field comes from the `name` value at the top of your YAML file. The actual filename is
+    // irrelevant.
     const workflowName = "Deno CI";
 
     const expected = {
