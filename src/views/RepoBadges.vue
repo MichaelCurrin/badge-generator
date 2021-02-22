@@ -16,7 +16,7 @@
           <h2>Input values</h2>
 
           <form @submit.prevent.enter="submit">
-            <fieldset name="ghRepo">
+            <fieldset name="gh-repo">
               <legend>GitHub repo</legend>
 
               <TextInput label="Username" v-model="username" isRequired />
@@ -48,7 +48,7 @@
             </fieldset>
             <br />
 
-            <fieldset name="buttons">
+            <fieldset name="large-cta-buttons">
               <legend>Large CTA buttons</legend>
 
               <Checkbox
@@ -62,6 +62,18 @@
                 label="GitHub Pages"
                 v-model="ghPages"
                 note="Add link to a GitHub Pages site."
+              />
+            </fieldset>
+            <br />
+
+            <fieldset name="gh-actions">
+              <legend>GitHub Actions workflow</legend>
+
+              <TextInput
+                label="Name"
+                placeholder="Node CI"
+                note='From the "name" field of a GH Actions workflow file.'
+                v-model="workflowName"
               />
             </fieldset>
             <br />
@@ -121,6 +133,7 @@ export default Vue.extend({
       licenseType: "MIT",
       useThisTemplate: false,
       ghPages: false,
+      workflowName: "",
       result: "_Your output will appear here_",
       versionType: "tag",
       note: note,
