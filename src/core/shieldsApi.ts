@@ -114,7 +114,7 @@ export function ghSocialShieldUrl(type: PopularityType, repo: GHRepo) {
 }
 
 export function nodePkgJsonShieldUrl(repo: Repo, pkgName: string) {
-  const path = `${repo.username}/${repo.repoName}/${pkgName}`;
+  const path = `${repo.nameWithOwner()}/${pkgName}`;
 
   return `${SHIELDS_API.PKG_JSON_DEPENDENCY}/${path}`;
 }
