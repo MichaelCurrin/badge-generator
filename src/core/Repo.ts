@@ -20,7 +20,7 @@ import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
 import { ghSocialShieldUrl } from "./shieldsApi";
-import { CounterType } from "./types";
+import { PopularityType } from "./types";
 
 export class Repo {
   constructor(
@@ -174,8 +174,8 @@ Released under ${license} by ${user}.
     );
   }
 
-  /* Counter for stars or forks. */
-  ghSocial(type: CounterType, usePreLabel = false) {
+  /* Social counter for repo popularity. */
+  ghSocial(type: PopularityType, usePreLabel = false) {
     const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "",
       shield = ghSocialShieldUrl(type, {
         username: this.username,
