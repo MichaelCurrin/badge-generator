@@ -42,7 +42,7 @@ export function genericBadge(
   altText = altText || formatTitle(label, message);
 
   const badgeFields = { label, message, color },
-    styleParams = logoParams(isLarge, logo, logoColor);
+    styleParams = logoParams({ isLarge, logo, logoColor });
 
   const imageTarget = onlyQueryParams
     ? _staticParamsUrl(badgeFields, styleParams)

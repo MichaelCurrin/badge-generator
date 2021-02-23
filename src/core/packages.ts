@@ -65,7 +65,7 @@ export function nodeVersionBadge(
   const altText = `Package - ${pkgName}`;
 
   const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName),
-    params = logoParams(false, logo, logoColor),
+    params = logoParams({ isLarge: false, logo, logoColor }),
     imageTarget = buildUrl(baseImageUrl, params);
 
   const linkTarget = `${REGISTRY.Node}/${pkgName}`;
@@ -82,11 +82,11 @@ export function nodeVersionBadge(
  */
 export function goVersionBadge(username: string, repoName: string) {
   const baseImageUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`;
-  const params = logoParams(
-    GO_MODULE_SHIELD.IS_LARGE,
-    GO_MODULE_SHIELD.LOGO,
-    GO_MODULE_SHIELD.LOGO_COLOR
-  );
+  const params = logoParams({
+    isLarge: GO_MODULE_SHIELD.IS_LARGE,
+    logo: GO_MODULE_SHIELD.LOGO,
+    logoColor: GO_MODULE_SHIELD.LOGO_COLOR,
+  });
   const imageTarget = buildUrl(baseImageUrl, params);
 
   return mdImageWithLink({

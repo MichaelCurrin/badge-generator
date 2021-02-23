@@ -67,7 +67,11 @@ export function dashShieldPath(badge: GenericBadge) {
 /**
  * Generate parameters for styling a badge on shields.io API.
  */
-export function logoParams(isLarge = false, logo?: string, logoColor?: string) {
+export function logoParams({
+  isLarge = false,
+  logo,
+  logoColor,
+}: { isLarge?: boolean; logo?: string; logoColor?: string } = {}) {
   const params: StrMap = {};
 
   if (isLarge) {

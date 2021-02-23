@@ -102,26 +102,34 @@ describe("#dashShieldPath", () => {
 
 describe("#logoParams", () => {
   it("returns null params", () => {
-    expect(logoParams(false)).toStrictEqual({});
+    expect(logoParams({ isLarge: false })).toStrictEqual({});
   });
 
   it("returns a large badge", () => {
-    expect(logoParams(true)).toStrictEqual({ style: "for-the-badge" });
+    expect(logoParams({ isLarge: true })).toStrictEqual({
+      style: "for-the-badge",
+    });
   });
 
   it("returns a logo name", () => {
-    expect(logoParams(false, "foo")).toStrictEqual({ logo: "foo" });
+    expect(logoParams({ isLarge: false, logo: "foo" })).toStrictEqual({
+      logo: "foo",
+    });
   });
 
   it("returns a logo name and logo color", () => {
-    expect(logoParams(false, "foo", "white")).toStrictEqual({
+    expect(
+      logoParams({ isLarge: false, logo: "foo", logoColor: "white" })
+    ).toStrictEqual({
       logo: "foo",
       logoColor: "white",
     });
   });
 
   it("returns a logo name and logo color for a large badge", () => {
-    expect(logoParams(true, "foo", "white")).toStrictEqual({
+    expect(
+      logoParams({ isLarge: true, logo: "foo", logoColor: "white" })
+    ).toStrictEqual({
       style: "for-the-badge",
       logo: "foo",
       logoColor: "white",
@@ -129,7 +137,9 @@ describe("#logoParams", () => {
   });
 
   it("ignores a logo color with no logo name", () => {
-    expect(logoParams(false, "", "white")).toStrictEqual({});
+    expect(
+      logoParams({ isLarge: false, logo: "", logoColor: "white" })
+    ).toStrictEqual({});
   });
 });
 
