@@ -62,7 +62,6 @@ export function nodeVersionBadge(
   if (!pkgName) {
     pkgName = repoName;
   }
-  // TODO Rename var to alt text.
   const altText = `Package - ${pkgName}`;
 
   // TODO Rename PACKAGE and break out to function.
