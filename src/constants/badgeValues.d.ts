@@ -6,7 +6,7 @@ export type genericBadgeBase = {
   message?: string;
   color?: string;
   isLarge: boolean;
-  target?: string;
+  linkTarget?: string;
   logo?: string;
   logoColor?: string;
   altText?: string;
