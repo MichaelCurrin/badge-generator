@@ -1,6 +1,7 @@
 /**
  * Package badges module.
  */
+import { NODE_VERSION_BADGE } from "@/constants/appearance";
 import { STATIC_DEPENDENCY } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
@@ -21,10 +22,6 @@ const GO_MODULE_SHIELD = {
   LOGO_COLOR: "white",
   TARGET: "https://golang.org",
   ALT_TEXT: "Made with Go",
-};
-
-const NODE_VERSION_BADGE = {
-  IS_LARGE: false,
 };
 
 /**
