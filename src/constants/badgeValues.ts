@@ -48,6 +48,9 @@ export const TEMPLATE_BADGE: genericBadgeBase = {
   ALT_TEXT: "Use this template",
 };
 
+export const NODE_VERSION_BADGE = {
+  IS_LARGE: false,
+};
 
 // TODO Add to frontend. With toggle.
 // TODO Is this a repo badge or package badge - which page and modules?

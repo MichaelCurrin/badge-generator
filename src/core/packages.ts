@@ -1,15 +1,17 @@
 /**
  * Package badges module.
  */
-import { NODE_VERSION_BADGE } from "@/constants/appearance";
-import { GO_MODULE_SHIELD, STATIC_DEPENDENCY } from "@/constants/badgeValues";
+import {
+  GO_MODULE_SHIELD,
+  NODE_VERSION_BADGE,
+  STATIC_DEPENDENCY,
+} from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";
 import { Repo } from "./Repo";
 import { logoParams, nodePkgJsonShieldUrl } from "./shieldsApi";
-
 
 /**
  * Static dependency badge.

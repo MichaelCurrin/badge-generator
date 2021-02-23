@@ -13,7 +13,3 @@ export enum COLOR {
   Green = "2ea44f",
   LogoDefault = "white",
 }
-
-export const NODE_VERSION_BADGE = {
-  IS_LARGE: false,
-};
