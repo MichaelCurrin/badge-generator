@@ -2,7 +2,7 @@
  * Package badges module.
  */
 import { NODE_VERSION_BADGE } from "@/constants/appearance";
-import { STATIC_DEPENDENCY } from "@/constants/badgeValues";
+import { GO_MODULE_SHIELD, STATIC_DEPENDENCY } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -10,19 +10,6 @@ import { mdImageWithLink } from "./markdown";
 import { Repo } from "./Repo";
 import { logoParams, nodePkgJsonShieldUrl } from "./shieldsApi";
 
-// TODO Add to frontend. With toggle.
-// TODO Is this a repo badge or package badge - which page and modules?
-// TODO Move.
-// TODO Add type
-// TODO Pass as object that can be used in logoParams without position args.
-// TODO URL from somewhere else.
-const GO_MODULE_SHIELD = {
-  IS_LARGE: false,
-  LOGO: "go",
-  LOGO_COLOR: "white",
-  TARGET: "https://golang.org",
-  ALT_TEXT: "Made with Go",
-};
 
 /**
  * Static dependency badge.
