@@ -4,7 +4,7 @@ export const SHIELDS_API = {
   DASH: `${SHIELDS_API_BASE}/badge`,
   PARAM: `${SHIELDS_API_BASE}/static/v1`,
   GH: `${SHIELDS_API_BASE}/github`,
-  PACKAGE_JSON_DEPENDENCY: `${SHIELDS_API_BASE}/github/package-json/dependency-version`,
+  PKG_JSON_DEPENDENCY: `${SHIELDS_API_BASE}/github/package-json/dependency-version`,
   GO_MODULE: `${SHIELDS_API_BASE}/github/go-mod/go-version`,
 };
 
