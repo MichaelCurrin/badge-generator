@@ -117,5 +117,7 @@ export function nodePkgJsonShieldUrl(
   repoName: string,
   pkgName: string
 ) {
-  return `${SHIELDS_API.PACKAGE_JSON_DEPENDENCY}/${username}/${repoName}/${pkgName}`;
+  const path = `${username}/${repoName}/${pkgName}`;
+
+  return `${SHIELDS_API.PACKAGE_JSON_DEPENDENCY}/${path}`;
 }
