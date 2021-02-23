@@ -51,7 +51,6 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
  * This appropriately escapes label and message for you, based on notes on the shields.io website.
  * So you can pass in more readable values.
  */
-
 export function dashShieldPath(badge: GenericBadge) {
   const message = _encodeParam(badge.message);
   let label = badge.label;
@@ -106,6 +105,7 @@ export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
   return buildUrl(imgUrl, styleParams);
 }
 
+/** Image URL for a GitHub social counter badge. */
 export function ghSocialShieldUrl(type: CounterType, repo: GHRepo) {
   const path = `${type}/${repo.username}/${repo.repoName}?style=${STYLES.SOCIAL}`;
 
