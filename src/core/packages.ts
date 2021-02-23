@@ -6,6 +6,7 @@ import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";
+import { Repo } from "./Repo";
 import { logoParams, nodePkgJsonShieldUrl } from "./shieldsApi";
 
 // TODO Add to frontend. With toggle.
@@ -53,18 +54,17 @@ export function dependency(name: string, registry: REGISTRY) {
  * either.
  */
 export function nodeVersionBadge(
-  username: string,
-  repoName: string,
+  repo: Repo,
   pkgName: string,
   logo?: string,
   logoColor?: string
 ) {
   if (!pkgName) {
-    pkgName = repoName;
+    pkgName = repo.repoName;
   }
   const altText = `Package - ${pkgName}`;
 
-  const imgUrl = nodePkgJsonShieldUrl(username, repoName, pkgName),
+  const imgUrl = nodePkgJsonShieldUrl(repo, pkgName),
     params = logoParams(false, logo, logoColor),
     imageTarget = buildUrl(imgUrl, params);
 

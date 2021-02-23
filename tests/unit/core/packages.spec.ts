@@ -1,5 +1,6 @@
 import { REGISTRY } from "@/constants/urls";
 import { dependency, goVersionBadge, nodeVersionBadge } from "@/core/packages";
+import { Repo } from "@/core/Repo";
 
 describe("#dependency", () => {
   it("returns a standard size static badge for a Node package", () => {
@@ -11,12 +12,13 @@ describe("#dependency", () => {
 
 describe("#nodeVersionBadge", () => {
   const target = "https://www.npmjs.com/package/vue";
+  const repo = new Repo("MichaelCurrin", "badge-generator");
 
   it("returns a dynamic Node badge", () => {
     const imgUrl =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue";
 
-    expect(nodeVersionBadge("MichaelCurrin", "badge-generator", "vue")).toBe(
+    expect(nodeVersionBadge(repo, "vue")).toBe(
       `[![Package - vue](${imgUrl})](${target})`
     );
   });
@@ -25,24 +27,18 @@ describe("#nodeVersionBadge", () => {
     const imgUrl =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js";
 
-    expect(
-      nodeVersionBadge("MichaelCurrin", "badge-generator", "vue", "vue.js")
-    ).toBe(`[![Package - vue](${imgUrl})](${target})`);
+    expect(nodeVersionBadge(repo, "vue", "vue.js")).toBe(
+      `[![Package - vue](${imgUrl})](${target})`
+    );
   });
 
   it("returns a dynamic Node badge with a logo and logo color", () => {
     const imgUrl =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white";
 
-    expect(
-      nodeVersionBadge(
-        "MichaelCurrin",
-        "badge-generator",
-        "vue",
-        "vue.js",
-        "white"
-      )
-    ).toBe(`[![Package - vue](${imgUrl})](${target})`);
+    expect(nodeVersionBadge(repo, "vue", "vue.js", "white")).toBe(
+      `[![Package - vue](${imgUrl})](${target})`
+    );
   });
 });
 

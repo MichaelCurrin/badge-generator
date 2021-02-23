@@ -4,6 +4,7 @@
 import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
+import { Repo } from "./Repo";
 import { GenericBadge, GHRepo, PopularityType, StrMap } from "./types.d";
 
 /**
@@ -112,12 +113,8 @@ export function ghSocialShieldUrl(type: PopularityType, repo: GHRepo) {
   return `${SHIELDS_API.GH}/${path}`;
 }
 
-export function nodePkgJsonShieldUrl(
-  username: string,
-  repoName: string,
-  pkgName: string
-) {
-  const path = `${username}/${repoName}/${pkgName}`;
+export function nodePkgJsonShieldUrl(repo: Repo, pkgName: string) {
+  const path = `${repo.username}/${repo.repoName}/${pkgName}`;
 
   return `${SHIELDS_API.PKG_JSON_DEPENDENCY}/${path}`;
 }

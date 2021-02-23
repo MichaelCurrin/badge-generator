@@ -112,6 +112,7 @@ import TextInput from "@/components/TextInput.vue";
 import { REGISTRY } from "@/constants/urls";
 import { COLOR } from "@/constants/appearance";
 import { dependency, nodeVersionBadge } from "@/core/packages";
+import { Repo } from "@/core/Repo";
 
 const note = `
 - Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
@@ -149,15 +150,10 @@ export default Vue.extend({
         ? dependency(this.pkgName, registry)
         : "";
 
+      const repo = new Repo(this.username, this.repoName);
       const lockedPkgBadge =
         registry === REGISTRY.Node
-          ? nodeVersionBadge(
-              this.username,
-              this.repoName,
-              this.pkgName,
-              this.logo,
-              this.logoColor
-            )
+          ? nodeVersionBadge(repo, this.pkgName, this.logo, this.logoColor)
           : "";
 
       this.result = `\
