@@ -113,6 +113,7 @@ export function ghSocialShieldUrl(type: PopularityType, repo: GHRepo) {
   return `${SHIELDS_API.GH}/${path}`;
 }
 
+/** Image URL for a dynamic Node package.json dependency badge. */
 export function nodePkgJsonShieldUrl(repo: Repo, pkgName: string) {
   const path = `${repo.nameWithOwner()}/${pkgName}`;
 
