@@ -92,7 +92,8 @@ export class Repo {
   }
 
   _tagBadgeUrl(type: string) {
-    const url = `${SHIELDS_API.GH}/${type}/${this.nameWithOwner()}`;
+    const path = `${type}/${this.nameWithOwner()}`;
+    const url = `${SHIELDS_API.GH}/${path}`;
 
     return buildUrl(url, VERSION_PARAMS);
   }
