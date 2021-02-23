@@ -8,29 +8,29 @@
  * user.
  */
 import { COLOR } from "./appearance";
-import { genericBadgeBase } from "./badgeValues.d";
+import { IGenericBadge } from "./badgeValues.d";
 
-export const STATIC_DEPENDENCY: genericBadgeBase = {
+export const STATIC_DEPENDENCY: IGenericBadge = {
   label: "dependency",
   color: COLOR.Default,
   isLarge: false,
 };
 
-export const LICENSE_BADGE: genericBadgeBase = {
+export const LICENSE_BADGE: IGenericBadge = {
   label: "License",
   color: COLOR.Default,
   isLarge: false,
   altText: "License",
 };
 
-export const GH_BADGE: genericBadgeBase = {
+export const GH_BADGE: IGenericBadge = {
   color: COLOR.Default,
   isLarge: false,
   logo: "github",
   logoColor: "",
 };
 
-export const GH_PAGES_BADGE: genericBadgeBase = {
+export const GH_PAGES_BADGE: IGenericBadge = {
   label: "View site",
   message: "GH Pages",
   color: COLOR.Green,
@@ -40,7 +40,7 @@ export const GH_PAGES_BADGE: genericBadgeBase = {
 // Keep the message to match what GitHub's own template badge says, so it makes it easier for
 // someone to predict what the button will do. Logo was GitHub before, but it took up too much space
 // and was distracting.
-export const TEMPLATE_BADGE: genericBadgeBase = {
+export const TEMPLATE_BADGE: IGenericBadge = {
   label: "Generate",
   message: "Use this template",
   color: COLOR.Green,

@@ -1,7 +1,7 @@
 /*
  * Based on GenericBadge function inputs. But everything is optional here and uppercase.
  */
-export type genericBadgeBase = {
+export interface IGenericBadge {
   label?: string;
   message?: string;
   color?: string;
@@ -10,4 +10,4 @@ export type genericBadgeBase = {
   logo?: string;
   logoColor?: string;
   altText?: string;
-};
+}
