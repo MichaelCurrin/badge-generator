@@ -92,7 +92,7 @@ export class Repo {
   }
 
   _tagBadgeUrl(type: string) {
-    const url = `${SHIELDS_API.GH}/${type}/${this.username}/${this.repoName}`;
+    const url = `${SHIELDS_API.GH}/${type}/${this.nameWithOwner()}`;
 
     return buildUrl(url, VERSION_PARAMS);
   }
@@ -180,7 +180,7 @@ Released under ${license} by ${user}.
 
   /* Social counter for repo popularity. */
   ghSocial(type: PopularityType, usePreLabel = false) {
-    const preLabel = usePreLabel ? `${this.username}/${this.repoName} ` : "",
+    const preLabel = usePreLabel ? `${this.nameWithOwner()} ` : "",
       shield = ghSocialShieldUrl(type, {
         username: this.username,
         repoName: this.repoName,
