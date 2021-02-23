@@ -1,3 +1,8 @@
+/**
+ * Appearance module.
+ *
+ * Info that applies across the app and not to any specific badge.
+ */
 export const DESCRIPTION =
   "Magically generate custom badges that you can paste in your docs";
 
