@@ -15,41 +15,41 @@ describe("#nodeVersionBadge", () => {
   const repo = new Repo("MichaelCurrin", "badge-generator");
 
   it("returns a dynamic Node badge", () => {
-    const imgUrl =
+    const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue";
 
     expect(nodeVersionBadge(repo, "vue")).toBe(
-      `[![Package - vue](${imgUrl})](${target})`
+      `[![Package - vue](${imageTarget})](${target})`
     );
   });
 
   it("returns a dynamic Node badge with a logo and no logo color", () => {
-    const imgUrl =
+    const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js";
 
     expect(nodeVersionBadge(repo, "vue", "vue.js")).toBe(
-      `[![Package - vue](${imgUrl})](${target})`
+      `[![Package - vue](${imageTarget})](${target})`
     );
   });
 
   it("returns a dynamic Node badge with a logo and logo color", () => {
-    const imgUrl =
+    const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white";
 
     expect(nodeVersionBadge(repo, "vue", "vue.js", "white")).toBe(
-      `[![Package - vue](${imgUrl})](${target})`
+      `[![Package - vue](${imageTarget})](${target})`
     );
   });
 });
 
 describe("#goVersionBadge", () => {
   it("returns a dynamic Go version badge with Go logo", () => {
-    const imgUrl =
+    const imageTarget =
       "https://img.shields.io/github/go-mod/go-version/MichaelCurrin/go-project-template?logo=go&logoColor=white";
     const target = "https://golang.org";
 
     expect(goVersionBadge("MichaelCurrin", "go-project-template")).toBe(
-      `[![Made with Go](${imgUrl})](${target})`
+      `[![Made with Go](${imageTarget})](${target})`
     );
   });
 });

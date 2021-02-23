@@ -101,9 +101,9 @@ export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
 /** Image URL for a dash-based static badge. */
 export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
   const imgPath = dashShieldPath(badge),
-    imgUrl = `${SHIELDS_API.DASH}/${imgPath}`;
+    imageTarget = `${SHIELDS_API.DASH}/${imgPath}`;
 
-  return buildUrl(imgUrl, styleParams);
+  return buildUrl(imageTarget, styleParams);
 }
 
 /** Image URL for a GitHub social counter badge. */

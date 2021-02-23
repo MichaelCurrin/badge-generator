@@ -64,9 +64,9 @@ export function nodeVersionBadge(
   }
   const altText = `Package - ${pkgName}`;
 
-  const imgUrl = nodePkgJsonShieldUrl(repo, pkgName),
+  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName),
     params = logoParams(false, logo, logoColor),
-    imageTarget = buildUrl(imgUrl, params);
+    imageTarget = buildUrl(baseImageUrl, params);
 
   const linkTarget = `${REGISTRY.Node}/${pkgName}`;
 
@@ -81,13 +81,13 @@ export function nodeVersionBadge(
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */
 export function goVersionBadge(username: string, repoName: string) {
-  const imgUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`;
+  const baseImageUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`;
   const params = logoParams(
     GO_MODULE_SHIELD.IS_LARGE,
     GO_MODULE_SHIELD.LOGO,
     GO_MODULE_SHIELD.LOGO_COLOR
   );
-  const imageTarget = buildUrl(imgUrl, params);
+  const imageTarget = buildUrl(baseImageUrl, params);
 
   return mdImageWithLink({
     altText: GO_MODULE_SHIELD.ALT_TEXT,
