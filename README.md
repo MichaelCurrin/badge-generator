@@ -39,10 +39,11 @@
 
 How to use:
 
-1. Fill in a form on of the pages.
-1. Press <kbd>Enter</kbd> or click _Submit_.
-1. Verify the generated badge previews are working and if they need adjustment.
-1. Copy and paste the markdown snippets to your `README.md`.
+1. Navigate to a page.
+2. Fill in a form.
+3. Press <kbd>Enter</kbd> or click _Submit_.
+4. Verify that the generated badge image previews what you expect.
+5. Copy and paste the markdown snippets to your `README.md`.
 
 
 ## Open the web app
