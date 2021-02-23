@@ -6,7 +6,7 @@ import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";
-import { logoParams } from "./shieldsApi";
+import { logoParams, nodePkgJsonShieldUrl } from "./shieldsApi";
 
 // TODO Add to frontend. With toggle.
 // TODO Is this a repo badge or package badge - which page and modules?
@@ -64,7 +64,7 @@ export function nodeVersionBadge(
   }
   const altText = `Package - ${pkgName}`;
 
-  const imgUrl = `${SHIELDS_API.PACKAGE_JSON}/${username}/${repoName}/${pkgName}`,
+  const imgUrl = nodePkgJsonShieldUrl(username, repoName, pkgName),
     params = logoParams(false, logo, logoColor),
     imageTarget = buildUrl(imgUrl, params);
 

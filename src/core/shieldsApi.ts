@@ -111,3 +111,11 @@ export function ghSocialShieldUrl(type: PopularityType, repo: GHRepo) {
 
   return `${SHIELDS_API.GH}/${path}`;
 }
+
+export function nodePkgJsonShieldUrl(
+  username: string,
+  repoName: string,
+  pkgName: string
+) {
+  return `${SHIELDS_API.PACKAGE_JSON}/${username}/${repoName}/${pkgName}`;
+}
