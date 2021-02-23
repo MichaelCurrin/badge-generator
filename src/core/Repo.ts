@@ -36,8 +36,12 @@ export class Repo {
     }
   }
 
+  nameWithOwner() {
+    return `${this.username}/${this.repoName}`;
+  }
+
   ghURL() {
-    return `${GITHUB_DOMAIN}/${this.username}/${this.repoName}`;
+    return `${GITHUB_DOMAIN}/${this.nameWithOwner()}`;
   }
 
   ghPagesURL() {
