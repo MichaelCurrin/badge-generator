@@ -4,7 +4,7 @@
 import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
-import { TLogoParams } from "./shieldsApi.d.ts";
+import { TLogoParams } from "./shieldsApi.d";
 import { GenericBadge, GHRepo, PopularityType, StrMap } from "./types.d";
 
 /**

@@ -23,6 +23,10 @@ const GO_MODULE_SHIELD = {
   ALT_TEXT: "Made with Go",
 };
 
+const NODE_VERSION_BADGE = {
+  IS_LARGE: false,
+};
+
 /**
  * Static dependency badge.
  *
@@ -65,7 +69,11 @@ export function nodeVersionBadge(
   const altText = `Package - ${pkgName}`;
 
   const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName),
-    params = logoParams({ isLarge: false, logo, logoColor }),
+    params = logoParams({
+      isLarge: NODE_VERSION_BADGE.IS_LARGE,
+      logo,
+      logoColor,
+    }),
     imageTarget = buildUrl(baseImageUrl, params);
 
   const linkTarget = `${REGISTRY.Node}/${pkgName}`;
