@@ -64,8 +64,7 @@ export function nodeVersionBadge(
   }
   const altText = `Package - ${pkgName}`;
 
-  // TODO Rename PACKAGE and break out to function.
-  const imgUrl = `${SHIELDS_API.PACKAGE}/${username}/${repoName}/${pkgName}`,
+  const imgUrl = `${SHIELDS_API.PACKAGE_JSON}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
     imageTarget = buildUrl(imgUrl, params);
 
