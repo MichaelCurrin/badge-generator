@@ -37,8 +37,8 @@ describe("#Repo", () => {
     it("returns a valid GitHub Pages badge", () => {
       const badgeUrl =
         "https://img.shields.io/badge/View_site-GH_Pages-2ea44f?style=for-the-badge";
-      const target = "https://michaelcurrin.github.io/badge-generator/";
-      const expectedBadge = `[![View site - GH Pages](${badgeUrl})](${target})`;
+      const linkTarget = "https://michaelcurrin.github.io/badge-generator/";
+      const expectedBadge = `[![View site - GH Pages](${badgeUrl})](${linkTarget})`;
 
       expect(repoNoLicense.ghPagesBadge()).toBe(expectedBadge);
     });
@@ -137,20 +137,20 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
     it("return a valid GH repo badge", () => {
       const badgeUrl =
         "https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&color=blue&logo=github";
-      const target = "https://github.com/MichaelCurrin/badge-generator";
-      const expectedBadge = `[![MichaelCurrin - badge-generator](${badgeUrl})](${target})`;
+      const linkTarget = "https://github.com/MichaelCurrin/badge-generator";
+      const expectedBadge = `[![MichaelCurrin - badge-generator](${badgeUrl})](${linkTarget})`;
 
       expect(repoNoLicense.gh()).toBe(expectedBadge);
     });
   });
 
   describe("#ghSocial", () => {
-    const target = "https://github.com/MichaelCurrin/badge-generator";
+    const linkTarget = "https://github.com/MichaelCurrin/badge-generator";
 
     it("return a valid forks shield", () => {
       const badgeUrl =
         "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
-      const expectedBadge = `[![forks - badge-generator](${badgeUrl})](${target})`;
+      const expectedBadge = `[![forks - badge-generator](${badgeUrl})](${linkTarget})`;
 
       expect(repoNoLicense.ghSocial("forks", false)).toBe(expectedBadge);
     });
@@ -158,7 +158,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
     it("return a valid stars shield", () => {
       const badgeUrl =
         "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social";
-      const expectedBadge = `[![stars - badge-generator](${badgeUrl})](${target})`;
+      const expectedBadge = `[![stars - badge-generator](${badgeUrl})](${linkTarget})`;
 
       expect(repoNoLicense.ghSocial("stars", false)).toBe(expectedBadge);
     });

@@ -60,14 +60,14 @@ export class Repo {
 
   // TODO add variation that has a docs site for the text. And add custom text options.
   ghPagesBadge() {
-    const target = this.ghPagesURL();
+    const linkTarget = this.ghPagesURL();
 
     return genericBadge(
       GH_PAGES_BADGE.label!,
       GH_PAGES_BADGE.message!,
       GH_PAGES_BADGE.color!,
       GH_PAGES_BADGE.isLarge,
-      target
+      linkTarget
     );
   }
 
@@ -76,14 +76,14 @@ export class Repo {
   }
 
   useThisTemplateBadge() {
-    const target = this._templateURL();
+    const linkTarget = this._templateURL();
 
     return genericBadge(
       TEMPLATE_BADGE.label!,
       TEMPLATE_BADGE.message!,
       TEMPLATE_BADGE.color!,
       TEMPLATE_BADGE.isLarge,
-      target,
+      linkTarget,
       TEMPLATE_BADGE.logo,
       "",
       false,

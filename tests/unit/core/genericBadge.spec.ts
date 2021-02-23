@@ -26,14 +26,14 @@ describe("#genericBadge", () => {
     });
 
     it("displays a badge pointing to external link", () => {
-      const target = "https://example.com";
+      const linkTarget = "https://example.com";
 
-      expect(genericBadge("", "Bar", "green", false, target)).toBe(
+      expect(genericBadge("", "Bar", "green", false, linkTarget)).toBe(
         "[![Bar](https://img.shields.io/badge/Bar-green)](https://example.com)"
       );
 
       expect(
-        genericBadge("", "Bar", "green", false, target, "", "", true)
+        genericBadge("", "Bar", "green", false, linkTarget, "", "", true)
       ).toBe(
         "[![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)](https://example.com)"
       );
