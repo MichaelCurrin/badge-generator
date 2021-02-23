@@ -73,11 +73,7 @@ type TLogoParams = {
 /**
  * Generate URL parameters for styling a badge on shields.io API.
  */
-export function logoParams({
-  isLarge,
-  logo,
-  logoColor,
-}: TLogoParams = {}) {
+export function logoParams({ isLarge, logo, logoColor }: TLogoParams = {}) {
   const params: StrMap = {};
 
   if (isLarge) {
