@@ -82,7 +82,7 @@ export function goVersionBadge(username: string, repoName: string) {
   const imageTarget = buildUrl(baseImageUrl, params);
 
   return mdImageWithLink({
-    altText: GO_MODULE_SHIELD.ALT_TEXT,
+    altText: GO_MODULE_SHIELD.ALT_TEXT!,
     imageTarget,
     linkTarget: GO_MODULE_SHIELD.TARGET,
   });
