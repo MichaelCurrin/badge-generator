@@ -4,7 +4,6 @@
 import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
-import { Repo } from "./Repo";
 import { GenericBadge, GHRepo, PopularityType, StrMap } from "./types.d";
 
 /**
@@ -114,8 +113,8 @@ export function ghSocialShieldUrl(type: PopularityType, repo: GHRepo) {
 }
 
 /** Image URL for a dynamic Node package.json dependency badge. */
-export function nodePkgJsonShieldUrl(repo: Repo, pkgName: string) {
-  const path = `${repo.nameWithOwner()}/${pkgName}`;
+export function nodePkgJsonShieldUrl(repo: GHRepo, pkgName: string) {
+  const path = `${repo.username}/${repo.repoName}/${pkgName}`;
 
   return `${SHIELDS_API.PKG_JSON_DEPENDENCY}/${path}`;
 }
