@@ -4,7 +4,7 @@
 import {
   GO_MODULE_SHIELD,
   NODE_VERSION_BADGE,
-  STATIC_DEPENDENCY
+  STATIC_DEPENDENCY,
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
@@ -23,10 +23,10 @@ export function dependency(name: string, registry: REGISTRY) {
   const url = `${registry}/${name}`;
 
   return genericBadge(
-    STATIC_DEPENDENCY.LABEL!,
+    STATIC_DEPENDENCY.label!,
     name,
-    STATIC_DEPENDENCY.COLOR!,
-    STATIC_DEPENDENCY.IS_LARGE,
+    STATIC_DEPENDENCY.color!,
+    STATIC_DEPENDENCY.isLarge,
     url
   );
 }

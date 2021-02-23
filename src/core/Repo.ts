@@ -63,10 +63,10 @@ export class Repo {
     const target = this.ghPagesURL();
 
     return genericBadge(
-      GH_PAGES_BADGE.LABEL!,
-      GH_PAGES_BADGE.MESSAGE!,
-      GH_PAGES_BADGE.COLOR!,
-      GH_PAGES_BADGE.IS_LARGE,
+      GH_PAGES_BADGE.label!,
+      GH_PAGES_BADGE.message!,
+      GH_PAGES_BADGE.color!,
+      GH_PAGES_BADGE.isLarge,
       target
     );
   }
@@ -79,15 +79,15 @@ export class Repo {
     const target = this._templateURL();
 
     return genericBadge(
-      TEMPLATE_BADGE.LABEL!,
-      TEMPLATE_BADGE.MESSAGE!,
-      TEMPLATE_BADGE.COLOR!,
-      TEMPLATE_BADGE.IS_LARGE,
+      TEMPLATE_BADGE.label!,
+      TEMPLATE_BADGE.message!,
+      TEMPLATE_BADGE.color!,
+      TEMPLATE_BADGE.isLarge,
       target,
-      TEMPLATE_BADGE.LOGO,
+      TEMPLATE_BADGE.logo,
       "",
       false,
-      TEMPLATE_BADGE.ALT_TEXT
+      TEMPLATE_BADGE.altText
     );
   }
 
@@ -131,15 +131,15 @@ export class Repo {
     }
 
     return genericBadge(
-      LICENSE_BADGE.LABEL!,
+      LICENSE_BADGE.label!,
       this.licenseType,
-      LICENSE_BADGE.COLOR!,
-      LICENSE_BADGE.IS_LARGE,
+      LICENSE_BADGE.color!,
+      LICENSE_BADGE.isLarge,
       this._licenseTarget(localLicense),
       "",
       "",
       false,
-      LICENSE_BADGE.ALT_TEXT
+      LICENSE_BADGE.altText
     );
   }
 
@@ -170,11 +170,11 @@ Released under ${license} by ${user}.
     return genericBadge(
       label,
       message,
-      GH_BADGE.COLOR!,
-      GH_BADGE.IS_LARGE,
+      GH_BADGE.color!,
+      GH_BADGE.isLarge,
       target,
-      GH_BADGE.LOGO,
-      GH_BADGE.LOGO_COLOR,
+      GH_BADGE.logo,
+      GH_BADGE.logoColor,
       onlyQueryParams
     );
   }
