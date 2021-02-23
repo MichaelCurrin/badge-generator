@@ -4,7 +4,7 @@
 import {
   GO_MODULE_SHIELD,
   NODE_VERSION_BADGE,
-  STATIC_DEPENDENCY,
+  STATIC_DEPENDENCY
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
@@ -71,21 +71,20 @@ export function nodeVersionBadge(
   });
 }
 
+// TODO: Add to Packages view.
 /**
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */
 export function goVersionBadge(username: string, repoName: string) {
   const baseImageUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`;
-  const params = logoParams({
-    isLarge: GO_MODULE_SHIELD.IS_LARGE,
-    logo: GO_MODULE_SHIELD.LOGO,
-    logoColor: GO_MODULE_SHIELD.LOGO_COLOR,
-  });
+  const params = logoParams(GO_MODULE_SHIELD);
   const imageTarget = buildUrl(baseImageUrl, params);
 
+  const { altText, linkTarget } = GO_MODULE_SHIELD;
+
   return mdImageWithLink({
-    altText: GO_MODULE_SHIELD.ALT_TEXT!,
+    altText,
     imageTarget,
-    linkTarget: GO_MODULE_SHIELD.TARGET,
+    linkTarget,
   });
 }

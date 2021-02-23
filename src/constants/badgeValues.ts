@@ -52,10 +52,10 @@ export const NODE_VERSION_BADGE = {
   IS_LARGE: false,
 };
 
-export const GO_MODULE_SHIELD: genericBadgeBase = {
-  IS_LARGE: false,
-  LOGO: "go",
-  LOGO_COLOR: "white",
-  TARGET: "https://golang.org",
-  ALT_TEXT: "Made with Go",
+export const GO_MODULE_SHIELD = {
+  isLarge: false,
+  logo: "go",
+  logoColor: "white",
+  linkTarget: "https://golang.org",
+  altText: "Made with Go",
 };
