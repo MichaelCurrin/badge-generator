@@ -64,14 +64,20 @@ export function dashShieldPath(badge: GenericBadge) {
   return pieces.join("-");
 }
 
+type TLogoParams = {
+  isLarge?: boolean;
+  logo?: string;
+  logoColor?: string;
+};
+
 /**
- * Generate parameters for styling a badge on shields.io API.
+ * Generate URL parameters for styling a badge on shields.io API.
  */
 export function logoParams({
-  isLarge = false,
+  isLarge,
   logo,
   logoColor,
-}: { isLarge?: boolean; logo?: string; logoColor?: string } = {}) {
+}: TLogoParams = {}) {
   const params: StrMap = {};
 
   if (isLarge) {
