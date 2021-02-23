@@ -25,8 +25,6 @@
 
 ### Generate badges
 
-_Enter form details and then generate markdown code and badge previews_
-
 <!-- It's best to have these each on their own line for readability. -->
 
 <div align="center">
@@ -38,6 +36,13 @@ _Enter form details and then generate markdown code and badge previews_
         <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="400" />
     </a>
 </div>
+
+How to use:
+
+1. Fill in a form on of the pages.
+1. Press <kbd>Enter</kbd> or click _Submit_.
+1. Verify the generated badge previews are working and if they need adjustment.
+1. Copy and paste the markdown snippets to your `README.md`.
 
 
 ## Open the web app
