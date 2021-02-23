@@ -27,6 +27,12 @@
 
 <!-- It's best to have these each on their own line for readability. -->
 
+The screenshots below can be labelled as follows:
+
+1. Add your input data.
+1. View the shields as rendered images.
+1. View and copy the shields as markdown text.
+
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
         <img src="/docs/_media/inputs.png" alt="Home screenshot" title="Inputs screenshot" height="200" />
@@ -36,14 +42,6 @@
         <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="400" />
     </a>
 </div>
-
-How to use:
-
-1. Navigate to a page.
-2. Fill in a form.
-3. Press <kbd>Enter</kbd> or click _Submit_.
-4. Verify that the generated badge image previews what you expect.
-5. Copy and paste the markdown snippets to your `README.md`.
 
 
 ## Open the web app
@@ -55,6 +53,14 @@ Start creating badges for your docs.
 [![Site](https://img.shields.io/badge/View_site-Badge_Generator-2ea44f?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
 
 </div>
+
+### How to use
+
+1. Navigate to a page.
+2. Fill in a form.
+3. Press <kbd>Enter</kbd> or click _Submit_.
+4. Verify that the generated badge image previews what you expect.
+5. Copy and paste the markdown snippets to your `README.md`.
 
 
 ## Documentation
