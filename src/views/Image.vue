@@ -173,20 +173,21 @@ export default Vue.extend({
       console.debug("Process inputs and render results");
 
       const htmlImg = mkHtmlImg(
-          this.imgSrc,
-          this.altTextOut,
-          this.imgTitleOut,
-          this.linkTarget,
-          this.width,
-          this.height,
-          this.alignCenter ? "center" : ""
-        ),
-        mdImg = mdImageWithLink(
-          this.altTextOut,
-          this.imgSrc,
-          this.linkTarget,
-          this.imgTitleOut
-        );
+        this.imgSrc,
+        this.altTextOut,
+        this.imgTitleOut,
+        this.linkTarget,
+        this.width,
+        this.height,
+        this.alignCenter ? "center" : ""
+      );
+
+      const mdImg = mdImageWithLink({
+        altText: this.altTextOut,
+        imageTarget: this.imgSrc,
+        linkTarget: this.linkTarget,
+        hoverTitle: this.imgTitleOut,
+      });
 
       this.result = `\
 _HTML image_

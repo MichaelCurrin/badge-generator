@@ -34,7 +34,7 @@ The Vue Router package handles navigation for us. For links outside of the navba
 
 ## Lint
 
-Apply lint fixes (with ESLint) and formatting fixes (with Prettier). Show any errors that could no be fixed.
+Apply lint fixes (with ESLint) and formatting fixes (with Prettier). Show any errors that could not be fixed.
 
 ```sh
 $ make lint

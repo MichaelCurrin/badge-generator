@@ -5,7 +5,7 @@
  * status badge". This is added to this generator project for convenience. Plus with a smart target
  * URL added.
  */
-import { GHWorkflow } from "./ghActions.d";
+import { TGHWorkflow } from "./ghActions.d";
 import { mdImageWithLink } from "./markdown";
 import { Repo } from "./Repo";
 
@@ -14,10 +14,7 @@ import { Repo } from "./Repo";
  *
  * Note that "+" does not work in place of a space, so "%20" must be used.
  */
-export function _statusBadgeUrl({
-  ghURL,
-  workflowName,
-}: GHWorkflow) {
+export function _statusBadgeUrl({ ghURL, workflowName }: TGHWorkflow) {
   const encodedName = encodeURIComponent(workflowName);
 
   return `${ghURL}/workflows/${encodedName}/badge.svg`;
@@ -28,10 +25,7 @@ export function _statusBadgeUrl({
  *
  * Note that this URL does not need encoding - GitHub handles the unescaped colon and quotes fine.
  */
-export function _statusTargetUrl({
-  ghURL,
-  workflowName,
-}: GHWorkflow) {
+export function _statusTargetUrl({ ghURL, workflowName }: TGHWorkflow) {
   const encodedName = workflowName.replace(/ /g, "+");
 
   return `${ghURL}/actions?query=workflow:"${encodedName}"`;
@@ -43,14 +37,11 @@ export function _statusTargetUrl({
  * Workflow names comes from the `name` value at the top of your YAML file. The actual filename is
  * irrelevant.
  */
-export function _statusData({
-  ghURL,
-  workflowName,
-}: GHWorkflow) {
+export function _statusData({ ghURL, workflowName }: TGHWorkflow) {
   return {
     altText: workflowName,
-    imgUrl: _statusBadgeUrl({ ghURL, workflowName }),
-    target: _statusTargetUrl({ ghURL, workflowName }),
+    imageTarget: _statusBadgeUrl({ ghURL, workflowName }),
+    linkTarget: _statusTargetUrl({ ghURL, workflowName }),
   };
 }
 
@@ -59,8 +50,7 @@ export function _statusData({
  */
 export function statusBadge(repo: Repo, workflowName: string) {
   const ghURL = repo.ghURL();
-
   const fields = _statusData({ ghURL, workflowName });
 
-  return mdImageWithLink(fields.altText, fields.imgUrl, fields.target);
+  return mdImageWithLink(fields);
 }

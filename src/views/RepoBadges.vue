@@ -72,7 +72,7 @@
               <TextInput
                 label="Name"
                 placeholder="Node CI"
-                note='From the "name" field of a GH Actions workflow file.'
+                note='From the "name" field of a GH Actions workflow file. For badge-generator default repo, you can use "GH Pages Deploy" for a sample.'
                 v-model="workflowName"
               />
             </fieldset>

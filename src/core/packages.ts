@@ -63,33 +63,37 @@ export function nodeVersionBadge(
     pkgName = repoName;
   }
   // TODO Rename var to alt text.
-  const title = `Package - ${pkgName}`;
+  const altText = `Package - ${pkgName}`;
 
   // TODO Rename PACKAGE and break out to function.
   const imgUrl = `${SHIELDS_API.PACKAGE}/${username}/${repoName}/${pkgName}`,
     params = logoParams(false, logo, logoColor),
-    fullImgUrl = buildUrl(imgUrl, params);
+    imageTarget = buildUrl(imgUrl, params);
 
-  const target = `${REGISTRY.Node}/${pkgName}`;
+  const linkTarget = `${REGISTRY.Node}/${pkgName}`;
 
-  return mdImageWithLink(title, fullImgUrl, target);
+  return mdImageWithLink({
+    altText,
+    imageTarget,
+    linkTarget,
+  });
 }
 
 /**
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */
 export function goVersionBadge(username: string, repoName: string) {
-  const imgUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`,
-    params = logoParams(
-      GO_MODULE_SHIELD.IS_LARGE,
-      GO_MODULE_SHIELD.LOGO,
-      GO_MODULE_SHIELD.LOGO_COLOR
-    ),
-    fullImgUrl = buildUrl(imgUrl, params);
-
-  return mdImageWithLink(
-    GO_MODULE_SHIELD.ALT_TEXT,
-    fullImgUrl,
-    GO_MODULE_SHIELD.TARGET
+  const imgUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`;
+  const params = logoParams(
+    GO_MODULE_SHIELD.IS_LARGE,
+    GO_MODULE_SHIELD.LOGO,
+    GO_MODULE_SHIELD.LOGO_COLOR
   );
+  const imageTarget = buildUrl(imgUrl, params);
+
+  return mdImageWithLink({
+    altText: GO_MODULE_SHIELD.ALT_TEXT,
+    imageTarget,
+    linkTarget: GO_MODULE_SHIELD.TARGET,
+  });
 }

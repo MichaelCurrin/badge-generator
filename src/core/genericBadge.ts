@@ -17,15 +17,17 @@ import { logoParams, staticDashUrl, _staticParamsUrl } from "./shieldsApi";
  * The args could be converted to a destructured argument (VS Code does this easily), maybe even
  * multiple types to capture first few values separately.
  *
- * Use of altText argument allows the generated value to be overridden. This is useful if you want alt text that won't go out of date. e.g. Use "Made with Python" instead This is useful if you want to avoid generated a badge which is harder to maintain because of using the same value in two places. Like having "3.9" as the version in the alt text and the badge message.
- *
+ * Use of altText argument allows the generated value to be overridden. This is useful if you want
+ * alt text that won't go out of date. e.g. Use "Made with Python" instead This is useful if you
+ * want to avoid generated a badge which is harder to maintain because of using the same value in
+ * two places. Like having "3.9" as the version in the alt text and the badge message.
  */
 export function genericBadge(
   label: string,
   message: string,
   color: string,
   isLarge = false,
-  target = "",
+  linkTarget = "",
   logo = "",
   logoColor = "",
   onlyQueryParams = false,
@@ -42,9 +44,13 @@ export function genericBadge(
   const badgeFields = { label, message, color },
     styleParams = logoParams(isLarge, logo, logoColor);
 
-  const fullImgUrl = onlyQueryParams
+  const imageTarget = onlyQueryParams
     ? _staticParamsUrl(badgeFields, styleParams)
     : staticDashUrl(badgeFields, styleParams);
 
-  return mdImageWithLink(altText, fullImgUrl, target);
+  return mdImageWithLink({
+    altText,
+    imageTarget,
+    linkTarget,
+  });
 }
