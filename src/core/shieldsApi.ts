@@ -4,6 +4,7 @@
 import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
+import { TLogoParams } from "./shieldsApi.d.ts";
 import { GenericBadge, GHRepo, PopularityType, StrMap } from "./types.d";
 
 /**
@@ -63,12 +64,6 @@ export function dashShieldPath(badge: GenericBadge) {
 
   return pieces.join("-");
 }
-
-type TLogoParams = {
-  isLarge?: boolean;
-  logo?: string;
-  logoColor?: string;
-};
 
 /**
  * Generate URL parameters for styling a badge on shields.io API.
