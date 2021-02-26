@@ -1,4 +1,3 @@
-# Workflow was generated when choosing a code scanning option on the Security tab.
 name: CodeQL
 
 on:
@@ -29,7 +28,7 @@ jobs:
         language: [ "javascript" ]
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Initialize CodeQL
