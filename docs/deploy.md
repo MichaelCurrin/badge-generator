@@ -9,11 +9,13 @@ Do a production build and output to the `dist` directory.
 $ make build
 ```
 
-This runs Vue's build command including cleaning the output directory. This can be done locally to preview a build.
+Notes:
 
-Note that this used TypeScript internally - you do **not** need to run a compile command as part of this command.
 
-The command uses the `--mode production` by default.
+- This runs Vue CLI's `build` command
+- This cleans the output directory.
+- It uses TypeScript internally - you do not need to run a compile step here.
+- The `--mode production` flag is set by default.
 
 
 ## Release

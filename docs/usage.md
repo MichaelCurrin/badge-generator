@@ -51,9 +51,9 @@ Run unit tests.
 $ make test
 ```
 
-That includes a step to compile to TypeScript to give validation.
+That includes a step to compile to TypeScript, to give validation. Though the compiled output JS is not actually needed.
 
-The compiled JS is not actually needed. If you need to run tests alone you can do:
+To run tests without compilation, just run:
 
 ```sh
 $ yarn test:unit
