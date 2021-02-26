@@ -19,15 +19,23 @@ $ vue-cli-service test:unit
 
 For more info see [@vue/cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins/unit-jest.html).
 
+### Customization
+
 Note that from the CLI help, that _all jest command line options are supported_.
 
-So, to add test coverage:
+To add test coverage:
 
 ```sh
-$ vue-cli-service test:unit --coverage
+$ vue-cli-service test:unit --coverage --detectOpenHandles
 ```
 
-You're supposed to the CLI approach according to the docs.
+A warning requested `--detectOpenHandles` flag to be added.
+
+> A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with `--detectOpenHandles` to find leaks.
+
+### Running test directly
+
+You're supposed to the Vue CLI approach according to the docs.
 
 > Note that directly running jest will fail because the Babel preset requires hints to make your code work in Node.js, so you must run your tests with vue-cli-service test:unit.
 
@@ -38,6 +46,7 @@ $ jest --coverage
 ```
 
 Perhaps because I only have unit tests on JS files and not on Vue files, which would need transpilation with Babel.
+
 
 ## Test layout
 
