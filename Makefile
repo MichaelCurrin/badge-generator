@@ -12,7 +12,7 @@ install:
 	yarn install
 
 upgrade:
-	yarn update
+	yarn upgrade
 
 
 l lint:
