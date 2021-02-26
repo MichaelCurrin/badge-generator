@@ -4,7 +4,7 @@
 import {
   GO_MODULE_SHIELD,
   NODE_VERSION_BADGE,
-  STATIC_DEPENDENCY,
+  STATIC_DEPENDENCY
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "../constants/urls";
 import { buildUrl } from "./badges";
@@ -34,8 +34,8 @@ export function dependency(name: string, registry: REGISTRY) {
 /**
  * Dynamic Node package badge.
  *
- * The badge will dynamically display given package's locked version number, using your repo's
- * package.json file.
+ * The badge will dynamically display the locked version number of a named package which is set in
+ * your repo's package.json file.
  *
  * Note - the badge URL needs something added to work for dev dependencies. I'm happy to not support
  * that now.
