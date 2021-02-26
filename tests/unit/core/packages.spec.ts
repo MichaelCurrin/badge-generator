@@ -4,8 +4,8 @@ import { Repo } from "@/core/Repo";
 
 describe("#dependency", () => {
   it("returns a standard size static badge for a Node package", () => {
-    const imageTarget = 'https://img.shields.io/badge/dependency-react-blue'
-    const linkTarget = "https://www.npmjs.com/package/react"
+    const imageTarget = "https://img.shields.io/badge/dependency-react-blue";
+    const linkTarget = "https://www.npmjs.com/package/react";
 
     expect(dependency("react", REGISTRY.Node)).toBe(
       `[![dependency - react](${imageTarget})](${linkTarget})`
