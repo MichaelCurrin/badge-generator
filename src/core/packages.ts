@@ -49,9 +49,6 @@ export function nodeVersionBadge(
   logo?: string,
   logoColor?: string
 ) {
-  if (!pkgName) {
-    pkgName = repo.repoName;
-  }
   const altText = `Package - ${pkgName}`;
 
   const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName),
