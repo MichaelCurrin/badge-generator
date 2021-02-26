@@ -20,7 +20,7 @@ l lint:
 
 t test:
 	yarn compile
-	yarn test:unit
+	yarn test:coverage
 
 
 s serve: lint

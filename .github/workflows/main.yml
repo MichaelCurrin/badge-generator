@@ -41,7 +41,7 @@ jobs:
         run: yarn lint:check
 
       - name: Test 🚨
-        run: yarn test:unit
+        run: yarn test:coverage
 
       - name: Build 🏗️
         run: yarn build

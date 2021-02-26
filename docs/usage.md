@@ -53,7 +53,7 @@ $ make test
 
 That includes a step to compile to TypeScript, to give validation. Though the compiled output JS is not actually needed.
 
-To run tests without compilation, just run:
+To run tests without compilation and without code coverage, just run:
 
 ```sh
 $ yarn test:unit
