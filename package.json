@@ -43,15 +43,15 @@
     "typescript": "^4.1.3",
     "vue-template-compiler": "^2.6.12"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "homepage": "https://github.com/MichaelCurrin/badge-generator#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/MichaelCurrin/badge-generator"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
