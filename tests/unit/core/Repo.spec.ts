@@ -4,6 +4,16 @@ describe("#Repo", () => {
   const repoNoLicense = new Repo("MichaelCurrin", "badge-generator");
   const repoWithLicense = new Repo("MichaelCurrin", "badge-generator", "MIT");
 
+  describe("Error handling on initialization", () => {
+    it("throws an error on empty username", () => {
+      expect(() => new Repo("", "badge-generator")).toThrow();
+    });
+
+    it("throws an error on empty repo name", () => {
+      expect(() => new Repo("MichaelCurrin", "")).toThrow();
+    });
+  });
+
   describe("#ghURL", () => {
     it("returns a valid GitHub repo URL", () => {
       expect(repoNoLicense.ghURL()).toBe(
