@@ -26,7 +26,7 @@ describe("#nodeVersionBadge", () => {
     );
   });
 
-  it("returns a dynamic Node package badge with a logo and no logo color", () => {
+  it("returns a dynamic Node package badge with a logo but no logo color", () => {
     const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js";
 
@@ -35,7 +35,7 @@ describe("#nodeVersionBadge", () => {
     );
   });
 
-  it("returns a dynamic Node package badge with a logo and logo color", () => {
+  it("returns a dynamic Node package badge with a logo and a logo color", () => {
     const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white";
 
