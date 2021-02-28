@@ -1,8 +1,10 @@
 import {
+  statusBadge,
   _statusBadgeUrl,
   _statusData,
   _statusTargetUrl,
 } from "@/core/ghActions";
+import { Repo } from "@/core/Repo";
 
 describe("#_statusBadgeUrl", () => {
   describe("a valid GH CI badge image URL", () => {
@@ -128,6 +130,41 @@ describe("#_statusData", () => {
       };
 
       expect(_statusData(ghWorkflow)).toStrictEqual(expected);
+    });
+  });
+});
+
+// It might seem unnecessary to have a function which has output as a badge when it is already
+// tested as the data, but the markdown image formatting must still encode (or not encode) inputs in
+// a certain way so it is still worth testing the whole function.
+describe("#statusBadge", () => {
+  describe("valid CI badge with a link", () => {
+    it("handles a foo bar CI project", () => {
+      const repo = new Repo("foo", "bar");
+      const workflowName = "Bazz CI";
+
+      const imageTarget =
+        "https://github.com/foo/bar/workflows/Bazz%20CI/badge.svg";
+      const linkTarget =
+        'https://github.com/foo/bar/actions?query=workflow:"Bazz+CI"';
+
+      expect(statusBadge(repo, workflowName)).toBe(
+        `[![Bazz CI](${imageTarget})](${linkTarget})`
+      );
+    });
+
+    it("handles GH Pages Deploy for badge-generator", () => {
+      const repo = new Repo("MichaelCurrin", "badge-generator");
+      const workflowName = "GH Pages Deploy";
+
+      const imageTarget =
+        "https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg";
+      const linkTarget =
+        'https://github.com/MichaelCurrin/badge-generator/actions?query=workflow:"GH+Pages+Deploy"';
+
+      expect(statusBadge(repo, workflowName)).toBe(
+        `[![GH Pages Deploy](${imageTarget})](${linkTarget})`
+      );
     });
   });
 });
