@@ -6,7 +6,7 @@ import {
   GH_PAGES_BADGE,
   LICENSE_BADGE,
   TEMPLATE_BADGE,
-} from "../constants/badgeValues";
+} from "@/constants/badgeValues";
 import {
   DEFAULT_BRANCH,
   GITHUB_DOMAIN,
@@ -14,7 +14,7 @@ import {
   LICENSE_PATH,
   SHIELDS_API,
   VERSION_PARAMS,
-} from "../constants/urls";
+} from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
