@@ -153,14 +153,11 @@ export default Vue.extend({
 
       const repo = new Repo(this.username, this.repoName);
       const logoAppearance = { logo: this.logo, logoColor: this.logoColor };
+      // TODO Set based on user flag.
+      const environment = ENVIRONMENT.Prod;
       const lockedPkgBadge =
         registry === REGISTRY.Node
-          ? nodeVersionBadge(
-              repo,
-              this.pkgName,
-              logoAppearance,
-              ENVIRONMENT.Prod
-            )
+          ? nodeVersionBadge(repo, this.pkgName, logoAppearance, environment)
           : "";
 
       this.result = `\
