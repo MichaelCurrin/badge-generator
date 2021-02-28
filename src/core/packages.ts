@@ -68,7 +68,8 @@ export function nodeVersionBadge(
   });
 }
 
-// TODO: Add to Packages view.
+// TODO: Add to Packages view or Repo view.
+// TODO: Accept Repo type.
 /**
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */
