@@ -21,7 +21,7 @@ describe("#nodeVersionBadge", () => {
     const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue";
 
-    expect(nodeVersionBadge(repo, "vue")).toBe(
+    expect(nodeVersionBadge(repo, "vue", {})).toBe(
       `[![Package - vue](${imageTarget})](${linkTarget})`
     );
   });
@@ -30,7 +30,7 @@ describe("#nodeVersionBadge", () => {
     const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js";
 
-    expect(nodeVersionBadge(repo, "vue", "vue.js")).toBe(
+    expect(nodeVersionBadge(repo, "vue", { logo: "vue.js" })).toBe(
       `[![Package - vue](${imageTarget})](${linkTarget})`
     );
   });
@@ -39,7 +39,11 @@ describe("#nodeVersionBadge", () => {
     const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white";
 
-    expect(nodeVersionBadge(repo, "vue", "vue.js", "white")).toBe(
+    const logoAppearance = {
+      logo: "vue.js",
+      logoColor: "white",
+    };
+    expect(nodeVersionBadge(repo, "vue", logoAppearance)).toBe(
       `[![Package - vue](${imageTarget})](${linkTarget})`
     );
   });
