@@ -134,13 +134,12 @@ describe("#Repo", () => {
   });
 
   describe("#licenseMessage", () => {
-    const message = `\
+    it("return a correct license message for a known license", () => {
+      const message = `\
 ## License
 
 Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
 `;
-
-    it("return a message for license", () => {
       expect(repoWithLicense.licenseMessage()).toBe(message);
     });
   });
