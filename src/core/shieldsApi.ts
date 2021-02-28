@@ -7,6 +7,7 @@ import { buildUrl } from "./badges";
 import { TLogoAppearance } from "./shieldsApi.d";
 import { GenericBadge, GHRepo, PopularityType, StrMap } from "./types.d";
 
+// Enums don't seem to work in `.d` files, so here is best now.
 export enum ENVIRONMENT {
   Prod,
   Dev,
