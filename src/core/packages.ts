@@ -6,7 +6,7 @@ import {
   NODE_VERSION_BADGE,
   STATIC_DEPENDENCY,
 } from "@/constants/badgeValues";
-import { REGISTRY, SHIELDS_API } from "../constants/urls";
+import { REGISTRY, SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";

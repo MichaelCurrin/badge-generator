@@ -1,4 +1,4 @@
-import { BADGE_DEFAULTS, BADGE_DETAILS } from "../constants/catalogue";
+import { BADGE_DEFAULTS, BADGE_DETAILS } from "@/constants/catalogue";
 import { genericBadge } from "./genericBadge";
 
 export function renderBadges() {
