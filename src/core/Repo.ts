@@ -20,7 +20,7 @@ import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
 import { ghSocialShieldUrl } from "./shieldsApi";
-import { PopularityType } from "./types";
+import { PopularityType } from "./types.d";
 
 export class Repo {
   constructor(
