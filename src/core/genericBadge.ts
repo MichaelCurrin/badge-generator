@@ -1,6 +1,6 @@
 import { formatTitle } from "./badges";
 import { mdImageWithLink } from "./markdown";
-import { logoParams, staticDashUrl, _staticParamsUrl } from "./shieldsApi";
+import { logoQueryParams, staticDashUrl, _staticParamsUrl } from "./shieldsApi";
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
 /**
@@ -42,7 +42,7 @@ export function genericBadge(
   altText = altText || formatTitle(label, message);
 
   const badgeFields = { label, message, color },
-    styleParams = logoParams({ isLarge, logo, logoColor });
+    styleParams = logoQueryParams({ isLarge, logo, logoColor });
 
   const imageTarget = onlyQueryParams
     ? _staticParamsUrl(badgeFields, styleParams)

@@ -11,7 +11,7 @@ import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";
 import { Repo } from "./Repo";
-import { logoParams, nodePkgJsonShieldUrl } from "./shieldsApi";
+import { logoQueryParams, nodePkgJsonShieldUrl } from "./shieldsApi";
 
 /**
  * Static dependency badge.
@@ -52,7 +52,7 @@ export function nodeVersionBadge(
   const altText = `Package - ${pkgName}`;
 
   const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName),
-    params = logoParams({
+    params = logoQueryParams({
       isLarge: NODE_VERSION_BADGE.IS_LARGE,
       logo,
       logoColor,
@@ -75,7 +75,7 @@ export function nodeVersionBadge(
  */
 export function goVersionBadge(username: string, repoName: string) {
   const baseImageUrl = `${SHIELDS_API.GO_MODULE}/${username}/${repoName}`;
-  const params = logoParams(GO_MODULE_SHIELD);
+  const params = logoQueryParams(GO_MODULE_SHIELD);
   const imageTarget = buildUrl(baseImageUrl, params);
 
   const { altText, linkTarget } = GO_MODULE_SHIELD;
