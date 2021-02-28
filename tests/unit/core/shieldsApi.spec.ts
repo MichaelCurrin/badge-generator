@@ -1,7 +1,9 @@
+import { Repo } from "@/core/Repo";
 import {
   dashShieldPath,
   ghSocialShieldUrl,
   logoQueryParams,
+  nodePkgJsonShieldUrl,
   staticDashUrl,
   _decodeAngleBrackets,
   _encodeParam,
@@ -217,9 +219,22 @@ describe("#ghSocialShieldUrl", () => {
   });
 
   it("return a valid stars counter URL", () => {
-    const expectedUrl =
-      "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social";
+    expect(ghSocialShieldUrl("stars", repo)).toBe(
+      "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social"
+    );
+  });
+});
 
-    expect(ghSocialShieldUrl("stars", repo)).toBe(expectedUrl);
+describe("#nodePkgJsonShieldUrl", () => {
+  const repo = new Repo("MichaelCurrin", "badge-generator");
+
+  describe("prod dependency", () => {
+    const pkgName = "vue";
+
+    it("return a valid dynamic Node packages URL", () => {
+      expect(nodePkgJsonShieldUrl(repo, pkgName)).toBe(
+        "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue"
+      );
+    });
   });
 });
