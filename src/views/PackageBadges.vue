@@ -113,6 +113,7 @@ import { REGISTRY } from "@/constants/urls";
 import { COLOR } from "@/constants/appearance";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
+import { ENVIRONMENT } from "@/core/shieldsApi";
 
 const note = `
 - Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
@@ -154,7 +155,12 @@ export default Vue.extend({
       const logoAppearance = { logo: this.logo, logoColor: this.logoColor };
       const lockedPkgBadge =
         registry === REGISTRY.Node
-          ? nodeVersionBadge(repo, this.pkgName, logoAppearance)
+          ? nodeVersionBadge(
+              repo,
+              this.pkgName,
+              logoAppearance,
+              ENVIRONMENT.Prod
+            )
           : "";
 
       this.result = `\

@@ -11,7 +11,11 @@ import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";
 import { Repo } from "./Repo";
-import { logoQueryParams, nodePkgJsonShieldUrl } from "./shieldsApi";
+import {
+  ENVIRONMENT,
+  logoQueryParams,
+  nodePkgJsonShieldUrl,
+} from "./shieldsApi";
 import { TLogoAppearance } from "./shieldsApi.d";
 
 /**
@@ -47,12 +51,13 @@ export function dependency(name: string, registry: REGISTRY) {
 export function nodeVersionBadge(
   repo: Repo,
   pkgName: string,
-  logoAppearance: TLogoAppearance
+  logoAppearance: TLogoAppearance,
+  environment: ENVIRONMENT
 ) {
   const altText = `Package - ${pkgName}`;
 
   logoAppearance.isLarge = NODE_VERSION_BADGE.IS_LARGE;
-  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName),
+  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName, environment),
     params = logoQueryParams(logoAppearance),
     imageTarget = buildUrl(baseImageUrl, params);
 

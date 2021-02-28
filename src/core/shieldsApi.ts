@@ -7,6 +7,11 @@ import { buildUrl } from "./badges";
 import { TLogoAppearance } from "./shieldsApi.d";
 import { GenericBadge, GHRepo, PopularityType, StrMap } from "./types.d";
 
+export enum ENVIRONMENT {
+  Prod,
+  Dev,
+}
+
 /**
  * Encode separators for use on shields.io API.
  *
@@ -114,8 +119,15 @@ export function ghSocialShieldUrl(type: PopularityType, repo: GHRepo) {
 }
 
 /** Image URL for a dynamic Node package.json dependency badge. */
-export function nodePkgJsonShieldUrl(repo: GHRepo, pkgName: string) {
-  const path = `${repo.username}/${repo.repoName}/${pkgName}`;
+export function nodePkgJsonShieldUrl(
+  repo: GHRepo,
+  pkgName: string,
+  environment: ENVIRONMENT
+) {
+  const path =
+    environment === ENVIRONMENT.Prod
+      ? `${repo.username}/${repo.repoName}/${pkgName}`
+      : `${repo.username}/${repo.repoName}/dev/${pkgName}`;
 
   return `${SHIELDS_API.PKG_JSON_DEPENDENCY}/${path}`;
 }

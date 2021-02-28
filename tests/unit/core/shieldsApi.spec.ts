@@ -1,6 +1,7 @@
 import { Repo } from "@/core/Repo";
 import {
   dashShieldPath,
+  ENVIRONMENT,
   ghSocialShieldUrl,
   logoQueryParams,
   nodePkgJsonShieldUrl,
@@ -232,8 +233,18 @@ describe("#nodePkgJsonShieldUrl", () => {
     const pkgName = "vue";
 
     it("return a valid dynamic Node packages URL", () => {
-      expect(nodePkgJsonShieldUrl(repo, pkgName)).toBe(
+      expect(nodePkgJsonShieldUrl(repo, pkgName, ENVIRONMENT.Prod)).toBe(
         "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue"
+      );
+    });
+  });
+
+  describe("dev dependency", () => {
+    const pkgName = "typescript";
+
+    it("return a valid dynamic Node packages URL", () => {
+      expect(nodePkgJsonShieldUrl(repo, pkgName, ENVIRONMENT.Dev)).toBe(
+        "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript"
       );
     });
   });
