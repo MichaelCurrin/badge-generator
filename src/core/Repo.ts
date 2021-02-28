@@ -180,14 +180,13 @@ Released under ${license} by ${user}.
   }
 
   /* Social counter for repo popularity. */
-  ghSocial(type: PopularityType, usePreLabel = false) {
-    const preLabel = usePreLabel ? `${this.nameWithOwner()} ` : "",
-      shield = ghSocialShieldUrl(type, {
+  ghSocial(type: PopularityType) {
+    const shield = ghSocialShieldUrl(type, {
         username: this.username,
         repoName: this.repoName,
       }),
       target = this.ghURL();
 
-    return `[${preLabel}![${type} - ${this.repoName}](${shield})](${target})`;
+    return `[![${type} - ${this.repoName}](${shield})](${target})`;
   }
 }

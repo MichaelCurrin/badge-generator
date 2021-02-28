@@ -167,7 +167,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
       const badgeUrl =
         "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
 
-      expect(repoNoLicense.ghSocial("forks", false)).toBe(
+      expect(repoNoLicense.ghSocial("forks")).toBe(
         `[![forks - badge-generator](${badgeUrl})](${linkTarget})`
       );
     });
@@ -176,7 +176,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
       const badgeUrl =
         "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social";
 
-      expect(repoNoLicense.ghSocial("stars", false)).toBe(
+      expect(repoNoLicense.ghSocial("stars")).toBe(
         `[![stars - badge-generator](${badgeUrl})](${linkTarget})`
       );
     });
