@@ -134,13 +134,17 @@ describe("#Repo", () => {
   });
 
   describe("#licenseMessage", () => {
-    it("return a correct license message for a known license", () => {
+    it("return a correct license message for a known license type", () => {
       const message = `\
 ## License
 
 Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
 `;
       expect(repoWithLicense.licenseMessage()).toBe(message);
+    });
+
+    it("return an empty license message for no license type", () => {
+      expect(repoNoLicense.licenseMessage()).toBe("");
     });
   });
 
