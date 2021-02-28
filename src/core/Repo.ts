@@ -181,12 +181,13 @@ Released under ${license} by ${user}.
 
   /* Social counter for repo popularity. */
   ghSocial(type: PopularityType) {
-    const shield = ghSocialShieldUrl(type, {
-        username: this.username,
-        repoName: this.repoName,
-      }),
-      target = this.ghURL();
+    const altText = `${type} - ${this.repoName}`;
+    const imageTarget = ghSocialShieldUrl(type, {
+      username: this.username,
+      repoName: this.repoName,
+    });
+    const linkTarget = this.ghURL();
 
-    return `[![${type} - ${this.repoName}](${shield})](${target})`;
+    return mdImageWithLink({ altText, imageTarget, linkTarget });
   }
 }
