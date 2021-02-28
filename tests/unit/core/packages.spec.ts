@@ -17,7 +17,7 @@ describe("#nodeVersionBadge", () => {
   const linkTarget = "https://www.npmjs.com/package/vue";
   const repo = new Repo("MichaelCurrin", "badge-generator");
 
-  it("returns a dynamic Node badge", () => {
+  it("returns a dynamic Node package badge", () => {
     const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue";
 
@@ -26,7 +26,7 @@ describe("#nodeVersionBadge", () => {
     );
   });
 
-  it("returns a dynamic Node badge with a logo and no logo color", () => {
+  it("returns a dynamic Node package badge with a logo and no logo color", () => {
     const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js";
 
@@ -35,7 +35,7 @@ describe("#nodeVersionBadge", () => {
     );
   });
 
-  it("returns a dynamic Node badge with a logo and logo color", () => {
+  it("returns a dynamic Node package badge with a logo and logo color", () => {
     const imageTarget =
       "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white";
 
@@ -46,7 +46,7 @@ describe("#nodeVersionBadge", () => {
 });
 
 describe("#goVersionBadge", () => {
-  it("returns a dynamic Go version badge with Go logo", () => {
+  it("returns a dynamic Go version badge with the Go logo", () => {
     const imageTarget =
       "https://img.shields.io/github/go-mod/go-version/MichaelCurrin/go-project-template?logo=go&logoColor=white";
     const linkTarget = "https://golang.org";
