@@ -14,8 +14,6 @@ describe("#Repo", () => {
 
   describe("#ghPagesURL", () => {
     it("returns a valid GitHub Pages project URL", () => {
-      const repoNoLicense = new Repo("MichaelCurrin", "badge-generator");
-
       expect(repoNoLicense.ghPagesURL()).toBe(
         "https://michaelcurrin.github.io/badge-generator/"
       );
