@@ -1,4 +1,4 @@
-export type TLogoParams = {
+export type TLogoAppearance = {
   isLarge?: boolean;
   logo?: string;
   logoColor?: string;

@@ -4,7 +4,7 @@
 import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
-import { TLogoParams } from "./shieldsApi.d";
+import { TLogoAppearance } from "./shieldsApi.d";
 import { GenericBadge, GHRepo, PopularityType, StrMap } from "./types.d";
 
 /**
@@ -68,7 +68,7 @@ export function dashShieldPath(badge: GenericBadge) {
 /**
  * Generate URL query parameters for styling just about any badge on shields.io API.
  */
-export function logoQueryParams(logoAppearance: TLogoParams) {
+export function logoQueryParams(logoAppearance: TLogoAppearance) {
   const params: StrMap = {};
 
   if (logoAppearance.isLarge) {
