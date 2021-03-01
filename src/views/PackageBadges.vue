@@ -174,15 +174,16 @@ export default Vue.extend({
     submit() {
       console.debug("Process inputs and render results");
 
+      const logoAppearance = { logo: this.logo, logoColor: this.logoColor };
+
       const registryKey = this.pkgType as keyof typeof REGISTRY,
         registry = REGISTRY[registryKey];
 
       const dependencyBadge = registry
-        ? dependency(this.pkgName, registry)
+        ? dependency(this.pkgName, registry, logoAppearance)
         : "";
 
       const repo = new Repo(this.username, this.repoName);
-      const logoAppearance = { logo: this.logo, logoColor: this.logoColor };
       const envKey = this.envType as keyof typeof ENVIRONMENT,
         environment = ENVIRONMENT[envKey];
 

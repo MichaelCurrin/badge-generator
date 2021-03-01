@@ -4,7 +4,7 @@
 import {
   GO_MODULE_SHIELD,
   NODE_VERSION_BADGE,
-  STATIC_DEPENDENCY
+  STATIC_DEPENDENCY,
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
@@ -14,7 +14,7 @@ import { Repo } from "./Repo";
 import {
   ENVIRONMENT,
   logoQueryParams,
-  nodePkgJsonShieldUrl
+  nodePkgJsonShieldUrl,
 } from "./shieldsApi";
 import { TLogoAppearance } from "./shieldsApi.d";
 
@@ -30,7 +30,11 @@ import { TLogoAppearance } from "./shieldsApi.d";
  * TODO: Make a variation that accepts a version number for `foo >= 1` instead of using just
  * `dependency: foo`. This is already supported by Generic Page but it can be easier here.
  */
-export function dependency(name: string, registry: REGISTRY) {
+export function dependency(
+  name: string,
+  registry: REGISTRY,
+  logoAppearance: TLogoAppearance
+) {
   const url = `${registry}/${name}`;
 
   return genericBadge(
@@ -38,7 +42,9 @@ export function dependency(name: string, registry: REGISTRY) {
     name,
     STATIC_DEPENDENCY.color!,
     STATIC_DEPENDENCY.isLarge,
-    url
+    url,
+    logoAppearance.logo,
+    logoAppearance.logoColor
   );
 }
 

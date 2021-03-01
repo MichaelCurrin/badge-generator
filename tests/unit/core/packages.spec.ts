@@ -8,7 +8,7 @@ describe("#dependency", () => {
     const imageTarget = "https://img.shields.io/badge/dependency-react-blue";
     const linkTarget = "https://www.npmjs.com/package/react";
 
-    expect(dependency("react", REGISTRY.Node)).toBe(
+    expect(dependency("react", REGISTRY.Node, {})).toBe(
       `[![dependency - react](${imageTarget})](${linkTarget})`
     );
   });
