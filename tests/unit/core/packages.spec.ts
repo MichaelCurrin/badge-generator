@@ -4,13 +4,23 @@ import { Repo } from "@/core/Repo";
 import { ENVIRONMENT } from "@/core/shieldsApi";
 
 describe("#dependency", () => {
-  it("returns a standard size static badge for a Node package", () => {
+  it("returns a standard size static badge for React package", () => {
     const imageTarget = "https://img.shields.io/badge/dependency-react-blue";
     const linkTarget = "https://www.npmjs.com/package/react";
 
     expect(dependency("react", REGISTRY.Node, {})).toBe(
       `[![dependency - react](${imageTarget})](${linkTarget})`
     );
+  });
+
+  it("returns a static badge for React package, including a logo and logo color", () => {
+    const imageTarget =
+      "https://img.shields.io/badge/dependency-react-blue?logo=react&logoColor=white";
+    const linkTarget = "https://www.npmjs.com/package/react";
+
+    expect(
+      dependency("react", REGISTRY.Node, { logo: "react", logoColor: "white" })
+    ).toBe(`[![dependency - react](${imageTarget})](${linkTarget})`);
   });
 });
 
