@@ -4,7 +4,7 @@
 import {
   GO_MODULE_SHIELD,
   NODE_VERSION_BADGE,
-  STATIC_DEPENDENCY,
+  STATIC_DEPENDENCY
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
@@ -14,15 +14,21 @@ import { Repo } from "./Repo";
 import {
   ENVIRONMENT,
   logoQueryParams,
-  nodePkgJsonShieldUrl,
+  nodePkgJsonShieldUrl
 } from "./shieldsApi";
 import { TLogoAppearance } from "./shieldsApi.d";
 
 /**
  * Static dependency badge.
  *
- * TODO: Make a variation that accepts a version number for `foo >= 1` instead of `dependency: foo`.
- * That is already supported by Generic Page but it can be easier here.
+ * Use this to display a dependency like "Node" or "Vue" using a static version, like '17.x' or
+ * '>=12' or '3.4 - 3.9.
+ *
+ * This is useful if there is no wait to infer the version or version range automatically from files
+ * in the repo, or you just want more control at the cost of manual updates when ever it changes
+ *
+ * TODO: Make a variation that accepts a version number for `foo >= 1` instead of using just
+ * `dependency: foo`. This is already supported by Generic Page but it can be easier here.
  */
 export function dependency(name: string, registry: REGISTRY) {
   const url = `${registry}/${name}`;
