@@ -54,6 +54,30 @@
                 />
                 <label for="ruby">Ruby (Rubygems)</label>
               </div>
+              <br />
+
+              <div>
+                <span>Environment: </span>
+
+                <input
+                  type="radio"
+                  id="env-prod"
+                  name="env-type"
+                  :value="prodOption"
+                  v-model="envType"
+                  checked
+                />
+                <label for="env-prod">{{ prodOption }}</label>
+
+                <input
+                  type="radio"
+                  id="env-dev"
+                  name="env-type"
+                  :value="devOption"
+                  v-model="envType"
+                />
+                <label for="env-dev">{{ devOption }}</label>
+              </div>
             </fieldset>
             <br />
 
@@ -116,6 +140,7 @@ import { Repo } from "@/core/Repo";
 import { ENVIRONMENT } from "@/core/shieldsApi";
 
 const note = `
+- Environent setting is for Node packages only and must match whether the package is in "dependencies" or "devDependencies".
 - Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
 - Only NPM is currently supported for the dynamic package.
 `;
@@ -131,6 +156,11 @@ export default Vue.extend({
     return {
       pkgName: "vue",
       pkgType: "Node",
+
+      devOption: ENVIRONMENT[ENVIRONMENT.Dev],
+      prodOption: ENVIRONMENT[ENVIRONMENT.Prod],
+      envType: ENVIRONMENT[ENVIRONMENT.Prod],
+
       username: "MichaelCurrin",
       repoName: "badge-generator",
       logo: "vue.js",
@@ -153,8 +183,9 @@ export default Vue.extend({
 
       const repo = new Repo(this.username, this.repoName);
       const logoAppearance = { logo: this.logo, logoColor: this.logoColor };
-      // TODO Set based on user flag.
-      const environment = ENVIRONMENT.Prod;
+
+      const envKey = this.envType as keyof typeof ENVIRONMENT;
+      const environment = ENVIRONMENT[envKey];
       const lockedPkgBadge =
         registry === REGISTRY.Node
           ? nodeVersionBadge(repo, this.pkgName, logoAppearance, environment)
