@@ -105,6 +105,7 @@
               <TextInput
                 label="Logo color"
                 v-model="logoColor"
+                :disabled="logo === ''"
                 note="You can override with your own color, or leave blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is bland but most readable)."
               />
             </fieldset>
