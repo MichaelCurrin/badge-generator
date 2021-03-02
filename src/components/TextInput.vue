@@ -10,6 +10,7 @@
       :value="value"
       :placeholder="placeholder"
       :required="isRequired"
+      :disabled="disabled"
       v-on:input="$emit('input', $event.target.value)"
     />
 
@@ -40,8 +41,9 @@ export default Vue.extend({
     label: { type: String, required: true },
     value: { type: String, required: true },
     placeholder: { type: String, required: false },
-    note: { type: String, required: false },
     isRequired: { type: Boolean, required: false },
+    disabled: { type: Boolean, required: false },
+    note: { type: String, required: false },
   },
   computed: {
     slug() {
