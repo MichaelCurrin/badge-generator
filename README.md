@@ -25,7 +25,7 @@
 
 ### Generate badges
 
-<!-- It's best to have these each on their own line for readability. -->
+<!-- It's best to have these image each on their own row, for readability. -->
 
 The screenshots below can be labelled as follows:
 
@@ -74,8 +74,7 @@ Start creating badges for your docs.
 
 ## Contributing
 
-- Create an issue to request a feature.
-- Submit a PR to add an improvement, using a feature branch on your fork.
+See [Contributing](CONTRIBUTING.md) doc.
 
 
 ## Credits
