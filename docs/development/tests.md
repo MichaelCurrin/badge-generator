@@ -26,10 +26,10 @@ Note that from the CLI help, that _all jest command line options are supported_.
 To add test coverage:
 
 ```sh
-$ vue-cli-service test:unit --coverage --detectOpenHandles
+$ vue-cli-service test:unit --coverage
 ```
 
-A warning requested `--detectOpenHandles` flag to be added.
+Unrelated to a coverage, a warning requested `--detectOpenHandles` flag to be added.
 
 > A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with `--detectOpenHandles` to find leaks.
 
