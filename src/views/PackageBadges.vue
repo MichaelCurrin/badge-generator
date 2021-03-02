@@ -65,6 +65,7 @@
                   name="env-type"
                   :value="prodOption"
                   v-model="envType"
+                  :disabled="!envEnabled"
                   checked
                 />
                 <label for="env-prod">{{ prodOption }}</label>
@@ -75,6 +76,7 @@
                   name="env-type"
                   :value="devOption"
                   v-model="envType"
+                  :disabled="!envEnabled"
                 />
                 <label for="env-dev">{{ devOption }}</label>
               </div>
@@ -169,6 +171,11 @@ export default Vue.extend({
       result: "_Your output will appear here_",
       note: note,
     };
+  },
+  computed: {
+    envEnabled(): boolean {
+      return this.pkgType === "Node";
+    },
   },
   methods: {
     submit() {
