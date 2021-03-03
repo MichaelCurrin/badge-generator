@@ -4,7 +4,7 @@ import { Repo } from "@/core/Repo";
 import { ENVIRONMENT } from "@/core/shieldsApi";
 
 describe("#dependency", () => {
-  it("returns a standard size static badge for React package", () => {
+  it("returns a standard size static badge for a Node package", () => {
     const imageTarget = "https://img.shields.io/badge/dependency-react-blue";
     const linkTarget = "https://www.npmjs.com/package/react";
 
@@ -13,7 +13,7 @@ describe("#dependency", () => {
     );
   });
 
-  it("returns a static badge for React package, including a logo and logo color", () => {
+  it("returns a static badge for a Node package, including a logo and logo color", () => {
     const imageTarget =
       "https://img.shields.io/badge/dependency-react-blue?logo=react&logoColor=white";
     const linkTarget = "https://www.npmjs.com/package/react";
@@ -21,6 +21,15 @@ describe("#dependency", () => {
     expect(
       dependency("react", REGISTRY.Node, { logo: "react", logoColor: "white" })
     ).toBe(`[![dependency - react](${imageTarget})](${linkTarget})`);
+  });
+
+  it("returns a standard size static badge for a Python package", () => {
+    const imageTarget = "https://img.shields.io/badge/dependency-requests-blue";
+    const linkTarget = "https://pypi.org/project/requests";
+
+    expect(dependency("requests", REGISTRY.Python, {})).toBe(
+      `[![dependency - requests](${imageTarget})](${linkTarget})`
+    );
   });
 });
 
