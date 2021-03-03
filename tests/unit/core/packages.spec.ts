@@ -23,13 +23,26 @@ describe("#dependency", () => {
     ).toBe(`[![dependency - react](${imageTarget})](${linkTarget})`);
   });
 
-  it("returns a standard size static badge for a Python package", () => {
+  it("returns a static badge for a Python package", () => {
     const imageTarget = "https://img.shields.io/badge/dependency-requests-blue";
     const linkTarget = "https://pypi.org/project/requests";
 
     expect(dependency("requests", REGISTRY.Python, {})).toBe(
       `[![dependency - requests](${imageTarget})](${linkTarget})`
     );
+  });
+
+  it("returns a static badge for a Ruby package, including a logo and logo color", () => {
+    const imageTarget =
+      "https://img.shields.io/badge/dependency-jekyll-blue?logo=jekyll&logoColor=white";
+    const linkTarget = "https://rubygems.org/gems/jekyll";
+
+    expect(
+      dependency("jekyll", REGISTRY.Ruby, {
+        logo: "jekyll",
+        logoColor: "white",
+      })
+    ).toBe(`[![dependency - jekyll](${imageTarget})](${linkTarget})`);
   });
 });
 
