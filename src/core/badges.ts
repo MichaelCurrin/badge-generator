@@ -1,10 +1,10 @@
 import { StrMap } from "./types.d";
 
 /**
- * Serialize a URL with given query params.
+ * Create a serialized string from a base URL and query params.
  *
  * @param url Protocol, domain and path. This must have a protocol or it will be considered invalid.
- * @param queryParams Key-value pairs to be used as URL query parameters.
+ * @param queryParams Object of key-value pairs. This will be outputted in the form: '?foo=bar'.
  */
 export function buildUrl(url: string, queryParams: StrMap): string {
   const urlObj = new URL(url);
