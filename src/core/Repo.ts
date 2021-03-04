@@ -24,7 +24,7 @@ import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
 import { ghSocialShieldUrl } from "./shieldsApi";
-import { PopularityType } from "./types.d";
+import { RepoMetric } from "./types.d";
 
 export class Repo {
   constructor(
@@ -184,7 +184,7 @@ Released under ${license} by ${user}.
   }
 
   /* Social counter for repo popularity. */
-  ghSocial(type: PopularityType) {
+  ghSocial(type: RepoMetric) {
     const altText = `${type} - ${this.repoName}`;
     const imageTarget = ghSocialShieldUrl(type, {
       username: this.username,

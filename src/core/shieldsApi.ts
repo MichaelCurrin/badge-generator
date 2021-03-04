@@ -5,7 +5,7 @@ import { STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { TLogoAppearance } from "./shieldsApi.d";
-import { GenericBadge, GHRepo, PopularityType, StrMap } from "./types.d";
+import { GenericBadge, GHRepo, RepoMetric, StrMap } from "./types.d";
 
 // Enums don't seem to work in `.d` files, so here is best now.
 export enum ENVIRONMENT {
@@ -112,11 +112,12 @@ export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
   return buildUrl(imageTarget, styleParams);
 }
 
-/** Image URL for a GitHub social counter badge. */
-export function ghSocialShieldUrl(type: PopularityType, repo: GHRepo) {
-  const path = `${type}/${repo.username}/${repo.repoName}?style=${STYLES.SOCIAL}`;
+/** Image URL for a GitHub counter badge. */
+export function ghSocialShieldUrl(type: RepoMetric, repo: GHRepo) {
+  const path = `${type}/${repo.username}/${repo.repoName}`;
+  const url = `${SHIELDS_API.GH}/${path}`
 
-  return `${SHIELDS_API.GH}/${path}`;
+  return url
 }
 
 /** Image URL for a dynamic Node package.json dependency badge. */
