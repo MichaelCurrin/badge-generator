@@ -141,7 +141,7 @@ export default Vue.extend({
     };
   },
   methods: {
-    submit: function () {
+    submit() {
       console.debug("Process inputs and render results");
       console.debug({
         username: this.username,
