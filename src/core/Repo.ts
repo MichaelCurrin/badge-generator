@@ -75,6 +75,10 @@ export class Repo {
     );
   }
 
+  _issuesURL() {
+    return `${this.ghURL()}/issues`;
+  }
+
   _templateURL() {
     return `${this.ghURL()}/generate`;
   }
@@ -190,7 +194,7 @@ Released under ${license} by ${user}.
       username: this.username,
       repoName: this.repoName,
     });
-    const linkTarget = this.ghURL();
+    const linkTarget = type === "issues" ? this._issuesURL() : this.ghURL();
 
     return mdImageWithLink({ altText, imageTarget, linkTarget });
   }

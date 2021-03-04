@@ -161,11 +161,10 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
   });
 
   describe("#ghCounter", () => {
-    const linkTarget = "https://github.com/MichaelCurrin/badge-generator";
-
     it("return a valid stars shield", () => {
       const badgeUrl =
         "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social";
+      const linkTarget = "https://github.com/MichaelCurrin/badge-generator";
 
       expect(repoNoLicense.ghCounter("stars")).toBe(
         `[![stars - badge-generator](${badgeUrl})](${linkTarget})`
@@ -175,9 +174,21 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
     it("return a valid forks shield", () => {
       const badgeUrl =
         "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
+      const linkTarget = "https://github.com/MichaelCurrin/badge-generator";
 
       expect(repoNoLicense.ghCounter("forks")).toBe(
         `[![forks - badge-generator](${badgeUrl})](${linkTarget})`
+      );
+    });
+
+    it("return a valid issues shield", () => {
+      const badgeUrl =
+        "https://img.shields.io/github/issues/MichaelCurrin/badge-generator";
+      const linkTarget =
+        "https://github.com/MichaelCurrin/badge-generator/issues";
+
+      expect(repoNoLicense.ghCounter("issues")).toBe(
+        `[![issues - badge-generator](${badgeUrl})](${linkTarget})`
       );
     });
   });
