@@ -48,20 +48,19 @@
             </fieldset>
             <br />
 
-            <fieldset name="large-cta-buttons">
-              <legend>Large CTA buttons</legend>
+            <fieldset name="display-options">
+              <legend>Display options</legend>
 
               <Checkbox
-                label="Template"
+                label="Add Template button"
                 v-model="useThisTemplate"
                 note="Add a <i>Use This Template</i> button."
               />
-              <br />
 
               <Checkbox
-                label="GitHub Pages"
+                label="Add GH Pages button"
                 v-model="ghPages"
-                note="Add link to a GitHub Pages site."
+                note="Add a link to a GitHub Pages site."
               />
             </fieldset>
             <br />
