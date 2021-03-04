@@ -9,7 +9,7 @@ import {
   _decodeAngleBrackets,
   _encodeParam,
   _encodeSeparators,
-  _staticParamsUrl,
+  _staticParamsUrl
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
@@ -212,17 +212,17 @@ describe("#ghSocialShieldUrl", () => {
     repoName: "badge-generator",
   };
 
+  it("return a valid stars counter URL", () => {
+    expect(ghSocialShieldUrl("stars", repo)).toBe(
+      "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social"
+    );
+  });
+
   it("return a valid forks counter URL", () => {
     const expectedUrl =
       "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
 
     expect(ghSocialShieldUrl("forks", repo)).toBe(expectedUrl);
-  });
-
-  it("return a valid stars counter URL", () => {
-    expect(ghSocialShieldUrl("stars", repo)).toBe(
-      "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social"
-    );
   });
 });
 
