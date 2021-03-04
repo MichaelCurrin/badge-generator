@@ -224,6 +224,12 @@ describe("#ghCounterShieldUrl", () => {
 
     expect(ghCounterShieldUrl("forks", repo)).toBe(expectedUrl);
   });
+
+  it("return a valid issues counter URL", () => {
+    expect(ghCounterShieldUrl("issues", repo)).toBe(
+      "https://img.shields.io/github/issues/MichaelCurrin/badge-generator"
+    );
+  });
 });
 
 describe("#nodePkgJsonShieldUrl", () => {

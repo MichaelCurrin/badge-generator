@@ -117,7 +117,11 @@ export function ghCounterShieldUrl(type: RepoMetric, repo: GHRepo) {
   const path = `${type}/${repo.username}/${repo.repoName}`;
   const url = `${SHIELDS_API.GH}/${path}`;
 
-  return url;
+  if (type === "issues") {
+    return url;
+  }
+
+  return buildUrl(url, { style: STYLES.SOCIAL });
 }
 
 /** Image URL for a dynamic Node package.json dependency badge. */

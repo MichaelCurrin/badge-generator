@@ -1,6 +1,6 @@
 export type StrMap = { [key: string]: string };
 
-export type RepoMetric = "stars" | "forks";
+export type RepoMetric = "stars" | "forks" | "issues";
 
 export type GenericBadge = {
   label?: string;
