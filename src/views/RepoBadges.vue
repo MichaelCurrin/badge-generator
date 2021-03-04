@@ -52,15 +52,21 @@
               <legend>Display options</legend>
 
               <Checkbox
-                label="Add Template button"
+                label="Template button"
                 v-model="useThisTemplate"
                 note="Add a <i>Use This Template</i> button."
               />
 
               <Checkbox
-                label="Add GH Pages button"
+                label="GH Pages button"
                 v-model="ghPages"
                 note="Add a link to a GitHub Pages site."
+              />
+
+              <Checkbox
+                label="Issues badge"
+                v-model="addIssues"
+                note="Add a counter for number of open issues. The color will change based on the count."
               />
             </fieldset>
             <br />
@@ -133,6 +139,7 @@ export default Vue.extend({
       licenseType: "MIT",
       useThisTemplate: false,
       ghPages: false,
+      addIssues: false,
       workflowName: "",
       result: "_Your output will appear here_",
       versionType: "tag",
@@ -165,6 +172,8 @@ export default Vue.extend({
         starsBadge = repo.ghCounter("stars"),
         forksBadge = repo.ghCounter("forks");
 
+      const issuesBadge = this.addIssues ? repo.ghCounter("issues") : "";
+
       const templateButton = this.useThisTemplate
         ? repo.useThisTemplateBadge()
         : "";
@@ -187,6 +196,7 @@ _Repo metadata_
 ${ghActionsBadge}
 ${versionBadge}
 ${licenseBadge}
+${issuesBadge}
 
 _Call-to-Action buttons_
 
