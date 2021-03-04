@@ -1,3 +1,9 @@
+/**
+ * Markdown module.
+ *
+ * This deals with creating markdown content. It is relatively simple so not worth relying on a
+ * library for.
+ */
 import { IMdImage, IMdImageWithLink } from "./markdown.d";
 
 export function mdLink(altText: string, linkTarget: string) {
@@ -11,7 +17,6 @@ export function mdImage({ altText, imageTarget, hoverTitle }: IMdImage) {
   return `![${altText}](${imageTarget})`;
 }
 
-// TODO: Add pre-label as social badges have.
 /**
  * Create a markdown image tag with external link.
  *
