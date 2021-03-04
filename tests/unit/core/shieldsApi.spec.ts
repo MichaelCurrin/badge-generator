@@ -2,7 +2,7 @@ import { Repo } from "@/core/Repo";
 import {
   dashShieldPath,
   ENVIRONMENT,
-  ghSocialShieldUrl,
+  ghCounterShieldUrl,
   logoQueryParams,
   nodePkgJsonShieldUrl,
   staticDashUrl,
@@ -206,14 +206,14 @@ describe("#staticDashUrl", () => {
   });
 });
 
-describe("#ghSocialShieldUrl", () => {
+describe("#ghCounterShieldUrl", () => {
   const repo = {
     username: "MichaelCurrin",
     repoName: "badge-generator",
   };
 
   it("return a valid stars counter URL", () => {
-    expect(ghSocialShieldUrl("stars", repo)).toBe(
+    expect(ghCounterShieldUrl("stars", repo)).toBe(
       "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social"
     );
   });
@@ -222,7 +222,7 @@ describe("#ghSocialShieldUrl", () => {
     const expectedUrl =
       "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
 
-    expect(ghSocialShieldUrl("forks", repo)).toBe(expectedUrl);
+    expect(ghCounterShieldUrl("forks", repo)).toBe(expectedUrl);
   });
 });
 

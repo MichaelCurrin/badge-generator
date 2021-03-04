@@ -23,7 +23,7 @@ import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
-import { ghSocialShieldUrl } from "./shieldsApi";
+import { ghCounterShieldUrl } from "./shieldsApi";
 import { RepoMetric } from "./types.d";
 
 export class Repo {
@@ -184,9 +184,9 @@ Released under ${license} by ${user}.
   }
 
   /* Social counter for repo popularity. */
-  ghSocial(type: RepoMetric) {
+  ghCounter(type: RepoMetric) {
     const altText = `${type} - ${this.repoName}`;
-    const imageTarget = ghSocialShieldUrl(type, {
+    const imageTarget = ghCounterShieldUrl(type, {
       username: this.username,
       repoName: this.repoName,
     });

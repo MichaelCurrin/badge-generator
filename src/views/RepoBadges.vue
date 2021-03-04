@@ -163,8 +163,8 @@ export default Vue.extend({
         licenseBadge = repo.licenseBadge(true);
 
       const repoBadge = repo.gh(),
-        starsBadge = repo.ghSocial("stars"),
-        forksBadge = repo.ghSocial("forks");
+        starsBadge = repo.ghCounter("stars"),
+        forksBadge = repo.ghCounter("forks");
 
       const templateButton = this.useThisTemplate
         ? repo.useThisTemplateBadge()
