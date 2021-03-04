@@ -115,9 +115,9 @@ export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
 /** Image URL for a GitHub counter badge. */
 export function ghCounterShieldUrl(type: RepoMetric, repo: GHRepo) {
   const path = `${type}/${repo.username}/${repo.repoName}`;
-  const url = `${SHIELDS_API.GH}/${path}`
+  const url = `${SHIELDS_API.GH}/${path}`;
 
-  return url
+  return url;
 }
 
 /** Image URL for a dynamic Node package.json dependency badge. */
