@@ -12,7 +12,7 @@
 
     <div>
       <h3>Code</h3>
-      <Pre>{{ result }}</Pre>
+      <Code :code="result" />
     </div>
   </div>
 </template>
@@ -20,14 +20,14 @@
 <script lang="ts">
 import Vue from "vue";
 
-import Pre from "@/components/Pre.vue";
+import Code from "@/components/Code.vue";
 import Markdown from "@/components/Markdown.vue";
 
 export default Vue.extend({
   name: "Results",
   components: {
     Markdown,
-    Pre,
+    Code,
   },
   props: {
     result: String,

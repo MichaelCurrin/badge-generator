@@ -20,7 +20,8 @@
       <div class="col-12">
         <div v-for="item in renderedBadges" v-bind:key="item">
           <Markdown :content="item"></Markdown>
-          <Pre>{{ item }}</Pre>
+
+          <Code :code="item" />
           <br />
         </div>
       </div>
@@ -31,7 +32,7 @@
 <script lang="ts">
 import Vue from "vue";
 
-import Pre from "@/components/Pre.vue";
+import Code from "@/components/Code.vue";
 import Markdown from "@/components/Markdown.vue";
 import { renderBadges } from "@/core/catalogue";
 
@@ -39,7 +40,7 @@ export default Vue.extend({
   name: "Catalogue",
   components: {
     Markdown,
-    Pre,
+    Code,
   },
   computed: {
     renderedBadges() {
