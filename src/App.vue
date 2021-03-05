@@ -21,6 +21,7 @@
 import Vue from "vue";
 
 import { routes } from "@/router/index";
+import "highlight.js/styles/github-gist.css";
 
 export default Vue.extend({
   data() {
