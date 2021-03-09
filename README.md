@@ -12,7 +12,7 @@
 [![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue)
 [![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript)
 
-_PS. Most of badges above were generated using this app._
+Most of badges above were generated using this app and you can easily make your own too.
 
 
 ## Preview
@@ -70,7 +70,7 @@ Start creating badges for your docs.
 
 <div align="center">
 
-[![View - Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/#badge-generator-documentation-shield-badger-mage)
+[![View - Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/#readme)
 
 </div>
 
