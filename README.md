@@ -7,10 +7,10 @@
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/releases/?include_prereleases&sort=semver "View GitHub releases")
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license "Go to license section")
 
-[![Made with Node](https://img.shields.io/badge/Node.js->=12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Node homepage")
-[![Package - Yarn](https://img.shields.io/badge/Yarn->=1-blue?logo=yarn&logoColor=white)](https://classic.yarnpkg.com "Yarn classic homepage")
-[![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue "Vue on NPM")
-[![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript "TypeScript on NPM")
+[![Made with Node](https://img.shields.io/badge/Node.js->=12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to Node homepage")
+[![Package - Yarn](https://img.shields.io/badge/Yarn->=1-blue?logo=yarn&logoColor=white)](https://classic.yarnpkg.com "Go to Yarn classic homepage")
+[![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue "Go to Vue on NPM")
+[![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript "Go to TypeScript on NPM")
 
 Most of badges above were generated using this app and you can easily make your own too.
 
