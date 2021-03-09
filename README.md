@@ -70,7 +70,7 @@ Start creating badges for your docs.
 
 <div align="center">
 
-[![View - Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/)
+[![View - Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/#badge-generator-documentation-shield-badger-mage)
 
 </div>
 
