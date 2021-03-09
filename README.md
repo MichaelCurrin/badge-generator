@@ -12,34 +12,42 @@
 [![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue)
 [![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript)
 
+PS. Most of badges above were generated using this app.
+
 
 ## Preview
 
-### Homepage
+Sample screenshots of the web app:
+
+### Homepage view
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/">
-        <img src="/docs/_media/homepage.png" alt="Home screenshot" title="Home screenshot" width="400" />
+        <img src="/docs/_media/homepage.png" alt="Home screenshot" title="Home screenshot" width="600" />
     </a>
 </div>
 
-### Generate badges
-
-<!-- It's best to have these image each on their own row, for readability. -->
-
-The screenshots below can be labelled as follows:
-
-1. Add your input data.
-1. View the shields as rendered images.
-1. View and copy the shields as markdown text.
+### Repo badges view
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
-        <img src="/docs/_media/inputs.png" alt="Home screenshot" title="Inputs screenshot" height="200" />
-        <br>
-        <img src="/docs/_media/shields.png" alt="Shields screenshot" title="Shields screenshot" height="200" />
-        <br>
-        <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="400" />
+        <img src="/docs/_media/repo-badges-page.png" alt="Repo badges page screenshot" title="Repo badges page screenshot" width="600" />
+    </a>
+</div>
+
+### Generic badges view
+
+<div align="center">
+    <a href="https://michaelcurrin.github.io/badge-generator/#/generic">
+        <img src="/docs/_media/generic-badges-page.png" alt="Generic badges page screenshot" title="Generic badges page screenshot" width="600" />
+    </a>
+</div>
+
+### Catalogue badges view
+
+<div align="center">
+    <a href="https://michaelcurrin.github.io/badge-generator/#/generic">
+        <img src="/docs/_media/catalogue-page.png" alt="Catalogue page screenshot" title="Catalogue page screenshot" width="600" />
     </a>
 </div>
 
@@ -54,32 +62,15 @@ Start creating badges for your docs.
 
 </div>
 
-### How to use
-
-1. Navigate to a page.
-2. Fill in a form.
-3. Press <kbd>Enter</kbd> or click _Submit_.
-4. Verify that the generated badge image previews what you expect.
-5. Copy and paste the markdown snippets to your `README.md`.
-
 
 ## Documentation
+> User guide for using the app and how setup and run the app yourself
 
 <div align="center">
 
 [![View - Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/)
 
 </div>
-
-
-## Contributing
-
-See [Contributing](CONTRIBUTING.md) doc.
-
-
-## Credits
-
-- [favicon.ico](/public/favicon.ico) - from https://favicon.io/emoji-favicons/badger/
 
 
 ## License
