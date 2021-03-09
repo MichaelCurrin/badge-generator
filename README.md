@@ -17,7 +17,9 @@ _PS. Most of badges above were generated using this app._
 
 ## Preview
 
-Sample screenshots of the web app on Desktop, where the experience is best.
+Sample screenshots of the web app (taken on Desktop, where the experience is best).
+
+Click on a screenshot to go to that page on the web app.
 
 ### Homepage view
 
