@@ -6,10 +6,16 @@
 ## Overview
 
 - [Features](features.md)
-- Instructions
+- [User guide](user-guide.md)
+- Instructions to setup and run
    1. [Installation](installation.md)
    1. [Usage](usage.md)
    1. [Deploy](deploy.md)
 - [Development](development/) docs
 - [Contributing](/CONTRIBUTING.md)
 - [Related projects](related-projects.md)
+
+
+## Credits
+
+- [favicon.ico](/public/favicon.ico) - from https://favicon.io/emoji-favicons/badger/
