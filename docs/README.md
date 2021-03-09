@@ -12,8 +12,12 @@
    1. [Usage](usage.md)
    1. [Deploy](deploy.md)
 - [Development](development/) docs
-- [Contributing](/CONTRIBUTING.md)
 - [Related projects](related-projects.md)
+
+
+## Contributions
+
+Please see [Contributing](/CONTRIBUTING.md) doc for how to contribute.
 
 
 ## Credits
