@@ -12,12 +12,12 @@
 [![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue)
 [![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript)
 
-PS. Most of badges above were generated using this app.
+_PS. Most of badges above were generated using this app._
 
 
 ## Preview
 
-Sample screenshots of the web app:
+Sample screenshots of the web app on Desktop, where the experience is best.
 
 ### Homepage view
 
