@@ -19,6 +19,12 @@ Most of badges above were generated using this app and you can easily make your 
 
 The web app will let you customize badge input and show you both the markdown code and an HTML preview.
 
+Put the badges wherever you like:
+
+- At the top of your `README.md`.
+- In your docs directory files
+- In your docs site or website.
+
 ### Repo badges page
 
 Here is one of the pages:
@@ -29,15 +35,10 @@ Here is one of the pages:
     </a>
 </div>
 
-### Sample badges
 
-Put these wherever you like
+## Sample badges
 
-- At the top of your `README.md`.
-- In your docs directory files
-- In your docs site or website.
-
-#### Social badges
+### Social badges
 
 Link to your project. From another project - even paste these in an online forum or your blog.
 
@@ -45,19 +46,23 @@ Link to your project. From another project - even paste these in an online forum
 [![stars - badge-generator](https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 [![forks - badge-generator](https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 
-#### Repo metadata
+### Repo metadata
 
-Add to the top of your `README.md` file.
+Add to the top of your `README.md` file. These are tied to your specific repo.
 
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/badge-generator/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![issues - badge-generator](https://img.shields.io/github/issues/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/issues)
 
-#### Generic
+### Generic
 
-Put whatever text you want in this static badge. Change the color, logo and destination link.
+Put whatever text you want in this static badge, which is independent of a repo.
+
+You can change the color, logo and destination link.
 
 [![Foo - Bar](https://img.shields.io/badge/Foo-Bar-2ea44f)](#)
+![Maintained - yes](https://img.shields.io/badge/Maintained-yes-green)
+![Contributions - welcome](https://img.shields.io/badge/Contributions-welcome-blueviolet)
 
 ### Packages
 
@@ -67,10 +72,12 @@ An NPM package badge that changes magically when your `package.json` file is upd
 
 ### Catalogue
 
-Pre-made badges to copy and paste.
+Pre-made badges around languages and tools. Just copy and paste. 
 
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
 [![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org)
+
+If you can't find a badge you're looking for, use the Generic badge option to make your own.
 
 
 ## Open the web app
