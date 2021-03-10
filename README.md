@@ -15,9 +15,9 @@
 Most of badges above were generated using this app and you can easily make your own too.
 
 
-## Preview
+## About
 
-The web app will let you customize badge input and show you both the markdown code and an HTML preview.
+This web app will let you customize badge input and show you both the markdown code and an HTML preview.
 
 Put the badges wherever you like:
 
@@ -25,18 +25,26 @@ Put the badges wherever you like:
 - In your docs directory files
 - In your docs site or website.
 
-### Repo badges page
-
-Here is one of the pages:
-
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
-        <img src="/docs/_media/repo-badges-page.png" alt="Repo badges page screenshot" title="Repo badges page screenshot" width="500" />
+        <img src="/docs/_media/repo-badges-page.png" alt="Repo badges page screenshot" title="Repo badges page screenshot" width="450" />
     </a>
 </div>
 
 
-## Sample badges
+## Open the web app
+
+Start creating badges for your docs.
+
+<div align="center">
+
+[![Site](https://img.shields.io/badge/View_site-Badge_Generator-2ea44f?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
+
+</div>
+
+
+## Preview
+> A few sample badges rendered on a markdown page
 
 ### Social badges
 
@@ -92,17 +100,6 @@ Pre-made badges around languages and tools. Just copy and paste. If you can't fi
 
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
 [![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org)
-
-</div>
-
-
-## Open the web app
-
-Start creating badges for your docs.
-
-<div align="center">
-
-[![Site](https://img.shields.io/badge/View_site-Badge_Generator-2ea44f?style=for-the-badge)](https://michaelcurrin.github.io/badge-generator/)
 
 </div>
 
