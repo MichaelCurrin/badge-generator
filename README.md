@@ -25,7 +25,7 @@ Here is one of the pages:
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
-        <img src="/docs/_media/repo-badges-page.png" alt="Repo badges page screenshot" title="Repo badges page screenshot" width="400" />
+        <img src="/docs/_media/repo-badges-page.png" alt="Repo badges page screenshot" title="Repo badges page screenshot" width="500" />
     </a>
 </div>
 
