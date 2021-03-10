@@ -1,7 +1,7 @@
 # User guide
 
 
-## Link
+## Go to siet
 
 Start creating badges for your docs by opening the web app:
 
@@ -40,5 +40,48 @@ See screenshots below:
         <img src="/docs/_media/shields.png" alt="Shields screenshot" title="Shields screenshot" height="200" />
         <br>
         <img src="/docs/_media/code.png" alt="Code screenshot" title="Code screenshot" width="400" />
+    </a>
+</div>
+
+
+## Views
+
+
+
+## Screenshots
+
+Sample screenshots of the web app (taken on Desktop, where the experience is best).
+
+Click on a screenshot to go to that page on the web app.
+
+### Homepage view
+
+<div align="center">
+    <a href="https://michaelcurrin.github.io/badge-generator/">
+        <img src="/docs/_media/homepage.png" alt="Home screenshot" title="Home screenshot" width="600" />
+    </a>
+</div>
+
+### Repo badges view
+
+<div align="center">
+    <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
+        <img src="/docs/_media/repo-badges-page.png" alt="Repo badges page screenshot" title="Repo badges page screenshot" width="600" />
+    </a>
+</div>
+
+### Generic badges view
+
+<div align="center">
+    <a href="https://michaelcurrin.github.io/badge-generator/#/generic">
+        <img src="/docs/_media/generic-badges-page.png" alt="Generic badges page screenshot" title="Generic badges page screenshot" width="600" />
+    </a>
+</div>
+
+### Catalogue badges view
+
+<div align="center">
+    <a href="https://michaelcurrin.github.io/badge-generator/#/generic">
+        <img src="/docs/_media/catalogue-page.png" alt="Catalogue page screenshot" title="Catalogue page screenshot" width="600" />
     </a>
 </div>
