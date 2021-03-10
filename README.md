@@ -17,13 +17,7 @@ Most of badges above were generated using this app and you can easily make your 
 
 ## About
 
-This web app will let you customize badge input and show you both the markdown code and an HTML preview.
-
-Put the badges wherever you like:
-
-- At the top of your `README.md`.
-- In your docs directory files
-- In your docs site or website.
+This is mostly a convenience tool to make it easy to generate markdown for badges. It doesn't host the badges - it just makes text for you to copy and paste.
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
