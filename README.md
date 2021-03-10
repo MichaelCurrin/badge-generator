@@ -17,41 +17,40 @@ Most of badges above were generated using this app and you can easily make your 
 
 ## Preview
 
-Sample screenshots of the web app (taken on Desktop, where the experience is best).
+The web app will let you customize these and show you both the markdown code and an HTML preview, as below.
 
-Click on a screenshot to go to that page on the web app.
+### Social badges
 
-### Homepage view
+Share you repo on other sites.
 
-<div align="center">
-    <a href="https://michaelcurrin.github.io/badge-generator/">
-        <img src="/docs/_media/homepage.png" alt="Home screenshot" title="Home screenshot" width="600" />
-    </a>
-</div>
+[![MichaelCurrin - badge-generator](https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&color=blue&logo=github)](https://github.com/MichaelCurrin/badge-generator)
+[![stars - badge-generator](https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
+[![forks - badge-generator](https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 
-### Repo badges view
+### Repo metadata
 
-<div align="center">
-    <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
-        <img src="/docs/_media/repo-badges-page.png" alt="Repo badges page screenshot" title="Repo badges page screenshot" width="600" />
-    </a>
-</div>
+Add to the top of your `README.md` file.
 
-### Generic badges view
+[![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/badge-generator/releases/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![issues - badge-generator](https://img.shields.io/github/issues/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/issues)
 
-<div align="center">
-    <a href="https://michaelcurrin.github.io/badge-generator/#/generic">
-        <img src="/docs/_media/generic-badges-page.png" alt="Generic badges page screenshot" title="Generic badges page screenshot" width="600" />
-    </a>
-</div>
+### Generic
 
-### Catalogue badges view
+Put whatever text you want in this static badge. Change the color, logo and destination link.
 
-<div align="center">
-    <a href="https://michaelcurrin.github.io/badge-generator/#/generic">
-        <img src="/docs/_media/catalogue-page.png" alt="Catalogue page screenshot" title="Catalogue page screenshot" width="600" />
-    </a>
-</div>
+[![Foo - Bar](https://img.shields.io/badge/Foo-Bar-2ea44f)](#)
+
+### Packages
+
+[![Package - vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white)](https://www.npmjs.com/package/vue)
+
+### Catalogue
+
+Pre-made badges to copy and paste.
+
+[![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
+[![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org)
 
 
 ## Open the web app
