@@ -42,42 +42,58 @@ Here is one of the pages:
 
 Link to your project. From another project - even paste these in an online forum or your blog.
 
+<div align="center">
+
 [![MichaelCurrin - badge-generator](https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&color=blue&logo=github)](https://github.com/MichaelCurrin/badge-generator)
 [![stars - badge-generator](https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 [![forks - badge-generator](https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
+    
+</div>
 
 ### Repo metadata
 
 Add to the top of your `README.md` file. These are tied to your specific repo.
 
+<div align="center">
+
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver)](https://github.com/MichaelCurrin/badge-generator/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![issues - badge-generator](https://img.shields.io/github/issues/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/issues)
 
+</div>
+
 ### Generic
 
-Put whatever text you want in this static badge, which is independent of a repo.
+Put whatever text you want in this static badge, which is independent of a repo. You can change the color, logo and destination link.
 
-You can change the color, logo and destination link.
+<div align="center">
 
 [![Foo - Bar](https://img.shields.io/badge/Foo-Bar-2ea44f)](#)
 ![Maintained - yes](https://img.shields.io/badge/Maintained-yes-green)
 ![Contributions - welcome](https://img.shields.io/badge/Contributions-welcome-blueviolet)
 
+</div>
+
 ### Packages
 
 An NPM package badge that changes magically when your `package.json` file is updated.
 
+<div align="center">
+
 [![Package - vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white)](https://www.npmjs.com/package/vue)
+
+</div>
 
 ### Catalogue
 
-Pre-made badges around languages and tools. Just copy and paste. 
+Pre-made badges around languages and tools. Just copy and paste. If you can't find a badge you're looking for, use the Generic badge option to make your own.
+
+<div align="center">
 
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
 [![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org)
 
-If you can't find a badge you're looking for, use the Generic badge option to make your own.
+</div>
 
 
 ## Open the web app
