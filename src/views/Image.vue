@@ -64,7 +64,7 @@
                 label="Width"
                 v-model="width"
                 placeholder="e.g. 400"
-                note="Measured in pixels. No px is needed."
+                note="Measured in pixels, but no px symbol is needed. If you set width only, then height will default to 'auto', which works well on mobile and desktop."
               />
               <br />
 
@@ -72,7 +72,7 @@
                 label="Height"
                 v-model="height"
                 placeholder="e.g. 400"
-                note="Recommended: Set height only if width is set too, as just height can cause distortion on mobile view"
+                note="Warning: You probably don't need to set height. If you set height but not width, then you might get a squashed image on mobile view."
               />
               <br />
 
