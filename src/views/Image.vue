@@ -190,7 +190,11 @@ _HTML image_
 
 _Markdown image_
 
+<div align="center">
+
 ${mdImg}
+
+</div>
       `;
     },
   },
