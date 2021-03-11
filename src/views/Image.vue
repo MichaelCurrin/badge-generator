@@ -7,7 +7,9 @@
         <p>
           Add an image to your README.md file, such as your logo or a sample
           screenshot of your app. This is just a badge section, but displaying
-          an image using markdown and HTML.
+          an image using markdown and HTML. An image is provided to make it
+          easier to test sizing, but this image will not be used when you reuse
+          the code elsewhere.
         </p>
       </div>
     </div>
@@ -110,6 +112,11 @@ import { mkHtmlImg } from "@/core/images";
 
 const helpMessage = `\
 <p>
+  Styling has been setup so that images in the preview pane will not
+  extend beyond the width of the preview area, even no width or a
+  large width has been set.
+</p>
+<p>
   Tip: Pressing the <kbd>Enter</kbd> key after updating a text field
   will also submit.
 </p>
@@ -200,3 +207,11 @@ ${mdImg}
   },
 });
 </script>
+
+<style>
+/* Prevent markdown preview image from going way off the right. Using `scoped` doesn't work, but
+adding an explicit wrapping class helps scope this. */
+.app-results img {
+  max-width: 100%;
+}
+</style>
