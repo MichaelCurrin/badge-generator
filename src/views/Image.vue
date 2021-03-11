@@ -52,7 +52,7 @@
               <TextInput
                 label="Title"
                 v-model="imgTitle"
-                note="Text to show on hover."
+                note="Text to show on hover. If not set, then the alt text input's value will be used."
               />
             </fieldset>
             <br />
