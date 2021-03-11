@@ -97,29 +97,7 @@
 
     <div class="row">
       <div class="col-12">
-        <Help
-          message="<p>
-            Tip: Pressing the <kbd>Enter</kbd> key after updating a text field
-            will also submit.
-          </p>
-          <p>
-            Setting <i>width</i> and <i>height</i> is optional, but this can
-            help in certain cases. For example, a screenshot or logo will be set
-            by GitHub to <i>100%</i> of the page width making it look large and
-            take up vertical space, so reduce height or width manually.
-          </p>
-          <p>
-            Setting height can also make sure the height of the tag is set
-            before the image loads, so it reserves the space - if the height is
-            larger than the original image though then the image will looked
-            stretched.
-          </p>
-          <p>
-            Warning: If you set height only to say 400, then the image in the
-            README.md will look fine on desktop but ends up looking distorted on
-            mobile.
-          </p>"
-        />
+        <Help :message="helpMessage" />
       </div>
     </div>
   </div>
@@ -137,6 +115,29 @@ import TextInput from "@/components/TextInput.vue";
 
 import { mdImageWithLink } from "@/core/markdown";
 import { mkHtmlImg } from "@/core/images";
+
+const helpMessage = `\
+<p>
+  Tip: Pressing the <kbd>Enter</kbd> key after updating a text field
+  will also submit.
+</p>
+<p>
+  Setting <i>width</i> and <i>height</i> is optional, but this can
+  help in certain cases. For example, a screenshot or logo will be set
+  by GitHub to <i>100%</i> of the page width making it look large and
+  take up vertical space, so reduce height or width manually.
+</p>
+<p>
+  Setting height can also make sure the height of the tag is set
+  before the image loads, so it reserves the space - if the height is
+  larger than the original image though then the image will looked
+  stretched.
+</p>
+<p>
+  Warning: If you set height only to say 400, then the image in the
+  README.md will look fine on desktop but ends up looking distorted on
+  mobile.
+</p>`;
 
 // 'Image' is reserved in Vue so use alternative.
 export default Vue.extend({
@@ -157,6 +158,7 @@ export default Vue.extend({
       height: "",
       alignCenter: true,
       result: "_Your output will appear here_",
+      helpMessage,
     };
   },
   computed: {
