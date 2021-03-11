@@ -14,7 +14,7 @@ export function mkHtmlImg(
   title: string,
   target = "",
   width: string,
-  height: string,
+  height: string
 ) {
   const htmlTitle = title ? ` title="${title}"` : "",
     htmlAltText = alt ? ` alt="${alt}"` : "",
