@@ -74,13 +74,6 @@
                 placeholder="e.g. 400"
                 note="Warning: You probably don't need to set height. If you set height but not width, then you might get a squashed image on mobile view."
               />
-              <br />
-
-              <Checkbox
-                label="Align center"
-                v-model="alignCenter"
-                :checked="alignCenter"
-              />
             </fieldset>
 
             <br />
@@ -108,7 +101,6 @@ import Vue from "vue";
 
 import { stripLeadingSlash } from "@/lib";
 
-import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
@@ -143,7 +135,6 @@ const helpMessage = `\
 export default Vue.extend({
   name: "ImageView",
   components: {
-    Checkbox,
     Help,
     Results,
     TextInput,
@@ -156,7 +147,6 @@ export default Vue.extend({
       imgTitle: "",
       width: "400",
       height: "",
-      alignCenter: true,
       result: "_Your output will appear here_",
       helpMessage,
     };
@@ -180,8 +170,7 @@ export default Vue.extend({
         this.imgTitleOut,
         this.linkTarget,
         this.width,
-        this.height,
-        this.alignCenter ? "center" : ""
+        this.height
       );
 
       const mdImg = mdImageWithLink({
@@ -194,7 +183,10 @@ export default Vue.extend({
       this.result = `\
 _HTML image_
 
-${htmlImg}
+<div align="center">
+    ${htmlImg}
+</div>
+
 
 _Markdown image_
 

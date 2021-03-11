@@ -15,7 +15,6 @@ export function mkHtmlImg(
   target = "",
   width: string,
   height: string,
-  alignAttr: string
 ) {
   const htmlTitle = title ? ` title="${title}"` : "",
     htmlAltText = alt ? ` alt="${alt}"` : "",
@@ -30,11 +29,5 @@ export function mkHtmlImg(
 </a>`;
   }
 
-  if (alignAttr) {
-    htmlImg = `\
-<div align="${alignAttr}">
-${htmlImg}
-</div>`;
-  }
   return htmlImg;
 }
