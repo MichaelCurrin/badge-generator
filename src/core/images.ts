@@ -1,13 +1,12 @@
 /**
- * Image module.
+ * Images module.
  *
- * This was attempted using a Vue compontent instead with templating. But rendering proved an issue
+ * This was attempted using a Vue compotent instead with templating. But rendering proved an issue
  * as the finished element was shown even inside pre and code tags.
  *
  * The indentation here is not smart because of the nested rendering but it works well enough to use
  * it.
  */
-
 export function mkHtmlImg(
   src: string,
   alt: string,
