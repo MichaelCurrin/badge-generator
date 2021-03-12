@@ -1,3 +1,5 @@
+<div align="center">
+
 # Badge Generator :shield: :badger: :mage:
 > Magically generate custom badges that you can paste in your docs
 
@@ -11,8 +13,6 @@
 [![Package - Yarn](https://img.shields.io/badge/Yarn->=1-blue?logo=yarn&logoColor=white)](https://classic.yarnpkg.com "Go to Yarn classic homepage")
 [![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue "Go to Vue on NPM")
 [![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript "Go to TypeScript on NPM")
-
-<div align="center">
     
 [Site](https://michaelcurrin.github.io/badge-generator/) — [Preview](#preview) — [Documentation](#documentation) 
 
