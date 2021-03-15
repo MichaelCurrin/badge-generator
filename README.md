@@ -94,14 +94,14 @@ An NPM package badge that changes magically when your `package.json` file is upd
 
 ### Catalogue
 
-Pre-made badges around languages and tools. Just copy and paste. If you can't find a badge you're looking for, use the Generic badge option to make your own.
-
-<div align="center">
+<div align="right">
 
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
 [![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org)
 
 </div>
+
+Pre-made badges around languages and tools. Just copy and paste. If you can't find a badge you're looking for, use the Generic badge option to make your own.
 
 
 ## Documentation
