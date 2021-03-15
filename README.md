@@ -94,7 +94,7 @@ An NPM package badge that changes magically when your `package.json` file is upd
 
 ### Catalogue
 
-<div align="right">
+<div width="50%" align="right">
 
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
 [![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org)
