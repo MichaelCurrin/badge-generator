@@ -1,3 +1,4 @@
+// Code block with syntax highlighting.
 <template>
   <highlightjs :language="language" :code="code" />
 </template>
