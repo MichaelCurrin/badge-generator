@@ -1,3 +1,4 @@
+// Convert markdown or HTML text input to rendered HTML.
 <template>
   <div v-html="toHTML(content)"></div>
 </template>

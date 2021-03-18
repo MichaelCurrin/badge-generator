@@ -21,6 +21,7 @@
 import Vue from "vue";
 
 import { routes } from "@/router/index";
+import "highlight.js/styles/github-gist.css";
 
 export default Vue.extend({
   data() {
@@ -90,7 +91,7 @@ export default Vue.extend({
 }
 
 pre {
-  padding: 16px;
+  padding: 12px;
   overflow: auto;
   line-height: 1.45;
   background-color: #f6f8fa;
@@ -191,6 +192,11 @@ summary {
 
 .btn:hover {
   background: linear-gradient(to top, var(--green), var(--green-dark));
+}
+
+/* Prevent highlight.js CSS from adding white background to `code` when `pre` already has grey background. */
+code {
+  background: none !important;
 }
 
 /**
