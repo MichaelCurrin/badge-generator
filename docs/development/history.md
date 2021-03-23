@@ -1,10 +1,10 @@
 # Change history
 
-Notable changes in this project's depedencies and structure. Including attempts and successes in installing and upgrade packages. 
+Descrpiption of decisions in this project which were complex and worth recording. Including failed attempts or successes around installing and upgrading packages or structuring the app. 
 
 This guide is not meant to be complete, but is used for understanding why and how changes were made and why certain approaches were not feasible. This is meant to help me avoid repeating mistakes by tracking my learning and activiy.
 
-For a description of all features and fixes, rather see [Releases](https://github.com/MichaelCurrin/badge-generator/releases) or merged PRs.
+For a fuller description features and fixes, see [Releases](https://github.com/MichaelCurrin/badge-generator/releases) or merged PRs.
 
 See changes below, with most recent changes at the top.
 
