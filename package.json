@@ -12,7 +12,7 @@
     "serve": "vue-cli-service serve",
     "start": "yarn serve",
     "build": "vue-cli-service build",
-    "preversion": "git fetch --tags && yarn lint:check && yarn test:unit",
+    "preversion": "git pull --rebase && git fetch --tags && yarn lint:check && yarn test:unit",
     "version": "yarn build",
     "postversion": "git push --follow-tags --no-verify"
   },
