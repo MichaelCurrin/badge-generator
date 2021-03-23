@@ -1,10 +1,12 @@
 # Change history
 
-Notable changes in this project's depedencies and structure and why/how changes were made. 
+Notable changes in this project's depedencies and structure. Including attempts and successes in installing and upgrade packages. 
 
-Including attempts and successes in installing and upgrade packages. 
+This guide is not meant to be complete, but is used for understanding why and how changes were made and why certain approaches were not feasible. This is meant to help me avoid repeating mistakes by tracking my learning and activiy.
 
-The most recent changes are first.
+For a description of all features and fixes, rather see [Releases](https://github.com/MichaelCurrin/badge-generator/releases) or merged PRs.
+
+See changes below, with most recent changes at the top.
 
 
 ## Dec 2020
