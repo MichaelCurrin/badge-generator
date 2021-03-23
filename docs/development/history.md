@@ -1,6 +1,10 @@
-# History
+# Change history
 
-Notable changes in the project. Including attempts and successes in installing and upgrade packages. The most recent changes are first.
+Notable changes in this project's depedencies and structure and why/how changes were made. 
+
+Including attempts and successes in installing and upgrade packages. 
+
+The most recent changes are first.
 
 
 ## Dec 2020
@@ -59,6 +63,14 @@ Also of interest is [markdown-it-vue](https://github.com/ravenq/markdown-it-vue/
 **2.3.0**
 
 The 3rd party package `vue-markdown` is no longer maintained. I started using a fork which is published by another author on NPM. I was added as a contributor. I decided to update my `package.json` file to use an alias.
+
+## Nov 2020
+
+Attempted to upgrade to Vue 3. 
+
+Abandoned because of fighting with Vue, Vue router, TS and maybe other packages.
+
+See closed PR [#74](https://github.com/MichaelCurrin/badge-generator/pull/74).
 
 
 ## Mid 2020
