@@ -1,6 +1,6 @@
 {
   "name": "badge-generator",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "description": "Magically generate custom badges that you can paste in your docs",
   "author": "MichaelCurrin",
   "scripts": {
