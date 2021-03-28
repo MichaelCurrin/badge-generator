@@ -9,6 +9,8 @@
 
 Fixed badges on _shields.io_ which follow one of two API formats. See the `genericBadge` function and the functions it uses.
 
+Characters with meaning in a URL like `?`, `&`, `#` and `=` need to be escaped, so they don't break the URL. This is handled in the app in `_encodeParam` function - see test spec for cases. The logic here rolls up a few layers to the `genericBadge` function.
+
 ### Dash-based
 
 In the dash style, the format must be `LABEL-MESSAGE-COLOR` or `MESSAGE-COLOR`. You cannot omit color.
@@ -17,14 +19,15 @@ e.g.
 
 - https://img.shields.io/badge/Foo-Bar--Baz-blue
 
+The shields site explains how you can need double dash or underscore to display a dash or underscore literally.
+
 #### Separators warning
 
-Note the shields.io API itself does funny things if you do use more than one occurence of dash and space, or underscore and space, even when they are escaped correctly.
+Note the shields.io API itself does funny things if you do use more than one occurrence of dash and space, or underscore and space, even when they are escaped correctly.
 
 e.g. `A - B - C` converted to `A_--_B_--_C` unfortunately then renders in the SVG result as `A - B_- C`
 
-So just don't mix them and you'll be ok. Like do `A-B-C`.
-
+So just don't mix them and you'll be ok. Like you can do `A-B-C`.
 
 ### Param-based
 
@@ -34,7 +37,7 @@ e.g.
 
 - https://img.shields.io/static/v1?label=Foo&message=Baz-Baz&color=blue
 
-You can actually omit color but it displays better if you set it explictly.
+You can actually omit color but it displays better if you set it explicitly.
 
 
 ## Tags vs releases
