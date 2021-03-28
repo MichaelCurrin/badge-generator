@@ -11,6 +11,8 @@ Fixed badges on _shields.io_ which follow one of two API formats. See the `gener
 
 Characters with meaning in a URL need to be escaped, so they don't break the URL. This is handled in the app in `_encodeParam` function - see test spec for cases. The logic here rolls up a few layers to the `genericBadge` function.
 
+Strictly, the equals sign should be encoded for a param. But it is kept literally for more readable value like `>=3` where the URL and shields logic is valid, used in the path. Use in a param might cause issues, where `a=b` is used.
+
 ### Dash-based
 
 In the dash style, the format must be `LABEL-MESSAGE-COLOR` or `MESSAGE-COLOR`. You cannot omit color.
