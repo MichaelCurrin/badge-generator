@@ -9,7 +9,7 @@ import {
   _decodeAngleBrackets,
   _encodeParam,
   _encodeSeparators,
-  _staticParamsUrl
+  _staticParamsUrl,
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
@@ -82,21 +82,35 @@ describe("#dashShieldPath", () => {
     );
   });
 
-  it("combines 2 fields", () => {
+  it("combines 3 fields", () => {
     expect(
-      dashShieldPath({ message: "Foo", color: "green", label: "Bar" })
+      dashShieldPath({ label: "Bar", message: "Foo", color: "green" })
     ).toBe("Bar-Foo-green");
   });
 
-  it("combines 2 fields and applies encoding", () => {
+  it("combines 3 fields using a space in one value", () => {
     expect(
-      dashShieldPath({ message: "Foo Bar", color: "green", label: "Baz" })
+      dashShieldPath({ label: "Baz", message: "Foo Bar", color: "green" })
     ).toBe("Baz-Foo_Bar-green");
+  });
 
+  it("combines 3 fields and applies encoding", () => {
     expect(
-      dashShieldPath({ message: "Foo", color: "green", label: "Baz-Buzz" })
+      dashShieldPath({ label: "Foo & #Bar?", message: "Baz!", color: "green" })
+    ).toBe("Foo_%26_%23Bar%3F-Baz!-green");
+  });
+
+  it("combines 3 fields and applies escaping", () => {
+    expect(
+      dashShieldPath({ label: "Baz-Buzz", message: "Foo", color: "green" })
     ).toBe("Baz--Buzz-Foo-green");
 
+    expect(
+      dashShieldPath({ label: "Baz_Buzz", message: "Foo", color: "green" })
+    ).toBe("Baz__Buzz-Foo-green");
+  });
+
+  it("combines 3 fields does not encode characters which are actually valid in a URL", () => {
     expect(
       dashShieldPath({ label: "Foo", message: ">=1.0.0", color: "green" })
     ).toBe("Foo->%3D1.0.0-green");
