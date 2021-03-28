@@ -15,6 +15,10 @@ describe("#genericBadge", () => {
       expect(genericBadge("Foo", "Bar", "green")).toBe(
         "![Foo - Bar](https://img.shields.io/badge/Foo-Bar-green)"
       );
+
+      expect(genericBadge("Foo", ">=1.2", "green")).toBe(
+        "![Foo - >=1.2](https://img.shields.io/badge/Foo->=1.2-green)"
+      );
     });
 
     it("throws an error if `message` is empty", () => {
