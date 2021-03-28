@@ -9,7 +9,7 @@ import {
   _decodeAngleBrackets,
   _encodeParam,
   _encodeSeparators,
-  _staticParamsUrl,
+  _staticParamsUrl
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
@@ -162,7 +162,7 @@ describe("#_staticParamsUrl", () => {
     );
   });
 
-  it("returns a valid params URL with style params", () => {
+  it("returns a valid params URL with set style params", () => {
     expect(
       _staticParamsUrl(
         {
@@ -192,7 +192,7 @@ describe("#staticDashUrl", () => {
     ).toBe("https://img.shields.io/badge/Foo-Bar-green");
   });
 
-  it("returns a valid dash URL with style params", () => {
+  it("returns a valid dash URL with set style params", () => {
     expect(
       staticDashUrl(
         {
