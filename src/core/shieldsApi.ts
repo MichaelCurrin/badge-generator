@@ -104,7 +104,7 @@ export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
   return buildUrl(SHIELDS_API.PARAM, params);
 }
 
-/** Image URL for a dash-based static badge. */
+/** Image URL for a positional dash-based static badge. */
 export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
   const imgPath = dashShieldPath(badge),
     imageTarget = `${SHIELDS_API.DASH}/${imgPath}`;
