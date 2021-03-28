@@ -5,14 +5,6 @@ import { genericBadge } from "@/core/genericBadge";
  */
 describe("#genericBadge", () => {
   describe("Label, message and color", () => {
-    it("gives an error if `message` is empty", () => {
-      expect(() => genericBadge("", "", "green")).toThrow();
-    });
-
-    it("gives an error if `color` is empty", () => {
-      expect(() => genericBadge("", "Bar", "")).toThrow();
-    });
-
     it("displays a badge given a message and a color", () => {
       expect(genericBadge("", "Bar", "green")).toBe(
         "![Bar](https://img.shields.io/badge/Bar-green)"
@@ -25,7 +17,7 @@ describe("#genericBadge", () => {
       );
     });
 
-    it("displays a badge pointing to external link", () => {
+    it("displays a badge pointing to an external link", () => {
       const linkTarget = "https://example.com";
 
       expect(genericBadge("", "Bar", "green", false, linkTarget)).toBe(
@@ -37,6 +29,14 @@ describe("#genericBadge", () => {
       ).toBe(
         "[![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)](https://example.com)"
       );
+    });
+
+    it("gives an error if `message` is empty", () => {
+      expect(() => genericBadge("", "", "green")).toThrow();
+    });
+
+    it("gives an error if `color` is empty", () => {
+      expect(() => genericBadge("", "Bar", "")).toThrow();
     });
 
     describe("Size", () => {
@@ -88,7 +88,7 @@ describe("#genericBadge", () => {
 
 // TODO: Currently used in catalogue. This can be added to Generic page if needed.
 describe("Alt text", () => {
-  it("displays creates default alt text if not supplied", () => {
+  it("displays default alt text if not supplied", () => {
     expect(genericBadge("", "Bar", "green", false, "", "", "", true, "")).toBe(
       "![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)"
     );
