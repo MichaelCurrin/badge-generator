@@ -1,5 +1,7 @@
 default: install
 
+all: hooks install-frozen build
+
 h help:
 	@grep '^[a-z]' Makefile
 
@@ -10,6 +12,8 @@ hooks:
 
 install:
 	yarn install
+install-frozen:
+	yarn install --frozen-lockfile
 
 upgrade:
 	yarn upgrade
