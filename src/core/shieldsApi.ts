@@ -55,8 +55,9 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
  *
  * The API requires MESSAGE-COLOR at the least and also accepts LABEL-MESSAGE-COLOR.
  *
- * This appropriately escapes label and message for you, based on notes on the shields.io website.
- * So you can pass in more readable values in the URL.
+ * This conveniently escapes label and message for you, based on rules on the shields.io website.
+ *
+ * See more info in shields-io.md in the docs.
  */
 export function dashShieldPath(badge: GenericBadge) {
   const message = _encodeParam(badge.message);
