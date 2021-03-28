@@ -5,16 +5,24 @@ import { genericBadge } from "@/core/genericBadge";
  */
 describe("#genericBadge", () => {
   describe("Label, message and color", () => {
-    it("displays a badge given a message and a color", () => {
+    it("displays a badge with given a message and color", () => {
       expect(genericBadge("", "Bar", "green")).toBe(
         "![Bar](https://img.shields.io/badge/Bar-green)"
       );
     });
 
-    it("displays a badge given label, message and a color", () => {
+    it("displays a badge with a given label, message and a color", () => {
       expect(genericBadge("Foo", "Bar", "green")).toBe(
         "![Foo - Bar](https://img.shields.io/badge/Foo-Bar-green)"
       );
+    });
+
+    it("throws an error if `message` is empty", () => {
+      expect(() => genericBadge("", "", "green")).toThrow();
+    });
+
+    it("throws an error if `color` is empty", () => {
+      expect(() => genericBadge("", "Bar", "")).toThrow();
     });
 
     it("displays a badge pointing to an external link", () => {
@@ -29,14 +37,6 @@ describe("#genericBadge", () => {
       ).toBe(
         "[![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)](https://example.com)"
       );
-    });
-
-    it("throws an error if `message` is empty", () => {
-      expect(() => genericBadge("", "", "green")).toThrow();
-    });
-
-    it("throws an error if `color` is empty", () => {
-      expect(() => genericBadge("", "Bar", "")).toThrow();
     });
   });
 
