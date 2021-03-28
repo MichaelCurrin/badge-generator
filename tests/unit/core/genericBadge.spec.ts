@@ -31,28 +31,28 @@ describe("#genericBadge", () => {
       );
     });
 
-    it("gives an error if `message` is empty", () => {
+    it("throws an error if `message` is empty", () => {
       expect(() => genericBadge("", "", "green")).toThrow();
     });
 
-    it("gives an error if `color` is empty", () => {
+    it("throws an error if `color` is empty", () => {
       expect(() => genericBadge("", "Bar", "")).toThrow();
     });
+  });
 
-    describe("Size", () => {
-      it("displays a large badge", () => {
-        const displayLarge = true;
+  describe("Size", () => {
+    it("displays a large badge", () => {
+      const displayLarge = true;
 
-        expect(genericBadge("", "Bar", "green", displayLarge)).toBe(
-          "![Bar](https://img.shields.io/badge/Bar-green?style=for-the-badge)"
-        );
+      expect(genericBadge("", "Bar", "green", displayLarge)).toBe(
+        "![Bar](https://img.shields.io/badge/Bar-green?style=for-the-badge)"
+      );
 
-        expect(
-          genericBadge("", "Bar", "green", displayLarge, "", "", "", true)
-        ).toBe(
-          "![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green&style=for-the-badge)"
-        );
-      });
+      expect(
+        genericBadge("", "Bar", "green", displayLarge, "", "", "", true)
+      ).toBe(
+        "![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green&style=for-the-badge)"
+      );
     });
   });
 
