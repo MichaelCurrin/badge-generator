@@ -23,6 +23,12 @@ describe("#buildUrl", () => {
       "http://example.com/?foo=bar&bar=bazz"
     );
   });
+
+  it("encodes an equals sign in a value of URL param", () => {
+    expect(buildUrl("http://example.com", { foo: "bar", bar: ">=1.2" })).toBe(
+      "http://example.com/?foo=bar&bar=>%3D1.2"
+    );
+  });
 });
 
 describe("#formatTitle", () => {
