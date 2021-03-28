@@ -84,53 +84,55 @@ describe("#genericBadge", () => {
       );
     });
   });
-});
 
-// TODO: Currently used in catalogue. This can be added to Generic page if needed.
-describe("Alt text", () => {
-  it("displays default alt text if not supplied", () => {
-    expect(genericBadge("", "Bar", "green", false, "", "", "", true, "")).toBe(
-      "![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)"
-    );
+  // TODO: Currently used in catalogue. This can be added to Generic page if needed.
+  describe("Alt text", () => {
+    it("displays default alt text if not supplied", () => {
+      expect(
+        genericBadge("", "Bar", "green", false, "", "", "", true, "")
+      ).toBe(
+        "![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)"
+      );
 
-    expect(
-      genericBadge("Foo", "Bar", "green", false, "", "", "", true, "")
-    ).toBe(
-      "![Foo - Bar](https://img.shields.io/static/v1?label=Foo&message=Bar&color=green)"
-    );
-  });
+      expect(
+        genericBadge("Foo", "Bar", "green", false, "", "", "", true, "")
+      ).toBe(
+        "![Foo - Bar](https://img.shields.io/static/v1?label=Foo&message=Bar&color=green)"
+      );
+    });
 
-  it("displays uses custom alt text when supplied", () => {
-    expect(
-      genericBadge(
-        "Python",
-        "3.9",
-        "green",
-        false,
-        "",
-        "",
-        "",
-        true,
-        "Made with Python"
-      )
-    ).toBe(
-      "![Made with Python](https://img.shields.io/static/v1?label=Python&message=3.9&color=green)"
-    );
+    it("displays uses custom alt text when supplied", () => {
+      expect(
+        genericBadge(
+          "Python",
+          "3.9",
+          "green",
+          false,
+          "",
+          "",
+          "",
+          true,
+          "Made with Python"
+        )
+      ).toBe(
+        "![Made with Python](https://img.shields.io/static/v1?label=Python&message=3.9&color=green)"
+      );
 
-    expect(
-      genericBadge(
-        "License",
-        "MIT",
-        "green",
-        false,
-        "",
-        "",
-        "",
-        true,
-        "License"
-      )
-    ).toBe(
-      "![License](https://img.shields.io/static/v1?label=License&message=MIT&color=green)"
-    );
+      expect(
+        genericBadge(
+          "License",
+          "MIT",
+          "green",
+          false,
+          "",
+          "",
+          "",
+          true,
+          "License"
+        )
+      ).toBe(
+        "![License](https://img.shields.io/static/v1?label=License&message=MIT&color=green)"
+      );
+    });
   });
 });
