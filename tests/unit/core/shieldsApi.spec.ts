@@ -37,11 +37,15 @@ describe("#_encodeSeparators", () => {
 
 describe("#_decodeAngleBrackets", () => {
   it("decodes a left angle bracket", () => {
-    expect(_decodeAngleBrackets("%3E%3D1")).toBe(">%3D1");
+    expect(_decodeAngleBrackets("%3E%3D1")).toBe(">=1");
   });
 
   it("decodes a right angle bracket", () => {
     expect(_decodeAngleBrackets("foo%3C1")).toBe("foo<1");
+  });
+
+  it("decodes an equals sign", () => {
+    expect(_decodeAngleBrackets("foo%3D1")).toBe("foo=1");
   });
 });
 
@@ -64,13 +68,14 @@ describe("#_encodeParam", () => {
 
   // These could appear when putting a URL as a value in the path, so need to be escaped.
   it("encodes special characters correctly", () => {
+    expect(_encodeParam("?")).toBe("%3F");
+    expect(_encodeParam("#")).toBe("%23");
     expect(_encodeParam("&")).toBe("%26");
     expect(_encodeParam("/")).toBe("%2F");
-    expect(_encodeParam("?")).toBe("%3F");
   });
 
-  it("encodes a string correctly without converting angle brackets", () => {
-    expect(_encodeParam(">=3")).toBe(">%3D3");
+  it("encodes a string correctly without converting angle brackets and equals sign", () => {
+    expect(_encodeParam(">=3")).toBe(">=3");
     expect(_encodeParam("<2")).toBe("<2");
   });
 });
@@ -108,12 +113,11 @@ describe("#dashShieldPath", () => {
     expect(
       dashShieldPath({ label: "Baz_Buzz", message: "Foo", color: "green" })
     ).toBe("Baz__Buzz-Foo-green");
-  });
 
-  it("combines 3 fields does not encode characters which are actually valid in a URL", () => {
+    // Ideally this would be >=
     expect(
       dashShieldPath({ label: "Foo", message: ">=1.0.0", color: "green" })
-    ).toBe("Foo->%3D1.0.0-green");
+    ).toBe("Foo->=1.0.0-green");
   });
 });
 
