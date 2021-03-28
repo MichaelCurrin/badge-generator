@@ -41,7 +41,7 @@ describe("#genericBadge", () => {
   });
 
   describe("Size", () => {
-    it("displays a large badge", () => {
+    it("displays a large badge when reqeuested", () => {
       const displayLarge = true;
 
       expect(genericBadge("", "Bar", "green", displayLarge)).toBe(
@@ -57,7 +57,7 @@ describe("#genericBadge", () => {
   });
 
   describe("Logo", () => {
-    it("displays a logo", () => {
+    it("displays a given logo", () => {
       const logo = "github";
 
       expect(genericBadge("", "Bar", "green", false, "", logo)).toBe(
@@ -69,7 +69,7 @@ describe("#genericBadge", () => {
       );
     });
 
-    it("displays a logo with a custom logo color", () => {
+    it("displays a given logo and logo color", () => {
       const logo = "github",
         logoColor = "yellow";
 
@@ -101,7 +101,7 @@ describe("#genericBadge", () => {
       );
     });
 
-    it("displays uses custom alt text when supplied", () => {
+    it("displays custom alt text when supplied", () => {
       expect(
         genericBadge(
           "Python",
