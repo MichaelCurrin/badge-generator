@@ -9,7 +9,7 @@
 
 Fixed badges on _shields.io_ which follow one of two API formats. See the `genericBadge` function and the functions it uses.
 
-Characters with meaning in a URL like `?`, `&`, `#` and `=` need to be escaped, so they don't break the URL. This is handled in the app in `_encodeParam` function - see test spec for cases. The logic here rolls up a few layers to the `genericBadge` function.
+Characters with meaning in a URL need to be escaped, so they don't break the URL. This is handled in the app in `_encodeParam` function - see test spec for cases. The logic here rolls up a few layers to the `genericBadge` function.
 
 ### Dash-based
 
