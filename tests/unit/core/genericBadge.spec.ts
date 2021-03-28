@@ -41,7 +41,7 @@ describe("#genericBadge", () => {
   });
 
   describe("Size", () => {
-    it("displays a large badge when reqeuested", () => {
+    it("displays a large badge when requested", () => {
       const displayLarge = true;
 
       expect(genericBadge("", "Bar", "green", displayLarge)).toBe(
