@@ -88,7 +88,7 @@
                   name="env-type"
                   :value="prodOption"
                   v-model="envType"
-                  :disabled="!envEnabled"
+                  :disabled="!dynamicBadgeEnabled"
                   checked
                 />
                 <label for="env-prod">{{ prodOption }}</label>
@@ -99,7 +99,7 @@
                   name="env-type"
                   :value="devOption"
                   v-model="envType"
-                  :disabled="!envEnabled"
+                  :disabled="!dynamicBadgeEnabled"
                 />
                 <label for="env-dev">{{ devOption }}</label>
               </div>
@@ -204,7 +204,7 @@ export default defineComponent({
     };
   },
   computed: {
-    envEnabled(): boolean {
+    dynamicBadgeEnabled(): boolean {
       return this.pkgType === "Node";
     },
   },
