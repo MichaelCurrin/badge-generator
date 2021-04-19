@@ -1,6 +1,9 @@
 <div align="center">
 
-# Badge Generator :shield: :badger: :mage:
+# Badge Generator 
+
+:shield: :badger: :mage:
+
 > Magically generate custom badges that you can paste in your docs
 
 [![GH Pages Deploy](https://github.com/MichaelCurrin/badge-generator/workflows/GH%20Pages%20Deploy/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions/workflows/main.yml "GitHub Actions workflow status")
