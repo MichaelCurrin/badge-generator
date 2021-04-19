@@ -1,8 +1,6 @@
 <div align="center">
 
-# Badge Generator 
-
-:shield: :badger: :mage:
+# Badge Generator <br> :shield: :badger: :mage:
 
 > Magically generate custom badges that you can paste in your docs
 
