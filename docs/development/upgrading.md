@@ -2,8 +2,6 @@
 > How to maintain this project's dependencies
 
 
-
-
 ## Outdated
 
 View outdated packages:
@@ -17,6 +15,8 @@ View outdated packages around Vue CLI service and plugins.
 ```sh
 $ npx vue outdated
 ```
+
+See [vue-cli CHANGELOG.md](https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md) for details. Note that the alpha releases won't get installed with an upgrade unless you specifically install an alpha release.
 
 
 ## Upgrade
