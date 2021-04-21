@@ -12,7 +12,7 @@ View outdated packages:
 $ yarn outdated
 ```
 
-View outdated Vue CLI service and plugins.
+View outdated packages around Vue CLI service and plugins.
 
 ```sh
 $ npx vue outdated
@@ -27,7 +27,7 @@ Upgrade all packages.
 $ make upgrade
 ```
 
-Upgrade Vue CLI service and plugins.
+Upgrade outdated packages around Vue CLI service and plugins.
 
 ```sh
 $ npx vue upgrade
