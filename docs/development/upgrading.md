@@ -1,6 +1,8 @@
 # Upgrading
 > How to maintain this project's dependencies
 
+See this projects [Dependency graph](https://github.com/MichaelCurrin/badge-generator/network/dependencies) on GitHub.
+
 
 ## Outdated
 
@@ -9,6 +11,7 @@ View outdated packages:
 ```sh
 $ yarn outdated
 ```
+
 
 ## Upgrade
 
@@ -21,10 +24,10 @@ $ make upgrade
 Upgrade a target package.
 
 ```sh
-$ yarn add foo
+$ yarn add PACKAGE_NAME
 ```
 
-Leave off a version number to get the latest. That will use the high available, but without conflicting with extant packages.
+Leave off the version number to get the highest available, but without conflicting with extant packages.
 
 
 ## Vue CLI
