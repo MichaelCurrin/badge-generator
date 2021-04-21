@@ -1,26 +1,44 @@
 # Upgrading
 > How to maintain this project's dependencies
 
+
+
+
 ## Outdated
 
-Check outdated plugins:
-
-```sh
-$ npx vue outdated
-```
-
-Outdated packages:
+View outdated packages:
 
 ```sh
 $ yarn outdated
 ```
 
+View outdated Vue CLI service and plugins.
+
+```sh
+$ npx vue outdated
+```
+
+
 ## Upgrade
 
-Leave off a version number to get the latest.
+Upgrade all packages.
+
+```sh
+$ make upgrade
+```
+
+Upgrade Vue CLI service and plugins.
+
+```sh
+$ npx vue upgrade
+```
+
+For example, upgrading `@vue/cli/service` nd `@vue/cli-plugin-typescript` both to `^4.5.12`.
+
+Upgrade a target package.
 
 ```sh
 $ yarn add foo
 ```
 
-That will use the high available, without conflicting with extant packages.
+Leave off a version number to get the latest. That will use the high available, but without conflicting with extant packages.
