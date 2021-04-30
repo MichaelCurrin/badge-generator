@@ -21,9 +21,9 @@ For more info see [@vue/cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins
 
 ### Customization
 
-Note that from the CLI help, that _all jest command line options are supported_.
+From the Vue CLI help, note that _all jest command line options are supported_.
 
-To add test coverage:
+To use test coverage when running tests:
 
 ```sh
 $ vue-cli-service test:unit --coverage
