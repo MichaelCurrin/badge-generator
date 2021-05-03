@@ -4,8 +4,8 @@
   "description": "Magically generate custom badges that you can paste in your docs",
   "author": "MichaelCurrin",
   "scripts": {
+    "lint:check": "vue-cli-service lint --no-fix --max-warnings 10",
     "lint:fix": "vue-cli-service lint",
-    "lint:check": "vue-cli-service lint --no-fix",
     "compile": "tsc -p . --noEmit",
     "test:unit": "vue-cli-service test:unit --detectOpenHandles",
     "test:coverage": "vue-cli-service test:unit --detectOpenHandles --coverage",
