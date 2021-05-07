@@ -18,7 +18,7 @@
 
     <div class="row">
       <div class="col-12">
-        <div v-for="item in renderedBadges" v-bind:key="item">
+        <div v-for="item in renderedBadges" :key="item">
           <Markdown :content="item"></Markdown>
 
           <Code :code="item" />

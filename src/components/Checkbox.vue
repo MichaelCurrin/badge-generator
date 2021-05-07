@@ -7,7 +7,7 @@
     <input
       :id="slug"
       type="checkbox"
-      v-bind:checked="checked"
+      :checked="checked"
       v-on:change="$emit('input', $event.target.checked)"
     />
 

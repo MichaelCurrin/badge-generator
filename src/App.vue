@@ -7,7 +7,7 @@
       <div id="nav">
         <!-- Build menu based on configured app routes. -->
         <!-- Keep router-link on one line for underlining -->
-        <span v-for="(item, index) in routes" v-bind:key="item.path">
+        <span v-for="(item, index) in routes" :key="item.path">
           <span>{{ index !== 0 ? " | " : "" }}</span>
           <router-link :to="item.path">{{ item.name }}</router-link>
         </span>
