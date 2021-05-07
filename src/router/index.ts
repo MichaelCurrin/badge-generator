@@ -1,7 +1,7 @@
+import Home from "@/views/Home.vue";
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
@@ -14,27 +14,27 @@ export const routes = [
   {
     path: "/repo",
     name: "Repo",
-    component: () => import("../views/RepoBadges.vue"),
+    component: () => import("@/views/RepoBadges.vue"),
   },
   {
     path: "/generic",
     name: "Generic",
-    component: () => import("../views/GenericBadges.vue"),
+    component: () => import("@/views/GenericBadges.vue"),
   },
   {
     path: "/package",
     name: "Package",
-    component: () => import("../views/PackageBadges.vue"),
+    component: () => import("@/views/PackageBadges.vue"),
   },
   {
     path: "/image",
     name: "Image",
-    component: () => import("../views/Image.vue"),
+    component: () => import("@/views/Image.vue"),
   },
   {
     path: "/catalogue",
     name: "Catalogue",
-    component: () => import("../views/Catalogue.vue"),
+    component: () => import("@/views/Catalogue.vue"),
   },
 ];
 
