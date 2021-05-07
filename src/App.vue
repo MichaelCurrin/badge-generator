@@ -1,4 +1,5 @@
 <template>
+  <!-- FIXME Don't need two #app elements. -->
   <div id="app">
     <div class="container-lg">
       <a id="logo" :href="baseUrl">Badge Generator</a>
