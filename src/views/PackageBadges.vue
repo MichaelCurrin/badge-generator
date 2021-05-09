@@ -166,7 +166,7 @@ export default Vue.extend({
 
       username: "MichaelCurrin",
       repoName: "badge-generator",
-      logo: "vue.js",
+      logo: "",
       logoColor: COLOR.LogoDefault,
 
       result: "_Your output will appear here_",
