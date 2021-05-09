@@ -61,7 +61,7 @@
               </div>
               <br />
 
-              <div>
+              <div :class="!envEnabled ? disabledClass : ''">
                 <span>Environment: </span>
 
                 <input
@@ -111,6 +111,7 @@
                 label="Logo color"
                 v-model="logoColor"
                 :disabled="logo === ''"
+                :class="logo === '' ? disabledClass : ''"
                 placeholder="e.g. white or #fff or #ffffff"
                 note="You can override with your own color, or leave blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is bland but most readable)."
               />
@@ -177,6 +178,8 @@ export default Vue.extend({
 
       result: "_Your output will appear here_",
       note: note,
+
+      disabledClass: "disabled-text",
     };
   },
   computed: {

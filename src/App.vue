@@ -228,7 +228,8 @@ code {
   min-width: 200px;
 }
 
-.note {
+.note,
+.disabled-text {
   color: #666;
 }
 
