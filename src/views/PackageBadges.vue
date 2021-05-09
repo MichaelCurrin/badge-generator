@@ -20,7 +20,12 @@
             <fieldset name="package">
               <legend>Package metadata</legend>
 
-              <TextInput label="Name" v-model="pkgName" isRequired />
+              <TextInput
+                label="Name"
+                v-model="pkgName"
+                placeholder="e.g. vue"
+                isRequired
+              />
               <br />
 
               <div>
@@ -106,6 +111,7 @@
                 label="Logo color"
                 v-model="logoColor"
                 :disabled="logo === ''"
+                placeholder="e.g. white or #fff or #ffffff"
                 note="You can override with your own color, or leave blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is bland but most readable)."
               />
             </fieldset>
