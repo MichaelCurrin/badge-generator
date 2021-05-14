@@ -1,8 +1,8 @@
 # Change history
 
-Descrpiption of decisions in this project which were complex and worth recording. Including failed attempts or successes around installing and upgrading packages or structuring the app. 
+Description of decisions in this project which were complex and worth recording. Including failed attempts or successes around installing and upgrading packages or structuring the app.
 
-This guide is not meant to be complete, but is used for understanding why and how changes were made and why certain approaches were not feasible. This is meant to help me avoid repeating mistakes by tracking my learning and activiy.
+This guide is not meant to be complete, but is used for understanding why and how changes were made and why certain approaches were not feasible. This is meant to help me avoid repeating mistakes by tracking my learning and activity.
 
 For a fuller description features and fixes, see [Releases](https://github.com/MichaelCurrin/badge-generator/releases) or merged PRs.
 
@@ -33,9 +33,9 @@ The followed dev dependencies were added:
 
 **Summary**
 
-- I had issues using the `vue-markdown` package. 
-- The original is insecure. 
-- The fork I used is complicated - it requires permissions for network when running tests, the types are not available and adding type definitions in the project caused a break. 
+- I had issues using the `vue-markdown` package.
+- The original is insecure.
+- The fork I used is complicated - it requires permissions for network when running tests, the types are not available and adding type definitions in the project caused a break.
 - So the easiest was to go with a low level package called `markdown-it` and build a small custom component around that.
 
 **2.8.0**
@@ -60,7 +60,7 @@ The `markdown-it` one already has things handled in `package.json` which it must
 
 Later I went trying going with verbose with `@adapttive/vue-markdown` to keep `package.json` simpler. This also required imports to be updated. But the change caused a break - I found types need to be set too - using `@types/vue-markdown` worked before (though it would have drifted eventually) and doesn't work anymore. And there is no equivalent for the fork. I tried adding `vue-markdown.d.ts` with the declaration as per the TS CLI help. That then said I was using `VueMarkdown` as an interface rather than as a value, so that didn't work.
 
-Also of interest is [markdown-it-vue](https://github.com/ravenq/markdown-it-vue/). That one and `vue-markdown` both handle more than I need them to. 
+Also of interest is [markdown-it-vue](https://github.com/ravenq/markdown-it-vue/). That one and `vue-markdown` both handle more than I need them to.
 
 **2.3.0**
 
@@ -68,7 +68,7 @@ The 3rd party package `vue-markdown` is no longer maintained. I started using a 
 
 ## Nov 2020
 
-Attempted to upgrade to Vue 3. 
+Attempted to upgrade to Vue 3.
 
 Abandoned because of fighting with Vue, Vue router, TS and maybe other packages.
 
