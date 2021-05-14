@@ -22,8 +22,9 @@ Please see [Contributing](/CONTRIBUTING.md) doc for how to contribute.
 
 ## Credits
 
-- [favicon.ico](/public/favicon.ico) - from https://favicon.io/emoji-favicons/badger/
+- `favicon.ico` - from [Emoji Favicons][].
 - `hero.jpeg` cover image - by [Kevin Luarte][] on [Unsplash][].
 
+[Emoji Favicons]: https://favicon.io/emoji-favicons/badger/
 [Kevin Luarte]: https://unsplash.com/@luarte_raw?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText
 [Unsplash]: https://unsplash.com/s/photos/badges?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText
