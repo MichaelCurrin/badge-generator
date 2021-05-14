@@ -28,11 +28,11 @@
     <div class="row">
       <div class="col-12">
         <p>
-          This is an online tool which generates badges (or "shield") based on
+          This is an online tool which generates badges (or "shields") based on
           your inputs. You can preview the badges on the tool and then copy the
-          markdown/HTML to your GitHub repo's
-          <b>README.md</b> file. Those badges can help people learn about your
-          repo at a glance and make it look professional.
+          Markdown/HTML to your GitHub repo's
+          <b>README.md</b> file. Those metadata badges can help people learn
+          about your repo at a glance and make it look professional.
         </p>
         <p>
           This tool adds <b>convenience</b> and <b>productivity</b> to your life
