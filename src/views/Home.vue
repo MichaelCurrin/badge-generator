@@ -4,7 +4,9 @@
       <div class="col-12">
         <h1>Home</h1>
 
-        <!-- It would look better on page load to use height=250, except that on mobile the image gets squashed. The image needs to actually get a smaller height when the width is made to be smaller and CSS can't help here it seems. -->
+        <!-- It would look better on page load to use height=250, except that on mobile the image
+        gets squashed. The image needs to actually get a smaller height when the width is made to be
+        smaller and CSS can't help here it seems. -->
         <div class="hero">
           <img
             alt="Logo"
@@ -13,21 +15,6 @@
             height="auto"
           />
           <br />
-
-          <small class="note">
-            <span>
-              Photo by
-              <a
-                href="https://unsplash.com/@luarte_raw?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
-                >Kevin Luarte</a
-              >
-              on
-              <a
-                href="https://unsplash.com/s/photos/badges?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText"
-                >Unsplash</a
-              >
-            </span>
-          </small>
 
           <Markdown :content="repoBadge"></Markdown>
 
