@@ -2,11 +2,20 @@
 
 Description of decisions in this project which were complex and worth recording. Including failed attempts or successes around installing and upgrading packages or structuring the app.
 
-This guide is not meant to be complete, but is used for understanding why and how changes were made and why certain approaches were not feasible. This is meant to help me avoid repeating mistakes by tracking my learning and activity.
+This guide is not meant to be complete or like a detailed changelog. But it is used for understanding _why_ and _how_ changes were made and why certain approaches were not feasible. This is meant to help me avoid repeating mistakes by tracking my learning and activity.
 
 For a fuller description features and fixes, see [Releases](https://github.com/MichaelCurrin/badge-generator/releases) or merged PRs.
 
 See changes below, with most recent changes at the top.
+
+
+## May 2020
+
+Remove Babel:
+
+- As only < 5% of browsers would be affected
+- There is a Babel package which causes issues staying secure (see [issue #104](https://github.com/MichaelCurrin/badge-generator/issues/104))
+- Also I want fewer packages to manage.
 
 
 ## Dec 2020
