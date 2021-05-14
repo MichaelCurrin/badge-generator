@@ -13,9 +13,9 @@ See changes below, with most recent changes at the top.
 
 Remove Babel:
 
-- As only < 5% of browsers would be affected
 - There is a Babel package which causes issues staying secure (see [issue #104](https://github.com/MichaelCurrin/badge-generator/issues/104))
-- Also I want fewer packages to manage.
+- I want fewer packages to manage.
+- Only less than 5% of browsers would be affected.
 
 
 ## Dec 2020
