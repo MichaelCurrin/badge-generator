@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container-lg">
+    <header class="container-lg">
       <a id="logo" :href="baseUrl">Badge Generator</a>
 
       <div id="nav">
@@ -11,7 +11,7 @@
           <router-link :to="item.path">{{ item.name }}</router-link>
         </span>
       </div>
-    </div>
+    </header>
 
     <router-view />
   </div>
@@ -19,6 +19,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import "highlight.js/styles/github-gist.css";
 
 import { routes } from "@/router/index";
 

@@ -11,7 +11,9 @@ See changes below, with most recent changes at the top.
 
 ## May 2021
 
-### Vue 3 upgrade attempt
+### Vue 3 upgrade
+
+For [PR #108](https://github.com/MichaelCurrin/badge-generator/pull/108).
 
 This was done to use latest code in tutorial docs and libraries and to help with avoiding vulnerabilities.
 
@@ -21,9 +23,25 @@ I decided to use a generated app instead of using the [Vue 3 migration guide][] 
 
 Note that `vue-jest` gives a warning when installing packages that Babel-related packages are missing as peer dependencies. But since the generated app is setup to work fine like this and I'll see if my app continue to work without Babel, then this is fine.
 
-#### Highlighting
+### Remove syntax highlighting in Vue upgrade
 
-Then I had a TS issue where I could do not pass the highlighter.
+Trying to use like this is as a minimum:
+
+```
+<template>
+  <highlightjs language="markdown" :code="code" />
+</template>
+```
+
+Using like this doesn't work even with the CSS, maybe because it doesn't actually run without the tag in use.
+
+```
+<template>
+  <pre><code class="markdown">{{ code }}</code></pre>
+</template>
+```
+
+I had a TS issue where I could do not pass the highlighter.
 
 ```
 TS2345: Argument of type 'HLJSApi' is not assignable to parameter of type 'Plugin_2'.
@@ -36,8 +54,13 @@ TS2345: Argument of type 'HLJSApi' is not assignable to parameter of type 'Plugi
 It looks like works, though gives a deprecation warning and errors.
 
 ```javascript
+import hljs from "highlight.js";
+
+// ...
 app.use(hljs.vuePlugin);
 ```
+
+Later, I found I was getting the warning, but still got errors that `render` and `createElement` functions are missing - so maybe it just lacks Vue 3 support.
 
 I discovered a link on the highlight.js repo README which points to [Highlight.js plugin for
 Vue.js][] repo, but I don't see a need to use it and `markdown-it` works great already and covers
@@ -50,9 +73,38 @@ import hljs from "highlight.js/lib/common";
 import vuePlugin from "@highlightjs/vue-plugin";
 ```
 
+Ideally use this as it has smaller footprint, no loading all languages. But, it is missing type declarations.
+
+```javascript
+import hljs from 'highlight.js/lib/core';
+```
+
 The easiest was to take out the highlighter CSS and JS and consider putting it back later if I still want it. Maybe using a plain HTML tag and with language added as `markdown`, without having to enable as a component.
 
+### Restore syntax highlighting after Vue upgrade
+
+See [PR #109](https://github.com/MichaelCurrin/badge-generator/pull/109).
+
+I found an approach was recommended in the [Highlight.js usage docs][] as a generic approach and I've adapted for use with Vue. Running `hljs.highlightAll();` on the `update` function of the `Code.vue` component works.
+
+It is preferable to target an element - in case there are multiple triggers running on the page at once. The docs say you can pass an element like this:
+
+```javascript
+hljs.highlightBlock(block);
+```
+
+I used `$refs` as per [Template Refs](https://v3.vuejs.org/guide/component-template-refs.html) doc to target the element.
+
+Note `.highlightBlock` is marked as deprecated and `.highlightElement` preferred, but it is not available yet.
+
+I thought maybe running _once_ on mounting an element or loading a route could be fine. Actually, using `mount` does not work I see because it works initially and then the highlighting gets lost. I guess it because the highlighting determines on the actual text in the element, so it must be done on the `update` call.
+
+In order to give the initial default code block highlighting too, I decided to run on both `mount` and `update`.
+
+Note that `highlight.js` does not have to be added as a dependency, as it is already covered by `markdown-it`.
+
 [Highlight.js plugin for Vue.js]: https://github.com/highlightjs/vue-plugin
+[Highlight.js usage docs]: https://highlightjs.org/usage/
 [vue-router-ts-quickstart]: https://github.com/MichaelCurrin/vue-router-ts-quickstart
 [Vue 3 migration guide]: https://cli.vuejs.org/migrating-from-v3/
 
@@ -63,6 +115,15 @@ The easiest was to take out the highlighter CSS and JS and consider putting it b
 - Only less than 5% of browsers would be affected.
 
 [issue #104]: https://github.com/MichaelCurrin/badge-generator/issues/104
+
+
+## March 2021
+
+### Syntax highlighting
+
+Added use of `highlightjs` tag and CSS, to provide syntax highlighting for the Markdown code output. This was on the `Code.vue` component.
+
+See [PR #96](https://github.com/MichaelCurrin/badge-generator/pull/96/files).
 
 
 ## Dec 2020
@@ -112,7 +173,7 @@ That gets used like this such as in `Help.vue`.
 
 The `markdown-it` one already has things handled in `package.json` which it must used, like emojis, footnotes and highlighting code blocks. These can be enabled with `.use(plugin)` as per the README.
 
-To use `highlightjs` as an HTML tag in Vue, I import the `highlight.js` NPM package and pass it to Vue with `.use(hljs)`. See [highlightjs.org](https://highlightjs.org/) homepage.
+To use `highlightjs` as an HTML tag in Vue, I import the `highlight.js` NPM package and pass it to Vue with `Vue.use(hljs.vuePlugin);`. See [highlightjs.org](https://highlightjs.org/) homepage.
 
 **2.6.0**
 
