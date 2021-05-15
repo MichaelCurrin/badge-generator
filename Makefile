@@ -34,7 +34,7 @@ serve-subpath:
 	NODE_ENV=production $(MAKE) serve
 
 
-build: lint test
+build: fix test
 	yarn build
 
 # Build, increment tag and push release.
