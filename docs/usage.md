@@ -32,12 +32,12 @@ Then open in the browser at:
 The Vue Router package handles navigation for us. For links outside of the navbar, search for use of `baseUrl` in the codebase.
 
 
-## Lint
+## Fix
 
-Apply lint fixes (with ESLint) and formatting fixes (with Prettier). Show any errors that could not be fixed.
+Apply formatting fixes (with Prettier) and lint fixes (with ESLint). Show any errors that could not be fixed.
 
 ```sh
-$ make lint
+$ make fix
 ```
 
 
