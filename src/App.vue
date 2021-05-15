@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <div class="container-lg">
       <a id="logo" :href="baseUrl">Badge Generator</a>
 
@@ -18,12 +18,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import { routes } from "@/router/index";
 import "highlight.js/styles/github-gist.css";
 
-export default Vue.extend({
+export default defineComponent({
+  name: "App",
   data() {
     return {
       routes,
@@ -101,7 +102,7 @@ pre {
   margin-bottom: 0;
 
   /* This is allows the text to wrap and prevents it from stretching out and causing the flexbox to reflow when not desired.
-     Using nowrap to go off the screen unfortunately flatten it all to one line and reflows flexbox. */
+    Using nowrap to go off the screen unfortunately flatten it all to one line and reflows flexbox. */
   white-space: break-spaces;
 }
 
