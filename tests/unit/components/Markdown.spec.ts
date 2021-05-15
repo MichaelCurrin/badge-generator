@@ -4,7 +4,7 @@ import { shallowMount } from "@vue/test-utils";
 describe("Markdown.vue", () => {
   it("renders markdown as HTML", () => {
     const wrapper = shallowMount(Markdown, {
-      propsData: {
+      props: {
         content: "# Hello",
       },
     });
