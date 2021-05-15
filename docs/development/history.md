@@ -32,19 +32,18 @@ TS2345: Argument of type 'HLJSApi' is not assignable to parameter of type 'Plugi
   >  8 | app.use(hljs);
 ```
 
-It looks like works, though gives a deprecation warning.
+It looks like works, though gives a deprecation warning and errors.
 
 ```javascript
 app.use(hljs.vuePlugin);
 ```
 
-I tried this instead, using Vue Plugin docs. But got an error on lack of type defintions.
+I tried this instead, using Vue Plugin docs. But got an error on lack of type definitions.
 
 ```javascript
 import hljs from "highlight.js/lib/common";
 import vuePlugin from "@highlightjs/vue-plugin";
 ```
-
 
 [Highlight.js plugin for Vue.js]: https://github.com/highlightjs/vue-plugin
 [vue-router-ts-quickstart]: https://github.com/MichaelCurrin/vue-router-ts-quickstart
