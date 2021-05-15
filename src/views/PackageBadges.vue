@@ -137,7 +137,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
@@ -155,7 +155,7 @@ const note = `
 - Only NPM is currently supported for the dynamic package.
 `;
 
-export default Vue.extend({
+export default defineComponent({
   name: "PackageBadges",
   components: {
     Help,

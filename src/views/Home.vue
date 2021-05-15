@@ -6,14 +6,10 @@
 
         <!-- It would look better on page load to use height=250, except that on mobile the image
         gets squashed. The image needs to actually get a smaller height when the width is made to be
-        smaller and CSS can't help here it seems. -->
+        smaller and CSS can't help here it seems. Width was set before in HTML but now it converts
+        100% to 0px so rather set by CSS. -->
         <div class="hero">
-          <img
-            alt="Logo"
-            :src="`${baseUrl}hero.jpeg`"
-            width="100%"
-            height="auto"
-          />
+          <img id="logo" alt="Logo" :src="`${baseUrl}hero.jpeg`" />
           <br />
 
           <Markdown :content="repoBadge"></Markdown>
@@ -57,13 +53,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import Markdown from "@/components/Markdown.vue";
 import { DESCRIPTION } from "@/constants/appearance";
 import { Repo } from "@/core/Repo";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Home",
   components: {
     Markdown,
@@ -79,3 +75,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style scoped>
+#logo {
+  width: 100%;
+}
+</style>

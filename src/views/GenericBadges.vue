@@ -83,7 +83,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";
@@ -99,7 +99,7 @@ This form lets you create a fixed badge using arbitrary text and a link.
 For example, describe a tools or platforms your repo is built on or built for running. This form takes care of encoding characters so they are safe for the badge URL.
 `;
 
-export default Vue.extend({
+export default defineComponent({
   name: "GenericBadges",
   components: {
     Checkbox,
