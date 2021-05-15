@@ -30,13 +30,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import Code from "@/components/Code.vue";
 import Markdown from "@/components/Markdown.vue";
 import { renderBadges } from "@/core/catalogue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Catalogue",
   components: {
     Markdown,

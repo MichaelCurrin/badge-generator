@@ -13,16 +13,17 @@ See changes below, with most recent changes at the top.
 
 ### Vue 3 upgrade attempt
 
-Done to use latest code in tutorial docs and libraries and to help with avoiding vulnerabilities.
+This was done to use latest code in tutorial docs and libraries and to help with avoiding vulnerabilities.
 
 My [vue-router-ts-quickstart][] repo was used as a base. It was generated using Vue UI tool, using mostly the same packages here.
 
-Note that `vue-jest` gives a warning when installing packages that Babel-related packages are missing as peer dependencies. But since the generated app is setup to work fine like this and I'll see if my app continue to work without Babel, then this fine.
-
 I decided to use a generated app instead of using the [Vue 3 migration guide][] which covers each plugin and how it has to change.
 
-I later discovered a link on the highlight.js repo README which points to
-[Highlight.js plugin for Vue.js][] repo, but I don't see a need to use it and `markdown-it` works great already and covers both my Markdown and highlighting needs. Then I had a TS issue where I could do not pass the highlighter.
+Note that `vue-jest` gives a warning when installing packages that Babel-related packages are missing as peer dependencies. But since the generated app is setup to work fine like this and I'll see if my app continue to work without Babel, then this is fine.
+
+#### Highlighting
+
+Then I had a TS issue where I could do not pass the highlighter.
 
 ```
 TS2345: Argument of type 'HLJSApi' is not assignable to parameter of type 'Plugin_2'.
@@ -38,12 +39,18 @@ It looks like works, though gives a deprecation warning and errors.
 app.use(hljs.vuePlugin);
 ```
 
-I tried this instead, using Vue Plugin docs. But got an error on lack of type definitions.
+I discovered a link on the highlight.js repo README which points to [Highlight.js plugin for
+Vue.js][] repo, but I don't see a need to use it and `markdown-it` works great already and covers
+both my Markdown and highlighting needs.
+
+I tried this anyway it case it works, using Vue Plugin docs. But got an error on lack of type definitions.
 
 ```javascript
 import hljs from "highlight.js/lib/common";
 import vuePlugin from "@highlightjs/vue-plugin";
 ```
+
+The easiest was to take out the highlighter CSS and JS and consider putting it back later if I still want it. Maybe using a plain HTML tag and with language added as `markdown`, without having to enable as a component.
 
 [Highlight.js plugin for Vue.js]: https://github.com/highlightjs/vue-plugin
 [vue-router-ts-quickstart]: https://github.com/MichaelCurrin/vue-router-ts-quickstart

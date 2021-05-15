@@ -1,21 +1,14 @@
-// Code block with syntax highlighting.
 <template>
-  <highlightjs :language="language" :code="code" />
+  <pre><code>{{ code }}</code></pre>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import hljs from "highlight.js";
+import { defineComponent } from "vue";
 
-Vue.use(hljs.vuePlugin);
-
-const defaultLanguage = "markdown";
-
-export default Vue.extend({
+export default defineComponent({
   name: "Code",
   props: {
     code: { type: String, required: true },
-    language: { type: String, required: false, default: defaultLanguage },
   },
 });
 </script>

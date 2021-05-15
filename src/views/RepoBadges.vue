@@ -102,7 +102,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
@@ -124,7 +124,7 @@ const note = `
 - For centered badges - note that the HTML \`align\` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the \`align\` attribute.
 `;
 
-export default Vue.extend({
+export default defineComponent({
   name: "RepoBadges",
   components: {
     Checkbox,

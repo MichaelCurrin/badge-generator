@@ -99,7 +99,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import { stripLeadingSlash } from "@/lib";
 
@@ -139,7 +139,7 @@ const helpMessage = `\
 </p>`;
 
 // 'Image' is reserved in Vue so use alternative.
-export default Vue.extend({
+export default defineComponent({
   name: "ImageView",
   components: {
     Help,

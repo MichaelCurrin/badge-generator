@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <div class="container-lg">
       <a id="logo" :href="baseUrl">Badge Generator</a>
 
@@ -18,12 +18,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import { routes } from "@/router/index";
-import "highlight.js/styles/github-gist.css";
 
-export default Vue.extend({
+export default defineComponent({
+  name: "App",
   data() {
     return {
       routes,
@@ -100,8 +100,9 @@ pre {
   margin-top: 0;
   margin-bottom: 0;
 
-  /* This is allows the text to wrap and prevents it from stretching out and causing the flexbox to reflow when not desired.
-     Using nowrap to go off the screen unfortunately flatten it all to one line and reflows flexbox. */
+  /* This is allows the text to wrap and prevents it from stretching out and causing the flexbox to
+    reflow when not desired. Using nowrap to go off the screen unfortunately flatten it all to one
+    line and reflows flexbox. */
   white-space: break-spaces;
 }
 
@@ -194,7 +195,8 @@ summary {
   background: linear-gradient(to top, var(--green), var(--green-dark));
 }
 
-/* Prevent highlight.js CSS from adding white background to `code` when `pre` already has grey background. */
+/* Prevent highlight.js CSS from adding white background to `code` when `pre` already has grey
+background. */
 code {
   background: none !important;
 }
@@ -202,11 +204,17 @@ code {
 /**
  * Flexbox
  *
- * Based on GH pages, Bootstrap and the GH Readme Generator. There is a better way to do this using @media instead of min-width values (the min-width goes off-screen on a really small resolution when tested on desktop but this could be unrealistic).
+ * Based on GH pages, Bootstrap and the GH Readme Generator. There is a better way to do this using
+ * @media instead of min-width values (the min-width goes off-screen on a really small resolution
+ * when tested on desktop but this could be unrealistic).
  *
- * Setting row width as 100% was my own setup to avoid having the col-12 element look to narrow on mobile at min-width 200px, unless I set a min-width like 300px Setting row width also means min-width can be left off and the col-12 will still look good instead of very squashed to the left.
+ * Setting row width as 100% was my own setup to avoid having the col-12 element look to narrow on
+ * mobile at min-width 200px, unless I set a min-width like 300px Setting row width also means
+ * min-width can be left off and the col-12 will still look good instead of very squashed to the
+ * left.
  *
- * In another app I looked at, there was 100% width on the container rather than the row, but that did not help here.
+ * In another app I looked at, there was 100% width on the container rather than the row, but that
+ * did not help here.
  */
 .row {
   display: -ms-flexbox;

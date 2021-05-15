@@ -7,8 +7,8 @@
     <input
       :id="slug"
       type="checkbox"
-      :checked="checked"
-      v-on:change="$emit('input', $event.target.checked)"
+      :checked="modelValue"
+      v-on:change="$emit('update:modelValue', $event.target.checked)"
     />
 
     <small class="note" v-if="note">
@@ -18,23 +18,23 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import Markdown from "@/components/Markdown.vue";
 import { slugify } from "@/lib";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Checkbox",
   components: {
     Markdown,
   },
   props: {
     label: { type: String, required: true },
-    checked: { type: Boolean, required: false, default: false },
+    modelValue: { type: Boolean, required: false },
     note: { type: String, required: false },
   },
   computed: {
-    slug() {
+    slug(): string {
       return slugify("box", this.label);
     },
   },

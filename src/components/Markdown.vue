@@ -1,15 +1,15 @@
-// Convert markdown or HTML text input to rendered HTML.
+// Render Markdown or HTML as HTML.
 <template>
   <div v-html="toHTML(content)"></div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import markdownIt from "markdown-it";
 
 const md = new markdownIt({ html: true });
 
-export default Vue.extend({
+export default defineComponent({
   name: "Markdown",
   props: {
     content: String,
