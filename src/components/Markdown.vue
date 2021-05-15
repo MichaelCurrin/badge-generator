@@ -1,4 +1,4 @@
-// Convert markdown or HTML text input to rendered HTML.
+// Render Markdown or HTML as HTML.
 <template>
   <div v-html="toHTML(content)"></div>
 </template>
