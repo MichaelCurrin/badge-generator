@@ -7,7 +7,7 @@
     <input
       :id="slug"
       type="text"
-      :modelValue="modelValue"
+      :value="modelValue"
       :placeholder="placeholder"
       :required="isRequired"
       :disabled="disabled"
