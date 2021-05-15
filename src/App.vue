@@ -19,6 +19,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import "highlight.js/styles/github-gist.css";
 
 import { routes } from "@/router/index";
 
