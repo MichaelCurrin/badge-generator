@@ -7,8 +7,8 @@
     <input
       :id="slug"
       type="checkbox"
-      :checked="checked"
-      v-on:change="$emit('input', $event.target.checked)"
+      :checked="modelValue"
+      v-on:change="$emit('update:modelValue', $event.target.checked)"
     />
 
     <small class="note" v-if="note">
@@ -30,7 +30,7 @@ export default defineComponent({
   },
   props: {
     label: { type: String, required: true },
-    checked: { type: Boolean, required: false, default: false },
+    modelValue: { type: Boolean, required: false },
     note: { type: String, required: false },
   },
   computed: {
