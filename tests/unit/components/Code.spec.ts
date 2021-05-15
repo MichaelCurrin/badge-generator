@@ -10,7 +10,8 @@ describe("Code.vue", () => {
         code: "## Foo bar",
       },
     });
-    const expected = "<pre><code class=\"markdown hljs\"><span class=\"hljs-section\">## Foo bar</span></code></pre>"
+    const expected =
+      '<pre><code class="markdown hljs"><span class="hljs-section">## Foo bar</span></code></pre>';
     expect(wrapper.html()).toBe(expected);
   });
 });
