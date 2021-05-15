@@ -27,7 +27,7 @@ t test:
 	yarn test:coverage
 
 
-s serve: lint
+s serve: fix
 	yarn start
 
 serve-subpath:
