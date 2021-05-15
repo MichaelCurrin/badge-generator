@@ -1,4 +1,3 @@
-// Code block with syntax highlighting.
 <template>
   <pre><code>{{ code }}</code></pre>
 </template>
