@@ -11,12 +11,55 @@ See changes below, with most recent changes at the top.
 
 ## May 2020
 
+### Vue 3 upgrade attempt
+
+Done to use latest code in tutorial docs and libraries and to help with avoiding vulnerabilities.
+
+My [vue-router-ts-quickstart][] repo was used as a base. It was generated using Vue UI tool, using mostly the same packages here.
+
+Note that `vue-jest` gives a warning when installing packages that Babel-related packages are missing as peer dependencies. But since the generated app is setup to work fine like this and I'll see if my app continue to work without Babel, then this fine.
+
+I decided to use a generated app instead of using the [Vue 3 migration guide][] which covers each plugin and how it has to change.
+
+I later discovered a link on the highlight.js repo README which points to
+[Highlight.js plugin for Vue.js][] repo, but I don't see a need to use it and `markdown-it` works great already and covers both my Markdown and highlighting needs. Then I had a TS issue where I could do not pass the highlighter.
+
+```
+TS2345: Argument of type 'HLJSApi' is not assignable to parameter of type 'Plugin_2'.
+  Property 'install' is missing in type 'HLJSApi' but required in type '{ install: PluginInstallFunction; }'.
+     6 | const app = createApp(App);
+     7 | app.use(router)
+  >  8 | app.use(hljs);
+```
+
+It looks like works, though gives a deprecation warning.
+
+```javascript
+app.use(hljs.vuePlugin);
+```
+
+I tried this instead, using Vue Plugin docs. But got an error on lack of type defintions.
+
+```javascript
+import hljs from "highlight.js/lib/common";
+import vuePlugin from "@highlightjs/vue-plugin";
+```
+
+
+[Highlight.js plugin for Vue.js]: https://github.com/highlightjs/vue-plugin
+[vue-router-ts-quickstart]: https://github.com/MichaelCurrin/vue-router-ts-quickstart
+[Vue 3 migration guide]: https://cli.vuejs.org/migrating-from-v3/
+
+### Remove Babel
+
 Remove Babel:
 
-- There is a Babel package which causes issues staying secure (see [issue #104](https://github.com/MichaelCurrin/badge-generator/issues/104))
+
+- There is a Babel package which causes issues staying secure - see [issue #104][].
 - I want fewer packages to manage.
 - Only less than 5% of browsers would be affected.
 
+[issue #104]: https://github.com/MichaelCurrin/badge-generator/issues/104
 
 ## Dec 2020
 
@@ -43,9 +86,9 @@ The followed dev dependencies were added:
 **Summary**
 
 - I had issues using the `vue-markdown` package.
-- The original is insecure.
-- The fork I used is complicated - it requires permissions for network when running tests, the types are not available and adding type definitions in the project caused a break.
-- So the easiest was to go with a low level package called `markdown-it` and build a small custom component around that.
+- The original is insecure - because of `highlight.js`.
+- The fork of `vue-markdown` I used was complicated - it required permissions for network when running tests, the types are not available and adding type definitions in the project caused a break.
+- So the easiest was to go with a low-level package called `markdown-it` and build a small custom component around that.
 
 **2.8.0**
 
@@ -64,6 +107,8 @@ That gets used like this such as in `Help.vue`.
 ```
 
 The `markdown-it` one already has things handled in `package.json` which it must used, like emojis, footnotes and highlighting code blocks. These can be enabled with `.use(plugin)` as per the README.
+
+To use `highlightjs` as an HTML tag in Vue, I import the `highlight.js` NPM package and pass it to Vue with `.use(hljs)`. See [highlightjs.org](https://highlightjs.org/) homepage.
 
 **2.6.0**
 
