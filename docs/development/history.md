@@ -83,7 +83,9 @@ The easiest was to take out the highlighter CSS and JS and consider putting it b
 
 ### Restore syntax highlighting after Vue upgrade
 
-I found an approach that was recommended in the [Highlight.js usage docs][] as a generic approach and I've adapted for use with Vue. Running `hljs.highlightAll();` on the `update` function of the `Code.vue` component works.
+See [PR #109](https://github.com/MichaelCurrin/badge-generator/pull/109).
+
+I found an approach was recommended in the [Highlight.js usage docs][] as a generic approach and I've adapted for use with Vue. Running `hljs.highlightAll();` on the `update` function of the `Code.vue` component works.
 
 It is preferable to target an element - in case there are multiple triggers running on the page at once. The docs say you can pass an element like this:
 
