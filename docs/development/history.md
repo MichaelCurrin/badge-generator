@@ -51,14 +51,12 @@ import vuePlugin from "@highlightjs/vue-plugin";
 
 ### Remove Babel
 
-Remove Babel:
-
-
 - There is a Babel package which causes issues staying secure - see [issue #104][].
 - I want fewer packages to manage.
 - Only less than 5% of browsers would be affected.
 
 [issue #104]: https://github.com/MichaelCurrin/badge-generator/issues/104
+
 
 ## Dec 2020
 
