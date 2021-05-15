@@ -19,7 +19,7 @@ upgrade:
 	yarn upgrade
 
 
-l lint:
+fix:
 	yarn lint:fix
 
 t test:
