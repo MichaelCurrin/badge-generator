@@ -1,6 +1,6 @@
 // Code block with syntax highlighting.
 <template>
-  <highlightjs :language="language" :code="code" />
+  <pre><code>{{ code }}</code></pre>
 </template>
 
 <script lang="ts">
