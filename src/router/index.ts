@@ -1,7 +1,7 @@
 import Home from "@/views/Home.vue";
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
-// TODO: Lazy loading
+// Use named chunks for code splitting for smaller files.
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -11,27 +11,32 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/repo",
     name: "Repo",
-    component: () => import("@/views/RepoBadges.vue"),
+    component: () =>
+      import(/* webpackChunkName: "repo" */ "@/views/RepoBadges.vue"),
   },
   {
     path: "/generic",
     name: "Generic",
-    component: () => import("@/views/GenericBadges.vue"),
+    component: () =>
+      import(/* webpackChunkName: "generic" */ "@/views/GenericBadges.vue"),
   },
   {
     path: "/package",
     name: "Package",
-    component: () => import("@/views/PackageBadges.vue"),
+    component: () =>
+      import(/* webpackChunkName: "package" */ "@/views/PackageBadges.vue"),
   },
   {
     path: "/image",
     name: "Image",
-    component: () => import("@/views/Image.vue"),
+    component: () =>
+      import(/* webpackChunkName: "image" */ "@/views/Image.vue"),
   },
   {
     path: "/catalogue",
     name: "Catalogue",
-    component: () => import("@/views/Catalogue.vue"),
+    component: () =>
+      import(/* webpackChunkName: "catalogue" */ "@/views/Catalogue.vue"),
   },
 ];
 
