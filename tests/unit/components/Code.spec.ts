@@ -8,8 +8,6 @@ describe("Code.vue", () => {
         code: "## Foo bar",
       },
     });
-    expect(wrapper.html()).toBe(
-      '<pre><code>## Foo bar</code></pre>'
-    );
+    expect(wrapper.html()).toBe("<pre><code>## Foo bar</code></pre>");
   });
 });
