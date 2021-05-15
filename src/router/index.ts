@@ -1,11 +1,8 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-
 import Home from "@/views/Home.vue";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
-Vue.use(VueRouter);
-
-export const routes = [
+// TODO: Lazy loading
+export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
@@ -38,7 +35,8 @@ export const routes = [
   },
 ];
 
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHashHistory(),
   routes,
 });
 
