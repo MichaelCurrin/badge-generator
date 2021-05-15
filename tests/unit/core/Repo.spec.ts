@@ -52,6 +52,14 @@ describe("#Repo", () => {
     });
   });
 
+  describe("#_issuesURL", () => {
+    it("returns a valid generate issues URL", () => {
+      expect(repoNoLicense._issuesURL()).toBe(
+        "https://github.com/MichaelCurrin/badge-generator/issues"
+      );
+    });
+  });
+
   describe("#_templateURL", () => {
     it("returns a valid generate template URL", () => {
       expect(repoNoLicense._templateURL()).toBe(
