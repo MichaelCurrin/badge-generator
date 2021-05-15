@@ -4,12 +4,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import markdownIt from "markdown-it";
 
 const md = new markdownIt({ html: true });
 
-export default Vue.extend({
+export default defineComponent({
   name: "Markdown",
   props: {
     content: String,

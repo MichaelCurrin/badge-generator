@@ -4,14 +4,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import hljs from "highlight.js";
-
-Vue.use(hljs.vuePlugin);
+import { defineComponent } from "vue";
 
 const defaultLanguage = "markdown";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Code",
   props: {
     code: { type: String, required: true },

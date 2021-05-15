@@ -18,12 +18,12 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import Markdown from "@/components/Markdown.vue";
 import { slugify } from "@/lib";
 
-export default Vue.extend({
+export default defineComponent({
   name: "Checkbox",
   components: {
     Markdown,
@@ -34,7 +34,7 @@ export default Vue.extend({
     note: { type: String, required: false },
   },
   computed: {
-    slug() {
+    slug(): string {
       return slugify("box", this.label);
     },
   },

@@ -7,11 +7,11 @@
     <input
       :id="slug"
       type="text"
-      :value="value"
+      :modelValue="modelValue"
       :placeholder="placeholder"
       :required="isRequired"
       :disabled="disabled"
-      v-on:input="$emit('input', $event.target.value)"
+      v-on:input="$emit('update:modelValue', $event.target.value)"
     />
 
     <small class="note" v-if="note">
@@ -27,27 +27,27 @@ label {
 </style>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import { slugify } from "@/lib";
 import Markdown from "@/components/Markdown.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "TextInput",
   components: {
     Markdown,
   },
   props: {
     label: { type: String, required: true },
-    value: { type: String, required: true },
+    modelValue: { type: String, required: true },
     placeholder: { type: String, required: false },
     isRequired: { type: Boolean, required: false },
     disabled: { type: Boolean, required: false },
     note: { type: String, required: false },
   },
   computed: {
-    slug() {
-      return slugify("text", this.label, this.value);
+    slug(): string {
+      return slugify("text", this.label, this.modelValue);
     },
   },
 });
