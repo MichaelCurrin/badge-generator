@@ -157,6 +157,13 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "go",
     altText: "Made with Go",
   },
+  {
+    label: "Hugo",
+    message: "0.X",
+    target: "https://gohugo.io/",
+    logo: "hugo",
+    altText: "Made with Hugo",
+  },
 
   {
     label: "Rust",
