@@ -10,26 +10,10 @@
 
 <script lang="ts">
 import hljs from "highlight.js";
-import markdownIt from "markdown-it";
 import { defineComponent } from "vue";
 
+import { cleanHtml, mdToHTML } from "@/core/markdown";
 import Checkbox from "./Checkbox.vue";
-
-const md = new markdownIt({ html: true });
-
-/**
- * Turn HTML generated from Markdown into more typical HTML.
- */
-function cleanHtml(htmlCode: String) {
-  return htmlCode
-    .replaceAll("<p>", "")
-    .replaceAll("</p>", "\n")
-    .replaceAll("<em>", "<i>")
-    .replaceAll("</em>", "</i>")
-    .replaceAll("<strong>", "<b>")
-    .replaceAll("</strong>", "</bold>")
-    .replaceAll("&amp;", "&");
-}
 
 export default defineComponent({
   name: "Code",
@@ -46,16 +30,18 @@ export default defineComponent({
   },
   computed: {
     outputCode(): String {
-      return this.asHtml ? cleanHtml(this.toHTML(this.code)) : this.code;
+      if (this.asHtml) {
+        const htmlCode = mdToHTML(this.code);
+
+        return cleanHtml(htmlCode);
+      }
+      return this.code;
     },
   },
   methods: {
     highlight() {
       const block = this.$refs.codeBlock as HTMLElement;
       hljs.highlightBlock(block);
-    },
-    toHTML(value: string) {
-      return md.render(value);
     },
   },
   mounted() {
