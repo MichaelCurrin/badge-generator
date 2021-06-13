@@ -12,7 +12,7 @@
     <br />
 
     <div>
-      <h3>Markcown code</h3>
+      <h3>Code</h3>
 
       <Code :code="result" />
     </div>
