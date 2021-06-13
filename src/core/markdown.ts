@@ -63,6 +63,6 @@ export function cleanHtml(htmlCode: String) {
     .replaceAll("<em>", "<i>")
     .replaceAll("</em>", "</i>")
     .replaceAll("<strong>", "<b>")
-    .replaceAll("</strong>", "</bold>")
+    .replaceAll("</strong>", "</b>")
     .replaceAll("&amp;", "&");
 }
