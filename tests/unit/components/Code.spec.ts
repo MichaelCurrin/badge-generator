@@ -12,6 +12,6 @@ describe("Code.vue", () => {
     });
     const expected =
       '<pre><code class="markdown hljs"><span class="hljs-section">## Foo bar</span></code></pre>';
-    expect(wrapper.html()).toBe(expected);
+    expect(wrapper.html()).toContain(expected);
   });
 });
