@@ -1,13 +1,11 @@
 // Render Markdown (or HTML) as HTML.
 <template>
-  <div v-html="toHTML(content)"></div>
+  <div v-html="mdToHTML(content)"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import markdownIt from "markdown-it";
-
-const md = new markdownIt({ html: true });
+import { mdToHTML } from "@/core/markdown";
 
 export default defineComponent({
   name: "Markdown",
@@ -15,9 +13,7 @@ export default defineComponent({
     content: { type: String, required: true },
   },
   methods: {
-    toHTML(value: string) {
-      return md.render(value);
-    },
+    mdToHTML,
   },
 });
 </script>
