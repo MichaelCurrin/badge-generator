@@ -17,7 +17,7 @@ export default defineComponent({
     Markdown,
   },
   props: {
-    message: String,
+    message: { type: String, required: true },
   },
 });
 </script>

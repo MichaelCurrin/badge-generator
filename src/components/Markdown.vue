@@ -12,7 +12,7 @@ const md = new markdownIt({ html: true });
 export default defineComponent({
   name: "Markdown",
   props: {
-    content: String,
+    content: { type: String, required: true },
   },
   methods: {
     toHTML: (value: string) => md.render(value),

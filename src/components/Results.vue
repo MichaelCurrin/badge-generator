@@ -32,7 +32,7 @@ export default defineComponent({
     Code,
   },
   props: {
-    result: String,
+    result: { type: String, required: true },
   },
 });
 </script>
