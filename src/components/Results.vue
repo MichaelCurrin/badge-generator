@@ -5,11 +5,14 @@
 
     <div>
       <h3>Preview</h3>
-      <Markdown :content="result"></Markdown>
+
+      <Markdown class="markdown-preview" :content="result"></Markdown>
     </div>
 
+    <br />
+
     <div>
-      <h3>Code</h3>
+      <h3>Markcown code</h3>
 
       <Code :code="result" />
     </div>
@@ -33,3 +36,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.markdown-preview {
+  padding-left: 12px;
+}
+</style>
