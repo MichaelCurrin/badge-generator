@@ -9,6 +9,17 @@ For a fuller description features and fixes, see [Releases](https://github.com/M
 See changes below, with most recent changes at the top.
 
 
+## June 2021
+
+### Add HTML view
+
+Added a button to the `Code.vue` element to allow viewing HTML source.
+
+This is useful when you want to add an badge image inside a centered `div` on Jekyll site, but it ends up rendering as literal HTML, unless you first generate the HTML and then paste that in.
+
+And also if you are just curious as to what the HTML equivalent is.
+
+
 ## May 2021
 
 ### Vue 3 upgrade
@@ -93,9 +104,9 @@ It is preferable to target an element - in case there are multiple triggers runn
 hljs.highlightBlock(block);
 ```
 
-I used `$refs` as per [Template Refs](https://v3.vuejs.org/guide/component-template-refs.html) doc to target the element.
+_Update: That method is deprecated and so `.highlightElement` is used now._
 
-Note `.highlightBlock` is marked as deprecated and `.highlightElement` preferred, but it is not available yet.
+I used `$refs` as per [Template Refs](https://v3.vuejs.org/guide/component-template-refs.html) doc to target the element.
 
 I thought maybe running _once_ on mounting an element or loading a route could be fine. Actually, using `mount` does not work I see because it works initially and then the highlighting gets lost. I guess it because the highlighting determines on the actual text in the element, so it must be done on the `update` call.
 
