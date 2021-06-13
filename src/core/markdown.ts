@@ -9,10 +9,16 @@ import { IMdImage, IMdImageWithLink } from "./markdown.d";
 
 const md = new markdownIt({ html: true });
 
+/**
+ * Create Markdown link code.
+ */
 export function mdLink(altText: string, linkTarget: string) {
   return `[${altText}](${linkTarget})`;
 }
 
+/**
+ * Create Markdown image code.
+ */
 export function mdImage({ altText, imageTarget, hoverTitle }: IMdImage) {
   if (hoverTitle) {
     imageTarget = `${imageTarget} "${hoverTitle}"`;
@@ -21,7 +27,7 @@ export function mdImage({ altText, imageTarget, hoverTitle }: IMdImage) {
 }
 
 /**
- * Create a markdown image tag with external link.
+ * Create Markdown image code, with an external link.
  *
  * This performs no encoding - the inputs should be encoded already to be a URL without spaces and
  * to be a valid URL for shields.io API.
