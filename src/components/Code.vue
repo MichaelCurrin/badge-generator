@@ -41,7 +41,7 @@ export default defineComponent({
   methods: {
     highlight() {
       const block = this.$refs.codeBlock as HTMLElement;
-      hljs.highlightBlock(block);
+      hljs.highlightElement(block);
     },
   },
   mounted() {
