@@ -1,4 +1,4 @@
-// Render Markdown or HTML as HTML.
+// Render Markdown (or HTML) as HTML.
 <template>
   <div v-html="toHTML(content)"></div>
 </template>

@@ -1,3 +1,5 @@
+// Render Markdown code as a codeblock. Syntax highlighting is applied
+whenever the content changes.
 <template>
   <pre><code ref="codeBlock" class="markdown">{{ code }}</code></pre>
 </template>
