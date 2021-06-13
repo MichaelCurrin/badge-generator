@@ -15,7 +15,9 @@ export default defineComponent({
     content: { type: String, required: true },
   },
   methods: {
-    toHTML: (value: string) => md.render(value),
+    toHTML(value: string) {
+      return md.render(value);
+    },
   },
 });
 </script>
