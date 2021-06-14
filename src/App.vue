@@ -185,7 +185,6 @@ summary {
 }
 
 .btn {
-  border-radius: 12px;
   color: white;
   font-size: 21px;
   background: linear-gradient(to bottom, var(--green), var(--green-dark));
