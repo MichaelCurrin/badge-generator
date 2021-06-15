@@ -169,16 +169,18 @@ Released under ${license} by ${user}.
 `;
   }
 
-  gh() {
+  gh(badgeColor?: String) {
     const label = this.username,
       message = this.repoName,
       target = this.ghURL(),
       onlyQueryParams = true;
+    
+    const badgeColorResult = badgeColor ?? GH_BADGE.color;
 
     return genericBadge(
       label,
       message,
-      GH_BADGE.color!,
+      badgeColorResult!,
       GH_BADGE.isLarge,
       target,
       GH_BADGE.logo,
