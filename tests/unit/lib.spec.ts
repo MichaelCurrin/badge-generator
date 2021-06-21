@@ -14,7 +14,7 @@ describe("#stripLeadingSlash", () => {
 
 
 describe("#slugify", () => {
-  describe("creates a slug correctly", () => {
+  describe("converts a single value to a slug correctly", () => {
     it("trims", () => {
       expect(slugify(' abcdef ')).toBe("abcdef")
     })
@@ -36,8 +36,18 @@ describe("#slugify", () => {
       expect(slugify('a--b')).toBe("a-b")
     })
 
-    it("handles a mix", () => {
+    it("handles a mix of cases", () => {
       expect(slugify('ABC DEF ? 123 xyz')).toBe("abc-def-123-xyz")
+    })
+  })
+
+  describe("combines multiple values into a single slug", () => {
+    it("handles spaced words in uppercase", () => {
+      expect(slugify('ABC DEF', 'MNOP')).toBe("abc-def-mnop")
+    })
+
+    it("handles a mix of cases", () => {
+      expect(slugify('ABC DEF ? 123 xyz', 'mnop 78#$')).toBe("abc-def-123-xyz-mnop-78")
     })
   })
 })
