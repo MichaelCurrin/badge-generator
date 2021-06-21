@@ -2,9 +2,7 @@ import Code from "@/components/Code.vue";
 import { shallowMount } from "@vue/test-utils";
 
 describe("Code.vue", () => {
-  // Note that we do not care about convering Markdown to HTML here. It doesn't get rendered when
-  // doing the highlightjs component or using the plain style.
-  it("renders a codeblock with highlighting", () => {
+  it("renders a Markdown codeblock as Markdown code, with highlighting", () => {
     const wrapper = shallowMount(Code, {
       props: {
         code: "## Foo bar",
@@ -12,6 +10,25 @@ describe("Code.vue", () => {
     });
     const expected =
       '<pre><code class="markdown hljs"><span class="hljs-section">## Foo bar</span></code></pre>';
+    expect(wrapper.html()).toContain(expected);
+  });
+
+  it("renders a Markdown codeblock as HTML code, with highlighting", () => {
+    const wrapper = shallowMount(Code, {
+      props: {
+        code: "## Foo bar",
+      },
+      data() {
+        return {
+          asHtml: true
+        }
+      }
+    });
+    const expected = `\
+<div>
+  <checkbox-stub label=\"Show HTML\" modelvalue=\"true\"></checkbox-stub><br><pre><code class=\"markdown hljs\"><span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">h2</span>&gt;</span></span>Foo bar<span class=\"xml\"><span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">h2</span>&gt;</span></span>
+</code></pre>
+</div>`;
     expect(wrapper.html()).toContain(expected);
   });
 });
