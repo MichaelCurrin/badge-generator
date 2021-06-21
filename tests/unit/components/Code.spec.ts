@@ -26,7 +26,7 @@ describe("Code.vue", () => {
     });
     const expected = `\
 <div>
-  <checkbox-stub label=\"Show HTML\" modelvalue=\"true\"></checkbox-stub><br><pre><code class=\"markdown hljs\"><span class=\"xml\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">h2</span>&gt;</span></span>Foo bar<span class=\"xml\"><span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">h2</span>&gt;</span></span>
+  <checkbox-stub label="Show HTML" modelvalue="true"></checkbox-stub><br><pre><code class="markdown hljs"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>Foo bar<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
 </code></pre>
 </div>`;
     expect(wrapper.html()).toContain(expected);
