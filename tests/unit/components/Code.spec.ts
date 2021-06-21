@@ -9,7 +9,7 @@ describe("Code.vue", () => {
       },
     });
     const expected =
-      '<pre><code class="markdown hljs"><span class="hljs-section">## Foo bar</span></code></pre>'
+      '<pre><code class="markdown hljs"><span class="hljs-section">## Foo bar</span></code></pre>';
 
     expect(wrapper.html()).toContain(expected);
   });
@@ -21,13 +21,13 @@ describe("Code.vue", () => {
       },
       data() {
         return {
-          asHtml: true
-        }
-      }
+          asHtml: true,
+        };
+      },
     });
     const expected = `\
 <pre><code class="markdown hljs"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span></span>Foo bar<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></span>
-</code></pre>`
+</code></pre>`;
 
     expect(wrapper.html()).toContain(expected);
   });
@@ -41,7 +41,7 @@ describe("Code.vue", () => {
     const expected = `\
 <div>
   <checkbox-stub label="Show HTML" modelvalue="false"></checkbox-stub><br><pre><code class="markdown hljs"><span class="hljs-section">## Foo bar</span></code></pre>
-</div>`
+</div>`;
 
     expect(wrapper.html()).toBe(expected);
   });
