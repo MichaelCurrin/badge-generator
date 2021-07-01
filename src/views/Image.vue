@@ -103,7 +103,7 @@ import { defineComponent } from "vue";
 
 import { stripLeadingSlash } from "@/lib";
 
-import { screenshot } from "@/constants/image";
+import { SCREENSHOT } from "@/constants/image";
 import { INITIAL_RESULT } from "@/constants/text";
 
 import Help from "@/components/Help.vue";
@@ -151,7 +151,8 @@ export default defineComponent({
   },
   data() {
     return {
-      ...screenshot,
+      ...SCREENSHOT,
+
       result: INITIAL_RESULT,
       helpMessage,
     };
