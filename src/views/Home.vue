@@ -9,7 +9,11 @@
         smaller and CSS can't help here it seems. Width was set before in HTML but now it converts
         100% to 0px so rather set by CSS. -->
         <div class="hero">
-          <img id="logo" alt="Logo" :src="`${baseUrl}hero.jpeg`" />
+          <img
+            id="logo"
+            :src="`${baseUrl}hero.jpeg`"
+            alt="Website banner logo"
+          />
 
           <br />
 
