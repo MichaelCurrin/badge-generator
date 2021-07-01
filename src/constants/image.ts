@@ -1,4 +1,4 @@
-export const screenShot = {
+export const screenshot = {
   imgSrc: "/sample.png",
   linkTarget: "",
   altText: "Sample screenshot",
