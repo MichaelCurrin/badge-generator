@@ -29,8 +29,8 @@ This is mostly a convenience tool to make it easy to generate markdown for badge
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
         <img src="/docs/_media/repo-badges-page.png"
-            alt="Repo page screenshot"
-            title="Go to the repo page"
+            alt="Repo badges page screenshot"
+            title="Go to the Repo badges page"
             width="450" >
     </a>
 </div>
