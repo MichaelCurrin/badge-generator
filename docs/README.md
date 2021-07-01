@@ -13,7 +13,7 @@
 
 - [Features](features.md)
 - [User guide](user-guide.md)
-- Instructions to setup and run
+- Set up and run
    1. [Installation](installation.md)
    1. [Usage](usage.md)
    1. [Deploy](deploy.md)
