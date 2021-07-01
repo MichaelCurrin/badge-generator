@@ -16,8 +16,8 @@
 [![Package - Yarn](https://img.shields.io/badge/Yarn->=1-blue?logo=yarn&logoColor=white)](https://classic.yarnpkg.com "Go to Yarn classic homepage")
 [![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js)](https://www.npmjs.com/package/vue "Go to Vue on NPM")
 [![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript "Go to TypeScript on NPM")
-    
-[Website](https://michaelcurrin.github.io/badge-generator/) — [Sample badges](#sample) — [Documentation](/docs/#readme) 
+
+[Website](https://michaelcurrin.github.io/badge-generator/) — [Sample badges](#sample) — [Documentation](/docs/#readme)
 
 </div>
 
@@ -28,7 +28,10 @@ This is mostly a convenience tool to make it easy to generate markdown for badge
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/#/repo">
-        <img src="/docs/_media/repo-badges-page.png" alt="Repo badges page screenshot" title="Repo badges page screenshot" width="450" />
+        <img src="/docs/_media/repo-badges-page.png"
+            alt="Repo page screenshot"
+            title="Go to the repo page"
+            width="450" >
     </a>
 </div>
 
@@ -58,7 +61,7 @@ Link to your project. From another project - even paste these in an online forum
 [![MichaelCurrin - badge-generator](https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&color=blue&logo=github)](https://github.com/MichaelCurrin/badge-generator)
 [![stars - badge-generator](https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
 [![forks - badge-generator](https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social)](https://github.com/MichaelCurrin/badge-generator)
-    
+
 </div>
 
 ### Repo metadata
