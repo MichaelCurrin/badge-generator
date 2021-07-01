@@ -22,13 +22,16 @@
 </div>
 
 
+## Overview
+
+A convenience tool that makes it easy to generate custom Markdown for badges to put on your documentation or website.
+
+Choose a page, enter your details, and click _Submit_ to generate some Markdown code for you to copy and paste.
+
+External tools are used to actually render badges - mostly using [shields.io](https://shields.io).
+
+
 ## Preview
-
-This is a convenience tool to make it easy to generate markdown for badges.
-
-It makes text for you to copy and paste.
-
-The focus is on using external tools to host and render images, such using [shields.io](https://shields.io) for SVG badges.
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/">
