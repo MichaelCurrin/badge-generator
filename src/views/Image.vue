@@ -103,6 +103,8 @@ import { defineComponent } from "vue";
 
 import { stripLeadingSlash } from "@/lib";
 
+import { screenShot } from "@/constants/image";
+
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
@@ -148,12 +150,7 @@ export default defineComponent({
   },
   data() {
     return {
-      imgSrc: "/sample.png",
-      linkTarget: "",
-      altText: "Sample screenshot",
-      imgTitle: "",
-      width: "400",
-      height: "",
+      ...screenShot,
       result: "_Your output will appear here_",
       helpMessage,
     };
