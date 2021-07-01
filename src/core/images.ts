@@ -1,11 +1,11 @@
 /**
  * Images module.
  *
- * This was attempted using a Vue compotent instead with templating. But rendering proved an issue
- * as the finished element was shown even inside pre and code tags.
+ * This was attempted using a Vue component instead of with templating. But rendering proved an
+ * issue as the finished element was shown even inside of `pre` and `code` tags.
  *
- * The indentation here is not smart because of the nested rendering but it works well enough to use
- * it.
+ * The indentation here is not smart because of the nested rendering, but, it works well enough to
+ * use it.
  */
 export function mkHtmlImg(
   src: string,
@@ -20,7 +20,8 @@ export function mkHtmlImg(
     htmlWidth = width ? ` width="${width}"` : "",
     htmlHeight = height ? ` height="${height}"` : "";
 
-  let htmlImg = `<img src="${src}"${htmlAltText}${htmlTitle}${htmlWidth}${htmlHeight} />`;
+  let htmlImg = `<img src="${src}"${htmlAltText}${htmlTitle}${htmlWidth}${htmlHeight}>`;
+
   if (target) {
     htmlImg = `\
 <a href="${target}">
