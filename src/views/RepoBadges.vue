@@ -104,6 +104,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import { INITIAL_RESULT } from "@/constants/text";
+
 import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
 import Results from "@/components/Results.vue";
@@ -137,12 +139,14 @@ export default defineComponent({
       username: "MichaelCurrin",
       repoName: "badge-generator",
       licenseType: "MIT",
+
       useThisTemplate: false,
       ghPages: false,
       addIssues: false,
       workflowName: "",
-      result: "_Your output will appear here_",
       versionType: "tag",
+
+      result: INITIAL_RESULT,
       note: note,
     };
   },

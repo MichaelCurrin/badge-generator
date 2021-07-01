@@ -139,12 +139,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import { COLOR } from "@/constants/appearance";
+import { INITIAL_RESULT } from "@/constants/text";
+
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { REGISTRY } from "@/constants/urls";
-import { COLOR } from "@/constants/appearance";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
 import { ENVIRONMENT } from "@/core/shieldsApi";
@@ -176,7 +178,7 @@ export default defineComponent({
       logo: "",
       logoColor: COLOR.LogoDefault,
 
-      result: "_Your output will appear here_",
+      result: INITIAL_RESULT,
       note: note,
 
       disabledClass: "disabled-text",

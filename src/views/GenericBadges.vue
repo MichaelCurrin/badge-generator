@@ -85,13 +85,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import { COLOR } from "@/constants/appearance";
+import { INITIAL_RESULT } from "@/constants/text";
+
 import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { genericBadge } from "@/core/genericBadge";
-import { COLOR } from "@/constants/appearance";
 
 const note = `
 This form lets you create a fixed badge using arbitrary text and a link.
@@ -117,7 +119,7 @@ export default defineComponent({
       logo: "",
       logoColor: "",
 
-      result: "_Your output will appear here_",
+      result: INITIAL_RESULT,
       note: note,
     };
   },
