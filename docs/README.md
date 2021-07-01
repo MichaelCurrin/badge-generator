@@ -1,12 +1,7 @@
-<div align="center">
-
 # Badge Generator docs<br> :shield: :badger: :mage:
-
 > Magically generate Markdown badges for your docs
 
 [![GitHub tag](https://img.shields.io/github/tag/MichaelCurrin/badge-generator)](https://github.com/MichaelCurrin/badge-generator/releases/?include_prereleases&sort=semver)
-    
-</div>
 
 
 ## Overview
