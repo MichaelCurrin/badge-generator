@@ -1,3 +1,4 @@
+// Default for Image.vue.
 export const SCREENSHOT = {
   imgSrc: "/sample.png",
   linkTarget: "",
