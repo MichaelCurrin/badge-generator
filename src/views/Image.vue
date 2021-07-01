@@ -163,8 +163,7 @@ export default defineComponent({
       return stripLeadingSlash(this.altText || this.imgSrc);
     },
     imgTitleOut(): string {
-      // If neither is set, then an empty string is fine to pass in.
-      return stripLeadingSlash(this.imgTitle || this.altText);
+      return stripLeadingSlash(this.imgTitle);
     },
   },
   methods: {
