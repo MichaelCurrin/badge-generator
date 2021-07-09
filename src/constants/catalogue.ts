@@ -202,4 +202,20 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "postgresql",
     altText: "Made with PostgreSQL",
   },
+
+  {
+    label: "MySQL",
+    message: ">=5.7",
+    target: "https://www.mysql.com/",
+    logo: "mysql",
+    altText: "Made with MySQL",
+  },
+
+  {
+    label: "MongoDB",
+    message: "3",
+    target: "https://www.mongodb.com/",
+    logo: "mongodb",
+    altText: "Made with MongoDB",
+  },
 ];
