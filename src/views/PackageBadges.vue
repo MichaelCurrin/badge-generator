@@ -31,42 +31,51 @@
               <div>
                 <span>Type: </span>
 
-                <input
-                  type="radio"
-                  id="python"
-                  name="package-type"
-                  value="Python"
-                  v-model="pkgType"
-                  checked
-                />
-                <label for="python">Python (PyPI)</label>
+                <!-- Radio buttons. -->
+                <div>
+                  <input
+                    type="radio"
+                    id="python"
+                    name="package-type"
+                    value="Python"
+                    v-model="pkgType"
+                    checked
+                  />
+                  <label for="python">Python (PyPI)</label>
+                </div>
 
-                <input
-                  type="radio"
-                  id="node"
-                  name="package-type"
-                  value="Node"
-                  v-model="pkgType"
-                />
-                <label for="node">Node (NPM)</label>
+                <div>
+                  <input
+                    type="radio"
+                    id="node"
+                    name="package-type"
+                    value="Node"
+                    v-model="pkgType"
+                  />
+                  <label for="node">Node (NPM)</label>
+                </div>
 
-                <input
-                  type="radio"
-                  id="ruby"
-                  name="package-type"
-                  value="Ruby"
-                  v-model="pkgType"
-                />
-                <label for="ruby">Ruby (Rubygems)</label>
+                <div>
+                  <input
+                    type="radio"
+                    id="ruby"
+                    name="package-type"
+                    value="Ruby"
+                    v-model="pkgType"
+                  />
+                  <label for="ruby">Ruby (Rubygems)</label>
+                </div>
 
-                <input
-                  type="radio"
-                  id="go"
-                  name="package-type"
-                  value="Go"
-                  v-model="pkgType"
-                />
-                <label for="go">Go</label>
+                <div>
+                  <input
+                    type="radio"
+                    id="go"
+                    name="package-type"
+                    value="Go"
+                    v-model="pkgType"
+                  />
+                  <label for="go">Go</label>
+                </div>
               </div>
               <br />
 
