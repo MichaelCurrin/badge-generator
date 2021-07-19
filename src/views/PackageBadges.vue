@@ -149,7 +149,7 @@ import TextInput from "@/components/TextInput.vue";
 import { REGISTRY, RegistryKeys } from "@/constants/urls";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
-import { ENVIRONMENT } from "@/core/shieldsApi";
+import { ENVIRONMENT, EnvironmentKeys } from "@/core/shieldsApi";
 
 const note = `
 - Environent setting is for Node packages only and must match whether the package is in "dependencies" or "devDependencies".
@@ -203,7 +203,7 @@ export default defineComponent({
         : "";
 
       const repo = new Repo(this.username, this.repoName);
-      const envKey = this.envType as keyof typeof ENVIRONMENT,
+      const envKey = this.envType as EnvironmentKeys,
         environment = ENVIRONMENT[envKey];
 
       const lockedPkgBadge =

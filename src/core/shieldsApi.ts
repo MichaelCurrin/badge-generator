@@ -12,6 +12,7 @@ export enum ENVIRONMENT {
   Prod,
   Dev,
 }
+export type EnvironmentKeys = keyof typeof ENVIRONMENT;
 
 /**
  * Encode separators for use on shields.io API.
