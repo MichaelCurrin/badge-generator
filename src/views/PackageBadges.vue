@@ -146,7 +146,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { REGISTRY } from "@/constants/urls";
+import { REGISTRY, RegistryKeys } from "@/constants/urls";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
 import { ENVIRONMENT } from "@/core/shieldsApi";
@@ -195,7 +195,7 @@ export default defineComponent({
 
       const logoAppearance = { logo: this.logo, logoColor: this.logoColor };
 
-      const registryKey = this.pkgType as keyof typeof REGISTRY,
+      const registryKey = this.pkgType as RegistryKeys,
         registry = REGISTRY[registryKey];
 
       const dependencyBadge = registry

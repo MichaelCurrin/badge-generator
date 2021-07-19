@@ -13,6 +13,7 @@ export enum REGISTRY {
   Node = "https://www.npmjs.com/package",
   Ruby = "https://rubygems.org/gems",
 }
+export type RegistryKeys = keyof typeof REGISTRY;
 
 export const GITHUB_DOMAIN = "https://github.com",
   GITHUB_IO = "github.io";
