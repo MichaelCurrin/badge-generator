@@ -218,4 +218,12 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     logo: "mongodb",
     altText: "Made with MongoDB",
   },
+
+  {
+    label: "",
+    message: "GraphQL",
+    target: "https://graphql.org/",
+    logo: "graphql",
+    altText: "Made with GraphQL",
+  },
 ];
