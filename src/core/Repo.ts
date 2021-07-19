@@ -9,7 +9,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE
+  TEMPLATE_BADGE,
 } from "@/constants/badgeValues";
 import {
   DEFAULT_BRANCH,
@@ -17,7 +17,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS
+  VERSION_PARAMS,
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
