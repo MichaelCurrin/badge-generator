@@ -12,6 +12,7 @@ export enum REGISTRY {
   Python = "https://pypi.org/project",
   Node = "https://www.npmjs.com/package",
   Ruby = "https://rubygems.org/gems",
+  Go = "https://pkg.go.dev",
 }
 export type RegistryKeys = keyof typeof REGISTRY;
 

@@ -58,6 +58,15 @@
                   v-model="pkgType"
                 />
                 <label for="ruby">Ruby (Rubygems)</label>
+
+                <input
+                  type="radio"
+                  id="go"
+                  name="package-type"
+                  value="Go"
+                  v-model="pkgType"
+                />
+                <label for="go">Go</label>
               </div>
               <br />
 
@@ -155,6 +164,7 @@ const note = `
 - Environent setting is for Node packages only and must match whether the package is in "dependencies" or "devDependencies".
 - Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
 - Only NPM is currently supported for the dynamic package.
+- Sample name values for Go: 'http' (redirects to 'net/http') or 'encoding/json'.
 `;
 
 export default defineComponent({
