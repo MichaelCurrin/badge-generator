@@ -15,6 +15,9 @@ install:
 install-frozen:
 	yarn install --frozen-lockfile
 
+outdated:
+	yarn outdated
+
 upgrade:
 	yarn upgrade
 
