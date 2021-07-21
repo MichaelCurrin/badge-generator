@@ -131,7 +131,8 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     altText: "Made with Yarn",
   },
 
-  // Rather use NPM badges based on package.json but you can use these if needed.
+  // Rather use NPM badges based on `package.json` but you can use these if needed. Especially for
+  // frontend-only projects.
   {
     label: "TypeScript",
     message: "4",
