@@ -33,7 +33,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
   {
     label: "contributions",
     message: "welcome",
-    target: "",
+    target: "/CONTRIBUTING.md",
   },
 
   {
