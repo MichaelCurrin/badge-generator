@@ -24,6 +24,18 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     isLarge: true,
   },
 
+  // These would be useful on the Repo package, maybe with link to issues or PRs.
+  {
+    label: "maintained",
+    message: "yes",
+    target: "",
+  },
+  {
+    label: "contributions",
+    message: "welcome",
+    target: "",
+  },
+
   {
     label: "OS",
     message: "Linux",
