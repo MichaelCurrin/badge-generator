@@ -10,13 +10,13 @@ describe("#renderBadges", () => {
       expect(badges[0]).toBe(
         "[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/)"
       );
-    })
+    });
 
     it("renders a Linux badge", () => {
       expect(badges[3]).toBe(
         "[![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)"
       );
-    })
+    });
 
     it("renders a Bash badge", () => {
       expect(badges[9]).toBe(
@@ -28,6 +28,6 @@ describe("#renderBadges", () => {
       expect(badges[10]).toBe(
         "[![Made with Python](https://img.shields.io/badge/Python->=3.6-blue?logo=python&logoColor=white)](https://python.org)"
       );
-    })
+    });
   });
-})
+});
