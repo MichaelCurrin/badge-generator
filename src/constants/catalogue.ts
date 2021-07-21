@@ -18,7 +18,7 @@ type TBadgeDetails = {
 export const BADGE_DETAILS: TBadgeDetails[] = [
   // Or message: "Project Docs".
   {
-    label: "View",
+    label: "view",
     message: "Documentation",
     target: "/docs/",
     isLarge: true,
