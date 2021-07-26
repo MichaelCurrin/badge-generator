@@ -25,10 +25,10 @@ For **debugging**, start the server and then launch the Firefox task under **Deb
 
 ### Markdown to code
 
-To convert the markdown badges to code to be copied, just use `<pre><code>{{ result }}</code></pre>`.
+To convert the markdown badges to code to be copied, use [Code.vue](/src/components/Code.vue).
 
 ### Markdown to HTML
 
-This project a fork of the VueMarkdown package to render the markdown text as HTML. When this is needed, this is imported in a `.vue` file and then added under `components: { VueMarkdown }`. Then it is used as a `<vue-markdown>` tag.
+The VueMarkdown package was used but it has vulnerabilities and was not maintained. And a fork proved to be not so good.
 
-Setting `:source` as the attribute is useful for updating based on user input. Simply using `<vue-markdown>{{ value }}</vue-markdown>` gives _static_ output and this is noted in the VueMarkdown docs.
+My approach was to now to use MarkdownIt directly, with my own component.
