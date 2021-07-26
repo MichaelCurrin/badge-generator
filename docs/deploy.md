@@ -39,16 +39,14 @@ For pushes to `master` branch only, the app will build to the `gh-pages` branch.
 
 The CI flow will run a lint step on the repo, without applying fixes.
 
-This will return an **error** status on non-zero error count.
+This will return an **error** status on either:
 
-But it will **pass** quietly if there are only warnings.
-
-Perhaps this should modified to include the `--max-warnings 0` flag, to fail the step if there is at least one warning. For my own work, deploys on master and also contributors' PRs.
-
+- At least one error
+- More than 10 warnings.
 
 ### Keeping assets across deploys
 
-A flag was added to the GH Actions workflow to keep existing files on `gh-pages` branch on each deploy
+A flag was added to the GH Actions workflow to **keep** existing files on `gh-pages` branch on each deploy.
 
 This is because there was an issue after deploy when viewing a cached HTML page in the browser. It gave a blank page as hashed JS script was not found.
 
