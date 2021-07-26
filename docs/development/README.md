@@ -25,10 +25,10 @@ For **debugging**, start the server and then launch the Firefox task under **Deb
 
 ### Markdown to code
 
-To convert the markdown badges to code to be copied, use [Code.vue](/src/components/Code.vue).
+To convert the Markdown badges to code to be copied, use [Code.vue](/src/components/Code.vue).
 
 ### Markdown to HTML
 
-The VueMarkdown package was used but it has vulnerabilities and was not maintained. And a fork proved to be not so good.
+To convert Markdown to rendered HTML, use [Markdown.vue](/src/components/Markdown.vue), which relies on MarkdownIt.
 
-My approach was to now to use MarkdownIt directly, with my own component.
+The VueMarkdown package was used before for a component, but it has vulnerabilities and was not maintained. And a fork proved to be not so good.
