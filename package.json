@@ -43,6 +43,9 @@
     "vue-jest": "^5.0.0-0",
     "vue-plugin": "^0.0.1"
   },
+  "engines": {
+    "node": ">=16" 
+  }
   "homepage": "https://github.com/MichaelCurrin/badge-generator#readme",
   "license": "MIT",
   "repository": {
