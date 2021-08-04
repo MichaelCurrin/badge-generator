@@ -1,8 +1,6 @@
 {
   "name": "badge-generator",
   "version": "2.14.0",
-  "description": "Magically generate custom badges that you can paste in your docs",
-  "author": "MichaelCurrin",
   "scripts": {
     "lint:check": "vue-cli-service lint --no-fix --max-warnings 10",
     "lint:fix": "vue-cli-service lint",
@@ -46,8 +44,9 @@
   "engines": {
     "node": ">=16" 
   },
-  "homepage": "https://github.com/MichaelCurrin/badge-generator#readme",
+  "author": "MichaelCurrin",
   "license": "MIT",
+  "homepage": "https://github.com/MichaelCurrin/badge-generator#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/MichaelCurrin/badge-generator"
