@@ -8,6 +8,7 @@
 
 - [Features](features.md)
 - [User guide](user-guide.md)
+- [Install as desktop app](install-desktop-app.md)
 - Set up and run
    1. [Installation](installation.md)
    1. [Usage](usage.md)
