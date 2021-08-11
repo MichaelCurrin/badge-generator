@@ -42,7 +42,7 @@
     "vue-plugin": "^0.0.1"
   },
   "engines": {
-    "node": ">=16" 
+    "node": ">=16"
   },
   "author": "MichaelCurrin",
   "license": "MIT",
