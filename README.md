@@ -55,9 +55,10 @@ Start creating badges for your docs.
 
 
 ## Sample
-> Examples of a few badges generated with the app and rendered here on a markdown doc
 
-Note most of the badges at the top of this `README.md` were also generated using this app.
+Examples of a few badges generated with the app and rendered here on a markdown doc
+
+Note that most of the badges at the top of this `README.md` file were also generated using this app.
 
 ### Social badges
 
