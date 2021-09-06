@@ -10,7 +10,7 @@
 
 [![CodeQL](https://github.com/MichaelCurrin/badge-generator/workflows/CodeQL/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions?query=workflow%3ACodeQL "Code quality workflow status")
 [![Known Vulnerabilities](https://snyk.io/test/github/MichaelCurrin/badge-generator/badge.svg?targetFile=package.json)](https://snyk.io/test/github/MichaelCurrin/badge-generator?targetFile=package.json "Snyk vulnerabilities")
-[![LGTM](https://img.shields.io/lgtm/grade/javascript/github/MichaelCurrin/badge-generator?logo=lgtm)](https://lgtm.com/projects/g/MichaelCurrin/badge-generator/context:javascript)
+[![LGTM](https://img.shields.io/lgtm/grade/javascript/github/MichaelCurrin/badge-generator?logo=lgtm)](https://lgtm.com/projects/g/MichaelCurrin/badge-generator/context:javascript "View Code Quality checks on LGTM.com")
 
 [![Made with Node](https://img.shields.io/badge/Node.js->=16-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to Node homepage")
 [![Package - Yarn](https://img.shields.io/badge/Yarn->=1-blue?logo=yarn&logoColor=white)](https://classic.yarnpkg.com "Go to Yarn classic homepage")
@@ -133,5 +133,5 @@ Pre-made badges around languages and tools. Just copy and paste. If you can't fi
 Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
 
 - You can freely modify and reuse.
-- The original license must be included with copies of this software.
-- Please link back to this repo if you use a significant portion the source code.
+- The _original license_ must be included with copies of this software.
+- Please _link back_ to this repo if you use a significant portion the source code.
