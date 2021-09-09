@@ -131,7 +131,7 @@
                 label="Logo"
                 v-model="logo"
                 placeholder="e.g. vue.js"
-                NOTE="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
+                note="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
                 :disabled="!dynamicBadgeEnabled"
               />
 
@@ -158,7 +158,7 @@
 
     <div class="row">
       <div class="col-12">
-        <Help :message="NOTE" />
+        <Help :message="note" />
       </div>
     </div>
   </div>
