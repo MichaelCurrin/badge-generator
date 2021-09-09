@@ -63,7 +63,7 @@
                     value="Ruby"
                     v-model="pkgType"
                   />
-                  <label for="ruby">Ruby (Rubygems)</label>
+                  <label for="ruby">Ruby (RubyGems)</label>
                 </div>
 
                 <div>
@@ -87,8 +87,8 @@
                   id="env-prod"
                   name="env-type"
                   :value="prodOption"
+                  :disabled="!dynamicBadgeEnabled"
                   v-model="envType"
-                  :disabled="!envEnabled"
                   checked
                 />
                 <label for="env-prod">{{ prodOption }}</label>
@@ -98,8 +98,8 @@
                   id="env-dev"
                   name="env-type"
                   :value="devOption"
+                  :disabled="!dynamicBadgeEnabled"
                   v-model="envType"
-                  :disabled="!envEnabled"
                 />
                 <label for="env-dev">{{ devOption }}</label>
               </div>
@@ -109,15 +109,24 @@
             <fieldset name="ghRepo">
               <legend>GitHub repo</legend>
 
-              <TextInput label="Username" v-model="username" />
+              <TextInput
+                label="Username"
+                v-model="username"
+                :disabled="!dynamicBadgeEnabled"
+              />
               <br />
 
-              <TextInput label="Repo name" v-model="repoName" />
+              <TextInput
+                label="Repo name"
+                v-model="repoName"
+                :disabled="!dynamicBadgeEnabled"
+              />
             </fieldset>
             <br />
 
             <fieldset name="appearance">
               <legend>Dynamic badge appearance</legend>
+
               <TextInput
                 label="Logo"
                 v-model="logo"
@@ -128,10 +137,10 @@
               <TextInput
                 label="Logo color"
                 v-model="logoColor"
-                :disabled="logo === ''"
+                :disabled="logo === '' || !dynamicBadgeEnabled"
                 :class="logo === '' ? disabledClass : ''"
                 placeholder="e.g. white or #fff or #ffffff"
-                note="You can override with your own color, or leave blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is bland but most readable)."
+                note="Only used if Logo is set. You can override with your own color, or leave this blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is a bland but very readable choice)."
               />
             </fieldset>
             <br />
@@ -169,10 +178,9 @@ import { dependency, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
 import { ENVIRONMENT, EnvironmentKeys } from "@/core/shieldsApi";
 
-const note = `
-- Environent setting is for Node packages only and must match whether the package is in "dependencies" or "devDependencies".
-- Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
-- Only NPM is currently supported for the dynamic package.
+const NOTE = `
+- For NPM, the badge is dynamic - whatever package name you set, the version of that package in your repo will be used, without having to update the badge code. The Environent setting is for prod vs dev dependencies.
+- For the rest, the badge is just static - it does not care about your repo. If you put a version number in your badge, you'll have to remember to update it manually.
 - Sample name values for Go: 'http' (redirects to 'net/http') or 'encoding/json'.
 `;
 
@@ -198,13 +206,13 @@ export default defineComponent({
       logoColor: COLOR.LogoDefault,
 
       result: INITIAL_RESULT,
-      note: note,
+      note: NOTE,
 
       disabledClass: "disabled-text",
     };
   },
   computed: {
-    envEnabled(): boolean {
+    dynamicBadgeEnabled(): boolean {
       return this.pkgType === "Node";
     },
   },
