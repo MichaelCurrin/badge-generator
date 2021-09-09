@@ -140,7 +140,7 @@
                 :disabled="logo === '' || !dynamicBadgeEnabled"
                 :class="logo === '' ? disabledClass : ''"
                 placeholder="e.g. white or #fff or #ffffff"
-                note="You can override with your own color, or leave blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is bland but most readable)."
+                note="Only used if Logo is set. You can override with your own color, or leave this blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is a bland but very readable choice)."
               />
             </fieldset>
             <br />
