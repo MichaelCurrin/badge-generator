@@ -63,7 +63,7 @@
                     value="Ruby"
                     v-model="pkgType"
                   />
-                  <label for="ruby">Ruby (Rubygems)</label>
+                  <label for="ruby">Ruby (RubyGems)</label>
                 </div>
 
                 <div>
