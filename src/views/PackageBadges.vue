@@ -109,20 +109,24 @@
             <fieldset name="ghRepo">
               <legend>GitHub repo</legend>
 
-              <TextInput label="Username" v-model="username" 
-                  :disabled="!dynamicBadgeEnabled"
+              <TextInput
+                label="Username"
+                v-model="username"
+                :disabled="!dynamicBadgeEnabled"
               />
               <br />
 
-              <TextInput label="Repo name" v-model="repoName" 
-                  :disabled="!dynamicBadgeEnabled"
+              <TextInput
+                label="Repo name"
+                v-model="repoName"
+                :disabled="!dynamicBadgeEnabled"
               />
             </fieldset>
             <br />
 
             <fieldset name="appearance">
               <legend>Dynamic badge appearance</legend>
-              
+
               <TextInput
                 label="Logo"
                 v-model="logo"
