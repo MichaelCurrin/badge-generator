@@ -131,7 +131,7 @@
                 label="Logo"
                 v-model="logo"
                 placeholder="e.g. vue.js"
-                note="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
+                NOTE="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
                 :disabled="!dynamicBadgeEnabled"
               />
 
@@ -158,7 +158,7 @@
 
     <div class="row">
       <div class="col-12">
-        <Help :message="note" />
+        <Help :message="NOTE" />
       </div>
     </div>
   </div>
@@ -179,10 +179,9 @@ import { dependency, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
 import { ENVIRONMENT, EnvironmentKeys } from "@/core/shieldsApi";
 
-const note = `
-- Environent setting is for Node packages only and must match whether the package is in "dependencies" or "devDependencies".
-- Optionally set Repo fields to your _own_ project, so the badge dynamically pick up version number of the package chosen above.
-- Only NPM is currently supported for the dynamic package.
+const NOTE = `
+- For NPM, the badge is dynamic - whatever package name you set, the version of that package in your repo will be used, without having to update the badge code. The Environent setting is for prod vs dev dependencies.
+- For the rest, the badge is just static - it does not care about your repo. If you put a version number in your badge, you'll have to remember to update it manually.
 - Sample name values for Go: 'http' (redirects to 'net/http') or 'encoding/json'.
 `;
 
@@ -208,7 +207,7 @@ export default defineComponent({
       logoColor: COLOR.LogoDefault,
 
       result: INITIAL_RESULT,
-      note: note,
+      note: NOTE,
 
       disabledClass: "disabled-text",
     };
