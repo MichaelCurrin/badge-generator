@@ -132,7 +132,6 @@
                 v-model="logo"
                 placeholder="e.g. vue.js"
                 note="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
-                :disabled="!dynamicBadgeEnabled"
               />
 
               <TextInput
