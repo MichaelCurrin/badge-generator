@@ -9,7 +9,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "@/constants/badgeValues";
 import {
   DEFAULT_BRANCH,
@@ -17,7 +17,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS,
+  VERSION_PARAMS
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -30,13 +30,18 @@ export class Repo {
   constructor(
     public username: string,
     public repoName: string,
-    public licenseType?: string
+    public licenseType?: string,
+    public badgeColor?: string,
   ) {
     if (!username) {
       throw new Error("`username` cannot be empty");
     }
     if (!repoName) {
       throw new Error("`repoName` cannot be empty");
+    }
+
+    if (!this.badgeColor) {
+      this.badgeColor = GH_BADGE.color
     }
   }
 
@@ -169,13 +174,13 @@ Released under ${license} by ${user}.
 `;
   }
 
-  gh(badgeColor?: string) {
+  gh() {
     const label = this.username,
       message = this.repoName,
       target = this.ghURL(),
       onlyQueryParams = true;
 
-    const badgeColorResult = badgeColor || GH_BADGE.color;
+    const badgeColorResult = this.badgeColor;
 
     return genericBadge(
       label,

@@ -73,10 +73,15 @@ export default defineComponent({
     Markdown,
   },
   data() {
-    const repo = new Repo("MichaelCurrin", "badge-generator");
+    const repo = new Repo(
+      "MichaelCurrin",
+      "badge-generator",
+      undefined,
+      APP_THEME_COLOR
+    );
 
     return {
-      repoBadge: repo.gh(APP_THEME_COLOR),
+      repoBadge: repo.gh(),
       description: DESCRIPTION,
       baseUrl: process.env.BASE_URL,
     };
