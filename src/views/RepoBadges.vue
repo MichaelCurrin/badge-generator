@@ -172,6 +172,7 @@ export default defineComponent({
         versionType: this.versionType,
         ghPages: this.ghPages,
         workflowName: this.workflowName,
+        badgeColor: this.badgeColor,
       });
 
       const repo = new Repo(this.username, this.repoName, this.licenseType);
@@ -183,8 +184,7 @@ export default defineComponent({
       const versionBadge = repo.tagBadge(this.versionType as TagTypes),
         licenseBadge = repo.licenseBadge(true);
 
-      const badgeColor = this.badgeColor;
-      const repoBadge = repo.gh(badgeColor),
+      const repoBadge = repo.gh(this.badgeColor),
         starsBadge = repo.ghCounter("stars"),
         forksBadge = repo.ghCounter("forks");
 
