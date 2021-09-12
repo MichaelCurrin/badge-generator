@@ -112,6 +112,7 @@
 import { defineComponent } from "vue";
 
 import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
+import { COLOR_PRESETS } from "@/constants/appearance";
 
 import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
@@ -150,7 +151,7 @@ export default defineComponent({
       useThisTemplate: false,
       ghPages: false,
       addIssues: false,
-      badgeColor: "blue",
+      badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
       versionType: "tag",
