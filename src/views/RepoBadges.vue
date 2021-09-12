@@ -51,6 +51,13 @@
             <fieldset name="display-options">
               <legend>Display options</legend>
 
+              <TextInput
+                label="Color"
+                v-model="badgeColor"
+                :isRequired="true"
+                :note="colorHelp"
+              />
+
               <Checkbox
                 label="Template button"
                 v-model="useThisTemplate"
@@ -104,7 +111,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { INITIAL_RESULT } from "@/constants/text";
+import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
 
 import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
@@ -143,11 +150,14 @@ export default defineComponent({
       useThisTemplate: false,
       ghPages: false,
       addIssues: false,
+      badgeColor: "blue",
       workflowName: "",
+
       versionType: "tag",
 
       result: INITIAL_RESULT,
       note: note,
+      colorHelp: COLOR_HELP,
     };
   },
   methods: {
@@ -172,7 +182,8 @@ export default defineComponent({
       const versionBadge = repo.tagBadge(this.versionType as TagTypes),
         licenseBadge = repo.licenseBadge(true);
 
-      const repoBadge = repo.gh(),
+      const badgeColor = this.badgeColor;
+      const repoBadge = repo.gh(badgeColor),
         starsBadge = repo.ghCounter("stars"),
         forksBadge = repo.ghCounter("forks");
 
