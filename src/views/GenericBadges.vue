@@ -29,8 +29,8 @@
               <TextInput
                 label="Color"
                 v-model="color"
-                note="Hints: `brightgreen`, `green`, `yellowgreen`, `yellow`, `orange`, `red`, `blue`, `lightgrey`, `success`, `important`, `critical`, `informational`, `inactive`, `blueviolet`, `ff69b4`, `9cf`"
                 isRequired
+                :note="colorHelp"
               />
 
               <Checkbox label="Large" v-model="isLarge" />
@@ -86,7 +86,7 @@
 import { defineComponent } from "vue";
 
 import { COLOR } from "@/constants/appearance";
-import { INITIAL_RESULT } from "@/constants/text";
+import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
 
 import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";
@@ -121,6 +121,7 @@ export default defineComponent({
 
       result: INITIAL_RESULT,
       note: note,
+      colorHelp: COLOR_HELP,
     };
   },
   methods: {
