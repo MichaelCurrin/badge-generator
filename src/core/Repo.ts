@@ -145,10 +145,12 @@ export class Repo {
       return "";
     }
 
+    const badgeColor = this.badgeColor || LICENSE_BADGE.color!;
+
     return genericBadge(
       LICENSE_BADGE.label!,
       this.licenseType,
-      LICENSE_BADGE.color!,
+      badgeColor,
       LICENSE_BADGE.isLarge,
       this._licenseTarget(localLicense),
       "",
