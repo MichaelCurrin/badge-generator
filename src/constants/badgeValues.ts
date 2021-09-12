@@ -7,24 +7,24 @@
  * All the values set here are fixed or are defaults. Any values not fixed here will be set by the
  * user.
  */
-import { COLOR } from "./appearance";
+import { COLOR_PRESETS } from "./appearance";
 import { IGenericBadge } from "./badgeValues.d";
 
 export const STATIC_DEPENDENCY: IGenericBadge = {
   label: "dependency",
-  color: COLOR.Default,
+  color: COLOR_PRESETS.Default,
   isLarge: false,
 };
 
 export const LICENSE_BADGE: IGenericBadge = {
   label: "License",
-  color: COLOR.Default,
+  color: COLOR_PRESETS.Default,
   isLarge: false,
   altText: "License",
 };
 
 export const GH_BADGE: IGenericBadge = {
-  color: COLOR.Default,
+  color: COLOR_PRESETS.Default,
   isLarge: false,
   logo: "github",
   logoColor: "",
@@ -33,7 +33,7 @@ export const GH_BADGE: IGenericBadge = {
 export const GH_PAGES_BADGE: IGenericBadge = {
   label: "View site",
   message: "GH Pages",
-  color: COLOR.Green,
+  color: COLOR_PRESETS.Green,
   isLarge: true,
 };
 
@@ -43,7 +43,7 @@ export const GH_PAGES_BADGE: IGenericBadge = {
 export const TEMPLATE_BADGE: IGenericBadge = {
   label: "Generate",
   message: "Use this template",
-  color: COLOR.Green,
+  color: COLOR_PRESETS.Green,
   isLarge: true,
   altText: "Use this template",
 };

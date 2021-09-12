@@ -166,7 +166,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { COLOR } from "@/constants/appearance";
+import { COLOR_PRESETS } from "@/constants/appearance";
 import { INITIAL_RESULT } from "@/constants/text";
 
 import Help from "@/components/Help.vue";
@@ -203,7 +203,7 @@ export default defineComponent({
       username: "MichaelCurrin",
       repoName: "badge-generator",
       logo: "",
-      logoColor: COLOR.LogoDefault,
+      logoColor: COLOR_PRESETS.LogoDefault,
 
       result: INITIAL_RESULT,
       note: NOTE,

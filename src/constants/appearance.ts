@@ -13,9 +13,10 @@ export const STYLES = {
   SOCIAL: "social",
 };
 
-// Note that a "green" badge with white text has poor contrast. But green hex from GitHub reads much
-// better and fits in well on a GitHub README.md file.
-export enum COLOR {
+// Note that a "green" badge with white text has poor contrast. But green hex
+// from GitHub reads much better and fits in well on a GitHub README.md file. So
+// is used here as Green.
+export enum COLOR_PRESETS {
   Default = "blue",
   Green = "2ea44f",
   LogoDefault = "white",

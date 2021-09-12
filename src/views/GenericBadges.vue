@@ -85,7 +85,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { COLOR } from "@/constants/appearance";
+import { COLOR_PRESETS } from "@/constants/appearance";
 import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
 
 import Checkbox from "@/components/Checkbox.vue";
@@ -113,7 +113,7 @@ export default defineComponent({
     return {
       label: "Foo",
       message: "Bar",
-      color: COLOR.Green,
+      color: COLOR_PRESETS.Green,
       isLarge: false,
       target: "https://",
       logo: "",
