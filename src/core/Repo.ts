@@ -9,7 +9,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE
+  TEMPLATE_BADGE,
 } from "@/constants/badgeValues";
 import {
   DEFAULT_BRANCH,
@@ -17,7 +17,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS
+  VERSION_PARAMS,
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -31,7 +31,7 @@ export class Repo {
     public username: string,
     public repoName: string,
     public licenseType?: string,
-    public badgeColor?: string,
+    public badgeColor?: string
   ) {
     if (!username) {
       throw new Error("`username` cannot be empty");
@@ -41,7 +41,7 @@ export class Repo {
     }
 
     if (!this.badgeColor) {
-      this.badgeColor = GH_BADGE.color
+      this.badgeColor = GH_BADGE.color;
     }
   }
 
@@ -108,7 +108,9 @@ export class Repo {
     const path = `${type}/${this.nameWithOwner()}`;
     const url = `${SHIELDS_API.GH}/${path}`;
 
-    return buildUrl(url, VERSION_PARAMS);
+    const queryParams = { ...VERSION_PARAMS, color: this.badgeColor! };
+
+    return buildUrl(url, queryParams);
   }
 
   /**
@@ -174,6 +176,7 @@ Released under ${license} by ${user}.
 `;
   }
 
+  /* GitHub repo badge */
   gh() {
     const label = this.username,
       message = this.repoName,
