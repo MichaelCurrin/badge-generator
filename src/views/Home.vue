@@ -67,7 +67,7 @@ import Markdown from "@/components/Markdown.vue";
 import { DESCRIPTION } from "@/constants/appearance";
 import { Repo } from "@/core/Repo";
 
-const themeColor = '42b983';
+const themeColor = "42b983";
 
 export default defineComponent({
   name: "Home",
