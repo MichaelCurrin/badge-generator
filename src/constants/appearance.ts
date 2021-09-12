@@ -3,6 +3,9 @@
  *
  * Info that applies across the app and not to any specific badge.
  */
+// Same as CSS in App.vue module.
+export const APP_THEME_COLOR = "42b983";
+
 export const DESCRIPTION = "Magically generate Markdown badges for your docs";
 
 export const STYLES = {

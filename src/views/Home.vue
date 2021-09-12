@@ -64,10 +64,8 @@
 import { defineComponent } from "vue";
 
 import Markdown from "@/components/Markdown.vue";
-import { DESCRIPTION } from "@/constants/appearance";
+import { APP_THEME_COLOR, DESCRIPTION } from "@/constants/appearance";
 import { Repo } from "@/core/Repo";
-
-const themeColor = "42b983";
 
 export default defineComponent({
   name: "Home",
@@ -78,7 +76,7 @@ export default defineComponent({
     const repo = new Repo("MichaelCurrin", "badge-generator");
 
     return {
-      repoBadge: repo.gh(themeColor),
+      repoBadge: repo.gh(APP_THEME_COLOR),
       description: DESCRIPTION,
       baseUrl: process.env.BASE_URL,
     };
