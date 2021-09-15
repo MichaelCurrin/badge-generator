@@ -38,7 +38,7 @@ External tools are used to actually render badges - mostly using [shields.io](ht
         <img src="/docs/_media/sample.png"
             alt="Sample screenshot"
             title="Go to the site"
-            width="450" >
+            width="600" >
     </a>
 </div>
 
