@@ -40,7 +40,9 @@ export class Repo {
    *
    * @param username GitHub repo owner's username.
    * @param repoName GitHub repo name.
-   * @param licenseType The type of the repo's LICENSE. e.g. 'MIT'.
+   * @param licenseType The type of the repo's LICENSE. e.g. 'MIT'. The value
+   *   is not validated as there are a lot of possible values. See
+   *   `https://choosealicense.com/` for more info.
    * @param badgeColor Color keyword or hex. It would be possible to fallback
    *   to a default color if none is given, but that would add an extra param
    *   to the URL which takes up space and does nothing (Shields.io defaults
