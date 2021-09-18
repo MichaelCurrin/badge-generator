@@ -9,7 +9,7 @@ import {
   staticParamsUrl,
   _decodeAngleBrackets,
   _encodeParam,
-  _encodeSeparators
+  _encodeSeparators,
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
