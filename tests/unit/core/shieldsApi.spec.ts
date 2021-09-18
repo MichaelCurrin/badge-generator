@@ -5,9 +5,11 @@ import {
   ghCounterShieldUrl,
   logoQueryParams,
   nodePkgJsonShieldUrl,
-  staticDashUrl, staticParamsUrl, _decodeAngleBrackets,
+  staticDashUrl,
+  staticParamsUrl,
+  _decodeAngleBrackets,
   _encodeParam,
-  _encodeSeparators
+  _encodeSeparators,
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {

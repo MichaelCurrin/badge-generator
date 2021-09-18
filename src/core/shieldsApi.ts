@@ -64,7 +64,7 @@ export function dashShieldPath(badge: GenericBadge) {
   const message = _encodeParam(badge.message);
   let label = badge.label;
 
-  const color = badge.color || COLOR_PRESETS.Default
+  const color = badge.color || COLOR_PRESETS.Default;
 
   const pieces = [message, color];
   if (label) {
@@ -103,7 +103,7 @@ export function logoQueryParams(logoAppearance: TLogoAppearance) {
  * Image URL for param-based static badge.
  */
 export function staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
-  const color = badge.color || COLOR_PRESETS.Default
+  const color = badge.color || COLOR_PRESETS.Default;
 
   const params = {
     label: badge.label!,

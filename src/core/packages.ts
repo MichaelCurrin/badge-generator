@@ -4,7 +4,7 @@
 import {
   GO_MODULE_SHIELD,
   NODE_VERSION_BADGE,
-  STATIC_DEPENDENCY
+  STATIC_DEPENDENCY,
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
@@ -14,7 +14,7 @@ import { Repo } from "./Repo";
 import {
   ENVIRONMENT,
   logoQueryParams,
-  nodePkgJsonShieldUrl
+  nodePkgJsonShieldUrl,
 } from "./shieldsApi";
 import { TLogoAppearance } from "./shieldsApi.d";
 
