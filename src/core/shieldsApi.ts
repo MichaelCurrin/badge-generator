@@ -1,7 +1,7 @@
 /**
  * Shields.io API module.
  */
-import { STYLES } from "@/constants/appearance";
+import { COLOR_PRESETS, STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { TLogoAppearance } from "./shieldsApi.d";
@@ -58,13 +58,15 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
  *
  * This conveniently escapes label and message for you, based on rules on the shields.io website.
  *
- * See more info in shields-io.md in the docs.
+ * See more info in `shields-io.md` in the docs.
  */
 export function dashShieldPath(badge: GenericBadge) {
   const message = _encodeParam(badge.message);
   let label = badge.label;
 
-  const pieces = [message, badge.color];
+  const color = badge.color || COLOR_PRESETS.Default;
+
+  const pieces = [message, color];
   if (label) {
     label = _encodeParam(label);
     pieces.unshift(label);
@@ -74,7 +76,10 @@ export function dashShieldPath(badge: GenericBadge) {
 }
 
 /**
- * Generate URL query parameters for styling just about any badge on shields.io API.
+ * Prepare logo query params for a URL.
+ *
+ * Return URL query parameters for styling just about any badge made with the
+ * shields.io API.
  */
 export function logoQueryParams(logoAppearance: TLogoAppearance) {
   const params: StrMap = {};
@@ -94,27 +99,35 @@ export function logoQueryParams(logoAppearance: TLogoAppearance) {
   return params;
 }
 
-/** Image URL for param-based static badge. */
-export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
+/**
+ * Image URL for param-based static badge.
+ */
+export function staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
+  const color = badge.color || COLOR_PRESETS.Default;
+
   const params = {
     label: badge.label!,
     message: badge.message,
-    color: badge.color,
+    color,
     ...styleParams,
   };
 
   return buildUrl(SHIELDS_API.PARAM, params);
 }
 
-/** Image URL for a positional dash-based static badge. */
-export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
-  const imgPath = dashShieldPath(badge),
+/**
+ * Image URL for a positional dash-based static badge.
+ */
+export function staticDashUrl(badgeFields: GenericBadge, styleParams: StrMap) {
+  const imgPath = dashShieldPath(badgeFields),
     imageTarget = `${SHIELDS_API.DASH}/${imgPath}`;
 
   return buildUrl(imageTarget, styleParams);
 }
 
-/** Image URL for a GitHub counter badge. */
+/**
+ * Image URL for a GitHub counter badge.
+ */
 export function ghCounterShieldUrl(type: RepoMetric, repo: GHRepo) {
   const path = `${type}/${repo.username}/${repo.repoName}`;
   const url = `${SHIELDS_API.GH}/${path}`;
@@ -126,7 +139,9 @@ export function ghCounterShieldUrl(type: RepoMetric, repo: GHRepo) {
   return buildUrl(url, { style: STYLES.SOCIAL });
 }
 
-/** Image URL for a dynamic Node package.json dependency badge. */
+/**
+ * Image URL for a dynamic Node package.json dependency badge.
+ */
 export function nodePkgJsonShieldUrl(
   repo: GHRepo,
   pkgName: string,

@@ -1,9 +1,9 @@
-import { COLOR } from "./appearance";
+import { COLOR_PRESETS } from "./appearance";
 
 export const BADGE_DEFAULTS = {
   IS_LARGE: false,
-  COLOR: COLOR.Default,
-  LOGO_COLOR: COLOR.LogoDefault,
+  COLOR: COLOR_PRESETS.Default,
+  LOGO_COLOR: COLOR_PRESETS.LogoDefault,
 };
 
 type TBadgeDetails = {

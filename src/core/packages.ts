@@ -26,7 +26,7 @@ import { TLogoAppearance } from "./shieldsApi.d";
  * this app. The badge is flat, so it will display info even for a dependency that does not exist on
  * the registry.
  *
- * The name input might be "requests" for Python or "vue" for Node.
+ * The `name` param might be "requests" for Python or "vue" for Node.
  *
  * The version might be like '17.x' or '>=17' or '17-19'. This is useful if there is no wait to
  * infer the version or version range automatically from files in the repo, or you just want more
@@ -38,14 +38,15 @@ import { TLogoAppearance } from "./shieldsApi.d";
 export function dependency(
   name: string,
   registry: REGISTRY,
-  logoAppearance: TLogoAppearance
+  logoAppearance: TLogoAppearance,
+  color?: string
 ) {
   const url = `${registry}/${name}`;
 
   return genericBadge(
     STATIC_DEPENDENCY.label!,
     name,
-    STATIC_DEPENDENCY.color!,
+    color || STATIC_DEPENDENCY.color!,
     STATIC_DEPENDENCY.isLarge,
     url,
     logoAppearance.logo,
@@ -54,7 +55,7 @@ export function dependency(
 }
 
 /**
- * Dynamic Node package badge.
+ * Dynamic badge for NPM packages.
  *
  * The badge will dynamically display the locked version number of a named package which is set in
  * your repo's package.json file.
@@ -69,14 +70,19 @@ export function nodeVersionBadge(
   repo: Repo,
   pkgName: string,
   logoAppearance: TLogoAppearance,
-  environment: ENVIRONMENT
+  environment: ENVIRONMENT,
+  color?: string
 ) {
   const altText = `Package - ${pkgName}`;
 
   logoAppearance.isLarge = NODE_VERSION_BADGE.IS_LARGE;
-  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName, environment),
-    params = logoQueryParams(logoAppearance),
-    imageTarget = buildUrl(baseImageUrl, params);
+
+  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName, environment);
+  const styleParams = logoQueryParams(logoAppearance);
+  if (color) {
+    styleParams.color = color;
+  }
+  const imageTarget = buildUrl(baseImageUrl, styleParams);
 
   const linkTarget = `${REGISTRY.Node}/${pkgName}`;
 
@@ -89,6 +95,7 @@ export function nodeVersionBadge(
 
 // TODO: Add to Packages view or Repo view.
 // TODO: Accept Repo type.
+// TODO: Accept color.
 /**
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */

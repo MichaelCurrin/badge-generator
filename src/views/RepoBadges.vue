@@ -30,26 +30,39 @@
 
               <div>
                 <label>Version type</label>
-                <input
-                  type="radio"
-                  id="one"
-                  value="tag"
-                  v-model="versionType"
-                />
-                <label for="one">Tag</label>
-                <input
-                  type="radio"
-                  id="two"
-                  value="release"
-                  v-model="versionType"
-                />
-                <label for="two">Release</label>
+
+                <span>
+                  <input
+                    type="radio"
+                    id="one"
+                    value="tag"
+                    v-model="versionType"
+                  />
+                  <label for="one">Tag</label>
+                </span>
+
+                <span>
+                  <input
+                    type="radio"
+                    id="two"
+                    value="release"
+                    v-model="versionType"
+                  />
+                  <label for="two">Release</label>
+                </span>
               </div>
             </fieldset>
             <br />
 
             <fieldset name="display-options">
               <legend>Display options</legend>
+
+              <TextInput
+                label="Color"
+                v-model="badgeColor"
+                placeholder="e.g. blue"
+                :note="colorHelp"
+              />
 
               <Checkbox
                 label="Template button"
@@ -104,7 +117,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { INITIAL_RESULT } from "@/constants/text";
+import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
+import { COLOR_PRESETS } from "@/constants/appearance";
 
 import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
@@ -143,11 +157,14 @@ export default defineComponent({
       useThisTemplate: false,
       ghPages: false,
       addIssues: false,
+      badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
+
       versionType: "tag",
 
       result: INITIAL_RESULT,
       note: note,
+      colorHelp: COLOR_HELP,
     };
   },
   methods: {
@@ -161,9 +178,15 @@ export default defineComponent({
         versionType: this.versionType,
         ghPages: this.ghPages,
         workflowName: this.workflowName,
+        badgeColor: this.badgeColor,
       });
 
-      const repo = new Repo(this.username, this.repoName, this.licenseType);
+      const repo = new Repo(
+        this.username,
+        this.repoName,
+        this.licenseType,
+        this.badgeColor
+      );
 
       const ghActionsBadge = this.workflowName
         ? statusBadge(repo, this.workflowName)
@@ -172,11 +195,10 @@ export default defineComponent({
       const versionBadge = repo.tagBadge(this.versionType as TagTypes),
         licenseBadge = repo.licenseBadge(true);
 
-      const repoBadge = repo.gh(),
-        starsBadge = repo.ghCounter("stars"),
-        forksBadge = repo.ghCounter("forks");
-
-      const issuesBadge = this.addIssues ? repo.ghCounter("issues") : "";
+      const repoBadge = repo.ghBadge();
+      const starsBadge = repo.ghCounterBadge("stars");
+      const forksBadge = repo.ghCounterBadge("forks");
+      const issuesBadge = this.addIssues ? repo.ghCounterBadge("issues") : "";
 
       const templateButton = this.useThisTemplate
         ? repo.useThisTemplateBadge()

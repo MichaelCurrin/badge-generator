@@ -42,9 +42,9 @@ export default defineComponent({
 }
 
 /**
- * Basic Vue.
+ * Standard Vue base.
  *
- * Based on the Vue quickstart's styles.
+ * Based on the Vue quickstart app's styles.
  */
 
 #app {
@@ -79,7 +79,7 @@ export default defineComponent({
 }
 
 /**
- * GitHub Pages styles.
+ * GitHub Pages styles base.
  *
  * Based on markdown site built on GitHub Pages without Jekyll.
  */
@@ -141,7 +141,8 @@ kbd {
   box-shadow: inset 0 -1px 0 #959da5;
 }
 
-/* Most of these don't seem to make a visible difference, but cursor here is the most useful. */
+/* Most of these don't seem to make a visible difference, but, `cursor` here is
+the most useful. */
 [hidden][hidden] {
   display: none !important;
 }
@@ -160,7 +161,7 @@ summary {
 }
 
 /**
- * Custom
+ * Custom - header.
  */
 
 #logo {
@@ -184,37 +185,21 @@ summary {
   text-align: center;
 }
 
-.btn {
-  color: white;
-  font-size: 21px;
-  background: linear-gradient(to bottom, var(--green), var(--green-dark));
-  padding: 10px 20px 10px 20px;
-}
-
-.btn:hover {
-  background: linear-gradient(to top, var(--green), var(--green-dark));
-}
-
-/* Prevent highlight.js CSS from adding white background to `code` when `pre` already has grey
-background. */
-code {
-  background: none !important;
-}
-
 /**
  * Flexbox
  *
- * Based on GH pages, Bootstrap and the GH Readme Generator. There is a better way to do this using
- * @media instead of min-width values (the min-width goes off-screen on a really small resolution
- * when tested on desktop but this could be unrealistic).
+ * Based on GH pages, Bootstrap and the GH Readme Generator. There is a better
+ * way to do this using
+ * @media instead of min-width values (the min-width goes off-screen on a really
+ * small resolution when tested on desktop but this could be unrealistic).
  *
- * Setting row width as 100% was my own setup to avoid having the col-12 element look to narrow on
- * mobile at min-width 200px, unless I set a min-width like 300px Setting row width also means
- * min-width can be left off and the col-12 will still look good instead of very squashed to the
- * left.
+ * Setting row width as 100% was my own setup to avoid having the col-12 element
+ * look to narrow on mobile at min-width 200px, unless I set a min-width like
+ * 300px Setting row width also means min-width can be left off and the col-12
+ * will still look good instead of very squashed to the left.
  *
- * In another app I looked at, there was 100% width on the container rather than the row, but that
- * did not help here.
+ * In another app I looked at, there was 100% width on the container rather than
+ * the row, but that did not help here.
  */
 .row {
   display: -ms-flexbox;
@@ -235,20 +220,47 @@ code {
   min-width: 200px;
 }
 
-.note,
-.disabled-text {
-  color: #666;
-}
+/**
+ * Custom - forms.
+ */
 
 input {
-  /* Prevent user agent stylesheet from making this too small, such as in Chrome. */
+  /* Prevent user-agent stylesheet from making this too small, such as in
+  Chrome. */
   font-size: initial;
+}
+
+input:disabled {
+  cursor: not-allowed;
 }
 
 .required {
   color: red;
 }
-input:checked ~ .checkmark {
-  background-color: red;
+
+.btn {
+  color: white;
+  font-size: 21px;
+  background: linear-gradient(to bottom, var(--green), var(--green-dark));
+  padding: 10px 20px 10px 20px;
+}
+
+.btn:hover {
+  background: linear-gradient(to top, var(--green), var(--green-dark));
+}
+
+.note,
+.disabled-text {
+  color: #666;
+}
+
+/**
+ * Custom - output.
+ */
+
+/* Prevent highlight.js CSS from adding white background to `code` when `pre` already has grey
+background. */
+code {
+  background: none !important;
 }
 </style>

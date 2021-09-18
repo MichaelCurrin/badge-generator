@@ -79,29 +79,33 @@
               </div>
               <br />
 
-              <div :class="!envEnabled ? disabledClass : ''">
+              <div :class="!dynamicBadgeEnabled ? disabledClass : ''">
                 <span>Environment: </span>
 
-                <input
-                  type="radio"
-                  id="env-prod"
-                  name="env-type"
-                  :value="prodOption"
-                  :disabled="!dynamicBadgeEnabled"
-                  v-model="envType"
-                  checked
-                />
-                <label for="env-prod">{{ prodOption }}</label>
+                <span>
+                  <input
+                    type="radio"
+                    id="env-prod"
+                    name="env-type"
+                    :value="prodOption"
+                    :disabled="!dynamicBadgeEnabled"
+                    v-model="envType"
+                    checked
+                  />
+                  <label for="env-prod">{{ prodOption }}</label>
+                </span>
 
-                <input
-                  type="radio"
-                  id="env-dev"
-                  name="env-type"
-                  :value="devOption"
-                  :disabled="!dynamicBadgeEnabled"
-                  v-model="envType"
-                />
-                <label for="env-dev">{{ devOption }}</label>
+                <span>
+                  <input
+                    type="radio"
+                    id="env-dev"
+                    name="env-type"
+                    :value="devOption"
+                    :disabled="!dynamicBadgeEnabled"
+                    v-model="envType"
+                  />
+                  <label for="env-dev">{{ devOption }}</label>
+                </span>
               </div>
             </fieldset>
             <br />
@@ -124,14 +128,20 @@
             </fieldset>
             <br />
 
-            <fieldset name="appearance">
-              <legend>Dynamic badge appearance</legend>
+            <fieldset name="display-options">
+              <legend>Display options</legend>
+              <TextInput
+                label="Color"
+                v-model="badgeColor"
+                placeholder="e.g. blue"
+                :note="colorHelp"
+              />
 
               <TextInput
                 label="Logo"
                 v-model="logo"
                 placeholder="e.g. vue.js"
-                note="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
+                :note="logoHelp"
               />
 
               <TextInput
@@ -140,7 +150,7 @@
                 :disabled="logo === '' || !dynamicBadgeEnabled"
                 :class="logo === '' ? disabledClass : ''"
                 placeholder="e.g. white or #fff or #ffffff"
-                note="Only used if Logo is set. You can override with your own color, or leave this blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is a bland but very readable choice)."
+                :note="logoColorHelp"
               />
             </fieldset>
             <br />
@@ -166,8 +176,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { COLOR } from "@/constants/appearance";
-import { INITIAL_RESULT } from "@/constants/text";
+import { COLOR_PRESETS } from "@/constants/appearance";
+import {
+  COLOR_HELP,
+  INITIAL_RESULT,
+  LOGO_COLOR_HELP,
+  LOGO_HELP,
+} from "@/constants/text";
 
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
@@ -202,11 +217,17 @@ export default defineComponent({
 
       username: "MichaelCurrin",
       repoName: "badge-generator",
+
+      badgeColor: COLOR_PRESETS.Default,
       logo: "",
-      logoColor: COLOR.LogoDefault,
+      logoColor: COLOR_PRESETS.LogoDefault,
 
       result: INITIAL_RESULT,
+
       note: NOTE,
+      colorHelp: COLOR_HELP,
+      logoHelp: LOGO_HELP,
+      logoColorHelp: LOGO_COLOR_HELP,
 
       disabledClass: "disabled-text",
     };
@@ -220,13 +241,16 @@ export default defineComponent({
     submit() {
       console.debug("Process inputs and render results");
 
-      const logoAppearance = { logo: this.logo, logoColor: this.logoColor };
+      const logoAppearance = {
+        logo: this.logo,
+        logoColor: this.logoColor,
+      };
 
       const registryKey = this.pkgType as RegistryKeys,
         registry = REGISTRY[registryKey];
 
       const dependencyBadge = registry
-        ? dependency(this.pkgName, registry, logoAppearance)
+        ? dependency(this.pkgName, registry, logoAppearance, this.badgeColor)
         : "";
 
       const repo = new Repo(this.username, this.repoName);
@@ -235,7 +259,13 @@ export default defineComponent({
 
       const lockedPkgBadge =
         registry === REGISTRY.Node
-          ? nodeVersionBadge(repo, this.pkgName, logoAppearance, environment)
+          ? nodeVersionBadge(
+              repo,
+              this.pkgName,
+              logoAppearance,
+              environment,
+              this.badgeColor
+            )
           : "";
 
       this.result = `\

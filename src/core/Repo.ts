@@ -1,9 +1,10 @@
 /**
  * Repo badge module.
  *
- * This could be refactored to return data rather than the actual badges, but this is intended
- * as a high-level interface in the Vue frontend so you just need one method call to get a badge
- * on a repo, without passing to another function.
+ * This could be refactored to return data rather than the actual badges, but
+ * this is intended as a high-level interface in the Vue frontend so you just
+ * need one method call to get a badge on a repo, without passing to another
+ * function.
  */
 import {
   GH_BADGE,
@@ -24,13 +25,35 @@ import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
 import { ghCounterShieldUrl } from "./shieldsApi";
-import { RepoMetric } from "./types.d";
+import { RepoMetric, StrMap } from "./types.d";
+
+function _licenseSectionMd(license: string, user: string) {
+  return `\
+## License
+
+Released under ${license} by ${user}.
+  `;
+}
 
 export class Repo {
+  /**
+   * Initialize Repo.
+   *
+   * @param username GitHub repo owner's username.
+   * @param repoName GitHub repo name.
+   * @param licenseType The type of the repo's LICENSE. e.g. 'MIT'. The value
+   *   is not validated as there are a lot of possible values. See
+   *   `https://choosealicense.com/` for more info.
+   * @param badgeColor Color keyword or hex. It would be possible to fallback
+   *   to a default color if none is given, but that would add an extra param
+   *   to the URL which takes up space and does nothing (Shields.io defaults
+   *   to blue for most badges if no color is given).
+   */
   constructor(
     public username: string,
     public repoName: string,
-    public licenseType?: string
+    public licenseType?: string,
+    public badgeColor?: string
   ) {
     if (!username) {
       throw new Error("`username` cannot be empty");
@@ -40,15 +63,24 @@ export class Repo {
     }
   }
 
-  nameWithOwner() {
+  /**
+   * Identifier for a repo.
+   */
+  _nameWithOwner() {
     return `${this.username}/${this.repoName}`;
   }
 
+  /**
+   * URL for a repo on GitHub.
+   */
   ghURL() {
-    return `${GITHUB_DOMAIN}/${this.nameWithOwner()}`;
+    return `${GITHUB_DOMAIN}/${this._nameWithOwner()}`;
   }
 
-  ghPagesURL() {
+  /**
+   * URL for a GitHub Pages site.
+   */
+  _ghPagesURL() {
     // Domain will get lower-cased by GH after a redirect so just make it lowercase now.
     // But preserve case for the comparison. Note Project page needs trailing forward slash
     // but User page is without.
@@ -62,9 +94,13 @@ export class Repo {
     return `${fullDomain}/${this.repoName}/`;
   }
 
-  // TODO: add variation that has a docs site for the text. And add custom text options.
+  // TODO: add variation that has a docs site for the text. And add custom text
+  // options.
+  /**
+   * Badge pointing at a GitHub Pages site.
+   */
   ghPagesBadge() {
-    const linkTarget = this.ghPagesURL();
+    const linkTarget = this._ghPagesURL();
 
     return genericBadge(
       GH_PAGES_BADGE.label!,
@@ -83,6 +119,9 @@ export class Repo {
     return `${this.ghURL()}/generate`;
   }
 
+  /**
+   * Badge for "Use this template" button.
+   */
   useThisTemplateBadge() {
     const linkTarget = this._templateURL();
 
@@ -100,14 +139,20 @@ export class Repo {
   }
 
   _tagBadgeUrl(type: string) {
-    const path = `${type}/${this.nameWithOwner()}`;
+    const path = `${type}/${this._nameWithOwner()}`;
     const url = `${SHIELDS_API.GH}/${path}`;
 
-    return buildUrl(url, VERSION_PARAMS);
+    const queryParams: StrMap = { ...VERSION_PARAMS };
+    if (this.badgeColor) {
+      queryParams.color = this.badgeColor;
+    }
+
+    return buildUrl(url, queryParams);
   }
 
   /**
-   * Create a badge that dynamically shows a tag or release and links to releases.
+   * Create a badge that dynamically shows a tag or release and links to
+   * releases.
    *
    * See Tag badges section of the /docs/badge-notes.md doc.
    */
@@ -133,20 +178,27 @@ export class Repo {
     return `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
   }
 
+  /**
+   * Badge for a license.
+   */
   licenseBadge(localLicense: boolean) {
     if (!this.licenseType) {
       return "";
     }
 
+    const badgeColor = this.badgeColor || LICENSE_BADGE.color!;
+    const linkTarget = this._licenseTarget(localLicense);
+    const onlyQueryParams = false;
+
     return genericBadge(
       LICENSE_BADGE.label!,
       this.licenseType,
-      LICENSE_BADGE.color!,
+      badgeColor,
       LICENSE_BADGE.isLarge,
-      this._licenseTarget(localLicense),
+      linkTarget,
       "",
       "",
-      false,
+      onlyQueryParams,
       LICENSE_BADGE.altText
     );
   }
@@ -162,23 +214,24 @@ export class Repo {
       `${GITHUB_DOMAIN}/${this.username}`
     );
 
-    return `\
-## License
-
-Released under ${license} by ${user}.
-`;
+    return _licenseSectionMd(license, user);
   }
 
-  gh() {
+  /**
+   * Badge URL for GitHub repo.
+   */
+  ghBadge() {
     const label = this.username,
       message = this.repoName,
       target = this.ghURL(),
       onlyQueryParams = true;
 
+    const badgeColorResult = this.badgeColor;
+
     return genericBadge(
       label,
       message,
-      GH_BADGE.color!,
+      badgeColorResult!,
       GH_BADGE.isLarge,
       target,
       GH_BADGE.logo,
@@ -188,7 +241,7 @@ Released under ${license} by ${user}.
   }
 
   /* Social counter for repo popularity. */
-  ghCounter(type: RepoMetric) {
+  ghCounterBadge(type: RepoMetric) {
     const altText = `${type} - ${this.repoName}`;
     const imageTarget = ghCounterShieldUrl(type, {
       username: this.username,

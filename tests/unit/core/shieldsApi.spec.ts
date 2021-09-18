@@ -6,10 +6,10 @@ import {
   logoQueryParams,
   nodePkgJsonShieldUrl,
   staticDashUrl,
+  staticParamsUrl,
   _decodeAngleBrackets,
   _encodeParam,
   _encodeSeparators,
-  _staticParamsUrl,
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
@@ -164,10 +164,10 @@ describe("#logoParams", () => {
   });
 });
 
-describe("#_staticParamsUrl", () => {
+describe("#staticParamsUrl", () => {
   it("returns a valid params URL with empty style params", () => {
     expect(
-      _staticParamsUrl(
+      staticParamsUrl(
         {
           label: "Foo",
           message: "Bar",
@@ -182,7 +182,7 @@ describe("#_staticParamsUrl", () => {
 
   it("returns a valid params URL with set style params", () => {
     expect(
-      _staticParamsUrl(
+      staticParamsUrl(
         {
           label: "Foo",
           message: "Bar",
