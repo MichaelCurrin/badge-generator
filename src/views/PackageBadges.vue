@@ -126,6 +126,12 @@
 
             <fieldset name="display-options">
               <legend>Display options</legend>
+              <TextInput
+                label="Color"
+                v-model="badgeColor"
+                :isRequired="true"
+                :note="colorHelp"
+              />
 
               <TextInput
                 label="Logo"
@@ -167,7 +173,7 @@
 import { defineComponent } from "vue";
 
 import { COLOR_PRESETS } from "@/constants/appearance";
-import { INITIAL_RESULT } from "@/constants/text";
+import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
 
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
@@ -202,11 +208,14 @@ export default defineComponent({
 
       username: "MichaelCurrin",
       repoName: "badge-generator",
+
+      badgeColor: COLOR_PRESETS.Default,
       logo: "",
       logoColor: COLOR_PRESETS.LogoDefault,
 
       result: INITIAL_RESULT,
       note: NOTE,
+      colorHelp: COLOR_HELP,
 
       disabledClass: "disabled-text",
     };
