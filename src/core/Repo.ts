@@ -1,15 +1,16 @@
 /**
  * Repo badge module.
  *
- * This could be refactored to return data rather than the actual badges, but this is intended
- * as a high-level interface in the Vue frontend so you just need one method call to get a badge
- * on a repo, without passing to another function.
+ * This could be refactored to return data rather than the actual badges, but
+ * this is intended as a high-level interface in the Vue frontend so you just
+ * need one method call to get a badge on a repo, without passing to another
+ * function.
  */
 import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "@/constants/badgeValues";
 import {
   DEFAULT_BRANCH,
@@ -17,7 +18,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS,
+  VERSION_PARAMS
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
