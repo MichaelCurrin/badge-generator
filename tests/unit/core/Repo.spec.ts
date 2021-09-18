@@ -133,7 +133,7 @@ describe("#Repo", () => {
     it("return a badge for a remote license", () => {
       const badgeUrl = "https://img.shields.io/badge/License-MIT-blue";
       const target =
-        "https://github.com/MichaelCurrin/badge-generator/blob/master/LICENSE";
+        "https://github.com/MichaelCurrin/badge-generator/blob/main/LICENSE";
 
       expect(repoWithLicense.licenseBadge(false)).toBe(
         `[![License](${badgeUrl})](${target})`
@@ -142,12 +142,12 @@ describe("#Repo", () => {
   });
 
   describe("#licenseMessage", () => {
-    it("return a correct license message for a known license type", () => {
+    it("return a correct license message for a known license type and local file", () => {
       const message = `\
 ## License
 
 Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
-`;
+  `;
       expect(repoWithLicense.licenseMessage()).toBe(message);
     });
 
