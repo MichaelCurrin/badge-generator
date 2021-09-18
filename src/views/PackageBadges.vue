@@ -82,26 +82,30 @@
               <div :class="!dynamicBadgeEnabled ? disabledClass : ''">
                 <span>Environment: </span>
 
-                <input
-                  type="radio"
-                  id="env-prod"
-                  name="env-type"
-                  :value="prodOption"
-                  :disabled="!dynamicBadgeEnabled"
-                  v-model="envType"
-                  checked
-                />
-                <label for="env-prod">{{ prodOption }}</label>
+                <span>
+                  <input
+                    type="radio"
+                    id="env-prod"
+                    name="env-type"
+                    :value="prodOption"
+                    :disabled="!dynamicBadgeEnabled"
+                    v-model="envType"
+                    checked
+                  />
+                  <label for="env-prod">{{ prodOption }}</label>
+                </span>
 
-                <input
-                  type="radio"
-                  id="env-dev"
-                  name="env-type"
-                  :value="devOption"
-                  :disabled="!dynamicBadgeEnabled"
-                  v-model="envType"
-                />
-                <label for="env-dev">{{ devOption }}</label>
+                <span>
+                  <input
+                    type="radio"
+                    id="env-dev"
+                    name="env-type"
+                    :value="devOption"
+                    :disabled="!dynamicBadgeEnabled"
+                    v-model="envType"
+                  />
+                  <label for="env-dev">{{ devOption }}</label>
+                </span>
               </div>
             </fieldset>
             <br />
