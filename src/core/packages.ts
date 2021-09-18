@@ -56,7 +56,7 @@ export function dependency(
 }
 
 /**
- * Dynamic Node package badge.
+ * Dynamic badge for NPM packages.
  *
  * The badge will dynamically display the locked version number of a named package which is set in
  * your repo's package.json file.
