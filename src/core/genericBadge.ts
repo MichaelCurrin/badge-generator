@@ -3,13 +3,14 @@ import { mdImageWithLink } from "./markdown";
 import { logoQueryParams, staticDashUrl, _staticParamsUrl } from "./shieldsApi";
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
+// TODO: Use `logoAppearance: TLogoAppearance` as a param.
 /**
  * Generate markdown for generic badge.
  *
  * The guard statements to prevent empty strings do not prevent compile-time errors, but they can
  * show up in nests for safety. The label is fine empty string though.
  *
- * See /docs/badge-notes.md doc on output formats.
+ * See `/docs/badge-notes.md` doc on output formats.
  *
  * The strings with null string defaults could be converted to optional with `?` and tests pass, but
  * that means actually `string | undefined` and it is more natural to keep everything as a string.
