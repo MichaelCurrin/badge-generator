@@ -124,8 +124,8 @@
             </fieldset>
             <br />
 
-            <fieldset name="appearance">
-              <legend>Badge appearance</legend>
+            <fieldset name="display-options">
+              <legend>Display options</legend>
 
               <TextInput
                 label="Logo"
