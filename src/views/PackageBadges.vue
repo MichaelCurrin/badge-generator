@@ -125,7 +125,7 @@
             <br />
 
             <fieldset name="appearance">
-              <legend>Dynamic badge appearance</legend>
+              <legend>Badge appearance</legend>
 
               <TextInput
                 label="Logo"
