@@ -3,7 +3,7 @@ import { mdImageWithLink } from "./markdown";
 import { logoQueryParams, staticDashUrl, _staticParamsUrl } from "./shieldsApi";
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
-// TODO: Use `logoAppearance: TLogoAppearance` as a param.
+// TODO: Use `badgeFields: GenericBadge` and `logoAppearance: TLogoAppearance`.
 /**
  * Generate markdown for generic badge.
  *

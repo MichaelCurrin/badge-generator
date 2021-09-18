@@ -70,14 +70,17 @@ export function nodeVersionBadge(
   repo: Repo,
   pkgName: string,
   logoAppearance: TLogoAppearance,
-  environment: ENVIRONMENT
+  environment: ENVIRONMENT,
+  color: string,
 ) {
   const altText = `Package - ${pkgName}`;
 
   logoAppearance.isLarge = NODE_VERSION_BADGE.IS_LARGE;
-  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName, environment),
-    params = logoQueryParams(logoAppearance),
-    imageTarget = buildUrl(baseImageUrl, params);
+
+  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName, environment)
+  const styleParams = logoQueryParams(logoAppearance)
+  styleParams.color = color
+  const imageTarget = buildUrl(baseImageUrl, styleParams);
 
   const linkTarget = `${REGISTRY.Node}/${pkgName}`;
 
@@ -90,6 +93,7 @@ export function nodeVersionBadge(
 
 // TODO: Add to Packages view or Repo view.
 // TODO: Accept Repo type.
+// TODO: Accept color.
 /**
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */

@@ -251,7 +251,13 @@ export default defineComponent({
 
       const lockedPkgBadge =
         registry === REGISTRY.Node
-          ? nodeVersionBadge(repo, this.pkgName, logoAppearance, environment)
+          ? nodeVersionBadge(
+              repo,
+              this.pkgName,
+              logoAppearance,
+              environment,
+              this.badgeColor
+            )
           : "";
 
       this.result = `\
