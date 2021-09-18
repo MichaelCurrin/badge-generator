@@ -25,10 +25,6 @@ describe("#genericBadge", () => {
       expect(() => genericBadge("", "", "green")).toThrow();
     });
 
-    it("throws an error if `color` is empty", () => {
-      expect(() => genericBadge("", "Bar", "")).toThrow();
-    });
-
     it("displays a badge pointing to an external link", () => {
       const linkTarget = "https://example.com";
 
