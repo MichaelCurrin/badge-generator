@@ -168,13 +168,13 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
     });
   });
 
-  describe("#ghCounter", () => {
+  describe("#ghCounterBadge", () => {
     it("return a valid stars shield", () => {
       const badgeUrl =
         "https://img.shields.io/github/stars/MichaelCurrin/badge-generator?style=social";
       const linkTarget = "https://github.com/MichaelCurrin/badge-generator";
 
-      expect(repoNoLicense.ghCounter("stars")).toBe(
+      expect(repoNoLicense.ghCounterBadge("stars")).toBe(
         `[![stars - badge-generator](${badgeUrl})](${linkTarget})`
       );
     });
@@ -184,7 +184,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         "https://img.shields.io/github/forks/MichaelCurrin/badge-generator?style=social";
       const linkTarget = "https://github.com/MichaelCurrin/badge-generator";
 
-      expect(repoNoLicense.ghCounter("forks")).toBe(
+      expect(repoNoLicense.ghCounterBadge("forks")).toBe(
         `[![forks - badge-generator](${badgeUrl})](${linkTarget})`
       );
     });
@@ -195,7 +195,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
       const linkTarget =
         "https://github.com/MichaelCurrin/badge-generator/issues";
 
-      expect(repoNoLicense.ghCounter("issues")).toBe(
+      expect(repoNoLicense.ghCounterBadge("issues")).toBe(
         `[![issues - badge-generator](${badgeUrl})](${linkTarget})`
       );
     });

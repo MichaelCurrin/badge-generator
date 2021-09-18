@@ -241,7 +241,7 @@ export class Repo {
   }
 
   /* Social counter for repo popularity. */
-  ghCounter(type: RepoMetric) {
+  ghCounterBadge(type: RepoMetric) {
     const altText = `${type} - ${this.repoName}`;
     const imageTarget = ghCounterShieldUrl(type, {
       username: this.username,
