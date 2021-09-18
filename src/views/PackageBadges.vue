@@ -79,7 +79,7 @@
               </div>
               <br />
 
-              <div :class="!envEnabled ? disabledClass : ''">
+              <div :class="!dynamicBadgeEnabled ? disabledClass : ''">
                 <span>Environment: </span>
 
                 <input
