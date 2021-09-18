@@ -63,14 +63,23 @@ export class Repo {
     }
   }
 
+  /**
+   * Identifier for a repo.
+   */
   nameWithOwner() {
     return `${this.username}/${this.repoName}`;
   }
 
+  /**
+   * URL for a repo on GitHub.
+   */
   ghURL() {
     return `${GITHUB_DOMAIN}/${this.nameWithOwner()}`;
   }
 
+  /**
+   * URL for a GitHub Pages site.
+   */
   ghPagesURL() {
     // Domain will get lower-cased by GH after a redirect so just make it lowercase now.
     // But preserve case for the comparison. Note Project page needs trailing forward slash
@@ -85,7 +94,11 @@ export class Repo {
     return `${fullDomain}/${this.repoName}/`;
   }
 
-  // TODO: add variation that has a docs site for the text. And add custom text options.
+  // TODO: add variation that has a docs site for the text. And add custom text
+  // options.
+  /**
+   * Badge pointing at a GitHub Pages site.
+   */
   ghPagesBadge() {
     const linkTarget = this.ghPagesURL();
 
@@ -106,6 +119,9 @@ export class Repo {
     return `${this.ghURL()}/generate`;
   }
 
+  /**
+   * Badge for "Use this template" button.
+   */
   useThisTemplateBadge() {
     const linkTarget = this._templateURL();
 
@@ -135,7 +151,8 @@ export class Repo {
   }
 
   /**
-   * Create a badge that dynamically shows a tag or release and links to releases.
+   * Create a badge that dynamically shows a tag or release and links to
+   * releases.
    *
    * See Tag badges section of the /docs/badge-notes.md doc.
    */
@@ -161,6 +178,9 @@ export class Repo {
     return `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
   }
 
+  /**
+   * Badge for a license.
+   */
   licenseBadge(localLicense: boolean) {
     if (!this.licenseType) {
       return "";
