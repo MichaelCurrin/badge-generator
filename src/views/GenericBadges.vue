@@ -37,11 +37,7 @@
               <Checkbox label="Large" v-model="isLarge" />
               <br />
 
-              <TextInput
-                label="Logo"
-                v-model="logo"
-                :note="logoHelp"
-              />
+              <TextInput label="Logo" v-model="logo" :note="logoHelp" />
 
               <TextInput
                 label="Logo color"
@@ -87,7 +83,12 @@
 import { defineComponent } from "vue";
 
 import { COLOR_PRESETS } from "@/constants/appearance";
-import { COLOR_HELP, INITIAL_RESULT, LOGO_COLOR_HELP, LOGO_HELP } from "@/constants/text";
+import {
+  COLOR_HELP,
+  INITIAL_RESULT,
+  LOGO_COLOR_HELP,
+  LOGO_HELP,
+} from "@/constants/text";
 
 import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";

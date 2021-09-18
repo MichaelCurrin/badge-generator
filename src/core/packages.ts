@@ -4,7 +4,7 @@
 import {
   GO_MODULE_SHIELD,
   NODE_VERSION_BADGE,
-  STATIC_DEPENDENCY
+  STATIC_DEPENDENCY,
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
@@ -14,7 +14,7 @@ import { Repo } from "./Repo";
 import {
   ENVIRONMENT,
   logoQueryParams,
-  nodePkgJsonShieldUrl
+  nodePkgJsonShieldUrl,
 } from "./shieldsApi";
 import { TLogoAppearance } from "./shieldsApi.d";
 
@@ -39,7 +39,7 @@ export function dependency(
   name: string,
   registry: REGISTRY,
   logoAppearance: TLogoAppearance,
-  color: string,
+  color: string
 ) {
   const url = `${registry}/${name}`;
 
@@ -71,15 +71,15 @@ export function nodeVersionBadge(
   pkgName: string,
   logoAppearance: TLogoAppearance,
   environment: ENVIRONMENT,
-  color: string,
+  color: string
 ) {
   const altText = `Package - ${pkgName}`;
 
   logoAppearance.isLarge = NODE_VERSION_BADGE.IS_LARGE;
 
-  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName, environment)
-  const styleParams = logoQueryParams(logoAppearance)
-  styleParams.color = color
+  const baseImageUrl = nodePkgJsonShieldUrl(repo, pkgName, environment);
+  const styleParams = logoQueryParams(logoAppearance);
+  styleParams.color = color;
   const imageTarget = buildUrl(baseImageUrl, styleParams);
 
   const linkTarget = `${REGISTRY.Node}/${pkgName}`;

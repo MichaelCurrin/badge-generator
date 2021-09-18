@@ -178,7 +178,12 @@
 import { defineComponent } from "vue";
 
 import { COLOR_PRESETS } from "@/constants/appearance";
-import { COLOR_HELP, INITIAL_RESULT, LOGO_COLOR_HELP, LOGO_HELP } from "@/constants/text";
+import {
+  COLOR_HELP,
+  INITIAL_RESULT,
+  LOGO_COLOR_HELP,
+  LOGO_HELP,
+} from "@/constants/text";
 
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
