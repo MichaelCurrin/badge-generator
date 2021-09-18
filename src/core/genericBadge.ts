@@ -1,6 +1,6 @@
 import { formatTitle } from "./badges";
 import { mdImageWithLink } from "./markdown";
-import { logoQueryParams, staticDashUrl, _staticParamsUrl } from "./shieldsApi";
+import { logoQueryParams, staticDashUrl, staticParamsUrl } from "./shieldsApi";
 
 // TODO: Split on the badge and the target as functions then combine them in a higher function like this.
 // TODO: Use `badgeFields: GenericBadge` and `logoAppearance: TLogoAppearance`.
@@ -44,7 +44,7 @@ export function genericBadge(
     styleParams = logoQueryParams({ isLarge, logo, logoColor });
 
   const imageTarget = onlyQueryParams
-    ? _staticParamsUrl(badgeFields, styleParams)
+    ? staticParamsUrl(badgeFields, styleParams)
     : staticDashUrl(badgeFields, styleParams);
 
   return mdImageWithLink({

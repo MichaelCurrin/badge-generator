@@ -102,7 +102,7 @@ export function logoQueryParams(logoAppearance: TLogoAppearance) {
 /**
  * Image URL for param-based static badge.
  */
-export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
+export function staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
   const color = badge.color || COLOR_PRESETS.Default
 
   const params = {
