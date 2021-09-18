@@ -9,7 +9,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "@/constants/badgeValues";
 import {
   DEFAULT_BRANCH,
@@ -17,7 +17,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS,
+  VERSION_PARAMS
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -25,6 +25,14 @@ import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
 import { ghCounterShieldUrl } from "./shieldsApi";
 import { RepoMetric } from "./types.d";
+
+function _licenseSectionMd(license: string, user: string) {
+  return `\
+## License
+
+Released under ${license} by ${user}.
+  `;
+}
 
 export class Repo {
   constructor(
@@ -173,11 +181,7 @@ export class Repo {
       `${GITHUB_DOMAIN}/${this.username}`
     );
 
-    return `\
-## License
-
-Released under ${license} by ${user}.
-`;
+    return _licenseSectionMd(license, user);
   }
 
   /* GitHub repo badge */
