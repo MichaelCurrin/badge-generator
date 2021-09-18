@@ -240,9 +240,15 @@ code {
   color: #666;
 }
 
+/** Inputs **/
+
 input {
   /* Prevent user-agent stylesheet from making this too small, such as in Chrome. */
   font-size: initial;
+}
+
+input:disabled {
+  cursor: not-allowed;
 }
 
 .required {
