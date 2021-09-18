@@ -217,7 +217,9 @@ export class Repo {
     return _licenseSectionMd(license, user);
   }
 
-  /* GitHub repo badge */
+  /**
+   * Badge URL for GitHub repo.
+   */
   gh() {
     const label = this.username,
       message = this.repoName,
