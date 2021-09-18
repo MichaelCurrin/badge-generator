@@ -38,16 +38,15 @@ import { TLogoAppearance } from "./shieldsApi.d";
 export function dependency(
   name: string,
   registry: REGISTRY,
-  logoAppearance: TLogoAppearance
+  logoAppearance: TLogoAppearance,
+  color: string,
 ) {
   const url = `${registry}/${name}`;
-
-  const color = logoAppearance.color || STATIC_DEPENDENCY.color!;
 
   return genericBadge(
     STATIC_DEPENDENCY.label!,
     name,
-    color,
+    color || STATIC_DEPENDENCY.color!,
     STATIC_DEPENDENCY.isLarge,
     url,
     logoAppearance.logo,

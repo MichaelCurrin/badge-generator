@@ -236,14 +236,13 @@ export default defineComponent({
       const logoAppearance = {
         logo: this.logo,
         logoColor: this.logoColor,
-        color: this.badgeColor,
       };
 
       const registryKey = this.pkgType as RegistryKeys,
         registry = REGISTRY[registryKey];
 
       const dependencyBadge = registry
-        ? dependency(this.pkgName, registry, logoAppearance)
+        ? dependency(this.pkgName, registry, logoAppearance, this.badgeColor)
         : "";
 
       const repo = new Repo(this.username, this.repoName);
