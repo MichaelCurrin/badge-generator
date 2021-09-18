@@ -241,7 +241,7 @@ code {
 }
 
 input {
-  /* Prevent user agent stylesheet from making this too small, such as in Chrome. */
+  /* Prevent user-agent stylesheet from making this too small, such as in Chrome. */
   font-size: initial;
 }
 
