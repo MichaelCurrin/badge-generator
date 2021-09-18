@@ -37,9 +37,7 @@ export function genericBadge(
   if (!message) {
     throw new Error("`message` may not be empty");
   }
-  if (!color) {
-    throw new Error("`color` may not be empty");
-  }
+
   altText = altText || formatTitle(label, message);
 
   const badgeFields = { label, message, color },
