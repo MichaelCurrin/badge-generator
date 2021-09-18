@@ -30,20 +30,26 @@
 
               <div>
                 <label>Version type</label>
-                <input
-                  type="radio"
-                  id="one"
-                  value="tag"
-                  v-model="versionType"
-                />
-                <label for="one">Tag</label>
-                <input
-                  type="radio"
-                  id="two"
-                  value="release"
-                  v-model="versionType"
-                />
-                <label for="two">Release</label>
+
+                <span>
+                  <input
+                    type="radio"
+                    id="one"
+                    value="tag"
+                    v-model="versionType"
+                  />
+                  <label for="one">Tag</label>
+                </span>
+
+                <span>
+                  <input
+                    type="radio"
+                    id="two"
+                    value="release"
+                    v-model="versionType"
+                  />
+                  <label for="two">Release</label>
+                </span>
               </div>
             </fieldset>
             <br />
