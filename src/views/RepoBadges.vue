@@ -195,11 +195,10 @@ export default defineComponent({
       const versionBadge = repo.tagBadge(this.versionType as TagTypes),
         licenseBadge = repo.licenseBadge(true);
 
-      const repoBadge = repo.gh(),
-        starsBadge = repo.ghCounter("stars"),
-        forksBadge = repo.ghCounter("forks");
-
-      const issuesBadge = this.addIssues ? repo.ghCounter("issues") : "";
+      const repoBadge = repo.ghBadge();
+      const starsBadge = repo.ghCounterBadge("stars");
+      const forksBadge = repo.ghCounterBadge("forks");
+      const issuesBadge = this.addIssues ? repo.ghCounterBadge("issues") : "";
 
       const templateButton = this.useThisTemplate
         ? repo.useThisTemplateBadge()
