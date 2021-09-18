@@ -24,7 +24,7 @@ import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
 import { ghCounterShieldUrl } from "./shieldsApi";
-import { RepoMetric } from "./types.d";
+import { RepoMetric, StrMap } from "./types.d";
 
 function _licenseSectionMd(license: string, user: string) {
   return `\
@@ -35,6 +35,17 @@ Released under ${license} by ${user}.
 }
 
 export class Repo {
+  /**
+   * Initialize Repo.
+   *
+   * @param username GitHub repo owner's username.
+   * @param repoName GitHub repo name.
+   * @param licenseType The type of the repo's LICENSE. e.g. 'MIT'.
+   * @param badgeColor Color keyword or hex. It would be possible to fallback
+   *   to a default color if none is given, but that would add an extra param
+   *   to the URL which takes up space and does nothing (Shields.io defaults
+   *   to blue for most badges if no color is given).
+   */
   constructor(
     public username: string,
     public repoName: string,
@@ -46,10 +57,6 @@ export class Repo {
     }
     if (!repoName) {
       throw new Error("`repoName` cannot be empty");
-    }
-
-    if (!this.badgeColor) {
-      this.badgeColor = GH_BADGE.color;
     }
   }
 
@@ -116,7 +123,10 @@ export class Repo {
     const path = `${type}/${this.nameWithOwner()}`;
     const url = `${SHIELDS_API.GH}/${path}`;
 
-    const queryParams = { ...VERSION_PARAMS, color: this.badgeColor! };
+    const queryParams: StrMap = { ...VERSION_PARAMS };
+    if (this.badgeColor) {
+      queryParams.color = this.badgeColor
+    }
 
     return buildUrl(url, queryParams);
   }
