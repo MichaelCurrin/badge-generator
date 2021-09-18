@@ -220,7 +220,7 @@ export class Repo {
   /**
    * Badge URL for GitHub repo.
    */
-  gh() {
+  ghBadge() {
     const label = this.username,
       message = this.repoName,
       target = this.ghURL(),
