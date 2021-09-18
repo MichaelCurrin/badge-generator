@@ -23,8 +23,8 @@
             </fieldset>
             <br />
 
-            <fieldset name="appearance">
-              <legend>Appearance</legend>
+            <fieldset name="display-options">
+              <legend>Display options</legend>
 
               <TextInput
                 label="Color"
