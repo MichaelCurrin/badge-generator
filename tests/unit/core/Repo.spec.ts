@@ -22,9 +22,9 @@ describe("#Repo", () => {
     });
   });
 
-  describe("#ghPagesURL", () => {
+  describe("#_ghPagesURL", () => {
     it("returns a valid GitHub Pages project URL", () => {
-      expect(repoNoLicense.ghPagesURL()).toBe(
+      expect(repoNoLicense._ghPagesURL()).toBe(
         "https://michaelcurrin.github.io/badge-generator/"
       );
     });
@@ -35,7 +35,7 @@ describe("#Repo", () => {
         "MichaelCurrin.github.io"
       );
 
-      expect(repoNoLicense.ghPagesURL()).toBe(
+      expect(repoNoLicense._ghPagesURL()).toBe(
         "https://michaelcurrin.github.io"
       );
     });

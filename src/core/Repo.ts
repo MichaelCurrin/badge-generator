@@ -66,7 +66,7 @@ export class Repo {
   /**
    * Identifier for a repo.
    */
-  nameWithOwner() {
+  _nameWithOwner() {
     return `${this.username}/${this.repoName}`;
   }
 
@@ -74,13 +74,13 @@ export class Repo {
    * URL for a repo on GitHub.
    */
   ghURL() {
-    return `${GITHUB_DOMAIN}/${this.nameWithOwner()}`;
+    return `${GITHUB_DOMAIN}/${this._nameWithOwner()}`;
   }
 
   /**
    * URL for a GitHub Pages site.
    */
-  ghPagesURL() {
+  _ghPagesURL() {
     // Domain will get lower-cased by GH after a redirect so just make it lowercase now.
     // But preserve case for the comparison. Note Project page needs trailing forward slash
     // but User page is without.
@@ -100,7 +100,7 @@ export class Repo {
    * Badge pointing at a GitHub Pages site.
    */
   ghPagesBadge() {
-    const linkTarget = this.ghPagesURL();
+    const linkTarget = this._ghPagesURL();
 
     return genericBadge(
       GH_PAGES_BADGE.label!,
@@ -139,7 +139,7 @@ export class Repo {
   }
 
   _tagBadgeUrl(type: string) {
-    const path = `${type}/${this.nameWithOwner()}`;
+    const path = `${type}/${this._nameWithOwner()}`;
     const url = `${SHIELDS_API.GH}/${path}`;
 
     const queryParams: StrMap = { ...VERSION_PARAMS };
