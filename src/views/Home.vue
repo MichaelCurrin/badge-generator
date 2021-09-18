@@ -81,7 +81,7 @@ export default defineComponent({
     );
 
     return {
-      repoBadge: repo.gh(),
+      repoBadge: repo.ghBadge(),
       description: DESCRIPTION,
       baseUrl: process.env.BASE_URL,
     };
