@@ -4,7 +4,7 @@
 import {
   GO_MODULE_SHIELD,
   NODE_VERSION_BADGE,
-  STATIC_DEPENDENCY,
+  STATIC_DEPENDENCY
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
@@ -14,7 +14,7 @@ import { Repo } from "./Repo";
 import {
   ENVIRONMENT,
   logoQueryParams,
-  nodePkgJsonShieldUrl,
+  nodePkgJsonShieldUrl
 } from "./shieldsApi";
 import { TLogoAppearance } from "./shieldsApi.d";
 
@@ -42,10 +42,12 @@ export function dependency(
 ) {
   const url = `${registry}/${name}`;
 
+  const color = logoAppearance.color || STATIC_DEPENDENCY.color!;
+
   return genericBadge(
     STATIC_DEPENDENCY.label!,
     name,
-    STATIC_DEPENDENCY.color!,
+    color,
     STATIC_DEPENDENCY.isLarge,
     url,
     logoAppearance.logo,

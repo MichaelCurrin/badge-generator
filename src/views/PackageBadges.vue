@@ -233,7 +233,11 @@ export default defineComponent({
     submit() {
       console.debug("Process inputs and render results");
 
-      const logoAppearance = { logo: this.logo, logoColor: this.logoColor };
+      const logoAppearance = {
+        logo: this.logo,
+        logoColor: this.logoColor,
+        color: this.badgeColor,
+      };
 
       const registryKey = this.pkgType as RegistryKeys,
         registry = REGISTRY[registryKey];
