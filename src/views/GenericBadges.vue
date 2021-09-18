@@ -30,7 +30,6 @@
                 label="Color"
                 v-model="color"
                 placeholder="e.g. blue"
-                :isRequired="true"
                 :note="colorHelp"
               />
 
