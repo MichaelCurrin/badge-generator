@@ -142,7 +142,7 @@
                 label="Logo"
                 v-model="logo"
                 placeholder="e.g. vue.js"
-                note="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
+                :note="logoHelp"
               />
 
               <TextInput
@@ -151,7 +151,7 @@
                 :disabled="logo === '' || !dynamicBadgeEnabled"
                 :class="logo === '' ? disabledClass : ''"
                 placeholder="e.g. white or #fff or #ffffff"
-                note="Only used if Logo is set. You can override with your own color, or leave this blank to use the badge's own rich colors (these are often poor for reading on a dark background, while `white` is a bland but very readable choice)."
+                :note="logoColorHelp"
               />
             </fieldset>
             <br />
@@ -178,7 +178,7 @@
 import { defineComponent } from "vue";
 
 import { COLOR_PRESETS } from "@/constants/appearance";
-import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
+import { COLOR_HELP, INITIAL_RESULT, LOGO_COLOR_HELP, LOGO_HELP } from "@/constants/text";
 
 import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
@@ -219,8 +219,11 @@ export default defineComponent({
       logoColor: COLOR_PRESETS.LogoDefault,
 
       result: INITIAL_RESULT,
+
       note: NOTE,
       colorHelp: COLOR_HELP,
+      logoHelp: LOGO_HELP,
+      logoColorHelp: LOGO_COLOR_HELP,
 
       disabledClass: "disabled-text",
     };

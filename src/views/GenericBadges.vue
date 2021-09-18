@@ -40,14 +40,14 @@
               <TextInput
                 label="Logo"
                 v-model="logo"
-                note="Supports values like `dependabot`, `discord` and `npm`. And hundreds of logos from [SimpleIcons](https://simpleicons.org/) such as `python`, `node.js` and `visual-studio-code`"
+                :note="logoHelp"
               />
 
               <TextInput
                 label="Logo color"
                 v-model="logoColor"
                 :disabled="logo === ''"
-                note="The badge's own color will be used unless you specify an override. Using `white` is great for readability against the dark label background."
+                :note="logoColorHelp"
               />
             </fieldset>
             <br />
@@ -87,7 +87,7 @@
 import { defineComponent } from "vue";
 
 import { COLOR_PRESETS } from "@/constants/appearance";
-import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
+import { COLOR_HELP, INITIAL_RESULT, LOGO_COLOR_HELP, LOGO_HELP } from "@/constants/text";
 
 import Checkbox from "@/components/Checkbox.vue";
 import Help from "@/components/Help.vue";
@@ -121,8 +121,11 @@ export default defineComponent({
       logoColor: "",
 
       result: INITIAL_RESULT,
+
       note: note,
       colorHelp: COLOR_HELP,
+      logoHelp: LOGO_HELP,
+      logoColorHelp: LOGO_COLOR_HELP,
     };
   },
   methods: {
