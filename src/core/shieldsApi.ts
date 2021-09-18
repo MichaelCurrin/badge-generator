@@ -74,7 +74,7 @@ export function dashShieldPath(badge: GenericBadge) {
 }
 
 /**
- * Logo query params.
+ * Prepare logo query params for a URL.
  *
  * Return URL query parameters for styling just about any badge made with the
  * shields.io API.
@@ -111,9 +111,11 @@ export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
   return buildUrl(SHIELDS_API.PARAM, params);
 }
 
-/** Image URL for a positional dash-based static badge. */
-export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
-  const imgPath = dashShieldPath(badge),
+/**
+ * Image URL for a positional dash-based static badge.
+ */
+export function staticDashUrl(badgeFields: GenericBadge, styleParams: StrMap) {
+  const imgPath = dashShieldPath(badgeFields),
     imageTarget = `${SHIELDS_API.DASH}/${imgPath}`;
 
   return buildUrl(imageTarget, styleParams);
