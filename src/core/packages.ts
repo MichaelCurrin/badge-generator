@@ -26,7 +26,7 @@ import { TLogoAppearance } from "./shieldsApi.d";
  * this app. The badge is flat, so it will display info even for a dependency that does not exist on
  * the registry.
  *
- * The name input might be "requests" for Python or "vue" for Node.
+ * The `name` param might be "requests" for Python or "vue" for Node.
  *
  * The version might be like '17.x' or '>=17' or '17-19'. This is useful if there is no wait to
  * infer the version or version range automatically from files in the repo, or you just want more
