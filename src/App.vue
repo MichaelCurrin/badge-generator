@@ -248,7 +248,4 @@ input {
 .required {
   color: red;
 }
-input:checked ~ .checkmark {
-  background-color: red;
-}
 </style>
