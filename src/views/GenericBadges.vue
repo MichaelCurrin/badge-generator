@@ -28,7 +28,7 @@
 
               <TextInput
                 label="Color"
-                v-model="color"
+                v-model="badgeColor"
                 placeholder="e.g. blue"
                 :note="colorHelp"
               />
@@ -114,7 +114,7 @@ export default defineComponent({
     return {
       label: "Foo",
       message: "Bar",
-      color: COLOR_PRESETS.Green,
+      badgeColor: COLOR_PRESETS.Green,
       isLarge: false,
       target: "https://",
       logo: "",
@@ -135,7 +135,7 @@ export default defineComponent({
       const args = [
         this.label,
         this.message,
-        this.color,
+        this.badgeColor,
         this.isLarge,
         this.target,
         this.logo,
@@ -146,7 +146,7 @@ export default defineComponent({
       const dashBadge = genericBadge(
           this.label,
           this.message,
-          this.color,
+          this.badgeColor,
           this.isLarge,
           this.target,
           this.logo,
@@ -156,7 +156,7 @@ export default defineComponent({
         paramBadge = genericBadge(
           this.label,
           this.message,
-          this.color,
+          this.badgeColor,
           this.isLarge,
           this.target,
           this.logo,
