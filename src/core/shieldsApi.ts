@@ -1,7 +1,7 @@
 /**
  * Shields.io API module.
  */
-import { STYLES } from "@/constants/appearance";
+import { COLOR_PRESETS, STYLES } from "@/constants/appearance";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { TLogoAppearance } from "./shieldsApi.d";
@@ -58,13 +58,15 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
  *
  * This conveniently escapes label and message for you, based on rules on the shields.io website.
  *
- * See more info in shields-io.md in the docs.
+ * See more info in `shields-io.md` in the docs.
  */
 export function dashShieldPath(badge: GenericBadge) {
   const message = _encodeParam(badge.message);
   let label = badge.label;
 
-  const pieces = [message, badge.color];
+  const color = badge.color || COLOR_PRESETS.Default
+
+  const pieces = [message, color];
   if (label) {
     label = _encodeParam(label);
     pieces.unshift(label);
@@ -101,10 +103,12 @@ export function logoQueryParams(logoAppearance: TLogoAppearance) {
  * Image URL for param-based static badge.
  */
 export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
+  const color = badge.color || COLOR_PRESETS.Default
+
   const params = {
     label: badge.label!,
     message: badge.message,
-    color: badge.color,
+    color,
     ...styleParams,
   };
 
