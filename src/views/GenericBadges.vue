@@ -29,7 +29,8 @@
               <TextInput
                 label="Color"
                 v-model="color"
-                isRequired
+                placeholder="e.g. blue"
+                :isRequired="true"
                 :note="colorHelp"
               />
 

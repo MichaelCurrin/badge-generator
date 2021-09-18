@@ -133,6 +133,7 @@
               <TextInput
                 label="Color"
                 v-model="badgeColor"
+                placeholder="e.g. blue"
                 :isRequired="true"
                 :note="colorHelp"
               />
