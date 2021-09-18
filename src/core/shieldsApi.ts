@@ -74,7 +74,10 @@ export function dashShieldPath(badge: GenericBadge) {
 }
 
 /**
- * Generate URL query parameters for styling just about any badge on shields.io API.
+ * Logo query params.
+ *
+ * Return URL query parameters for styling just about any badge made with the
+ * shields.io API.
  */
 export function logoQueryParams(logoAppearance: TLogoAppearance) {
   const params: StrMap = {};
@@ -94,7 +97,9 @@ export function logoQueryParams(logoAppearance: TLogoAppearance) {
   return params;
 }
 
-/** Image URL for param-based static badge. */
+/**
+ * Image URL for param-based static badge.
+ */
 export function _staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
   const params = {
     label: badge.label!,
@@ -114,7 +119,9 @@ export function staticDashUrl(badge: GenericBadge, styleParams: StrMap) {
   return buildUrl(imageTarget, styleParams);
 }
 
-/** Image URL for a GitHub counter badge. */
+/**
+ * Image URL for a GitHub counter badge.
+ */
 export function ghCounterShieldUrl(type: RepoMetric, repo: GHRepo) {
   const path = `${type}/${repo.username}/${repo.repoName}`;
   const url = `${SHIELDS_API.GH}/${path}`;
@@ -126,7 +133,9 @@ export function ghCounterShieldUrl(type: RepoMetric, repo: GHRepo) {
   return buildUrl(url, { style: STYLES.SOCIAL });
 }
 
-/** Image URL for a dynamic Node package.json dependency badge. */
+/**
+ * Image URL for a dynamic Node package.json dependency badge.
+ */
 export function nodePkgJsonShieldUrl(
   repo: GHRepo,
   pkgName: string,
