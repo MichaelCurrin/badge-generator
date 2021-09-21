@@ -91,7 +91,7 @@
                 label="Name"
                 v-model="workflowName"
                 placeholder="e.g. Node CI"
-                note='From the "name" field of a GH Actions workflow file. For the default repo of 'badge-generator', you can use "GH Pages Deploy".'
+                note='From the "name" field of a GH Actions workflow file. For the default repo settings, you can use "GH Pages Deploy".'
               />
             </fieldset>
             <br />
