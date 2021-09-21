@@ -130,7 +130,7 @@ import { TagTypes } from "@/core/Repo.d";
 import { statusBadge } from "@/core/ghActions";
 
 const note = `
-- Where to put repo metadata badges.
+- Where to put the repo metadata badges.
     - In your \`README.md\` file.
 - Where to put the social badges.
     - On a docs site to link back to your repo.
@@ -138,6 +138,10 @@ const note = `
 - The first social badge has fixed display logic - so make sure you enter a valid repo as the badge can't tell you it is broken. A positive of this is that it works to point to private repos.
 - If you want to always how the latest tag, even if it has _no release_ yet, use the Tag badge. Otherwise, use the Release badge.
 - For centered badges - note that the HTML \`align\` attribute is being deprecated in favor of CSS. But in markdown on GitHub you cannot set CSS even inline and so must use the \`align\` attribute.
+
+If you need more content for the body of your README.md or doc files, check out this generic template:
+
+- [![MichaelCurrin - generic-project-template](https://img.shields.io/static/v1?label=MichaelCurrin&message=generic-project-template&color=blue&logo=github)](https://github.com/MichaelCurrin/generic-project-template)
 `;
 
 export default defineComponent({
