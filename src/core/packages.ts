@@ -22,9 +22,9 @@ import { TLogoAppearance } from "./shieldsApi.d";
 /**
  * Static dependency badge.
  *
- * A generic badge which can describe any project package dependency, for registries supported by
- * this app. The badge is flat, so it will display info even for a dependency that does not exist on
- * the registry.
+ * A generic badge which can describe any project package dependency, for
+ * registries supported by this app. The badge is flat, so it will display info
+ * even for a dependency that does not exist on the registry.
  *
  * The `name` param might be "requests" for Python or "vue" for Node.
  *
@@ -62,14 +62,14 @@ export function dependency(
 /**
  * Dynamic badge for NPM packages.
  *
- * The badge will dynamically display the locked version number of a named package which is set in
- * your repo's package.json file.
+ * The badge will dynamically display the locked version number of a named
+ * package which is set in your repo's package.json file.
  *
- * Note - the badge URL needs something added to work for dev dependencies. I'm happy to not support
- * that now.
+ * Note - the badge URL needs something added to work for dev dependencies. I'm
+ * happy to not support that now.
  *
- * Shields.io does Pipenv lock files, but not requirements.txt file, it seems. And not Gemfile
- * either.
+ * Shields.io does Pipenv lock files, but not requirements.txt file, it seems.
+ * And not Gemfile either.
  */
 export function nodeVersionBadge(
   repo: Repo,
@@ -98,9 +98,8 @@ export function nodeVersionBadge(
   });
 }
 
-// TODO: Add to Packages view or Repo view.
-// TODO: Accept Repo type.
-// TODO: Accept color.
+// TODO: Add to Packages view or Repo view. TODO: Accept Repo type. TODO: Accept
+// color.
 /**
  * Return a Go badge that reflects the Go version in a repo's go.mod file.
  */
