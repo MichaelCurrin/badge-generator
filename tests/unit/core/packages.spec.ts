@@ -17,6 +17,7 @@ describe("#dependency", () => {
       "https://img.shields.io/badge/dependency-react-blue?logo=react&logoColor=white";
     const linkTarget = "https://www.npmjs.com/package/react";
     const expectedBadge = `[![dependency - react](${imageTarget})](${linkTarget})`;
+
     expect(
       dependency("react", REGISTRY.Node, { logo: "react", logoColor: "white" })
     ).toBe(expectedBadge);
@@ -65,6 +66,7 @@ describe("#nodeVersionBadge", () => {
       const imageTarget =
         "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js";
       const expectedBadge = `[![Package - vue](${imageTarget})](${linkTarget})`;
+
       expect(
         nodeVersionBadge(repo, "vue", { logo: "vue.js" }, ENVIRONMENT.Prod)
       ).toBe(expectedBadge);
