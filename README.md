@@ -96,6 +96,17 @@ Put whatever text you want in this static badge, which is independent of a repo.
 
 </div>
 
+### Dynamic
+
+Creates a badge based on a label, query, and a JSON file uploaded. 
+
+<div align="center">
+
+![](https://img.shields.io/badge/dynamic/json?label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
+
+</div>
+
+
 ### Packages
 
 An NPM package badge that changes magically when your `package.json` file is updated.

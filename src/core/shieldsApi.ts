@@ -2,10 +2,17 @@
  * Shields.io API module.
  */
 import { COLOR_PRESETS, STYLES } from "@/constants/appearance";
+import { BADGE_DEFAULTS } from "@/constants/catalogue";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { TLogoAppearance } from "./shieldsApi.d";
-import { GenericBadge, GHRepo, RepoMetric, StrMap } from "./types.d";
+import {
+  GenericBadge,
+  DynamicBadge,
+  GHRepo,
+  RepoMetric,
+  StrMap,
+} from "./types.d";
 
 // Enums don't seem to work in `.d` files, so here is best now.
 export enum ENVIRONMENT {
@@ -113,6 +120,19 @@ export function staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
   };
 
   return buildUrl(SHIELDS_API.PARAM, params);
+}
+
+/**
+ * Image URL for param-based dynamic badge using json as source.
+ */
+export function dynamicParamsUrl(badge: DynamicBadge) {
+  const params = {
+    label: badge.label,
+    query: badge.query,
+    url: badge.url,
+  };
+
+  return buildUrl(SHIELDS_API.DYNAMIC_JSON, params);
 }
 
 /**
