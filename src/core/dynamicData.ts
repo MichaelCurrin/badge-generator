@@ -17,17 +17,17 @@ export function dynamicBadge(
   if (!label) {
     throw new Error("`label` may not be empty");
   }
-
   if (!url) {
     throw new Error("`url` may not be empty");
   }
-
   if (!query) {
     throw new Error("`query` may not be empty");
   }
+  if (!altText) {
+    altText = label
+  }
 
-  const badgeFields = { label, url, query };
-  const imageTarget = dynamicParamsUrl(badgeFields);
+  const imageTarget = dynamicParamsUrl({ label, url, query });
 
   return mdImageWithLink({
     altText,
