@@ -104,7 +104,7 @@ In the example below, we look-up the required VS Code version for a VS Code exte
 
 <div align="center">
 
-![VS Code](https://img.shields.io/badge/dynamic/json?label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
+![VS Code](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
 
 </div>
 
