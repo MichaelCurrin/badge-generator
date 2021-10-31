@@ -12,19 +12,19 @@ const store = {
   debug: true,
 
   state: reactive({
-    ghUsername: "MichaelCurrin",
+    repoUsername: "MichaelCurrin",
     repoName: "badge-generator",
   }),
 
   /**
- * Store a repository username. e.g. 'MyUsername'.
- */
-  setGitHubUsername(value: string) {
+   * Store a repository username. e.g. 'MyUsername'.
+   */
+  setRepoUsername(value: string) {
     if (this.debug) {
       console.log(`Store repo username: ${value}`);
     }
 
-    this.state.ghUsername = value;
+    this.state.repoUsername = value;
   },
 
   /**

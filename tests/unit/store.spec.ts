@@ -3,17 +3,17 @@ import store from "@/store";
 describe("store", () => {
   describe("defaults", () => {
     it("has default values on initialization", () => {
-      expect(store.state.ghUsername).toBe('MichaelCurrin')
+      expect(store.state.repoUsername).toBe('MichaelCurrin')
       expect(store.state.repoName).toBe('badge-generator')
     });
   })
 
-  describe("#setGitHubUsername", () => {
+  describe("#setRepoUsername", () => {
     it("can set and persist username", () => {
-      expect(store.state.ghUsername).toBe('MichaelCurrin')
+      expect(store.state.repoUsername).toBe('MichaelCurrin')
 
-      store.setGitHubUsername('FooBar')
-      expect(store.state.ghUsername).toBe('FooBar')
+      store.setRepoUsername('FooBar')
+      expect(store.state.repoUsername).toBe('FooBar')
     });
   })
 
