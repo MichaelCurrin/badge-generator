@@ -66,10 +66,11 @@ import { defineComponent } from "vue";
 import Markdown from "@/components/Markdown.vue";
 import { APP_THEME_COLOR, DESCRIPTION } from "@/constants/appearance";
 import { Repo } from "@/core/Repo";
+import { BADGE_GENERATOR_REPO } from "@/constants/badgeValues";
 
 const repo = new Repo(
-  "MichaelCurrin",
-  "badge-generator",
+  BADGE_GENERATOR_REPO.username,
+  BADGE_GENERATOR_REPO.repoName,
   undefined,
   APP_THEME_COLOR
 );

@@ -10,10 +10,16 @@
 import { COLOR_PRESETS } from "./appearance";
 import { IGenericBadge } from "./badgeValues.d";
 
+// This is the same as the project itself but they don't always have to be.
 export const DEFAULT_REPO_INPUTS = {
   username: "MichaelCurrin",
   repoName: "badge-generator",
 };
+
+export const BADGE_GENERATOR_REPO = {
+  username: "MichaelCurrin",
+  repoName: "badge-generator",
+}
 
 export const STATIC_DEPENDENCY: IGenericBadge = {
   label: "dependency",
