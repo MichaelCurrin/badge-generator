@@ -1,10 +1,8 @@
 /**
  * Store module.
  */
+import { DEFAULT_INPUTS_REPO } from "@/constants/badgeValues";
 import { reactive } from "vue";
-
-const DEFAULT_USERNAME = "MichaelCurrin";
-const DEFAULT_REPO_NAME = "badge-generator";
 
 /**
  * Global store.
@@ -15,8 +13,8 @@ const store = {
   debug: true,
 
   state: reactive({
-    repoUsername: DEFAULT_USERNAME,
-    repoName: DEFAULT_REPO_NAME,
+    repoUsername: DEFAULT_INPUTS_REPO.username,
+    repoName: DEFAULT_INPUTS_REPO.repoName,
   }),
 
   /**

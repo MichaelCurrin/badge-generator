@@ -10,6 +10,11 @@
 import { COLOR_PRESETS } from "./appearance";
 import { IGenericBadge } from "./badgeValues.d";
 
+export const DEFAULT_INPUTS_REPO = {
+  username: "MichaelCurrin",
+  repoName: "badge-generator",
+};
+
 export const STATIC_DEPENDENCY: IGenericBadge = {
   label: "dependency",
   color: COLOR_PRESETS.Default,
