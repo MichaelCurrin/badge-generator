@@ -123,7 +123,9 @@ export function staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
 }
 
 /**
- * Image URL for param-based dynamic badge using json as source.
+ * Return the image URL for a param-based dynamic data badge.
+ *
+ * Only JSON config file are supported here.
  */
 export function dynamicParamsUrl(badge: DynamicBadge) {
   const params = {

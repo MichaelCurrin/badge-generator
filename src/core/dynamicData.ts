@@ -1,6 +1,11 @@
 import { mdImage, mdImageWithLink } from "./markdown";
 import { dynamicParamsUrl } from "./shieldsApi";
 
+/**
+ * Dynamic data badge.
+ *
+ * Generate a live-updating badge that references a value in a config - currently only JSON supported.
+ */
 export function dynamicBadge(
   label: string,
   url: string,
@@ -21,7 +26,6 @@ export function dynamicBadge(
   }
 
   const badgeFields = { label, url, query };
-
   const imageTarget = dynamicParamsUrl(badgeFields);
 
   return mdImageWithLink({
