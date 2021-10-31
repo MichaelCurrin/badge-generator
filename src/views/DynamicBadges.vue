@@ -69,17 +69,17 @@ import TextInput from "@/components/TextInput.vue";
 import { dynamicBadge } from "@/core/dynamicData";
 
 const note = `
-References a value in remote JSON file and it will update dynamically.
+Reference a value in remote JSON file and the badge will update as the content changes.
 
 Help on fields:
 
-- Label: A text label to display .
-    - e.g. \`Keywords\`
-    - e.g. \`VS Code\`.
-- URL: A raw URL for JSON file on GitHub. Or URL for a JSON file on your REST API server.
+- Label: A text label to display.
+    - e.g. \`keywords\`
+    - e.g.  \`vscode\` or \`VS Code\`
+- URL: A raw URL for a JSON file on GitHub, or URL for a JSON file on your REST API server.
     - e.g. \`https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json\`
     - e.g. \`https://example.com/foo.json\`
-- Query: Look-up value within the data structure. For syntax rules, see [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html)
+- Query: Look-up value within the data structure. For syntax rules, see this [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html) guide.
     - e.g. \`$.keywords\`
     - e.g. \`$.engines["vscode"]\`
 `;
