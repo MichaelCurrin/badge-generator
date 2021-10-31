@@ -22,7 +22,7 @@ const store = {
    */
   setRepoUsername(value: string) {
     if (this.debug) {
-      console.log(`Storing repo username: ${value}`);
+      console.debug(`Storing repo username: ${value}`);
     }
 
     this.state.repoUsername = value;
@@ -33,7 +33,7 @@ const store = {
    */
   setRepoName(value: string) {
     if (this.debug) {
-      console.log(`Storing repo name: ${value}`);
+      console.debug(`Storing repo name: ${value}`);
     }
 
     this.state.repoName = value;
