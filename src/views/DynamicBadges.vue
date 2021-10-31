@@ -110,7 +110,7 @@ Help on form fields:
 Sample badges:
 
 - Badge Generator package.json - [![node](https://img.shields.io/badge/dynamic/json?label=node&query=%24.engines["node"]&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fbadge-generator%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/badge-generator)
--  AutoCommitMsg package.json - [![keywords](https://img.shields.io/badge/dynamic/json?label=keywords&query=%24.keywords&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/auto-commit-msg)
+- AutoCommitMsg package.json - [![keywords](https://img.shields.io/badge/dynamic/json?label=keywords&query=%24.keywords&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/auto-commit-msg)
 - AutoCommitMsg package.json - [![vscode](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines["vscode"]&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/auto-commit-msg/)
 `;
 
