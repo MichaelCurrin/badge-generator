@@ -216,7 +216,7 @@ export default defineComponent({
       prodOption: ENVIRONMENT[ENVIRONMENT.Prod],
       envType: ENVIRONMENT[ENVIRONMENT.Prod],
 
-      username: store.state.ghUsername,
+      username: store.state.repoUsername,
       repoName: store.state.repositoryName,
 
       badgeColor: COLOR_PRESETS.Default,
