@@ -128,7 +128,7 @@ import TextInput from "@/components/TextInput.vue";
 import { Repo } from "@/core/Repo";
 import { TagTypes } from "@/core/Repo.d";
 import { statusBadge } from "@/core/ghActions";
-import store from "@/core/store";
+import store from "@/store";
 
 const note = `
 - Where to put the repo metadata badges.

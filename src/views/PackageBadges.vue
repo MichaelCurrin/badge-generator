@@ -192,7 +192,7 @@ import { REGISTRY, RegistryKeys } from "@/constants/urls";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
 import { ENVIRONMENT, EnvironmentKeys } from "@/core/shieldsApi";
-import store from "@/core/store";
+import store from "@/store";
 
 const NOTE = `
 - For NPM, the badge is dynamic - whatever package name you set, the version of that package in your repo will be used, without having to update the badge code. The Environent setting is for prod vs dev dependencies.
