@@ -186,7 +186,7 @@ export default defineComponent({
         badgeColor: this.badgeColor,
       });
 
-      store.setGitHubUsername(this.username);
+      store.setRepoUsername(this.username);
       store.setRepositoryName(this.repoName);
 
       const repo = new Repo(

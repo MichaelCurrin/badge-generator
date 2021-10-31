@@ -254,7 +254,7 @@ export default defineComponent({
         ? dependency(this.pkgName, registry, logoAppearance, this.badgeColor)
         : "";
 
-      store.setGitHubUsername(this.username);
+      store.setRepoUsername(this.username);
       store.setRepositoryName(this.repoName);
 
       const repo = new Repo(this.username, this.repoName);
