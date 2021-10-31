@@ -19,7 +19,7 @@ export const DEFAULT_REPO_INPUTS = {
 export const BADGE_GENERATOR_REPO = {
   username: "MichaelCurrin",
   repoName: "badge-generator",
-}
+};
 
 export const STATIC_DEPENDENCY: IGenericBadge = {
   label: "dependency",
