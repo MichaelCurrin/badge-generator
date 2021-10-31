@@ -54,7 +54,7 @@
               <TextInput
                 label="Title"
                 v-model="imgTitle"
-                note="Text to show on hover. If not set, then the alt text input's value will be used."
+                note="Text to show on hover. Recommended - describe the action that the button will trigger e.g. 'Go to website', 'Go to repo', or 'Go to docs'"
               />
             </fieldset>
             <br />
