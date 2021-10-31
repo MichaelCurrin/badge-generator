@@ -29,9 +29,9 @@ describe("Dynamic data badges", () => {
           ).toBe(
             "[![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://example.com)"
           );
-        })
-      })
-    })
+        });
+      });
+    });
 
     describe("validate when required inputs are not set", () => {
       it("throws an error if `label` is empty", () => {
@@ -57,6 +57,6 @@ describe("Dynamic data badges", () => {
           )
         ).toThrow();
       });
-    })
-  })
-})
+    });
+  });
+});
