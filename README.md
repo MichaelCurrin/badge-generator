@@ -96,9 +96,11 @@ Put whatever text you want in this static badge, which is independent of a repo.
 
 </div>
 
-### Dynamic
+### Dynamic data
 
-Creates a badge based on a label, query, and a JSON file uploaded. 
+Create a badge that references any value you want in a given JSON file and it will always stay up to date. Badge inputs are the text label, the JSON query, and URL for a JSON file (e.g. a `package.json` file on a GitHub repo or a JSON file on your REST API server).
+
+In the example below, we look-up the required VS Code version for a VS Code extension by using the `$.engines["vscode"]` query against this [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on a GitHub repo.
 
 <div align="center">
 
