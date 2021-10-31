@@ -76,12 +76,12 @@ Help on fields:
 - Label: A text label to display .
     - e.g. \`Keywords\`
     - e.g. \`VS Code\`.
-- Query: Look-up value within the data structure. For syntax rules, see [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html)
-    - e.g. \`$.keywords\`
-    - e.g. \`$.engines["vscode"]\`
 - URL: A raw URL for JSON file on GitHub. Or URL for a JSON file on your REST API server.
     - e.g. \`https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json\`
     - e.g. \`https://example.com/foo.json\`
+- Query: Look-up value within the data structure. For syntax rules, see [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html)
+    - e.g. \`$.keywords\`
+    - e.g. \`$.engines["vscode"]\`
 `;
 
 export default defineComponent({
@@ -93,7 +93,7 @@ export default defineComponent({
   },
   data() {
     return {
-      label: "Foo",
+      label: "",
       url: "",
       query: "",
       target: "",
