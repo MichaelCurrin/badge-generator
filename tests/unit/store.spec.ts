@@ -16,4 +16,13 @@ describe("store", () => {
       expect(store.state.ghUsername).toBe('FooBar')
     });
   })
+
+  describe("#setRepositoryName", () => {
+    it("can set repo name", () => {
+      expect(store.state.repositoryName).toBe('badge-generator')
+
+      store.setRepositoryName('fizz-buzz')
+      expect(store.state.repositoryName).toBe('fizz-buzz')
+    });
+  })
 });
