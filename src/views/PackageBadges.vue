@@ -217,7 +217,7 @@ export default defineComponent({
       envType: ENVIRONMENT[ENVIRONMENT.Prod],
 
       username: store.state.repoUsername,
-      repoName: store.state.repositoryName,
+      repoName: store.state.repoName,
 
       badgeColor: COLOR_PRESETS.Default,
       logo: "",
