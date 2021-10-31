@@ -29,6 +29,9 @@ t test:
 	yarn compile
 	yarn test:coverage
 
+q test-quick:
+	yarn test:unit
+
 
 s serve: fix
 	yarn start

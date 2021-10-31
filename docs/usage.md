@@ -49,14 +49,18 @@ Run unit tests.
 
 ```sh
 $ make test
+$ # OR
+$ make t
 ```
 
-That includes a step to compile to TypeScript, to give validation. Though the compiled output JS is not actually needed.
+That includes a step to compile to TypeScript, to give type validation. Though the compiled output JS is not actually needed.
 
 To run tests without compilation and without code coverage, just run:
 
 ```sh
-$ yarn test:unit
+$ make test-quick
+$ # OR
+$ make q
 ```
 
 The IDE should also give TypeScript errors as hints.
