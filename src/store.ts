@@ -1,16 +1,12 @@
+/**
+ * Store module.
+ */
 import { reactive } from "vue";
 
 /**
  * Global store.
  *
- * The store will keep track of the values
- * that the user enters on the existing
- * forms, and thus, can be reused across
- * several forms. For example, the GitHub
- * username and the repository name can be
- * reused when creating a package badge or
- * a repository badge.
- *
+ * Store user input so values can be remembered by the app across views.
  */
 const store = {
   debug: true,
@@ -21,33 +17,25 @@ const store = {
   }),
 
   /**
-   * Overwrites the current repository name
-   * with the passed value.
-   *
-   * @param newValue a string that represents
-   * the new repository name
-   */
-  setRepositoryName(newValue: string) {
+ * Store the repository username name. e.g. 'MyUsername'.
+ */
+  setGitHubUsername(value: string) {
     if (this.debug) {
-      console.log("Setting the repository name.");
+      console.log(`Store repo username: ${value}`);
     }
 
-    this.state.repositoryName = newValue;
+    this.state.ghUsername = value;
   },
 
   /**
-   * Overwrites the current GitHub username
-   * with the passed value.
-   *
-   * @param newValue a string that represents
-   * the new repository name
+   * Store the repository name. e.g. 'my-repo'.
    */
-  setGitHubUsername(newValue: string) {
+  setRepositoryName(value: string) {
     if (this.debug) {
-      console.log("Setting the GitHub Username");
+      console.log(`Store repo name: ${value}`);
     }
 
-    this.state.ghUsername = newValue;
+    this.state.repositoryName = value;
   },
 };
 
