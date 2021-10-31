@@ -3,6 +3,9 @@
  */
 import { reactive } from "vue";
 
+const DEFAULT_USERNAME = "MichaelCurrin"
+const DEFAULT_REPO_NAME = "badge-generator"
+
 /**
  * Global store.
  *
@@ -12,8 +15,8 @@ const store = {
   debug: true,
 
   state: reactive({
-    repoUsername: "MichaelCurrin",
-    repoName: "badge-generator",
+    repoUsername: DEFAULT_USERNAME,
+    repoName: DEFAULT_REPO_NAME,
   }),
 
   /**
