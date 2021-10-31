@@ -255,7 +255,7 @@ export default defineComponent({
         : "";
 
       store.setRepoUsername(this.username);
-      store.setRepositoryName(this.repoName);
+      store.setRepoName(this.repoName);
 
       const repo = new Repo(this.username, this.repoName);
       const envKey = this.envType as EnvironmentKeys,
