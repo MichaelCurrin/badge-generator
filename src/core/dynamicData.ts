@@ -24,7 +24,7 @@ export function dynamicBadge(
     throw new Error("`query` may not be empty");
   }
   if (!altText) {
-    altText = label
+    altText = label;
   }
 
   const imageTarget = dynamicParamsUrl({ label, url, query });
