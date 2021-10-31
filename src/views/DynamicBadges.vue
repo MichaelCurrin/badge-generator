@@ -69,9 +69,14 @@ import TextInput from "@/components/TextInput.vue";
 import { dynamicBadge } from "@/core/dynamicData";
 
 const note = `
-This form lets you create a dynamic data badge so you can get any value you want out of a public JSON file. For understanding the `query` syntax, see [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html).
+This form lets you create a dynamic data badge so you can get any value you want
+out of a public JSON file. For understanding the \`query\` syntax,
+see [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html).
 
-For example, for a `package.json` file of an NPM package on GitHub, get the `keywords` field or the supported version of Node listed inside the `engines`. Or look-up a value published on your REST API server that indicates its uptime, queue size, last deploy date, etc.
+For example, for a \`package.json\` file of an NPM package on GitHub, get the
+\`keywords\` field or the supported version of Node listed inside the
+\`engines\`. Or look-up a value published on your REST API server that
+indicates its uptime, queue size, last deploy date, etc.
 `;
 
 export default defineComponent({
