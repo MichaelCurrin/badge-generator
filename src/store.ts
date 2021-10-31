@@ -1,7 +1,7 @@
 /**
  * Store module.
  */
-import { DEFAULT_INPUTS_REPO } from "@/constants/badgeValues";
+import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
 import { reactive } from "vue";
 
 /**
@@ -13,8 +13,8 @@ const store = {
   debug: true,
 
   state: reactive({
-    repoUsername: DEFAULT_INPUTS_REPO.username,
-    repoName: DEFAULT_INPUTS_REPO.repoName,
+    repoUsername: DEFAULT_REPO_INPUTS.username,
+    repoName: DEFAULT_REPO_INPUTS.repoName,
   }),
 
   /**

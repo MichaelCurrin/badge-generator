@@ -10,7 +10,7 @@
 import { COLOR_PRESETS } from "./appearance";
 import { IGenericBadge } from "./badgeValues.d";
 
-export const DEFAULT_INPUTS_REPO = {
+export const DEFAULT_REPO_INPUTS = {
   username: "MichaelCurrin",
   repoName: "badge-generator",
 };
