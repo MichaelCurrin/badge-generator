@@ -12,8 +12,8 @@ const store = {
   debug: true,
 
   state: reactive({
-    repoName: "badge-generator",
     ghUsername: "MichaelCurrin",
+    repoName: "badge-generator",
   }),
 
   /**
