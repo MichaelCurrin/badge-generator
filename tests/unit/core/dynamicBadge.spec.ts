@@ -1,56 +1,62 @@
 import { dynamicBadge } from "@/core/dynamicData";
 
-describe("#dynamicBadge", () => {
-  describe("Url, label, and query", () => {
-    it("displays a badge with a given label, URL and query", () => {
-      expect(
-        dynamicBadge(
-          "version",
-          "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
-          "version"
-        )
-      ).toBe(
-        "![](https://img.shields.io/badge/dynamic/json?label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)"
-      );
-    });
+describe("Dynamic data badges", () => {
+  describe("#dynamicBadge", () => {
+    describe("required inputs set", () => {
+      it("displays a badge correctly when label, URL, query are set", () => {
+        expect(
+          dynamicBadge(
+            "version",
+            "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
+            "$.version"
+          )
+        ).toBe(
+          "![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)"
+        );
+      });
 
-    it("throws an error if `label` is empty", () => {
-      expect(() =>
-        dynamicBadge(
-          "",
-          "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
-          "version"
-        )
-      ).toThrow();
-    });
+      describe("optional inputs are set", () => {
+        it("displays a badge pointing to an external link", () => {
+          const linkTarget = "https://example.com";
 
-    it("throws an error if `url` is empty", () => {
-      expect(() => dynamicBadge("version", "", "version")).toThrow();
-    });
+          expect(
+            dynamicBadge(
+              "version",
+              "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
+              "$.version",
+              linkTarget
+            )
+          ).toBe(
+            "[![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://example.com)"
+          );
+        })
+      })
+    })
 
-    it("throws an error if `query` is empty", () => {
-      expect(() =>
-        dynamicBadge(
-          "version",
-          "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
-          ""
-        )
-      ).toThrow();
-    });
+    describe("validate when required inputs are not set", () => {
+      it("throws an error if `label` is empty", () => {
+        expect(() =>
+          dynamicBadge(
+            "",
+            "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
+            "version"
+          )
+        ).toThrow();
+      });
 
-    it("displays a badge pointing to an external link", () => {
-      const linkTarget = "https://example.com";
+      it("throws an error if `url` is empty", () => {
+        expect(() => dynamicBadge("version", "", "version")).toThrow();
+      });
 
-      expect(
-        dynamicBadge(
-          "version",
-          "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
-          "version",
-          linkTarget
-        )
-      ).toBe(
-        "[![](https://img.shields.io/badge/dynamic/json?label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://example.com)"
-      );
-    });
-  });
-});
+      it("throws an error if `query` is empty", () => {
+        expect(() =>
+          dynamicBadge(
+            "version",
+            "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
+            ""
+          )
+        ).toThrow();
+      });
+    })
+  })
+})
