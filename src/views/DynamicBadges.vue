@@ -14,15 +14,39 @@
           <form @submit.prevent.enter="submit">
             <fieldset name="text">
               <legend>Text</legend>
-
-              <TextInput label="Label" v-model="label" isRequired />
+              <TextInput
+                label="Alt text"
+                v-model="altText"
+                placeholder="e.g. Keywords"
+                note="Markdown fallback text. If omitted, _Label_ will be used."
+              />
               <br />
 
-              <TextInput label="URL" v-model="url" isRequired />
+              <TextInput
+                label="Label"
+                v-model="label"
+                isRequired
+                placeholder="e.g. keywords"
+                note="Display text for the left of the badge"
+              />
               <br />
 
-              <TextInput label="Query" v-model="query" isRequired />
+              <TextInput
+                label="URL"
+                v-model="url"
+                isRequired
+                placeholder="e.g. https://example.com/foo.json"
+                note="URL for a public JSON file."
+              />
               <br />
+
+              <TextInput
+                label="Query"
+                v-model="query"
+                isRequired
+                placeholder="e.g. $.keywords "
+                note="JSON value query."
+              />
             </fieldset>
             <br />
 
@@ -71,17 +95,23 @@ import { dynamicBadge } from "@/core/dynamicData";
 const note = `
 Reference a value in remote JSON file and the badge will update as the content changes.
 
-Help on fields:
+Help on form fields:
 
-- Label: A text label to display.
-    - e.g. \`keywords\`
-    - e.g.  \`vscode\` or \`VS Code\`
-- URL: A raw URL for a JSON file on GitHub, or URL for a JSON file on your REST API server.
-    - e.g. \`https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json\`
-    - e.g. \`https://example.com/foo.json\`
-- Query: Look-up value within the data structure. For syntax rules, see this [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html) guide.
-    - e.g. \`$.keywords\`
-    - e.g. \`$.engines["vscode"]\`
+- Label: A text label to display. e.g.
+    - \`keywords\`
+    - \`vscode\` or \`VS Code\`
+- URL: A raw URL for a JSON file on GitHub, or URL for a JSON file on your REST API server. e.g.
+    - \`https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json\`
+    - \`https://example.com/foo.json\`
+- Query: Look-up value within the data structure. For syntax rules, see this [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html) guide.  e.g.
+    - \`$.keywords\`
+    - \`$.engines["vscode"]\`
+
+Sample badges:
+
+- Badge Generator package.json - [![node](https://img.shields.io/badge/dynamic/json?label=node&query=%24.engines["node"]&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fbadge-generator%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/badge-generator)
+-  AutoCommitMsg package.json - [![keywords](https://img.shields.io/badge/dynamic/json?label=keywords&query=%24.keywords&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/auto-commit-msg)
+- AutoCommitMsg package.json - [![vscode](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines["vscode"]&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/auto-commit-msg/)
 `;
 
 export default defineComponent({
@@ -93,12 +123,13 @@ export default defineComponent({
   },
   data() {
     return {
+      altText: "",
       label: "",
       url: "",
       query: "",
       target: "",
       result: INITIAL_RESULT,
-      note: note,
+      note,
     };
   },
   methods: {
