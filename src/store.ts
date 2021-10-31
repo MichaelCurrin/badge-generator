@@ -3,8 +3,8 @@
  */
 import { reactive } from "vue";
 
-const DEFAULT_USERNAME = "MichaelCurrin"
-const DEFAULT_REPO_NAME = "badge-generator"
+const DEFAULT_USERNAME = "MichaelCurrin";
+const DEFAULT_REPO_NAME = "badge-generator";
 
 /**
  * Global store.
