@@ -2,7 +2,7 @@
   <div class="badges container-lg">
     <div class="row">
       <div class="col-12">
-        <h1>Dynamic badges</h1>
+        <h1>Dynamic data badges</h1>
       </div>
     </div>
 
@@ -69,14 +69,19 @@ import TextInput from "@/components/TextInput.vue";
 import { dynamicBadge } from "@/core/dynamicData";
 
 const note = `
-This form lets you create a dynamic data badge so you can get any value you want
-out of a public JSON file. For understanding the \`query\` syntax,
-see [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html).
+References a value in remote JSON file and it will update dynamically.
 
-For example, for a \`package.json\` file of an NPM package on GitHub, get the
-\`keywords\` field or the supported version of Node listed inside the
-\`engines\`. Or look-up a value published on your REST API server that
-indicates its uptime, queue size, last deploy date, etc.
+Help on fields:
+
+- Label: A text label to display .
+    - e.g. \`Keywords\`
+    - e.g. \`VS Code\`.
+- Query: Look-up value within the data structure. For syntax rules, see [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html)
+    - e.g. \`$.keywords\`
+    - e.g. \`$.engines["vscode"]\`
+- URL: A raw URL for JSON file on GitHub. Or URL for a JSON file on your REST API server.
+    - e.g. \`https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json\`
+    - e.g. \`https://example.com/foo.json\`
 `;
 
 export default defineComponent({
