@@ -1,7 +1,10 @@
 import { BADGE_DEFAULTS, BADGE_DETAILS } from "@/constants/catalogue";
 import { genericBadge } from "./genericBadge";
 
-export function renderBadges() {
+/**
+ * Convert data for all fixed catalogue badges into Markdown badges.
+ */
+export function renderBadges(): string[] {
   return BADGE_DETAILS.map((badge) => {
     const isLarge =
       typeof badge.isLarge !== "undefined"
