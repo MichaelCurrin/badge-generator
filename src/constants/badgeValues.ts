@@ -28,6 +28,7 @@ export const GH_BADGE: IGenericBadge = {
   isLarge: false,
   logo: "github",
   logoColor: "",
+  hoverTitle: "Go to GitHub repo",
 };
 
 export const GH_PAGES_BADGE: IGenericBadge = {

@@ -236,7 +236,9 @@ export class Repo {
       target,
       GH_BADGE.logo,
       GH_BADGE.logoColor,
-      onlyQueryParams
+      onlyQueryParams,
+      undefined,
+      GH_BADGE.hoverTitle
     );
   }
 
