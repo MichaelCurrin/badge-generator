@@ -13,6 +13,7 @@ type TBadgeDetails = {
   logo?: string;
   isLarge?: boolean;
   altText?: string;
+  hoverTitle?: string;
 };
 
 export const BADGE_DETAILS: TBadgeDetails[] = [

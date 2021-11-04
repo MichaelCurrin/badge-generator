@@ -17,7 +17,8 @@ export function renderBadges() {
       badge.logo,
       badge.logo ? BADGE_DEFAULTS.LOGO_COLOR : "",
       false,
-      badge.altText
+      badge.altText,
+      badge.hoverTitle
     );
   });
 }

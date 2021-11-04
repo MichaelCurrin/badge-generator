@@ -25,6 +25,12 @@ import { logoQueryParams, staticDashUrl, staticParamsUrl } from "./shieldsApi";
  * Python" instead This is useful if you want to avoid generated a badge which
  * is harder to maintain because of using the same value in two places. Like
  * having "3.9" as the version in the alt text and the badge message.
+ *
+ * @param linkTarget Path or URL destination for when the badge image is
+ * clicked.
+ * @param altText Fallback text.
+ * @param hoverTitle Optional title of the image, to display on hover over.
+ *   e.g. "Go to website".
  */
 export function genericBadge(
   label: string,
@@ -35,7 +41,8 @@ export function genericBadge(
   logo = "",
   logoColor = "",
   onlyQueryParams = false,
-  altText = ""
+  altText = "",
+  hoverTitle = ""
 ) {
   if (!message) {
     throw new Error("`message` may not be empty");
@@ -54,5 +61,6 @@ export function genericBadge(
     altText,
     imageTarget,
     linkTarget,
+    hoverTitle,
   });
 }

@@ -39,15 +39,15 @@ export function mdImage({ altText, imageTarget, hoverTitle }: IMdImage) {
  *
  * @param altText Fallback text.
  * @param imageTarget Path or URL of the image to show.
- * @param linkTarget Path or URL destination for when the image is clicked.
  * @param hoverTitle Optional title of the image, to display on hover over.
  *   e.g. "Go to website".
+ * @param linkTarget Path or URL destination for when the image is clicked.
  */
 export function mdImageWithLink({
   altText,
   imageTarget,
-  linkTarget,
   hoverTitle,
+  linkTarget,
 }: IMdImageWithLink) {
   const image = mdImage({ altText, imageTarget, hoverTitle });
 
