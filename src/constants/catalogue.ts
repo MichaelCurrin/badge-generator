@@ -17,12 +17,12 @@ type TBadgeDetails = {
 };
 
 export const BADGE_DETAILS: TBadgeDetails[] = [
-  // Or message: "Project Docs".
   {
     label: "view",
     message: "Documentation",
     target: "/docs/",
     isLarge: true,
+    hoverTitle: "Go to project documentation",
   },
 
   // These would be useful on the Repo package, maybe with link to issues or PRs.

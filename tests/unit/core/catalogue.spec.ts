@@ -1,14 +1,15 @@
 import { renderBadges } from "@/core/catalogue";
 
 describe("#renderBadges", () => {
-  // Just a sample of catalogue badges need to be tested for a variety of features. Not all badges.
-  // There are already tests for genericBadge function.
+  // Just a sample of catalogue badges need to be tested for a variety of
+  // features. Not all badges. There are already tests for genericBadge
+  // function.
   describe("convert configured catalogue badges to expected markdown badges", () => {
     const badges = renderBadges();
 
     it("renders a docs badge", () => {
       expect(badges[0]).toBe(
-        "[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/)"
+        '[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/ "Go to project documentation")'
       );
     });
 
