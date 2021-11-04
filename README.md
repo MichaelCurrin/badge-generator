@@ -102,7 +102,7 @@ An NPM package badge that changes magically when your `package.json` file is upd
 
 <div align="center">
 
-[![Package - vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white)](https://www.npmjs.com/package/vue)
+[![package - vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white)](https://www.npmjs.com/package/vue)
 
 </div>
 
@@ -112,8 +112,8 @@ Pre-made badges around languages and tools. Just copy and paste. If you can't fi
 
 <div align="center">
 
-[![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)
-[![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org)
+[![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
+[![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to node.js homepage)
 
 </div>
 
@@ -123,7 +123,7 @@ Pre-made badges around languages and tools. Just copy and paste. If you can't fi
 
 <div align="center">
 
-[![View - Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/#readme)
+[!view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/#readme)
 
 </div>
 
