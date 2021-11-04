@@ -47,12 +47,12 @@ describe("#mdImageWithLink", () => {
   it("returns a valid tag using all parameters set", () => {
     expect(
       mdImageWithLink({
-        altText: "Alt text",
+        altText: "My alt text",
         imageTarget: "foo.png",
         linkTarget: "https://example.com",
-        hoverTitle: "My foo",
+        hoverTitle: "My hover title",
       })
-    ).toBe('[![Alt text](foo.png "My foo")](https://example.com)');
+    ).toBe('[![My alt text](foo.png)](https://example.com "My hover title")');
 
     expect(
       mdImageWithLink({
@@ -62,6 +62,7 @@ describe("#mdImageWithLink", () => {
       })
     ).toBe("[![My title](/example.png)](https://example.com)");
   });
+
   it("Does not encode special characters", () => {
     expect(
       mdImageWithLink({
