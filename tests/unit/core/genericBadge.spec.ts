@@ -1,7 +1,8 @@
 import { genericBadge } from "@/core/genericBadge";
 
 /**
- * Test that the UI defaults and common choices associated with the Generic view are working.
+ * Test that the UI defaults and common choices associated with the Generic view
+ * are working.
  */
 describe("#genericBadge", () => {
   describe("Label, message and color", () => {
@@ -25,7 +26,7 @@ describe("#genericBadge", () => {
       expect(() => genericBadge("", "", "green")).toThrow();
     });
 
-    it("displays a badge pointing to an external link", () => {
+    it("displays a badge pointing to an external link, when provided", () => {
       const linkTarget = "https://example.com";
 
       expect(genericBadge("", "Bar", "green", false, linkTarget)).toBe(
@@ -36,6 +37,45 @@ describe("#genericBadge", () => {
         genericBadge("", "Bar", "green", false, linkTarget, "", "", true)
       ).toBe(
         "[![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)](https://example.com)"
+      );
+    });
+
+    it("displays a badge with link hover title, when link and hover title are provided", () => {
+      const linkTarget = "https://example.com";
+      const hoverTitle = "Go to Example homepage";
+
+      expect(
+        genericBadge(
+          "",
+          "Bar",
+          "green",
+          false,
+          linkTarget,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          hoverTitle
+        )
+      ).toBe(
+        '[![Bar](https://img.shields.io/badge/Bar-green)](https://example.com "Go to Example homepage")'
+      );
+
+      expect(
+        genericBadge(
+          "",
+          "Bar",
+          "green",
+          false,
+          linkTarget,
+          "",
+          "",
+          true,
+          undefined,
+          hoverTitle
+        )
+      ).toBe(
+        '[![Bar](https://img.shields.io/static/v1?label=&message=Bar&color=green)](https://example.com "Go to Example homepage")'
       );
     });
   });
@@ -101,7 +141,7 @@ describe("#genericBadge", () => {
       );
     });
 
-    it("displays custom alt text when supplied", () => {
+    it("displays custom alt text when given", () => {
       expect(
         genericBadge(
           "Python",
