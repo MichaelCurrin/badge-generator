@@ -157,14 +157,13 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
   });
 
   describe("#ghBadge", () => {
-    it("return a valid GH repo badge", () => {
+    it("return a valid GitHub repo badge", () => {
       const badgeUrl =
         "https://img.shields.io/static/v1?label=MichaelCurrin&message=badge-generator&color=blue&logo=github";
       const linkTarget = "https://github.com/MichaelCurrin/badge-generator";
 
-      expect(repoNoLicense.ghBadge()).toBe(
-        `[![MichaelCurrin - badge-generator](${badgeUrl})](${linkTarget})`
-      );
+      const expected = `[![MichaelCurrin - badge-generator](${badgeUrl})](${linkTarget} "Go to GitHub repo")`;
+      expect(repoNoLicense.ghBadge()).toBe(expected);
     });
   });
 

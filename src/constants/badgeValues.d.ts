@@ -1,5 +1,6 @@
 /*
- * Based on GenericBadge function inputs. But everything is optional here and uppercase.
+ * Based on GenericBadge function inputs. Except, everything is optional here and
+ * uppercase.
  */
 export interface IGenericBadge {
   label?: string;
@@ -10,4 +11,5 @@ export interface IGenericBadge {
   logo?: string;
   logoColor?: string;
   altText?: string;
+  hoverTitle?: string;
 }

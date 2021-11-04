@@ -7,21 +7,31 @@ import { logoQueryParams, staticDashUrl, staticParamsUrl } from "./shieldsApi";
 /**
  * Generate markdown for generic badge.
  *
- * The guard statements to prevent empty strings do not prevent compile-time errors, but they can
- * show up in nests for safety. The label is fine empty string though.
+ * The guard statements to prevent empty strings do not prevent compile-time
+ * errors, but they can show up in nests for safety. The label is fine empty
+ * string though.
  *
  * See `/docs/badge-notes.md` doc on output formats.
  *
- * The strings with null string defaults could be converted to optional with `?` and tests pass, but
- * that means actually `string | undefined` and it is more natural to keep everything as a string.
+ * The strings with null string defaults could be converted to optional with `?`
+ * and tests pass, but that means actually `string | undefined` and it is more
+ * natural to keep everything as a string.
  *
- * The args could be converted to a destructured argument (VS Code does this easily), maybe even
- * multiple types to capture first few values separately.
+ * The args could be converted to a destructured argument (VS Code does this
+ * easily), maybe even multiple types to capture first few values separately.
  *
- * Use of altText argument allows the generated value to be overridden. This is useful if you want
- * alt text that won't go out of date. e.g. Use "Made with Python" instead This is useful if you
- * want to avoid generated a badge which is harder to maintain because of using the same value in
- * two places. Like having "3.9" as the version in the alt text and the badge message.
+ * Use of altText argument allows the generated value to be overridden. This is
+ * useful if you want alt text that won't go out of date. e.g. Use "Made with
+ * Python" instead This is useful if you want to avoid generated a badge which
+ * is harder to maintain because of using the same value in two places. Like
+ * having "3.9" as the version in the alt text and the badge message.
+ *
+ * @param linkTarget Path or URL destination for when the badge image is
+ * clicked.
+ * @param altText Fallback text.
+ * @param hoverTitle Optional title of the image, to display on hover over.
+ *   e.g. "Go to website". This is used on the outer link, not the inner image.
+ *   If no linkTarget is provided, this field does nothing.
  */
 export function genericBadge(
   label: string,
@@ -32,7 +42,8 @@ export function genericBadge(
   logo = "",
   logoColor = "",
   onlyQueryParams = false,
-  altText = ""
+  altText = "",
+  hoverTitle = ""
 ) {
   if (!message) {
     throw new Error("`message` may not be empty");
@@ -51,5 +62,6 @@ export function genericBadge(
     altText,
     imageTarget,
     linkTarget,
+    hoverTitle,
   });
 }

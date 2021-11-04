@@ -67,19 +67,19 @@ import Markdown from "@/components/Markdown.vue";
 import { APP_THEME_COLOR, DESCRIPTION } from "@/constants/appearance";
 import { Repo } from "@/core/Repo";
 
+const repo = new Repo(
+  "MichaelCurrin",
+  "badge-generator",
+  undefined,
+  APP_THEME_COLOR
+);
+
 export default defineComponent({
   name: "Home",
   components: {
     Markdown,
   },
   data() {
-    const repo = new Repo(
-      "MichaelCurrin",
-      "badge-generator",
-      undefined,
-      APP_THEME_COLOR
-    );
-
     return {
       repoBadge: repo.ghBadge(),
       description: DESCRIPTION,
