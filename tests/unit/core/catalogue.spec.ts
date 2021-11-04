@@ -15,19 +15,19 @@ describe("#renderBadges", () => {
 
     it("renders a Linux badge", () => {
       expect(badges[3]).toBe(
-        "[![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/)"
+        '[![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")'
       );
     });
 
     it("renders a Bash badge", () => {
       expect(badges[9]).toBe(
-        "[![Made with Bash](https://img.shields.io/badge/Bash->=3-blue?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)"
+        '[![Made with Bash](https://img.shields.io/badge/Bash->=3-blue?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/ "Go to Bash homepage")'
       );
     });
 
     it("renders a Python badge", () => {
       expect(badges[10]).toBe(
-        "[![Made with Python](https://img.shields.io/badge/Python->=3.6-blue?logo=python&logoColor=white)](https://python.org)"
+        '[![Made with Python](https://img.shields.io/badge/Python->=3.6-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")'
       );
     });
   });

@@ -35,6 +35,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     label: "contributions",
     message: "welcome",
     target: "/CONTRIBUTING.md",
+    hoverTitle: "Go to contributions doc",
   },
 
   {
@@ -42,27 +43,32 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "Linux",
     target: "https://www.linux.org/",
     logo: "linux",
+    hoverTitle: "Go to Linux homepage",
   },
   {
     label: "OS",
     message: "macOS",
     target: "https://www.apple.com/macos/",
     logo: "apple",
+    hoverTitle: "Go to Apple homepage",
   },
   {
     label: "OS",
     message: "Windows",
     target: "https://www.microsoft.com/",
     logo: "windows",
+    hoverTitle: "Go to Microsoft homepage",
   },
 
-  // Netlify CI badge is best created on Netlify itself and not here. But a plain Made with Netlify might be nice.
+  // Netlify CI badge is best created on Netlify itself and not here. But a
+  // plain Made with Netlify might be nice.
   {
     label: "Hosted with",
     message: "GitHub Pages",
     target: "https://pages.github.com/",
     logo: "github",
     altText: "Hosted with GH Pages",
+    hoverTitle: "Go to GitHub Pages homepage",
   },
   // Use an actual GitHub Actions workflow badge if you prefer. But this could be useful it is Made for GitHub Actions.
   {
@@ -71,6 +77,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://github.com/features/actions",
     logo: "github-actions",
     altText: "Made with GH Actions",
+    hoverTitle: "Go to GitHub Actions homepage",
   },
 
   {
@@ -79,6 +86,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://www.docker.com/",
     logo: "docker",
     altText: "Made with Docker",
+    hoverTitle: "Go to Docker homepage",
   },
 
   {
@@ -87,6 +95,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://www.gnu.org/software/bash/",
     logo: "gnu-bash",
     altText: "Made with Bash",
+    hoverTitle: "Go to Bash homepage",
   },
 
   {
@@ -95,11 +104,13 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://python.org",
     logo: "python",
     altText: "Made with Python",
+    hoverTitle: "Go to Python homepage",
   },
   {
     label: "code style",
     message: "black",
     target: "https://black.readthedocs.io/",
+    hoverTitle: "Go to Black homepage",
   },
 
   {
@@ -108,6 +119,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://www.javascript.com/",
     logo: "javascript",
     altText: "Made with JavaScript",
+    hoverTitle: "Go to JavaScript homepage",
   },
   {
     label: "Node.js",
@@ -115,6 +127,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://nodejs.org",
     logo: "node.js",
     altText: "Made with Node.js",
+    hoverTitle: "Go to Node.js homepage",
   },
   {
     label: "Yarn",
@@ -122,6 +135,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://classic.yarnpkg.com",
     logo: "yarn",
     altText: "Made with Yarn",
+    hoverTitle: "Go to Yarn classic homepage",
   },
   // Support 1 and 2 but link to 2.
   {
@@ -130,30 +144,34 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://yarnpkg.com/",
     logo: "yarn",
     altText: "Made with Yarn",
+    hoverTitle: "Go to Yarn homepage",
   },
 
-  // Rather use NPM badges based on `package.json` but you can use these if needed. Especially for
-  // frontend-only projects.
+  // Rather use NPM badges based on `package.json` but you can use these if
+  // needed. Especially for frontend-only projects.
   {
     label: "TypeScript",
     message: "4",
     target: "https://typescriptlang.org",
     logo: "typescript",
     altText: "Made with TypeScript",
+    hoverTitle: "Go to TypeScript homepage",
   },
   {
     label: "React",
     message: "17",
-    target: "https://www.npmjs.com/package/react",
+    target: "https://reactjs.org",
     logo: "react",
     altText: "Made with React",
+    hoverTitle: "Go to React homepage",
   },
   {
     label: "Vue",
     message: "3",
-    target: "https://www.npmjs.com/package/vue",
+    target: "https://v3.vuejs.org",
     logo: "vue.js",
     altText: "Made with Vue",
+    hoverTitle: "Go to Vue homepage",
   },
 
   {
@@ -162,6 +180,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://deno.land",
     logo: "deno",
     altText: "Made with Deno",
+    hoverTitle: "Go to Deno homepage",
   },
 
   {
@@ -170,6 +189,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://golang.org",
     logo: "go",
     altText: "Made with Go",
+    hoverTitle: "Go to Go homepage",
   },
   {
     label: "Hugo",
@@ -177,6 +197,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://gohugo.io/",
     logo: "hugo",
     altText: "Made with Hugo",
+    hoverTitle: "Go to Hugo homepage",
   },
 
   {
@@ -185,6 +206,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://www.rust-lang.org/",
     logo: "rust",
     altText: "Made with Rust",
+    hoverTitle: "Go to Rust homepage",
   },
 
   {
@@ -193,6 +215,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://ruby-lang.org",
     logo: "ruby",
     altText: "Made with Ruby",
+    hoverTitle: "Go to Ruby homepage",
   },
   {
     label: "Jekyll",
@@ -200,6 +223,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://jekyllrb.com",
     logo: "jekyll",
     altText: "Made with Jekyll",
+    hoverTitle: "Go to Jekyll homepage",
   },
 
   {
@@ -208,6 +232,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://www.sqlite.org/index.html",
     logo: "sqlite",
     altText: "Made with SQLite",
+    hoverTitle: "Go to SQLite homepage",
   },
   {
     label: "PostgreSQL",
@@ -215,6 +240,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://www.postgresql.org/",
     logo: "postgresql",
     altText: "Made with PostgreSQL",
+    hoverTitle: "Go to PostgresSQL homepage",
   },
 
   {
@@ -223,6 +249,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://www.mysql.com/",
     logo: "mysql",
     altText: "Made with MySQL",
+    hoverTitle: "Go to MySQL homepage",
   },
 
   {
@@ -231,6 +258,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://www.mongodb.com/",
     logo: "mongodb",
     altText: "Made with MongoDB",
+    hoverTitle: "Go to MongoDB homepage",
   },
 
   {
@@ -239,5 +267,6 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     target: "https://graphql.org/",
     logo: "graphql",
     altText: "Made with GraphQL",
+    hoverTitle: "Go to GraphQL homepage",
   },
 ];
