@@ -30,7 +30,8 @@ import { logoQueryParams, staticDashUrl, staticParamsUrl } from "./shieldsApi";
  * clicked.
  * @param altText Fallback text.
  * @param hoverTitle Optional title of the image, to display on hover over.
- *   e.g. "Go to website".
+ *   e.g. "Go to website". This is used on the outer link, not the inner image.
+ *   If no linkTarget is provided, this field does nothing.
  */
 export function genericBadge(
   label: string,
