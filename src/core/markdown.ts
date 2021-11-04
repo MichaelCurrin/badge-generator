@@ -11,8 +11,13 @@ const md = new markdownIt({ html: true });
 
 /**
  * Create Markdown link code.
+ *
+ * TODO: Use object destructuring.
  */
-export function mdLink(altText: string, linkTarget: string) {
+export function mdLink(altText: string, linkTarget: string, hoverTitle = "") {
+  if (hoverTitle) {
+    linkTarget = `${linkTarget} "${hoverTitle}"`;
+  }
   return `[${altText}](${linkTarget})`;
 }
 
@@ -49,10 +54,10 @@ export function mdImageWithLink({
   hoverTitle,
   linkTarget,
 }: IMdImageWithLink) {
-  const image = mdImage({ altText, imageTarget, hoverTitle });
+  const image = mdImage({ altText, imageTarget });
 
   if (linkTarget) {
-    return mdLink(image, linkTarget);
+    return mdLink(image, linkTarget, hoverTitle);
   }
   return image;
 }
