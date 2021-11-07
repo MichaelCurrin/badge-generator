@@ -34,10 +34,16 @@ Powered by Shields.io and React. This focus on generic badge with any custom tex
 - https://badgesgenerator.com/
 - [avrcoelho/badges-generator](https://github.com/avrcoelho/badges-generator) repo
 
+## ReadMe Markdown Generator 
+
+NPM package
+
+- https://github.com/kefranabg/readme-md-generator
+
 
 ## Vue Router Quickstart
 
-This skeleton of this project is based on this one:
+The skeleton of my project is based on this one:
 
 - [MichaelCurrin/vue-router-quickstart](https://github.com/MichaelCurrin/vue-router-quickstart) repo
 
