@@ -192,7 +192,7 @@ import { REGISTRY, RegistryKeys } from "@/constants/urls";
 import { dependency, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
 import { ENVIRONMENT, EnvironmentKeys } from "@/core/shieldsApi";
-import store from "@/core/store";
+import store from "@/store";
 
 const NOTE = `
 - For NPM, the badge is dynamic - whatever package name you set, the version of that package in your repo will be used, without having to update the badge code. The Environent setting is for prod vs dev dependencies.
@@ -216,8 +216,8 @@ export default defineComponent({
       prodOption: ENVIRONMENT[ENVIRONMENT.Prod],
       envType: ENVIRONMENT[ENVIRONMENT.Prod],
 
-      username: store.state.ghUsername,
-      repoName: store.state.repositoryName,
+      username: store.state.repoUsername,
+      repoName: store.state.repoName,
 
       badgeColor: COLOR_PRESETS.Default,
       logo: "",
@@ -254,8 +254,8 @@ export default defineComponent({
         ? dependency(this.pkgName, registry, logoAppearance, this.badgeColor)
         : "";
 
-      store.setGitHubUsername(this.username);
-      store.setRepositoryName(this.repoName);
+      store.setRepoUsername(this.username);
+      store.setRepoName(this.repoName);
 
       const repo = new Repo(this.username, this.repoName);
       const envKey = this.envType as EnvironmentKeys,

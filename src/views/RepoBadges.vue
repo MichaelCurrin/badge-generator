@@ -128,7 +128,7 @@ import TextInput from "@/components/TextInput.vue";
 import { Repo } from "@/core/Repo";
 import { TagTypes } from "@/core/Repo.d";
 import { statusBadge } from "@/core/ghActions";
-import store from "@/core/store";
+import store from "@/store";
 
 const note = `
 - Where to put the repo metadata badges.
@@ -155,8 +155,8 @@ export default defineComponent({
   },
   data() {
     return {
-      username: store.state.ghUsername,
-      repoName: store.state.repositoryName,
+      username: store.state.repoUsername,
+      repoName: store.state.repoName,
       licenseType: "MIT",
 
       useThisTemplate: false,
@@ -186,8 +186,8 @@ export default defineComponent({
         badgeColor: this.badgeColor,
       });
 
-      store.setGitHubUsername(this.username);
-      store.setRepositoryName(this.repoName);
+      store.setRepoUsername(this.username);
+      store.setRepoName(this.repoName);
 
       const repo = new Repo(
         this.username,
