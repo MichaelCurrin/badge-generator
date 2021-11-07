@@ -2,7 +2,6 @@
  * Shields.io API module.
  */
 import { COLOR_PRESETS, STYLES } from "@/constants/appearance";
-import { BADGE_DEFAULTS } from "@/constants/catalogue";
 import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { TLogoAppearance } from "./shieldsApi.d";
