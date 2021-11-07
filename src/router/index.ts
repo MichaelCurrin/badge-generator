@@ -24,7 +24,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/dynamic",
     name: "Dynamic",
     component: () =>
-      import(/* webpackChunkName: "generic" */ "@/views/DynamicBadges.vue"),
+      import(/* webpackChunkName: "dynamicData" */ "@/views/DynamicBadges.vue"),
   },
   {
     path: "/package",
