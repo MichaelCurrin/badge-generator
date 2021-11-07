@@ -98,7 +98,7 @@ Put whatever text you want in this static badge, which is independent of a repo.
 
 ### Dynamic data
 
-Create a badge that references any value you want in a given remote JSON file and it will always stay up to date.
+Create a badge that references any value within a public data file (currently only JSON supported). It will always stay up to date.
 
 In the example below, we look-up the required VS Code version for a VS Code extension by using the `$.engines["vscode"]` query against this [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on a GitHub repo.
 
