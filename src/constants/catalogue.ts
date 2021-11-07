@@ -70,7 +70,8 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     altText: "Hosted with GH Pages",
     hoverTitle: "Go to GitHub Pages homepage",
   },
-  // Use an actual GitHub Actions workflow badge if you prefer. But this could be useful it is Made for GitHub Actions.
+  // Use an actual GitHub Actions workflow badge if you prefer. But this could
+  // be useful it is Made for GitHub Actions.
   {
     label: "CI",
     message: "GitHub Actions",

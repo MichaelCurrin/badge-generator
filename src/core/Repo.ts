@@ -10,7 +10,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "@/constants/badgeValues";
 import {
   DEFAULT_BRANCH,
@@ -18,7 +18,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS,
+  VERSION_PARAMS
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -81,9 +81,9 @@ export class Repo {
    * URL for a GitHub Pages site.
    */
   _ghPagesURL() {
-    // Domain will get lower-cased by GH after a redirect so just make it lowercase now.
-    // But preserve case for the comparison. Note Project page needs trailing forward slash
-    // but User page is without.
+    // Domain will get lower-cased by GH after a redirect so just make it
+    // lowercase now. But preserve case for the comparison. Note Project page
+    // needs trailing forward slash but User page is without.
     const ghDomain = `${this.username}.${GITHUB_IO}`,
       fullDomain = `https://${ghDomain.toLowerCase()}`;
 

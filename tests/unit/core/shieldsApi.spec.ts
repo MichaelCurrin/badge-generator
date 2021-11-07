@@ -9,7 +9,7 @@ import {
   staticParamsUrl,
   _decodeAngleBrackets,
   _encodeParam,
-  _encodeSeparators,
+  _encodeSeparators
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
@@ -66,7 +66,8 @@ describe("#_encodeParam", () => {
     expect(_encodeParam("Foo Bar_Baz-Buzz")).toBe("Foo_Bar__Baz--Buzz");
   });
 
-  // These could appear when putting a URL as a value in the path, so need to be escaped.
+  // These could appear when putting a URL as a value in the path, so need to be
+  // escaped.
   it("encodes special characters correctly", () => {
     expect(_encodeParam("?")).toBe("%3F");
     expect(_encodeParam("#")).toBe("%23");
