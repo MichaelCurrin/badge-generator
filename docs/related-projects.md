@@ -47,6 +47,10 @@ The skeleton of my project is based on this one:
 
 - [MichaelCurrin/vue-router-quickstart](https://github.com/MichaelCurrin/vue-router-quickstart) repo
 
+Here is a Vue template with TypeScript:
+
+- [MichaelCurrin/vue-typescript-quickstart](https://github.com/MichaelCurrin/vue-typescript-quickstart)
+
 
 ## Topic on GitHub
 
