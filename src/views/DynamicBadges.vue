@@ -93,7 +93,7 @@ import TextInput from "@/components/TextInput.vue";
 import { dynamicBadge } from "@/core/dynamicData";
 
 const note = `
-Reference a value in remote JSON file and the badge will update as the content changes.
+Reference a value in remote data file and the badge will update as the content changes. Only JSON files are supported in this generator.
 
 Help on form fields:
 
