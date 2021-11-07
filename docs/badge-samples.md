@@ -199,7 +199,7 @@ The target here goes to all actions.
 
 Example of the badge itself, without a link:
 
-```
+```markdown
 ![Python package](https://github.com/MichaelCurrin/unicron/workflows/Python%20package/badge.svg)
 ```
 
@@ -211,7 +211,7 @@ Unfortunately this badge does not work with GH Pages alone.
 
 I tried a badge like this:
 
-```md
+```markdown
 ![](https://github.com/MichaelCurrin/dev-cheatsheets/workflows/Page%20Build/badge.svg)
 ```
 
