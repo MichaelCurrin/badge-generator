@@ -52,6 +52,7 @@ Here is a Vue template with TypeScript:
 - [MichaelCurrin/vue-typescript-quickstart](https://github.com/MichaelCurrin/vue-typescript-quickstart)
 
 
-## Topic on GitHub
+## Topics on GitHub
 
 - [#badge-generator](https://github.com/topics/badge-generator)
+- [#readme](https://github.com/topics/readme)
