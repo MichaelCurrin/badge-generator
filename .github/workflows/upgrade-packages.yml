@@ -34,13 +34,13 @@ jobs:
           echo "::set-output name=outdated::$OUTDATED"
 
       - name: Upgrade packages ⏫
-        if: ${{ steps.vars.outputs.outdated }}
+        if: ${{ steps.vars.outputs.outdated != '' }}
         run: yarn upgrade
 
       - name: Commit and create PR 🔀
-        if: ${{ steps.vars.outputs.outdated }}
+        if: ${{ steps.vars.outputs.outdated != '' }}
         uses: peter-evans/create-pull-request@v3
         with:
-          title: 'Upgrade NPM packages (automated)'
-          branch: 'deps-upgrade-npm-packages-automated'
-          commit-message: 'build(deps): upgrade NPM dependencies (automated)'
+          title: 'build(deps): Upgrade NPM packages (automated)'
+          branch: 'build-deps-upgrade-npm-packages-automated'
+          commit-message: 'build(deps): upgrade NPM packages (automated)'
