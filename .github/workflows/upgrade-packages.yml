@@ -1,0 +1,46 @@
+name: Upgrade NPM packages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upgrade-packages:
+    name: Upgrade packages
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js ⚙️
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+
+      - name: Check for outdated packages 🔍
+        run: |
+          OUTDATED=$(yarn outdated) || true
+
+          if [[ -z "$OUTDATED" ]]; then
+            echo 'Nothing to upgrade'
+          else
+            echo 'Found outdated packages:'
+            echo "$OUTDATED"
+          fi
+
+          echo "::set-output name=outdated::$OUTDATED"
+
+      - name: Upgrade packages ⏫
+        if: ${{ steps.vars.outputs.outdated != '' }}
+        run: yarn upgrade
+
+      - name: Commit and create PR 🔀
+        if: ${{ steps.vars.outputs.outdated != '' }}
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: 'Upgrade NPM packages (automated)'
+          branch: 'deps-upgrade-npm-packages-automated'
+          commit-message: 'build(deps): upgrade NPM dependencies (automated)'
+          
