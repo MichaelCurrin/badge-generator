@@ -20,6 +20,7 @@ jobs:
           cache: 'yarn'
 
       - name: Check for outdated packages 🔍
+        id: vars
         run: |
           OUTDATED=$(yarn outdated) || true
 
@@ -43,4 +44,3 @@ jobs:
           title: 'Upgrade NPM packages (automated)'
           branch: 'deps-upgrade-npm-packages-automated'
           commit-message: 'build(deps): upgrade NPM dependencies (automated)'
-          
