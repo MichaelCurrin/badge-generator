@@ -6,9 +6,12 @@
       <div id="nav">
         <!-- Build menu based on configured app routes. -->
         <!-- Keep router-link on one line for underlining -->
-        <span v-for="(item, index) in routes" :key="item.path">
+        <span class="nav-item" v-for="(item, index) in routes" :key="item.path">
           <span>{{ index !== 0 ? " | " : "" }}</span>
           <router-link :to="item.path">{{ item.name }}</router-link>
+        </span>
+        <span class="nav-item">
+          <ThemeToggler></ThemeToggler>
         </span>
       </div>
     </header>
@@ -20,11 +23,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import "highlight.js/styles/github-gist.css";
-
+import ThemeToggler from "@/components/ThemeToggler.vue";
 import { routes } from "@/router/index";
 
 export default defineComponent({
   name: "App",
+  components: {
+    ThemeToggler,
+  },
   data() {
     return {
       routes,
@@ -39,6 +45,21 @@ export default defineComponent({
   --green: #42b983;
   --green-dark: #3aa776;
   --grey: #2c3e50;
+  --element-size: 2.5rem;
+}
+
+:root.light-theme {
+  --background-color-primary: #ffffff;
+  --background-color-secondary: #eeeeee;
+  --accent-color: var(--grey);
+  --text-primary-color: #222;
+}
+
+:root.dark-theme {
+  --background-color-primary: #1e1e1e;
+  --background-color-secondary: #3f3f3f;
+  --accent-color: #f0f0f0;
+  --text-primary-color: #ffffff;
 }
 
 /**
@@ -76,6 +97,11 @@ export default defineComponent({
 #nav a.router-link-exact-active {
   text-decoration: underline;
   color: var(--grey);
+}
+
+.nav-item {
+  display: inline-block;
+  margin-left: 5px;
 }
 
 /**
