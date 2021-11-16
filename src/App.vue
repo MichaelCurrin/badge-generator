@@ -46,6 +46,8 @@ export default defineComponent({
   --green-dark: #3aa776;
   --grey: #2c3e50;
   --element-size: 2.5rem;
+  color: var(--text-primary-color);
+  background-color: var(--background-color-primary);
 }
 
 :root.light-theme {
@@ -58,8 +60,8 @@ export default defineComponent({
 :root.dark-theme {
   --background-color-primary: #1e1e1e;
   --background-color-secondary: #3f3f3f;
-  --accent-color: #f0f0f0;
-  --text-primary-color: #ffffff;
+  --accent-color: #e4e4e4;
+  --text-primary-color: #f3f3f3;
 }
 
 /**
@@ -72,8 +74,6 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--grey);
-
   padding-top: 10px;
 }
 
@@ -96,12 +96,22 @@ export default defineComponent({
 
 #nav a.router-link-exact-active {
   text-decoration: underline;
-  color: var(--grey);
+  color: var(--accent-color);
 }
 
 .nav-item {
   display: inline-block;
   margin-left: 5px;
+}
+
+a {
+  font-weight: bold;
+  color: var(--green-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /**
@@ -121,7 +131,6 @@ pre {
   padding: 12px;
   overflow: auto;
   line-height: 1.45;
-  background-color: #f6f8fa;
   border-radius: 3px;
 
   margin-top: 0;
@@ -151,6 +160,7 @@ pre {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
     monospace;
   font-size: 0.9em;
+  background-color: #f6f8fa;
 }
 
 kbd {
@@ -195,12 +205,11 @@ summary {
   font-size: 3em;
 
   text-decoration: none;
-  color: var(--grey);
+  color: var(--accent-color);
 }
 
 #logo:hover {
   text-decoration: underline;
-  color: #41576d;
 }
 
 #nav {
