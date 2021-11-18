@@ -21,7 +21,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ThemeToggler",
+  name: "ThemeToggle",
   mounted() {
     const initUserTheme = this.getMediaPreference();
     this.setTheme(initUserTheme);
@@ -36,11 +36,8 @@ export default defineComponent({
   methods: {
     toggleTheme() {
       const activeTheme = localStorage.getItem("user-theme");
-      if (activeTheme === "light-theme") {
-        this.setTheme("dark-theme");
-      } else {
-        this.setTheme("light-theme");
-      }
+      const newTheme = activeTheme === "light-theme" ? "dark-theme" : "light-theme";
+      this.setTheme(newTheme);
     },
 
     setTheme(theme: string) {
@@ -53,17 +50,12 @@ export default defineComponent({
       const hasDarkPreference = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
-      if (hasDarkPreference) {
-        return "dark-theme";
-      } else {
-        return "light-theme";
-      }
+      return hasDarkPreference ? "dark-theme" : "light-theme";
     },
   },
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .switch-checkbox {
   display: none;

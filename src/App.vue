@@ -6,12 +6,12 @@
       <div id="nav">
         <!-- Build menu based on configured app routes. -->
         <!-- Keep router-link on one line for underlining -->
-        <span class="nav-item" v-for="(item, index) in routes" :key="item.path">
+        <span v-for="(item, index) in routes" :key="item.path">
           <span>{{ index !== 0 ? " | " : "" }}</span>
           <router-link :to="item.path">{{ item.name }}</router-link>
         </span>
-        <span class="nav-item">
-          <ThemeToggler></ThemeToggler>
+        <span class="toggle">
+          <ThemeToggle />
         </span>
       </div>
     </header>
@@ -23,13 +23,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import "highlight.js/styles/github-gist.css";
-import ThemeToggler from "@/components/ThemeToggler.vue";
+import ThemeToggle from "@/components/ThemeToggler.vue";
 import { routes } from "@/router/index";
 
 export default defineComponent({
   name: "App",
   components: {
-    ThemeToggler,
+    ThemeToggle,
   },
   data() {
     return {
@@ -99,7 +99,7 @@ export default defineComponent({
   color: var(--accent-color);
 }
 
-.nav-item {
+.toggle {
   display: inline-block;
   margin-left: 5px;
 }
