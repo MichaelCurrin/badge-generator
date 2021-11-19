@@ -2,60 +2,69 @@ import { dynamicBadge } from "@/core/dynamicData";
 
 describe("Dynamic data badges", () => {
   describe("#dynamicBadge", () => {
-    describe("required inputs set", () => {
+    describe("required input handling", () => {
+      const label = "version"
+      const url = "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json"
+      const query = "$.version"
+
       it("displays a badge correctly when label, URL, query are set", () => {
-        expect(
-          dynamicBadge(
-            "version",
-            "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
-            "$.version"
-          )
-        ).toBe(
-          "![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)"
+        const expected = "![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)"
+        
+        expect(dynamicBadge(label,url,query)).toBe(
+          expected
         );
       });
 
-      describe("optional inputs are set", () => {
-        it("displays a badge pointing to an external link", () => {
-          const linkTarget = "https://example.com";
+      describe("validate missing inputs", () => {
+        it("throws an error when `label` is not set", () => {
+          expect(() =>
+            dynamicBadge("", url,  query)
+          ).toThrow();
 
-          expect(
+          expect(() =>
+            dynamicBadge(undefined, url,  query)
+          ).toThrow();
+
+          expect(() =>
+            dynamicBadge(null, url,  query)
+          ).toThrow();
+        });
+  
+        it("throws an error when `url` is not set", () => {
+          expect(() => dynamicBadge(label, "", query)).toThrow();
+        });
+  
+        it("throws an error when `query` is not set", () => {
+          expect(() =>
             dynamicBadge(
-              "version",
-              "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
-              "$.version",
-              linkTarget
+              label,
+              url,
+              ""
             )
-          ).toBe(
-            "[![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://example.com)"
-          );
+          ).toThrow();
         });
       });
     });
 
-    describe("validate when required inputs are not set", () => {
-      it("throws an error if `label` is empty", () => {
-        expect(() =>
+    describe("optional input handling", () => {
+      const label = "version"
+      const url = "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json"
+      const query = "$.version"
+      
+      it("displays a badge pointing to an external link when a link is given", () => {
+        const linkTarget = "https://example.com";
+        const expected = "[![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://example.com)"
+        
+        expect(
           dynamicBadge(
-            "",
-            "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
-            "version"
+            label,
+            url,
+            query,
+            linkTarget
           )
-        ).toThrow();
-      });
-
-      it("throws an error if `url` is empty", () => {
-        expect(() => dynamicBadge("version", "", "version")).toThrow();
-      });
-
-      it("throws an error if `query` is empty", () => {
-        expect(() =>
-          dynamicBadge(
-            "version",
-            "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json",
-            ""
-          )
-        ).toThrow();
+        ).toBe(
+          expected
+        );
       });
     });
   });
