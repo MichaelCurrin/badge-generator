@@ -18,10 +18,6 @@ describe("Dynamic data badges", () => {
       describe("validate missing inputs", () => {
         it("throws an error when `label` is not set", () => {
           expect(() => dynamicBadge("", url, query)).toThrow();
-
-          expect(() => dynamicBadge(undefined, url, query)).toThrow();
-
-          expect(() => dynamicBadge(null, url, query)).toThrow();
         });
 
         it("throws an error when `url` is not set", () => {
