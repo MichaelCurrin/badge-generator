@@ -1,71 +1,37 @@
-import { dynamicBadge } from "@/core/dynamicData";
+import { mdImageWithLink } from "./markdown";
+import { dynamicParamsUrl } from "./shieldsApi";
 
-describe("Dynamic data badges", () => {
-  describe("#dynamicBadge", () => {
-    describe("required input handling", () => {
-      const label = "version"
-      const url = "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json"
-      const query = "$.version"
+/**
+ * Dynamic data badge.
+ *
+ * Generate a live-updating badge that references a value in a data file.
+ * Only JSON is supported.
+ */
+export function dynamicBadge(
+  label: string,
+  url: string,
+  query: string,
+  linkTarget = "",
+  altText = ""
+) {
+  if (!label) {
+    throw new Error("`label` may not be empty");
+  }
+  if (!url) {
+    throw new Error("`url` may not be empty");
+  }
+  if (!query) {
+    throw new Error("`query` may not be empty");
+  }
+  if (!altText) {
+    altText = label;
+  }
 
-      it("displays a badge correctly when label, URL, query are set", () => {
-        const expected = "![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)"
-        
-        expect(dynamicBadge(label,url,query)).toBe(
-          expected
-        );
-      });
+  const imageTarget = dynamicParamsUrl({ label, url, query });
 
-      describe("validate missing inputs", () => {
-        it("throws an error when `label` is not set", () => {
-          expect(() =>
-            dynamicBadge("", url,  query)
-          ).toThrow();
-
-          expect(() =>
-            dynamicBadge(undefined, url,  query)
-          ).toThrow();
-
-          expect(() =>
-            dynamicBadge(null, url,  query)
-          ).toThrow();
-        });
-  
-        it("throws an error when `url` is not set", () => {
-          expect(() => dynamicBadge(label, "", query)).toThrow();
-        });
-  
-        it("throws an error when `query` is not set", () => {
-          expect(() =>
-            dynamicBadge(
-              label,
-              url,
-              ""
-            )
-          ).toThrow();
-        });
-      });
-    });
-
-    describe("optional input handling", () => {
-      const label = "version"
-      const url = "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json"
-      const query = "$.version"
-      
-      it("displays a badge pointing to an external link when a link is given", () => {
-        const linkTarget = "https://example.com";
-        const expected = "[![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://example.com)"
-        
-        expect(
-          dynamicBadge(
-            label,
-            url,
-            query,
-            linkTarget
-          )
-        ).toBe(
-          expected
-        );
-      });
-    });
+  return mdImageWithLink({
+    altText,
+    imageTarget,
+    linkTarget,
   });
-});
+}
