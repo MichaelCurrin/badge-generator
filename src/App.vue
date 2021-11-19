@@ -23,7 +23,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import "highlight.js/styles/github-gist.css";
-import ThemeToggle from "@/components/ThemeToggler.vue";
+import ThemeToggle from "@/components/ThemeToggle.vue";
 import { routes } from "@/router/index";
 
 export default defineComponent({
