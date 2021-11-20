@@ -29,9 +29,8 @@ const store = {
    */
   setRepoUsername(value: string) {
     if (DEBUG) {
-      console.debug(`Storing repo username: ${value}`);
+      console.debug(`Storing repoUsername: ${value}`);
     }
-
     localStorage.setItem("repoUsername", value);
   },
 
@@ -44,10 +43,25 @@ const store = {
    */
   setRepoName(value: string) {
     if (DEBUG) {
-      console.debug(`Storing repo name: ${value}`);
+      console.debug(`Storing repoName: ${value}`);
     }
-
     localStorage.setItem("repoName", value);
+  },
+
+  getUserTheme() {
+    return localStorage.getItem("user-theme");
+  },
+
+  /**
+   * Set the theme on the store and the root element - for use in CSS in
+   * App.vue module.
+   */
+  setUserTheme(value: string) {
+    if (DEBUG) {
+      console.debug(`Storing user-theme: ${value}`);
+    }
+    localStorage.setItem("user-theme", value);
+    document.documentElement.className = value;
   },
 };
 
