@@ -21,7 +21,7 @@
 import { defineComponent } from "vue";
 
 const LIGHT_THEME = "light-theme";
-const DARK_THEME = "DARK_THEME";
+const DARK_THEME = "dark-theme";
 
 function getMediaPreference() {
   const hasDarkPreference = window.matchMedia(
