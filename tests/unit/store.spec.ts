@@ -1,10 +1,9 @@
 import store from "@/store";
 
 describe("store", () => {
-  describe("defaults", () => {
-    it("has default values on initialization", () => {
+  describe("#getRepoUsername", () => {
+    it("can get the default username", () => {
       expect(store.getRepoUsername()).toBe("MichaelCurrin");
-      expect(store.getRepoName()).toBe("badge-generator");
     });
   });
 
@@ -14,6 +13,12 @@ describe("store", () => {
 
       store.setRepoUsername("FooBar");
       expect(store.getRepoUsername()).toBe("FooBar");
+    });
+  });
+
+  describe("#getRepoName", () => {
+    it("can get the default repo name", () => {
+      expect(store.getRepoName()).toBe("badge-generator");
     });
   });
 
