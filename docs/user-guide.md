@@ -58,7 +58,7 @@ Click on a screenshot to go to that page on the web app.
 
 <div align="center">
     <a href="https://michaelcurrin.github.io/badge-generator/">
-        <img src="/docs/_media/homepage.png"
+        <img src="/docs/_media/homepage-light.png"
             alt="Homepage screenshot"
             title="Go to the homepage"
             width="600" >
