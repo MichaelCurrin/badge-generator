@@ -5,11 +5,12 @@ This web app will let you customize badge input and then show you both the markd
 
 ## What can this tool do?
 
-- Quickly and easily generate badges
-- Preview your badges and then copy the markdown when you're happy
-- Uses dynamic SVG images defined by URL - no image editing
-- Professional and consistent badges
-- Use pre-made generic badges or create a new one
+- Quickly and easily generate badges.
+- Preview your badges and then copy the markdown when you're happy.
+- Uses dynamic SVG images defined by URL - no image editing.
+- Professional and consistent badges.
+- Use pre-made generic badges or create a new one.
+- Now with Dark mode!
 
 
 ## Where do I use the badges?
@@ -17,7 +18,7 @@ This web app will let you customize badge input and then show you both the markd
 Put the badges wherever you like:
 
 - At the top of your `README.md`.
-- In your docs directory files
+- In your docs directory files.
 - In your docs site or website.
 - Link to your repo from another site - like another website or GitHub repo of yours, or even post a link in a blog or forum.
 
@@ -38,7 +39,7 @@ These could also be available as JS to include in other projects and not just th
 
 ## How does it work?
 
-The badges are created using URLs which are loaded as images. 
+The badges are created using URLs which are loaded as images.
 
 When you load the SVG image, it appears as rendered HTML - thanks to an external service like [shields.io](https://shield.io) API or the GH Actions badge service.
 
