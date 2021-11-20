@@ -103,6 +103,7 @@ import { defineComponent } from "vue";
 
 import { stripLeadingSlash } from "@/lib";
 
+import { DEBUG } from "@/constants/";
 import { SCREENSHOT } from "@/constants/image";
 import { INITIAL_RESULT } from "@/constants/text";
 
@@ -167,7 +168,9 @@ export default defineComponent({
   },
   methods: {
     submit() {
-      console.debug("Process inputs and render results");
+      if (DEBUG) {
+        console.debug("Process inputs and render results");
+      }
 
       const htmlImg = mkHtmlImg(
         this.imgSrc,

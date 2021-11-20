@@ -1,7 +1,7 @@
 /**
  * Store module.
  */
-import { IS_PROD } from "@/constants/";
+import { DEBUG } from "@/constants/";
 import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
 import { reactive } from "vue";
 
@@ -11,8 +11,6 @@ import { reactive } from "vue";
  * Store user input so values can be remembered by the app across views.
  */
 const store = {
-  debug: !IS_PROD,
-
   state: reactive({
     repoUsername: DEFAULT_REPO_INPUTS.username,
     repoName: DEFAULT_REPO_INPUTS.repoName,
@@ -22,7 +20,7 @@ const store = {
    * Store a repository username. e.g. 'MyUsername'.
    */
   setRepoUsername(value: string) {
-    if (this.debug) {
+    if (DEBUG) {
       console.debug(`Storing repo username: ${value}`);
     }
 
@@ -33,7 +31,7 @@ const store = {
    * Store a repository name. e.g. 'my-repo'.
    */
   setRepoName(value: string) {
-    if (this.debug) {
+    if (DEBUG) {
       console.debug(`Storing repo name: ${value}`);
     }
 

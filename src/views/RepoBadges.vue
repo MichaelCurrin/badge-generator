@@ -117,8 +117,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
+import { DEBUG } from "@/constants/";
 import { COLOR_PRESETS } from "@/constants/appearance";
+import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
 
 import Help from "@/components/Help.vue";
 import Checkbox from "@/components/Checkbox.vue";
@@ -174,17 +175,19 @@ export default defineComponent({
   },
   methods: {
     submit() {
-      console.debug("Process inputs and render results");
-      console.debug({
-        username: this.username,
-        repoName: this.repoName,
-        licenseType: this.licenseType,
-        useThisTemplate: this.useThisTemplate,
-        versionType: this.versionType,
-        ghPages: this.ghPages,
-        workflowName: this.workflowName,
-        badgeColor: this.badgeColor,
-      });
+      if (DEBUG) {
+        console.debug("Process inputs and render results");
+        console.debug({
+          username: this.username,
+          repoName: this.repoName,
+          licenseType: this.licenseType,
+          useThisTemplate: this.useThisTemplate,
+          versionType: this.versionType,
+          ghPages: this.ghPages,
+          workflowName: this.workflowName,
+          badgeColor: this.badgeColor,
+        });
+      }
 
       store.setRepoUsername(this.username);
       store.setRepoName(this.repoName);

@@ -176,6 +176,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import { DEBUG } from "@/constants/";
 import { COLOR_PRESETS } from "@/constants/appearance";
 import {
   COLOR_HELP,
@@ -240,7 +241,9 @@ export default defineComponent({
   },
   methods: {
     submit() {
-      console.debug("Process inputs and render results");
+      if (DEBUG) {
+        console.debug("Process inputs and render results");
+      }
 
       const logoAppearance = {
         logo: this.logo,

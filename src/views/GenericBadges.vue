@@ -81,6 +81,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import { DEBUG } from "@/constants/";
 import { COLOR_PRESETS } from "@/constants/appearance";
 import {
   COLOR_HELP,
@@ -130,8 +131,6 @@ export default defineComponent({
   },
   methods: {
     submit() {
-      console.debug("Process inputs and render results");
-
       const args = [
         this.label,
         this.message,
@@ -141,7 +140,11 @@ export default defineComponent({
         this.logo,
         this.logoColor,
       ];
-      console.debug(args);
+
+      if (DEBUG) {
+        console.debug("Process inputs and render results");
+        console.debug(args);
+      }
 
       const dashBadge = genericBadge(
           this.label,
