@@ -156,8 +156,8 @@ export default defineComponent({
   },
   data() {
     return {
-      username: store.state.repoUsername,
-      repoName: store.state.repoName,
+      username: store.getRepoUsername(),
+      repoName: store.getRepoName(),
       licenseType: "MIT",
 
       useThisTemplate: false,

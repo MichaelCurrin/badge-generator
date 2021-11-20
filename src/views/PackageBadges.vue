@@ -217,8 +217,8 @@ export default defineComponent({
       prodOption: ENVIRONMENT[ENVIRONMENT.Prod],
       envType: ENVIRONMENT[ENVIRONMENT.Prod],
 
-      username: store.state.repoUsername,
-      repoName: store.state.repoName,
+      username: store.getRepoUsername(),
+      repoName: store.getRepoName(),
 
       badgeColor: COLOR_PRESETS.Default,
       logo: "",
