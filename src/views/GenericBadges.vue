@@ -131,19 +131,17 @@ export default defineComponent({
   },
   methods: {
     submit() {
-      const args = [
-        this.label,
-        this.message,
-        this.badgeColor,
-        this.isLarge,
-        this.target,
-        this.logo,
-        this.logoColor,
-      ];
-
       if (DEBUG) {
         console.debug("Process inputs and render results");
-        console.debug(args);
+        console.debug({
+          label: this.label,
+          message: this.message,
+          badgeColor: this.badgeColor,
+          isLarge: this.isLarge,
+          target: this.target,
+          logo: this.logo,
+          logoColor: this.logoColor,
+        });
       }
 
       const dashBadge = genericBadge(
