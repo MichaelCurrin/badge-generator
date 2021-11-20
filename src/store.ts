@@ -20,11 +20,6 @@ function getItem(key: string, defaultValue: string) {
  * and page loads.
  */
 const store = {
-  state: {
-    repoUsername: DEFAULT_REPO_INPUTS.username,
-    repoName: DEFAULT_REPO_INPUTS.repoName,
-  },
-
   getRepoUsername() {
     return getItem("repoUsername", DEFAULT_REPO_INPUTS.username);
   },
