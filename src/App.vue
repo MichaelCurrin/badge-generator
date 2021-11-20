@@ -10,6 +10,9 @@
           <span>{{ index !== 0 ? " | " : "" }}</span>
           <router-link :to="item.path">{{ item.name }}</router-link>
         </span>
+        <span class="toggle">
+          <ThemeToggle />
+        </span>
       </div>
     </header>
 
@@ -20,11 +23,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import "highlight.js/styles/github-gist.css";
-
+import ThemeToggle from "@/components/ThemeToggle.vue";
 import { routes } from "@/router/index";
 
 export default defineComponent({
   name: "App",
+  components: {
+    ThemeToggle,
+  },
   data() {
     return {
       routes,
@@ -39,6 +45,23 @@ export default defineComponent({
   --green: #42b983;
   --green-dark: #3aa776;
   --grey: #2c3e50;
+  --element-size: 2.5rem;
+  color: var(--text-primary-color);
+  background-color: var(--background-color-primary);
+}
+
+:root.light-theme {
+  --background-color-primary: #ffffff;
+  --background-color-secondary: #eeeeee;
+  --accent-color: var(--grey);
+  --text-primary-color: #222;
+}
+
+:root.dark-theme {
+  --background-color-primary: #1e1e1e;
+  --background-color-secondary: #3f3f3f;
+  --accent-color: #e4e4e4;
+  --text-primary-color: #f3f3f3;
 }
 
 /**
@@ -51,8 +74,6 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--grey);
-
   padding-top: 10px;
 }
 
@@ -75,7 +96,22 @@ export default defineComponent({
 
 #nav a.router-link-exact-active {
   text-decoration: underline;
-  color: var(--grey);
+  color: var(--accent-color);
+}
+
+.toggle {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+a {
+  font-weight: bold;
+  color: var(--green-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /**
@@ -95,7 +131,6 @@ pre {
   padding: 12px;
   overflow: auto;
   line-height: 1.45;
-  background-color: #f6f8fa;
   border-radius: 3px;
 
   margin-top: 0;
@@ -125,6 +160,7 @@ pre {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
     monospace;
   font-size: 0.9em;
+  background-color: #f6f8fa;
 }
 
 kbd {
@@ -169,12 +205,11 @@ summary {
   font-size: 3em;
 
   text-decoration: none;
-  color: var(--grey);
+  color: var(--accent-color);
 }
 
 #logo:hover {
   text-decoration: underline;
-  color: #41576d;
 }
 
 #nav {
