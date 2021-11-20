@@ -26,13 +26,11 @@ export default defineComponent({
     const initUserTheme = this.getMediaPreference();
     this.setTheme(initUserTheme);
   },
-
   data() {
     return {
       userTheme: "light-theme",
     };
   },
-
   methods: {
     toggleTheme() {
       const activeTheme = localStorage.getItem("user-theme");
