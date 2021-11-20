@@ -30,4 +30,19 @@ describe("store", () => {
       expect(store.getRepoName()).toBe("fizz-buzz");
     });
   });
+
+  describe("#getUserTheme", () => {
+    it("can get the default user theme as null", () => {
+      expect(store.getUserTheme()).toBe(null);
+    });
+  });
+
+  describe("#setUserTheme", () => {
+    it("can set and perist user theme", () => {
+      expect(store.getUserTheme()).toBe(null);
+
+      store.setUserTheme("dark-theme");
+      expect(store.getUserTheme()).toBe("dark-theme");
+    });
+  });
 });
