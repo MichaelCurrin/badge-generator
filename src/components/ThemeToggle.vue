@@ -20,22 +20,32 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+const LIGHT_THEME = "light-theme";
+const DARK_THEME = "DARK_THEME";
+
+function getMediaPreference() {
+  const hasDarkPreference = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  return hasDarkPreference ? DARK_THEME : LIGHT_THEME;
+}
+
 export default defineComponent({
   name: "ThemeToggle",
-  mounted() {
-    const initUserTheme = this.getMediaPreference();
-    this.setTheme(initUserTheme);
-  },
   data() {
     return {
-      userTheme: "light-theme",
+      userTheme: LIGHT_THEME,
     };
+  },
+  mounted() {
+    const defaultTheme = getMediaPreference();
+    this.setTheme(defaultTheme);
   },
   methods: {
     toggleTheme() {
-      const activeTheme = localStorage.getItem("user-theme");
-      const newTheme =
-        activeTheme === "light-theme" ? "dark-theme" : "light-theme";
+      const currentTheme = localStorage.getItem("user-theme");
+      const newTheme = currentTheme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
       this.setTheme(newTheme);
     },
 
@@ -43,14 +53,6 @@ export default defineComponent({
       localStorage.setItem("user-theme", theme);
       this.userTheme = theme;
       document.documentElement.className = theme;
-    },
-
-    getMediaPreference() {
-      const hasDarkPreference = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-
-      return hasDarkPreference ? "dark-theme" : "light-theme";
     },
   },
 });
