@@ -51,6 +51,7 @@ export default defineComponent({
       const hasDarkPreference = window.matchMedia(
         "(prefers-color-scheme: dark)"
       ).matches;
+
       return hasDarkPreference ? "dark-theme" : "light-theme";
     },
   },
