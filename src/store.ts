@@ -1,6 +1,7 @@
 /**
  * Store module.
  */
+import { IS_PROD } from "@/constants/";
 import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
 import { reactive } from "vue";
 
@@ -10,7 +11,7 @@ import { reactive } from "vue";
  * Store user input so values can be remembered by the app across views.
  */
 const store = {
-  debug: true,
+  debug: !IS_PROD,
 
   state: reactive({
     repoUsername: DEFAULT_REPO_INPUTS.username,
