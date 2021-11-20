@@ -23,12 +23,18 @@ import { defineComponent } from "vue";
 const LIGHT_THEME = "light-theme";
 const DARK_THEME = "dark-theme";
 
-function getMediaPreference() {
-  const hasDarkPreference = window.matchMedia(
-    "(prefers-color-scheme: dark)"
-  ).matches;
+function getTheme() {
+  return localStorage.getItem("user-theme");
+}
 
-  return hasDarkPreference ? DARK_THEME : LIGHT_THEME;
+function setTheme(value: string) {
+  localStorage.setItem("user-theme", value);
+}
+
+function browserPreferedTheme() {
+  const preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  return preferDark ? DARK_THEME : LIGHT_THEME;
 }
 
 export default defineComponent({
@@ -39,18 +45,18 @@ export default defineComponent({
     };
   },
   mounted() {
-    const defaultTheme = getMediaPreference();
+    const defaultTheme = browserPreferedTheme();
     this.setTheme(defaultTheme);
   },
   methods: {
     toggleTheme() {
-      const currentTheme = localStorage.getItem("user-theme");
+      const currentTheme = getTheme();
       const newTheme = currentTheme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
       this.setTheme(newTheme);
     },
 
     setTheme(theme: string) {
-      localStorage.setItem("user-theme", theme);
+      setTheme(theme);
       this.userTheme = theme;
       document.documentElement.className = theme;
     },
