@@ -36,7 +36,8 @@ export default defineComponent({
   methods: {
     toggleTheme() {
       const activeTheme = localStorage.getItem("user-theme");
-      const newTheme = activeTheme === "light-theme" ? "dark-theme" : "light-theme";
+      const newTheme =
+        activeTheme === "light-theme" ? "dark-theme" : "light-theme";
       this.setTheme(newTheme);
     },
 
