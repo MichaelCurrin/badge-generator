@@ -129,7 +129,7 @@ export function staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
 export function dynamicParamsUrl(badge: DynamicBadge) {
   const params = {
     label: badge.label,
-    query: badge.query,
+    query: _encodeParam(badge.query), // encode the query separately, because it gets decoded by buildUrl
     url: badge.url,
   };
 
