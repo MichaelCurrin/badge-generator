@@ -22,7 +22,7 @@ No need to set up dependencies from the app.
 ### 1. Install Nativefier globally
 
 ```sh
-$ npm install nativefier --global
+$ npm install nativefier@latest --global
 ```
 
 ### 2. Create desktop app
@@ -39,17 +39,14 @@ $ nativefier https://michaelcurrin.github.io/badge-generator/
 
 #### macOS
 
-If you are upgrading, deleting the old one.
-
-```sh
-$ rm -rf ~/Applications/badge-generator.app/
-```
-
-Install the app.
-
-```sh
-$ mv badge-generator-darwin-x64/badge-generator.app/ ~/Applications
-```
+1. If you are upgrading, delete the old one:
+    ```sh
+    $ rm -rf ~/Applications/badge-generator.app/
+    ```
+1. Install the app.
+    ```sh
+    $ mv badge-generator-darwin-x64/badge-generator.app/ ~/Applications
+    ```
 
 #### Linux
 
