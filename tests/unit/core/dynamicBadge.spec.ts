@@ -62,5 +62,20 @@ describe("Dynamic data badges", () => {
         );
       });
     });
+
+    describe("required and optional input handling", () => {
+      const altText = "VS Code";
+      const label = "vscode";
+      const url =
+        "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json";
+      const query = '$.engines["vscode"]';
+
+      it("displays a badge correctly when accessing a property from a nested object", () => {
+        const expected =
+          "![VS Code](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines%5B%22vscode%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)";
+
+        expect(dynamicBadge(label, url, query, "", altText)).toBe(expected);
+      });
+    });
   });
 });
