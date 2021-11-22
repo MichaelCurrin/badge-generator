@@ -134,10 +134,6 @@ export default defineComponent({
   },
   methods: {
     submit() {
-      console.debug("Process inputs and render results");
-
-      const args = [this.label, this.url, this.query];
-      console.debug(args);
 
       const paramBadge = dynamicBadge(
         this.label,
