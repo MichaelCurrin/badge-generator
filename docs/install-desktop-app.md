@@ -6,7 +6,7 @@ If you want to run the web app without having to switch to the tab in your brows
 ## Related
 
 - [Nativefier](https://michaelcurrin.github.io/dev-resources/resources/javascript/packages/nativefier/) on Dev Resources.
-- 
+
 
 ## How it works
 
@@ -46,6 +46,10 @@ $ nativefier https://michaelcurrin.github.io/badge-generator/
 1. Install the app by copying it from your Downloads into Applications.
     ```sh
     $ mv badge-generator-darwin-x64/badge-generator.app/ ~/Applications
+    ```
+1. There are just license files and metadata left - so you can delete the directory in Downloads.
+    ```sh
+    $ rm -rf badge-generator-darwin-x64/
     ```
 
 #### Linux
