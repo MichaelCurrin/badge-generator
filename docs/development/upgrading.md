@@ -29,6 +29,17 @@ $ yarn add PACKAGE_NAME
 
 Leave off the version number to get the highest available, but without conflicting with extant packages.
 
+### CI
+
+See [upgrade-packages.yml](https://github.com/MichaelCurrin/badge-generator/blob/master/.github/workflows/upgrade-packages.yml) as a GH Actions workflow to upgrade packages manually or on schedule, within semver restrictions.
+
+
+## ESLint
+
+See issue [#15175](https://github.com/eslint/eslint/issues/15175) in the `eslint` repo.
+
+Vue is not compatible yet with ESLint 8, so stick to 7.
+
 
 ## Vue CLI
 
@@ -40,15 +51,13 @@ See [vue-cli CHANGELOG.md](https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.m
 
 ### Outdated
 
-View outdated Vue packages.
+View outdated Vue-relaated packages.
 
 ```sh
 $ npx vue outdated
 ```
 
-### Upgrade
-
-Upgrade Vue packages.
+### Upgrade Vue-related packages
 
 ```sh
 $ npx vue upgrade
