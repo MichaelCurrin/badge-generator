@@ -1,4 +1,40 @@
-import { Repo } from "@/core/Repo";
+import { Repo, _documentationSectionMd, _licenseSectionMd } from "@/core/Repo";
+
+describe("Markdown section snippets", () => {
+  describe("#_documentationSectionMd", () => {
+    it("returns the correct Markdown snippet about documentation", () => {
+      const result = _documentationSectionMd();
+
+      const expected = `\
+## Documentation
+
+<div align="center">
+
+[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/ "Go to project documentation")
+
+</div>
+`;
+
+      expect(result).toBe(expected);
+    });
+  });
+
+  describe("#_licenseSectionMd", () => {
+    it("returns the correct Markdown snippet about license, for license and user links", () => {
+      const result = _licenseSectionMd(
+        "[MIT](/LICENSE)",
+        "[@MichaelCurrin](https://github.com/MichaelCurrin)"
+      );
+
+      const expected = `\
+## License
+
+Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).`;
+
+      expect(result).toBe(expected);
+    });
+  });
+});
 
 describe("#Repo", () => {
   const repoNoLicense = new Repo("MichaelCurrin", "badge-generator");
@@ -143,12 +179,12 @@ describe("#Repo", () => {
 
   describe("#licenseMessage", () => {
     it("return a correct license message for a known license type and local file", () => {
-      const message = `\
+      const result = `\
 ## License
 
-Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
-  `;
-      expect(repoWithLicense.licenseMessage()).toBe(message);
+Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).`;
+
+      expect(repoWithLicense.licenseMessage()).toBe(result);
     });
 
     it("return an empty license message for no license type", () => {

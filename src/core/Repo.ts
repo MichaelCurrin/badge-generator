@@ -12,6 +12,7 @@ import {
   LICENSE_BADGE,
   TEMPLATE_BADGE,
 } from "@/constants/badgeValues";
+import { BADGE_DEFAULTS, DOCUMENTATION_BADGE } from "@/constants/catalogue";
 import {
   DEFAULT_BRANCH,
   GITHUB_DOMAIN,
@@ -27,12 +28,38 @@ import { TagTypes } from "./Repo.d";
 import { ghCounterShieldUrl } from "./shieldsApi";
 import { RepoMetric, StrMap } from "./types.d";
 
-function _licenseSectionMd(license: string, user: string) {
+// TODO: Use link to docs site for GH Pages or given link, with different text and link.
+// For now just a flat badge.
+export function _documentationSectionMd() {
+  const docsBadge = genericBadge(
+    DOCUMENTATION_BADGE.label,
+    DOCUMENTATION_BADGE.message,
+    BADGE_DEFAULTS.COLOR,
+    DOCUMENTATION_BADGE.isLarge,
+    DOCUMENTATION_BADGE.target,
+    DOCUMENTATION_BADGE.logo,
+    "",
+    false,
+    DOCUMENTATION_BADGE.altText,
+    DOCUMENTATION_BADGE.hoverTitle
+  );
+
+  return `\
+## Documentation
+
+<div align="center">
+
+${docsBadge}
+
+</div>
+`;
+}
+
+export function _licenseSectionMd(license: string, user: string) {
   return `\
 ## License
 
-Released under ${license} by ${user}.
-  `;
+Released under ${license} by ${user}.`;
 }
 
 export class Repo {
@@ -201,6 +228,10 @@ export class Repo {
       onlyQueryParams,
       LICENSE_BADGE.altText
     );
+  }
+
+  documentationMessage() {
+    return _documentationSectionMd();
   }
 
   licenseMessage() {
