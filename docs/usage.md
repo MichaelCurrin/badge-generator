@@ -3,7 +3,11 @@
 
 ## Start a dev server
 
-This will compile TS to JS and serve the app. Tests are left out so the app can still be used without passing tests.
+### Using make
+
+For Windows, skip to [Yarn only](#yarn-only).
+
+This command will compile TS to JS and serve the app. Tests are left out so the app can still be used without passing tests.
 
 ```sh
 $ make serve
@@ -13,11 +17,17 @@ Then open in the browser at:
 
 - http://localhost:8080
 
-That commands applies [Lint](#lint) fixes before starting the app - if you prefer to skip that linting, just run:
+That commands applies [Lint](#lint) fixes before starting the app.
+
+### Yarn only
+
+If you prefer to skip that linting, just run:
 
 ```sh
 $ yarn start
 ```
+
+### Subpath
 
 If you need to check that the site works on a GitHub Pages subpath, run this:
 
@@ -30,6 +40,10 @@ Then open in the browser at:
 - http://localhost:8080/badge-generator/
 
 The Vue Router package handles navigation for us. For links outside of the navbar, search for use of `baseUrl` in the codebase.
+
+### Debugging
+
+For debugging, start the server and then launch the Firefox task under the **Debugger** pane in VS Code. This will open a new window and attach to the server, so you can set breakpoints.
 
 
 ## Fix
