@@ -9,8 +9,7 @@
 
 Follow these [instructions][].
 
-[instructions]: https://gist.github.com/MichaelCurrin/aa1fc56419a355972b96bce23f3bccba
-
+[instructions]: https://gist.github.com/MichaelCurrin/bdc34c554fa3023ee81449eb77375fcb
 
 ## 2. Clone
 
