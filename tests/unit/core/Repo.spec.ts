@@ -1,4 +1,22 @@
-import { Repo } from "@/core/Repo";
+import { Repo, _licenseSectionMd } from "@/core/Repo";
+
+describe("Markdown section snippets", () => {
+  describe("#_licenseSectionMd", () => {
+    it("returns Markdown snippet when given badge link and user link", () => {
+      const result = _licenseSectionMd(
+        '[MIT](/LICENSE)',
+        '[@MichaelCurrin](https://github.com/MichaelCurrin)'
+      )
+
+      const expected = `\
+## License
+
+Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).`;
+
+      expect(result).toBe(expected)
+    })
+  })
+})
 
 describe("#Repo", () => {
   const repoNoLicense = new Repo("MichaelCurrin", "badge-generator");
@@ -143,12 +161,12 @@ describe("#Repo", () => {
 
   describe("#licenseMessage", () => {
     it("return a correct license message for a known license type and local file", () => {
-      const message = `\
+      const result = `\
 ## License
 
-Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).
-  `;
-      expect(repoWithLicense.licenseMessage()).toBe(message);
+Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).`;
+
+      expect(repoWithLicense.licenseMessage()).toBe(result);
     });
 
     it("return an empty license message for no license type", () => {
