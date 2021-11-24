@@ -16,15 +16,16 @@ type TBadgeDetails = {
   hoverTitle?: string;
 };
 
-export const BADGE_DETAILS: TBadgeDetails[] = [
-  {
-    label: "view",
-    message: "Documentation",
-    target: "/docs/",
-    isLarge: true,
-    hoverTitle: "Go to project documentation",
-  },
+export const DOCUMENTATION_BADGE: TBadgeDetails = {
+  label: "view",
+  message: "Documentation",
+  target: "/docs/",
+  isLarge: true,
+  hoverTitle: "Go to project documentation",
+};
 
+export const BADGE_DETAILS: TBadgeDetails[] = [
+  DOCUMENTATION_BADGE,
   // These would be useful on the Repo package, maybe with link to issues or PRs.
   {
     label: "maintained",
