@@ -4,7 +4,10 @@
 
 ## 1. Install system dependencies
 
-Install Node.js and Yarn - follow these [instructions][].
+1. Install Node.js.
+1. Install Yarn globally.
+
+Follow these [instructions][].
 
 [instructions]: https://gist.github.com/MichaelCurrin/aa1fc56419a355972b96bce23f3bccba
 
@@ -19,8 +22,16 @@ $ cd badge-generator
 
 ## 3. Install project dependencies
 
+### Using make
+
+```sh
+$ make install
+```
+
+### Yarn only
+
+For Windows.
+
 ```sh
 $ yarn install
-$ # Or
-$ make install
 ```
