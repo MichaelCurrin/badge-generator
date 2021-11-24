@@ -10,7 +10,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "@/constants/badgeValues";
 import { BADGE_DEFAULTS, DOCUMENTATION_BADGE } from "@/constants/catalogue";
 import {
@@ -19,7 +19,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS,
+  VERSION_PARAMS
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -30,7 +30,7 @@ import { RepoMetric, StrMap } from "./types.d";
 
 // TODO: Use link to docs site for GH Pages or given link, with different text and link.
 // For now just a flat badge.
-function _documentationSectionMd() {
+export function _documentationSectionMd() {
   const docsBadge = genericBadge(
     DOCUMENTATION_BADGE.label,
     DOCUMENTATION_BADGE.message,
@@ -55,12 +55,11 @@ ${docsBadge}
 `;
 }
 
-function _licenseSectionMd(license: string, user: string) {
+export function _licenseSectionMd(license: string, user: string) {
   return `\
 ## License
 
-Released under ${license} by ${user}.
-  `;
+Released under ${license} by ${user}.`;
 }
 
 export class Repo {
