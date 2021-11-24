@@ -219,6 +219,7 @@ export default defineComponent({
       // section or maybe here - just add output URL and assume the other data.
       const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
+      const documentationMessage = repo.documentationMessage();
       const licenseMessage = repo.licenseMessage();
 
       this.result = `\
@@ -244,6 +245,8 @@ ${templateButton}
 ${ghPagesButton}
 
 </div>
+
+${documentationMessage}
 
 ${licenseMessage}`;
     },
