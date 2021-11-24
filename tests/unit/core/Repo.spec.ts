@@ -1,8 +1,26 @@
-import { Repo, _licenseSectionMd } from "@/core/Repo";
+import { Repo, _documentationSectionMd, _licenseSectionMd } from "@/core/Repo";
 
 describe("Markdown section snippets", () => {
+  describe("#_documentationSectionMd", () => {
+    it("returns the correct Markdown snippet about documentation", () => {
+      const result = _documentationSectionMd()
+
+      const expected = `\
+## Documentation
+
+<div align="center">
+
+[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/ "Go to project documentation")
+
+</div>
+`;
+
+      expect(result).toBe(expected)
+    })
+  })
+
   describe("#_licenseSectionMd", () => {
-    it("returns Markdown snippet when given badge link and user link", () => {
+    it("returns the correct Markdown snippet about license, for license and user links", () => {
       const result = _licenseSectionMd(
         '[MIT](/LICENSE)',
         '[@MichaelCurrin](https://github.com/MichaelCurrin)'
