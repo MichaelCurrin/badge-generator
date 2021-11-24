@@ -1,19 +1,10 @@
 import { COLOR_PRESETS } from "./appearance";
+import { TBadgeDetails } from "./catalogue.d";
 
 export const BADGE_DEFAULTS = {
   IS_LARGE: false,
   COLOR: COLOR_PRESETS.Default,
   LOGO_COLOR: COLOR_PRESETS.LogoDefault,
-};
-
-type TBadgeDetails = {
-  label: string;
-  message: string;
-  target: string;
-  logo?: string;
-  isLarge?: boolean;
-  altText?: string;
-  hoverTitle?: string;
 };
 
 export const DOCUMENTATION_BADGE: TBadgeDetails = {
@@ -26,6 +17,7 @@ export const DOCUMENTATION_BADGE: TBadgeDetails = {
 
 export const BADGE_DETAILS: TBadgeDetails[] = [
   DOCUMENTATION_BADGE,
+
   // These would be useful on the Repo package, maybe with link to issues or PRs.
   {
     label: "maintained",
