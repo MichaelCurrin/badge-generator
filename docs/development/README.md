@@ -16,9 +16,20 @@
 
 See the [Installation](/docs/installation.md) and [Usage](/docs/usage.md) docs.
 
-For plain development, just run the _serve_ task from the CLI or from the Tasks Explorer in VS Code.
+You need Node 16 or higher.
 
-For **debugging**, start the server and then launch the Firefox task under **Debugger** pane. This will open a new window and attach to the server, so you can set breakpoints.
+Install Yarn globally. 
+
+```sh
+$ npm install -g yarn
+```
+
+Then run this in the project root:
+
+```sh
+$ yarn install
+$ yarn serve
+```
 
 
 ## Formatting
