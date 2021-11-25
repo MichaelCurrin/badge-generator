@@ -68,7 +68,7 @@ export function mdImageWithLink({
  * Render Markdown code as HTML code.
  */
 export function mdToHTML(value: string): string {
-  return md.render(value);
+  return md.render(value).trim();
 }
 
 /**
