@@ -14,6 +14,7 @@ const store = {
   state: reactive({
     repoUsername: DEFAULT_REPO_INPUTS.username,
     repoName: DEFAULT_REPO_INPUTS.repoName,
+    asHtml: false,
   }),
 
   /**
@@ -37,6 +38,17 @@ const store = {
 
     this.state.repoName = value;
   },
+
+  /**
+   * Store asHtml value. e.g. true or false.
+   */
+  setAsHTML(value: boolean){
+    if (DEBUG) {
+      console.debug(`Storing asHtml as: ${value}`);
+    }
+
+    this.state.asHtml = value;
+  }
 };
 
 export default store;
