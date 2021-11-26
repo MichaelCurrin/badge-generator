@@ -1,5 +1,7 @@
 import Code from "@/components/Code.vue";
 import { shallowMount } from "@vue/test-utils";
+import store from "@/store";
+
 
 describe("Code.vue", () => {
   it("renders a Markdown codeblock as Markdown code, with highlighting", () => {

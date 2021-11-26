@@ -4,6 +4,7 @@
 import { DEBUG } from "@/constants/";
 import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
 import { reactive } from "vue";
+// import  asHtml from "@/components/Code.vue";
 
 /**
  * Global store.
