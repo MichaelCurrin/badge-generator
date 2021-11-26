@@ -42,7 +42,7 @@ export default defineComponent({
   },
   methods: {
     storeAsHtml() {
-      store.setAsHTML(this.asHtml);
+      store.setAsHtml(this.asHtml);
     },
     highlight() {
       const block = this.$refs.codeBlock as HTMLElement;

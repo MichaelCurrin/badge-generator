@@ -42,7 +42,7 @@ const store = {
   /**
    * Store value for whether output is displayed as HTML or Markdown.
    */
-  setAsHTML(value: boolean) {
+  setAsHtml(value: boolean) {
     if (DEBUG) {
       console.debug(`Storing asHtml as: ${value}`);
     }
