@@ -16,7 +16,6 @@ import { cleanHtml, mdToHTML } from "@/core/markdown";
 import Checkbox from "./Checkbox.vue";
 import store from "@/store";
 
-
 export default defineComponent({
   name: "Code",
   components: {
@@ -33,10 +32,13 @@ export default defineComponent({
   computed: {
     outputCode(): String {
       store.setAsHTML(this.asHtml);
+
       if (this.asHtml) {
         const htmlCode = mdToHTML(this.code);
+
         return cleanHtml(htmlCode);
       }
+
       return this.code;
     },
   },
