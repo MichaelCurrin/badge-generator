@@ -1,7 +1,7 @@
 // Render Markdown as a codeblock. Apply highlighting on content changes.
 <template>
   <div>
-    <Checkbox label="Show HTML" v-model="asHtml" />
+    <Checkbox label="Show HTML" v-model="asHtml" @change="storeAsHtml()" />
     <br />
 
     <pre><code ref="codeBlock" class="markdown">{{ outputCode }}</code></pre>
@@ -31,8 +31,6 @@ export default defineComponent({
   },
   computed: {
     outputCode(): String {
-      store.setAsHTML(this.asHtml);
-
       if (this.asHtml) {
         const htmlCode = mdToHTML(this.code);
 
@@ -43,6 +41,9 @@ export default defineComponent({
     },
   },
   methods: {
+    storeAsHtml() {
+      store.setAsHTML(this.asHtml);
+    },
     highlight() {
       const block = this.$refs.codeBlock as HTMLElement;
       hljs.highlightElement(block);
