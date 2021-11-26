@@ -65,7 +65,7 @@ export function mdImageWithLink({
 /**
  * Markdown to HTML.
  *
- * Render Markdown code as HTML code.
+ * Render Markdown code as HTML code, without trailing newline.
  */
 export function mdToHTML(value: string): string {
   return md.render(value).trim();
