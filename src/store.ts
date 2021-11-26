@@ -4,7 +4,6 @@
 import { DEBUG } from "@/constants/";
 import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
 import { reactive } from "vue";
-// import  asHtml from "@/components/Code.vue";
 
 /**
  * Global store.
@@ -41,15 +40,15 @@ const store = {
   },
 
   /**
-   * Store asHtml value. e.g. true or false.
+   * Store value for whether output is displayed as HTML or Markdown.
    */
-  setAsHTML(value: boolean){
+  setAsHTML(value: boolean) {
     if (DEBUG) {
       console.debug(`Storing asHtml as: ${value}`);
     }
 
     this.state.asHtml = value;
-  }
+  },
 };
 
 export default store;
