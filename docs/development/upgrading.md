@@ -51,16 +51,16 @@ See [vue-cli CHANGELOG.md](https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.m
 
 ### Outdated
 
-View outdated Vue-relaated packages.
+View outdated Vue-related packages.
 
 ```sh
-$ npx vue outdated
+$ make outdated-vue
 ```
 
 ### Upgrade Vue-related packages
 
 ```sh
-$ npx vue upgrade
+$ make upgrade-vue
 ```
 
 ### Force upgrading min version
