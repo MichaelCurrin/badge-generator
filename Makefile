@@ -17,9 +17,13 @@ install-frozen:
 
 outdated:
 	yarn outdated
+outdated-vue:
+	npx vue outdated
 
 upgrade:
 	yarn upgrade
+upgrade-vue:
+	npx vue upgrade
 
 
 fix:
