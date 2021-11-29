@@ -57,9 +57,9 @@ $ make fix
 
 ## Tests
 
-Jest is the test runner and it is run using the Jest plugin for view. See [cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins/unit-jest.html) in the Vue CLI docs.
+Jest is the test runner and it is run using the Jest plugin for Vue. See [cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins/unit-jest.html) in the Vue CLI docs.
 
-Run unit tests.
+Run unit tests:
 
 ```sh
 $ make test
@@ -67,9 +67,9 @@ $ # OR
 $ make t
 ```
 
-That includes a step to compile to TypeScript, to give type validation. Though the compiled output JS is not actually needed.
+That includes a step to compile to TypeScript, to give type validation. Though, the compiled output JS is not actually needed.
 
-To run tests without compilation and without code coverage, just run:
+To run tests without compilation or code coverage, just run:
 
 ```sh
 $ make test-quick
