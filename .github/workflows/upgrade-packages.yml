@@ -39,6 +39,20 @@ jobs:
       - name: Upgrade packages ⏫
         if: ${{ steps.vars.outputs.outdated != '' }}
         run: yarn upgrade
+        
+      - name: Lint 🧐
+        if: ${{ steps.vars.outputs.outdated != '' }}
+        run: yarn lint:check
+
+      - name: Test 🚨
+        if: ${{ steps.vars.outputs.outdated != '' }}
+        run: yarn test:unit
+
+      - name: Build 🏗️
+        if: ${{ steps.vars.outputs.outdated != '' }}
+        run: yarn build
+        env:
+          NODE_ENV: production
 
       - name: Commit and create PR 🔀
         if: ${{ steps.vars.outputs.outdated != '' }}
