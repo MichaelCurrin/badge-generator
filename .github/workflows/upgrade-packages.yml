@@ -1,3 +1,5 @@
+# See tutorial:
+#   https://michaelcurrin.github.io/code-cookbook/recipes/ci-cd/github-actions/workflows/node/upgrade-packages.html
 name: Upgrade NPM packages
 
 on:
