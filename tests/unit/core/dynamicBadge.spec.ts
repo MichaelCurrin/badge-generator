@@ -1,7 +1,7 @@
-import { dynamicBadge } from "@/core/dynamicData";
+import { dynamicDataBadge } from "@/core/dynamicData";
 
-describe("Dynamic data badges", () => {
-  describe("#dynamicBadge", () => {
+describe("Dynamic data badge", () => {
+  describe("#dynamicDataBadge", () => {
     describe("required input handling", () => {
       const label = "version";
       const url =
@@ -12,20 +12,20 @@ describe("Dynamic data badges", () => {
         const expected =
           "![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)";
 
-        expect(dynamicBadge(label, url, query)).toBe(expected);
+        expect(dynamicDataBadge(label, url, query)).toBe(expected);
       });
 
       describe("validate missing inputs", () => {
         it("throws an error when `label` is not set", () => {
-          expect(() => dynamicBadge("", url, query)).toThrow();
+          expect(() => dynamicDataBadge("", url, query)).toThrow();
         });
 
         it("throws an error when `url` is not set", () => {
-          expect(() => dynamicBadge(label, "", query)).toThrow();
+          expect(() => dynamicDataBadge(label, "", query)).toThrow();
         });
 
         it("throws an error when `query` is not set", () => {
-          expect(() => dynamicBadge(label, url, "")).toThrow();
+          expect(() => dynamicDataBadge(label, url, "")).toThrow();
         });
       });
     });
@@ -43,21 +43,21 @@ describe("Dynamic data badges", () => {
         const expected =
           "[![version](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://example.com)";
 
-        expect(dynamicBadge(label, url, query, linkTarget)).toBe(expected);
+        expect(dynamicDataBadge(label, url, query, linkTarget)).toBe(expected);
       });
 
       it("returns a badge with image alt text when alt text is given", () => {
         const expected =
           "![My alt text](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)";
 
-        expect(dynamicBadge(label, url, query, "", altText)).toBe(expected);
+        expect(dynamicDataBadge(label, url, query, "", altText)).toBe(expected);
       });
 
       it("returns a badge with alt text and external link when both are given", () => {
         const expected =
           "[![My alt text](https://img.shields.io/badge/dynamic/json?label=version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://example.com)";
 
-        expect(dynamicBadge(label, url, query, linkTarget, altText)).toBe(
+        expect(dynamicDataBadge(label, url, query, linkTarget, altText)).toBe(
           expected
         );
       });
@@ -74,7 +74,7 @@ describe("Dynamic data badges", () => {
         const expected =
           "![VS Code](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines%5B%22vscode%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)";
 
-        expect(dynamicBadge(label, url, query, "", altText)).toBe(expected);
+        expect(dynamicDataBadge(label, url, query, "", altText)).toBe(expected);
       });
     });
   });

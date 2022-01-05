@@ -4,10 +4,12 @@ import { dynamicParamsUrl } from "./shieldsApi";
 /**
  * Dynamic data badge.
  *
- * Generate a live-updating badge that references a value in a data file.
- * Only JSON is supported.
+ * Generate a badge that references a value in a data file - useful for both
+ * static values and for values that change.
+ *
+ * Only JSON is supported here or now but Shields.io also supports YAML and XML.
  */
-export function dynamicBadge(
+export function dynamicDataBadge(
   label: string,
   url: string,
   query: string,

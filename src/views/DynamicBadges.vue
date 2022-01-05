@@ -90,7 +90,7 @@ import Help from "@/components/Help.vue";
 import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
-import { dynamicBadge } from "@/core/dynamicData";
+import { dynamicDataBadge } from "@/core/dynamicData";
 
 const note = `
 Reference a value in remote data file and the badge will update as the content changes. Only JSON files are supported in this generator.
@@ -134,7 +134,7 @@ export default defineComponent({
   },
   methods: {
     submit() {
-      const paramBadge = dynamicBadge(
+      const dynamicDataBadgeResult = dynamicDataBadge(
         this.label,
         this.url,
         this.query,
@@ -144,7 +144,7 @@ export default defineComponent({
       this.result = `\
 _Query parameter badge_
 
-${paramBadge}
+${dynamicDataBadgeResult}
       `;
     },
   },
