@@ -2,7 +2,7 @@
   <div class="badges container-lg">
     <div class="row">
       <div class="col-12">
-        <h1>Dynamic data badges</h1>
+        <h1>Data badges</h1>
       </div>
     </div>
 
@@ -115,7 +115,7 @@ Sample badges:
 `;
 
 export default defineComponent({
-  name: "DynamicBadges",
+  name: "DataBadges",
   components: {
     Help,
     Results,
