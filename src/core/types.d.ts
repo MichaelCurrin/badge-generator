@@ -8,6 +8,12 @@ export type GenericBadge = {
   color: string;
 };
 
+export type DynamicBadge = {
+  label: string;
+  url: string;
+  query: string;
+};
+
 // Simpler than Repo class and useful for functions used within Repo class
 // methods where Repo type can't be used. Plus, if you pass Repo type to a
 // function expecting GHRepo, it still works.

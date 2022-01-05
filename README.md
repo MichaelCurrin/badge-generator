@@ -96,6 +96,20 @@ Put whatever text you want in this static badge, which is independent of a repo.
 
 </div>
 
+### Dynamic data
+
+Create a badge that references any value within a public data file (currently only JSON supported). It will always stay up to date.
+
+In the example below, we look-up the required VS Code version for a VS Code extension by using the `$.engines["vscode"]` query against this [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on a GitHub repo.
+
+<div align="center">
+
+![auto-commit-msg](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines%5B%22vscode%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
+)
+
+</div>
+
+
 ### Packages
 
 An NPM package badge that changes magically when your `package.json` file is updated.
