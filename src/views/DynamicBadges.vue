@@ -134,7 +134,6 @@ export default defineComponent({
   },
   methods: {
     submit() {
-
       const paramBadge = dynamicBadge(
         this.label,
         this.url,
