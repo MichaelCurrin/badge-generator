@@ -14,13 +14,6 @@
           <form @submit.prevent.enter="submit">
             <fieldset name="text">
               <legend>Text</legend>
-              <TextInput
-                label="Alt text"
-                v-model="altText"
-                placeholder="e.g. Keywords"
-                note="Markdown fallback text. If omitted, _Label_ will be used."
-              />
-              <br />
 
               <TextInput
                 label="Label"
@@ -28,6 +21,14 @@
                 isRequired
                 placeholder="e.g. keywords"
                 note="Display text for the left of the badge"
+              />
+              <br />
+              
+              <TextInput
+                label="Alt text"
+                v-model="altText"
+                placeholder="e.g. keywords"
+                note="Markdown fallback alt text - useful for a broken link. If omitted, the _Label_ will be used."
               />
               <br />
 
@@ -45,7 +46,7 @@
                 v-model="query"
                 isRequired
                 placeholder="e.g. $.keywords "
-                note="JSON value query."
+                note="JSON query to get a value."
               />
             </fieldset>
             <br />
@@ -57,7 +58,7 @@
                 label="Click target"
                 v-model="target"
                 placeholder="e.g. https://example.com"
-                note="URL or a local path like `/docs/`. This doesn't have to be set, but a button without a click destination is not so useful."
+                note="URL like for your GitHub repo, or a local path like `/docs/`."
               />
             </fieldset>
 
@@ -93,7 +94,7 @@ import TextInput from "@/components/TextInput.vue";
 import { dynamicDataBadge } from "@/core/dynamicData";
 
 const note = `
-Reference a value in remote data file and the badge will update as the content changes. Only JSON files are supported in this generator.
+Reference a value in a remote data file. The badge will update as the content there changes. Only the _JSON_ format is supported in this generator.
 
 Help on form fields:
 
