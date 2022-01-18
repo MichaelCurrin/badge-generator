@@ -17,7 +17,7 @@
 [![Package - Vue](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?logo=vue.js&logoColor=white)](https://www.npmjs.com/package/vue "Go to Vue on NPM")
 [![Package - Typescript](https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/dev/typescript?logo=typescript&logoColor=white)](https://www.npmjs.com/package/typescript "Go to TypeScript on NPM")
 
-[Website](https://michaelcurrin.github.io/badge-generator/) — [Sample badges](#sample) — [Documentation](/docs/#readme)
+[Website](https://michaelcurrin.github.io/badge-generator/) — [Sample badges](#sample-badges) — [Documentation](/docs/#readme)
 
 </div>
 
@@ -54,7 +54,7 @@ Start creating badges for your docs.
 </div>
 
 
-## Sample
+## Sample badges
 
 Examples of a few badges generated with the app and rendered here on a markdown doc
 
