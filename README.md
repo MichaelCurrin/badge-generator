@@ -96,22 +96,9 @@ Put whatever text you want in this static badge, which is independent of a repo.
 
 </div>
 
-### Dynamic data
-
-Create a badge that references any value within a public data file (currently only JSON supported). It will always stay up to date.
-
-In the example below, we look-up the required VS Code version for a VS Code extension by using the `$.engines["vscode"]` query against this [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on a GitHub repo.
-
-<div align="center">
-
-![auto-commit-msg](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines%5B%22vscode%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
-
-</div>
-
-
 ### Packages
 
-An NPM package badge that changes magically when your `package.json` file is updated.
+Here is a badge for a NPM package as a depenency of the Badge Generator repo. The version changes to reflect what is in the `package.json` file.
 
 <div align="center">
 
@@ -119,9 +106,23 @@ An NPM package badge that changes magically when your `package.json` file is upd
 
 </div>
 
+### Dynamic data
+
+Similar to above but more flexible.
+
+Create a badge that references _any_ value within a public data file (currently only JSON is supported). The badge stays up to date with whatever value is in the target file..
+
+In the example below, we lookup the version of VS Code needed by an extension. The query is `$.engines["vscode"]` and here is the target [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on GitHub.
+
+<div align="center">
+
+![auto-commit-msg](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines%5B%22vscode%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
+
+</div>
+
 ### Catalogue
 
-Pre-made badges around languages and tools. Just copy and paste. If you can't find a badge you're looking for, use the Generic badge option to make your own.
+Pre-made badges around languages and tools. Just copy and paste them - no form input needed. If you can't find a badge you're looking for there, use the Generic badge option to make your own.
 
 <div align="center">
 
