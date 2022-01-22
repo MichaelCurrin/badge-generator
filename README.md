@@ -105,7 +105,6 @@ In the example below, we look-up the required VS Code version for a VS Code exte
 <div align="center">
 
 ![auto-commit-msg](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines%5B%22vscode%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
-)
 
 </div>
 
