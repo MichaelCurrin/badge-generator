@@ -23,7 +23,7 @@
                 note="Display text for the left of the badge"
               />
               <br />
-              
+
               <TextInput
                 label="Alt text"
                 v-model="altText"

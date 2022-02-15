@@ -14,10 +14,14 @@
           using the homepage of the tool.
         </p>
         <p>
-           Related - <a href="https://ileriayo.github.io/markdown-badges/">Markdown Badges</a> site
-           with a large catalogue of products using logos and colors,
-           or <a href="https://simpleicons.org/">Simple Icons</a> if you want to use their
-           search feature then use the icon and color that comes up for your own shields.io badge.
+          Related -
+          <a href="https://ileriayo.github.io/markdown-badges/"
+            >Markdown Badges</a
+          >
+          site with a large catalogue of products using logos and colors, or
+          <a href="https://simpleicons.org/">Simple Icons</a> if you want to use
+          their search feature then use the icon and color that comes up for
+          your own shields.io badge.
         </p>
       </div>
     </div>
