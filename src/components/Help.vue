@@ -12,7 +12,7 @@ import { defineComponent } from "vue";
 import Markdown from "@/components/Markdown.vue";
 
 export default defineComponent({
-  name: "Help",
+  name: "HelpItem",
   components: {
     Markdown,
   },

@@ -47,7 +47,7 @@ import Markdown from "@/components/Markdown.vue";
 import { renderBadges } from "@/core/catalogue";
 
 export default defineComponent({
-  name: "Catalogue",
+  name: "CatalogueItem",
   components: {
     Markdown,
     Code,

@@ -8,7 +8,7 @@ import { defineComponent } from "vue";
 import { mdToHTML } from "@/core/markdown";
 
 export default defineComponent({
-  name: "Markdown",
+  name: "MarkdownItem",
   props: {
     content: { type: String, required: true },
   },

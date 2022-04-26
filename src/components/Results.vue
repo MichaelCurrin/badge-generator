@@ -26,7 +26,7 @@ import Code from "@/components/Code.vue";
 import Markdown from "@/components/Markdown.vue";
 
 export default defineComponent({
-  name: "Results",
+  name: "ResultsItem",
   components: {
     Markdown,
     Code,

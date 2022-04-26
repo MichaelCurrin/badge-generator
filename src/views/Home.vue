@@ -76,7 +76,7 @@ const repo = new Repo(
 );
 
 export default defineComponent({
-  name: "Home",
+  name: "HomeItem",
   components: {
     Markdown,
   },
