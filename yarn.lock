@@ -1344,7 +1344,7 @@
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-"@vue/vue3-jest@^27.0.0-alpha.4":
+"@vue/vue3-jest@^27.0.0":
   version "27.0.0"
   resolved "https://registry.yarnpkg.com/@vue/vue3-jest/-/vue3-jest-27.0.0.tgz#d28ac56d3cb8c5ac5c46c9caaa83d5419b0abfc7"
   integrity sha512-VL61CgZBoQqayXfzlZJHHpZuX4lsT8dmdZMJzADhdAJjKu26JBpypHr/2ppevxItljPiuALQW4MKhhCXZRXnLg==
