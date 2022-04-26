@@ -12,9 +12,7 @@ module.exports = {
   parserOptions: {
     parser: "@typescript-eslint/parser",
   },
-  rules: {
-    "vue/multi-word-component-names": 1,
-  },
+  rules: {},
   overrides: [
     {
       files: ["tests/unit/**/*.spec.{js,ts}"],
