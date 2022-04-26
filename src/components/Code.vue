@@ -16,7 +16,7 @@ import { cleanHtml, mdToHTML } from "@/core/markdown";
 import Checkbox from "./Checkbox.vue";
 
 export default defineComponent({
-  name: "Code",
+  name: "CodeItem",
   components: {
     Checkbox,
   },

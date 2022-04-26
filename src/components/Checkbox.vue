@@ -24,7 +24,7 @@ import Markdown from "@/components/Markdown.vue";
 import { slugify } from "@/lib";
 
 export default defineComponent({
-  name: "Checkbox",
+  name: "CheckboxItem",
   components: {
     Markdown,
   },
