@@ -162,17 +162,17 @@ describe("#Repo", () => {
 
       expect(repoWithLicense._licenseTarget()).toBe(target);
     });
-  })
+  });
 
   describe("#licenseBadge", () => {
     it("returns a null string when there is no license set", () => {
-      const localLicense = true
+      const localLicense = true;
 
       expect(repoNoLicense.licenseBadge(localLicense)).toBe("");
     });
 
     it("returns a badge for a local license", () => {
-      const localLicense = true
+      const localLicense = true;
 
       expect(repoWithLicense.licenseBadge(localLicense)).toBe(
         "[![License](https://img.shields.io/badge/License-MIT-blue)](#license)"
@@ -180,7 +180,7 @@ describe("#Repo", () => {
     });
 
     it("return a badge for a remote license", () => {
-      const localLicense = false
+      const localLicense = false;
 
       const badgeUrl = "https://img.shields.io/badge/License-MIT-blue";
       const target =
