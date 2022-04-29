@@ -166,21 +166,27 @@ describe("#Repo", () => {
 
   describe("#licenseBadge", () => {
     it("returns a null string when there is no license set", () => {
-      expect(repoNoLicense.licenseBadge(true)).toBe("");
+      const localLicense = true
+
+      expect(repoNoLicense.licenseBadge(localLicense)).toBe("");
     });
 
     it("returns a badge for a local license", () => {
-      expect(repoWithLicense.licenseBadge(true)).toBe(
+      const localLicense = true
+
+      expect(repoWithLicense.licenseBadge(localLicense)).toBe(
         "[![License](https://img.shields.io/badge/License-MIT-blue)](#license)"
       );
     });
 
     it("return a badge for a remote license", () => {
+      const localLicense = false
+
       const badgeUrl = "https://img.shields.io/badge/License-MIT-blue";
       const target =
         "https://github.com/MichaelCurrin/badge-generator/blob/main/LICENSE";
 
-      expect(repoWithLicense.licenseBadge(false)).toBe(
+      expect(repoWithLicense.licenseBadge(localLicense)).toBe(
         `[![License](${badgeUrl})](${target})`
       );
     });
