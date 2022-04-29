@@ -10,7 +10,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "@/constants/badgeValues";
 import { BADGE_DEFAULTS, DOCUMENTATION_BADGE } from "@/constants/catalogue";
 import {
@@ -19,7 +19,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS,
+  VERSION_PARAMS
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -27,6 +27,8 @@ import { mdImageWithLink, mdLink } from "./markdown";
 import { TagTypes } from "./Repo.d";
 import { ghCounterShieldUrl } from "./shieldsApi";
 import { RepoMetric, StrMap } from "./types.d";
+
+const LICENSE_EL_ID = "#license"
 
 // TODO: Use link to docs site for GH Pages or given link, with different text and link.
 // For now just a flat badge.
@@ -196,10 +198,7 @@ export class Repo {
     });
   }
 
-  _licenseTarget(localLicense: boolean) {
-    if (localLicense) {
-      return "#license";
-    }
+  _licenseTarget() {
     const repoUrl = this.ghURL();
 
     return `${repoUrl}/blob/${DEFAULT_BRANCH}/LICENSE`;
@@ -214,7 +213,7 @@ export class Repo {
     }
 
     const badgeColor = this.badgeColor || LICENSE_BADGE.color!;
-    const linkTarget = this._licenseTarget(localLicense);
+    const linkTarget = localLicense ? LICENSE_EL_ID : this._licenseTarget();
     const onlyQueryParams = false;
 
     return genericBadge(
