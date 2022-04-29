@@ -2,7 +2,7 @@ import {
   statusBadge,
   _statusBadgeUrl,
   _statusData,
-  _statusTargetUrl,
+  _statusTargetUrl
 } from "@/core/ghActions";
 import { Repo } from "@/core/Repo";
 
@@ -135,11 +135,11 @@ describe("#_statusData", () => {
 });
 
 // It might seem unnecessary to have a function which has output as a badge when
-// it is already tested as the data, but the markdown image formatting must
+// it is already tested as the data, but the Markdown image formatting must
 // still encode (or not encode) inputs in a certain way so it is still worth
 // testing the whole function. Though, things to be refactored for more
 // functions/methods to just return data and then build them on the frontend,
-// but then you still need to test the frontend part, or make sure the markdown
+// but then you still need to test the frontend part, or make sure the Markdown
 // link functions get tested standalone with all badges used on the frontend.
 describe("#statusBadge", () => {
   describe("valid CI badge with a link", () => {
