@@ -155,6 +155,15 @@ describe("#Repo", () => {
     });
   });
 
+  describe("#_licenseTarget", () => {
+    it("returns a URL for a license in a repo", () => {
+      const target =
+        "https://github.com/MichaelCurrin/badge-generator/blob/main/LICENSE";
+
+      expect(repoWithLicense._licenseTarget()).toBe(target);
+    });
+  })
+
   describe("#licenseBadge", () => {
     it("returns a null string when there is no license set", () => {
       expect(repoNoLicense.licenseBadge(true)).toBe("");
