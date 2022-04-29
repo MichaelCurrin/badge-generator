@@ -6,8 +6,8 @@ import { SHIELDS_API } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { TLogoAppearance } from "./shieldsApi.d";
 import {
-  GenericBadge,
   DynamicBadge,
+  GenericBadge,
   GHRepo,
   RepoMetric,
   StrMap,
@@ -25,14 +25,8 @@ export type EnvironmentKeys = keyof typeof ENVIRONMENT;
  *
  * Covers dashes, underscores and spaces.
  */
-export function _encodeSeparators(value: string, spaceToUnderscore: boolean) {
-  value = value.replace(/-/g, "--").replace(/_/g, "__");
-
-  if (spaceToUnderscore) {
-    value = value.replace(/ /g, "_");
-  }
-
-  return value;
+export function _encodeSeparators(value: string) {
+  return value.replace(/-/g, "--").replace(/_/g, "__").replace(/ /g, "_");
 }
 
 /**
@@ -47,10 +41,11 @@ export function _decodeAngleBrackets(value: string) {
 /**
  * Encode a value to be safe as a param in a URL.
  *
- * Prepare a value for dash-based shields.io API URL, based on notes on the site.
+ * Prepare a value for dash-based shields.io API URL, based on notes on that
+ * site.
  */
-export function _encodeParam(value: string, spaceToUnderscore = true) {
-  value = _encodeSeparators(value, spaceToUnderscore);
+export function _encodeParam(value: string) {
+  value = _encodeSeparators(value);
 
   const encoded = encodeURIComponent(value);
 
@@ -60,9 +55,11 @@ export function _encodeParam(value: string, spaceToUnderscore = true) {
 /**
  * Create a URL path for the shields.io dash-based API.
  *
- * The API requires MESSAGE-COLOR at the least and also accepts LABEL-MESSAGE-COLOR.
+ * The API requires MESSAGE-COLOR at the least and also accepts
+ * LABEL-MESSAGE-COLOR.
  *
- * This conveniently escapes label and message for you, based on rules on the shields.io website.
+ * This conveniently escapes label and message for you, based on rules on the
+ * shields.io website.
  *
  * See more info in `shields-io.md` in the docs.
  */

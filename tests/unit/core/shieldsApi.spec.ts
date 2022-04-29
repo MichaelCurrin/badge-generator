@@ -14,24 +14,19 @@ import {
 
 describe("#_encodeSeparators", () => {
   it("converts a space to an underscore", () => {
-    expect(_encodeSeparators("Foo Bar", true)).toBe("Foo_Bar");
-  });
-  it("will ignore transforming a space", () => {
-    expect(_encodeSeparators("Foo Bar", false)).toBe("Foo Bar");
+    expect(_encodeSeparators("Foo Bar")).toBe("Foo_Bar");
   });
 
   it("converts a single dash to two", () => {
-    expect(_encodeSeparators("Foo-Bar", true)).toBe("Foo--Bar");
+    expect(_encodeSeparators("Foo-Bar")).toBe("Foo--Bar");
   });
 
   it("converts a single underscore to two", () => {
-    expect(_encodeSeparators("Foo_Bar", true)).toBe("Foo__Bar");
+    expect(_encodeSeparators("Foo_Bar")).toBe("Foo__Bar");
   });
 
   it("converts a mix of space, underscore and a dash correctly", () => {
-    expect(_encodeSeparators("Foo Bar_Baz-Buzz", true)).toBe(
-      "Foo_Bar__Baz--Buzz"
-    );
+    expect(_encodeSeparators("Foo Bar_Baz-Buzz")).toBe("Foo_Bar__Baz--Buzz");
   });
 });
 

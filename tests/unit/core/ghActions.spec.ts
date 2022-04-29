@@ -2,7 +2,7 @@ import {
   statusBadge,
   _statusBadgeUrl,
   _statusData,
-  _statusTargetUrl
+  _statusTargetUrl,
 } from "@/core/ghActions";
 import { Repo } from "@/core/Repo";
 
