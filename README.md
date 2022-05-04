@@ -127,7 +127,7 @@ Pre-made badges around languages and tools. Just copy and paste them - no form i
 <div align="center">
 
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
-[![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to node.js homepage)
+[![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to node.js homepage")
 
 </div>
 
