@@ -50,3 +50,5 @@ build: fix test
 # Build, increment tag and push release.
 tag:
 	npm version minor
+tag-b:
+	npm version patch
