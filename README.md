@@ -137,7 +137,7 @@ Pre-made badges around languages and tools. Just copy and paste them - no form i
 
 <div align="center">
 
-![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/#readme)
+[![view - Documentation](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](/docs/#readme "Go to project documentation")
 
 </div>
 
