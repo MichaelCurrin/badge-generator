@@ -98,7 +98,7 @@ Put whatever text you want in this static badge, which is independent of a repo.
 
 ### Packages
 
-Here is a badge for a NPM package as a depenency of the Badge Generator repo. The version changes to reflect what is in the `package.json` file.
+Here is a badge for a NPM package as a dependency of the Badge Generator repo. The version changes to reflect what is in the `package.json` file.
 
 <div align="center">
 
