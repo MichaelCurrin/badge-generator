@@ -14,6 +14,7 @@ const store = {
   state: reactive({
     repoUsername: DEFAULT_REPO_INPUTS.username,
     repoName: DEFAULT_REPO_INPUTS.repoName,
+    asHtml: false,
   }),
 
   /**
@@ -36,6 +37,17 @@ const store = {
     }
 
     this.state.repoName = value;
+  },
+
+  /**
+   * Store value for whether output is displayed as HTML or Markdown.
+   */
+  setAsHtml(value: boolean) {
+    if (DEBUG) {
+      console.debug(`Storing asHtml as: ${value}`);
+    }
+
+    this.state.asHtml = value;
   },
 };
 

@@ -1,7 +1,7 @@
 // Render Markdown as a codeblock. Apply highlighting on content changes.
 <template>
   <div>
-    <Checkbox label="Show HTML" v-model="asHtml" />
+    <Checkbox label="Show HTML" v-model="asHtml" @change="storeAsHtml()" />
     <br />
 
     <pre><code ref="codeBlock" class="markdown">{{ outputCode }}</code></pre>
@@ -14,6 +14,7 @@ import { defineComponent } from "vue";
 
 import { cleanHtml, mdToHTML } from "@/core/markdown";
 import Checkbox from "./Checkbox.vue";
+import store from "@/store";
 
 export default defineComponent({
   name: "CodeItem",
@@ -25,7 +26,7 @@ export default defineComponent({
   },
   data() {
     return {
-      asHtml: false,
+      asHtml: store.state.asHtml,
     };
   },
   computed: {
@@ -35,10 +36,14 @@ export default defineComponent({
 
         return cleanHtml(htmlCode);
       }
+
       return this.code;
     },
   },
   methods: {
+    storeAsHtml() {
+      store.setAsHtml(this.asHtml);
+    },
     highlight() {
       const block = this.$refs.codeBlock as HTMLElement;
       hljs.highlightElement(block);
