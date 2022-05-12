@@ -20,16 +20,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import store from "@/store";
+
 const LIGHT_THEME = "light-theme";
 const DARK_THEME = "dark-theme";
-
-function getTheme() {
-  return localStorage.getItem("user-theme");
-}
-
-function setTheme(value: string) {
-  localStorage.setItem("user-theme", value);
-}
 
 function browserPreferedTheme() {
   const preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -39,26 +33,16 @@ function browserPreferedTheme() {
 
 export default defineComponent({
   name: "ThemeToggle",
-  data() {
-    return {
-      userTheme: LIGHT_THEME,
-    };
-  },
   mounted() {
     const defaultTheme = browserPreferedTheme();
-    this.setTheme(defaultTheme);
+    store.setUserTheme(defaultTheme);
   },
   methods: {
     toggleTheme() {
-      const currentTheme = getTheme();
-      const newTheme = currentTheme === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
-      this.setTheme(newTheme);
-    },
+      const currentValue = store.getUserTheme();
+      const newValue = currentValue === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
 
-    setTheme(theme: string) {
-      setTheme(theme);
-      this.userTheme = theme;
-      document.documentElement.className = theme;
+      store.setUserTheme(newValue);
     },
   },
 });

@@ -3,28 +3,39 @@
  */
 import { DEBUG } from "@/constants/";
 import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
-import { reactive } from "vue";
+
+/**
+ * Return a value from localStorage or a default if key is not set.
+ */
+function getItem(key: string, defaultValue: string) {
+  const value = localStorage.getItem(key);
+
+  return value !== null ? value : defaultValue;
+}
 
 /**
  * Global store.
  *
- * Store user input so values can be remembered by the app across views.
+ * Store user input so values can be remembered by the app across views
+ * and page loads.
  */
 const store = {
-  state: reactive({
-    repoUsername: DEFAULT_REPO_INPUTS.username,
-    repoName: DEFAULT_REPO_INPUTS.repoName,
-  }),
+  getRepoUsername() {
+    return getItem("repoUsername", DEFAULT_REPO_INPUTS.username);
+  },
 
   /**
    * Store a repository username. e.g. 'MyUsername'.
    */
   setRepoUsername(value: string) {
     if (DEBUG) {
-      console.debug(`Storing repo username: ${value}`);
+      console.debug(`Storing repoUsername: ${value}`);
     }
+    localStorage.setItem("repoUsername", value);
+  },
 
-    this.state.repoUsername = value;
+  getRepoName() {
+    return getItem("repoName", DEFAULT_REPO_INPUTS.repoName);
   },
 
   /**
@@ -32,10 +43,25 @@ const store = {
    */
   setRepoName(value: string) {
     if (DEBUG) {
-      console.debug(`Storing repo name: ${value}`);
+      console.debug(`Storing repoName: ${value}`);
     }
+    localStorage.setItem("repoName", value);
+  },
 
-    this.state.repoName = value;
+  getUserTheme() {
+    return localStorage.getItem("user-theme");
+  },
+
+  /**
+   * Set the theme on the store and the root element - for use in CSS in
+   * App.vue module.
+   */
+  setUserTheme(value: string) {
+    if (DEBUG) {
+      console.debug(`Storing user-theme: ${value}`);
+    }
+    localStorage.setItem("user-theme", value);
+    document.documentElement.className = value;
   },
 };
 
