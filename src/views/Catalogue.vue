@@ -31,7 +31,7 @@
         <div v-for="item in renderedBadges" :key="item">
           <Markdown :content="item"></Markdown>
 
-          <Code :code="item" />
+          <CodeItem :code="item" />
           <br />
         </div>
       </div>
@@ -42,7 +42,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import Code from "@/components/Code.vue";
+import CodeItem from "@/components/Code.vue";
 import Markdown from "@/components/Markdown.vue";
 import { renderBadges } from "@/core/catalogue";
 
@@ -50,7 +50,7 @@ export default defineComponent({
   name: "CatalogueItem",
   components: {
     Markdown,
-    Code,
+    CodeItem,
   },
   computed: {
     renderedBadges() {
