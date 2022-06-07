@@ -74,7 +74,7 @@ Link to your project. From another project - even paste these in an online forum
 
 ### Repo metadata
 
-Add to the top of your `README.md` file. These are tied to your specific repo.
+Add to the top of your `README.md` file. These are about your specific repo. Some are dynamic and some are hardcoded (like license below).
 
 <div align="center">
 
@@ -86,7 +86,7 @@ Add to the top of your `README.md` file. These are tied to your specific repo.
 
 ### Generic
 
-Put whatever text you want in this static badge, which is independent of a repo. You can change the color, logo and destination link.
+Put whatever text value you want in this static (fixed) badge. You can change the color, logo and destination link. Use the badge for your repo, website or documentation.
 
 <div align="center">
 
@@ -98,7 +98,9 @@ Put whatever text you want in this static badge, which is independent of a repo.
 
 ### Packages
 
-Here is a badge for a NPM package as a dependency of the Badge Generator repo. The version changes to reflect what is in the `package.json` file.
+You might want to list a dependency of your repo with the value actually in use, instead of a static badge.
+
+Here we have Vue listed as a dependency of this Badge Generator repo and the version number changes to reflect what is in the `package.json` file.
 
 <div align="center">
 
@@ -110,9 +112,9 @@ Here is a badge for a NPM package as a dependency of the Badge Generator repo. T
 
 Similar to above but more flexible.
 
-Create a badge that references _any_ value within a public data file (currently only JSON is supported). The badge stays up to date with whatever value is in the target file..
+Create a badge that references _any_ value within a public data file (currently only JSON files are supported by Badge Generator). The badge stays up to date with whatever value is in the target file.
 
-In the example below, we lookup the version of VS Code needed by an extension. The query is `$.engines["vscode"]` and here is the target [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on GitHub.
+In the example below, we lookup the version of VS Code IDE needed by a VS Code extension. The query is `$.engines["vscode"]` and that is done against this target [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on GitHub.
 
 <div align="center">
 
@@ -122,12 +124,15 @@ In the example below, we lookup the version of VS Code needed by an extension. T
 
 ### Catalogue
 
-Pre-made badges around languages and tools. Just copy and paste them - no form input needed. If you can't find a badge you're looking for there, use the Generic badge option to make your own.
+Pre-made badges around languages and tools. Just copy and paste them - no form input needed. You might put a static value there for what version you support without making it dynamic.
+
+If you can't find a badge you're looking for there, use the Generic badge option to make your own.
 
 <div align="center">
 
 [![OS - Linux](https://img.shields.io/badge/OS-Linux-blue?logo=linux&logoColor=white)](https://www.linux.org/ "Go to Linux homepage")
-[![Made with Node.js](https://img.shields.io/badge/Node.js->%3D12-blue?logo=node.js&logoColor=white)](https://nodejs.org "Go to node.js homepage")
+[![Made with Bash](https://img.shields.io/badge/Bash->=3-blue?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/ "Go to Bash homepage")
+[![Made with Python](https://img.shields.io/badge/Python->=3.6-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")
 
 </div>
 
