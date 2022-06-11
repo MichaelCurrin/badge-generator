@@ -10,7 +10,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE
+  TEMPLATE_BADGE,
 } from "@/constants/badgeValues";
 import { BADGE_DEFAULTS, DOCUMENTATION_BADGE } from "@/constants/catalogue";
 import {
@@ -19,7 +19,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS
+  VERSION_PARAMS,
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -160,8 +160,8 @@ export class Repo {
   useThisTemplateBadge() {
     const linkTarget = this._templateURL();
 
-    const logoColor = ''
-    const onlyQueryParams = false
+    const logoColor = "";
+    const onlyQueryParams = false;
 
     return genericBadge(
       TEMPLATE_BADGE.label!,
@@ -233,7 +233,8 @@ export class Repo {
 
     const badgeColor = this.badgeColor || LICENSE_BADGE.color!;
     const linkTarget = localLicense ? LICENSE_EL_ID : this._licenseTarget();
-    const logo = ''; const logoColor = ""
+    const logo = "";
+    const logoColor = "";
     const onlyQueryParams = false;
 
     return genericBadge(
