@@ -176,7 +176,7 @@ export class Repo {
   /**
    * Return a URL for a badge which displays the latest tag or release number.
    */
-  _tagBadgeUrl(type: string) {
+  _tagBadgeUrl(type: TagTypes) {
     const path = `${type}/${this._nameWithOwner()}`;
     const url = `${SHIELDS_API.GH}/${path}`;
 
