@@ -55,6 +55,9 @@ const store = {
     localStorage.setItem("repoName", value);
   },
 
+  /**
+   * Retrieve the theme.
+   */
   getUserTheme() {
     return localStorage.getItem("user-theme");
   },
