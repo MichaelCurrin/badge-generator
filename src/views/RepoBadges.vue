@@ -84,7 +84,7 @@
 
               <Checkbox
                 label="Documentation section"
-                v-model="addDocs"
+                v-model="addDocsSection"
                 note="Add heading and badge content around documentation."
               />
             </fieldset>
@@ -169,7 +169,7 @@ export default defineComponent({
       useThisTemplate: false,
       ghPages: false,
       addIssues: false,
-      addDocs: true,
+      addDocsSection: true,
       badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
@@ -226,7 +226,7 @@ export default defineComponent({
       // section or maybe here - just add output URL and assume the other data.
       const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
-      const documentationMessage = this.addDocs
+      const documentationMessage = this.addDocsSection
         ? repo.documentationMessage()
         : "";
       const licenseMessage = repo.licenseMessage();
