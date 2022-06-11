@@ -16,8 +16,9 @@ function getItem(key: string, defaultValue: string) {
 /**
  * Global store.
  *
- * Store user input so values can be remembered by the app across views
- * and page loads.
+ * Store user input so values can be remembered by the app when switching to
+ * views that use the same data, switching back to the previous view, and
+ * returning to the app after closing it.
  */
 const store = {
   getRepoUsername() {
