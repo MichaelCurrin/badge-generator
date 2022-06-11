@@ -176,8 +176,8 @@ export class Repo {
   /**
    * Return a URL for a badge which displays the latest tag or release number.
    */
-  _tagBadgeUrl(type: TagTypes) {
-    const path = `${type}/${this._nameWithOwner()}`;
+  _tagBadgeUrl(tagType: TagTypes) {
+    const path = `${tagType}/${this._nameWithOwner()}`;
     const url = `${SHIELDS_API.GH}/${path}`;
 
     const queryParams: StrMap = { ...VERSION_PARAMS };
@@ -194,9 +194,9 @@ export class Repo {
    *
    * See Tag badges section of the /docs/badge-notes.md doc.
    */
-  tagBadge(type: TagTypes) {
-    const altText = `GitHub ${type}`,
-      imageTarget = this._tagBadgeUrl(type);
+  tagBadge(tagType: TagTypes) {
+    const altText = `GitHub ${tagType}`,
+      imageTarget = this._tagBadgeUrl(tagType);
 
     const linkTarget = `${this.ghURL()}/releases/`;
 
