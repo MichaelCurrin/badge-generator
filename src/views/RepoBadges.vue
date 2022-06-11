@@ -85,7 +85,13 @@
               <Checkbox
                 label="Documentation section"
                 v-model="addDocsSection"
-                note="Add heading and badge content around documentation."
+                note="Add heading and content around documentation."
+              />
+
+              <Checkbox
+                label="License section"
+                v-model="addLicenseSection"
+                note="Add heading and content around documentation."
               />
             </fieldset>
             <br />
@@ -170,6 +176,7 @@ export default defineComponent({
       ghPages: false,
       addIssues: false,
       addDocsSection: true,
+      addLicenseSection: true,
       badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
@@ -229,7 +236,9 @@ export default defineComponent({
       const documentationMessage = this.addDocsSection
         ? repo.documentationMessage()
         : "";
-      const licenseMessage = repo.licenseMessage();
+      const licenseMessage = this.addLicenseSection
+        ? repo.licenseMessage()
+        : "";
 
       this.result = `\
 _Social buttons_
