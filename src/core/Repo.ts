@@ -160,6 +160,9 @@ export class Repo {
   useThisTemplateBadge() {
     const linkTarget = this._templateURL();
 
+    const logoColor = ''
+    const onlyQueryParams = false
+
     return genericBadge(
       TEMPLATE_BADGE.label!,
       TEMPLATE_BADGE.message!,
@@ -167,8 +170,8 @@ export class Repo {
       TEMPLATE_BADGE.isLarge,
       linkTarget,
       TEMPLATE_BADGE.logo,
-      "",
-      false,
+      logoColor,
+      onlyQueryParams,
       TEMPLATE_BADGE.altText
     );
   }
@@ -230,6 +233,7 @@ export class Repo {
 
     const badgeColor = this.badgeColor || LICENSE_BADGE.color!;
     const linkTarget = localLicense ? LICENSE_EL_ID : this._licenseTarget();
+    const logo = ''; const logoColor = ""
     const onlyQueryParams = false;
 
     return genericBadge(
@@ -238,8 +242,8 @@ export class Repo {
       badgeColor,
       LICENSE_BADGE.isLarge,
       linkTarget,
-      "",
-      "",
+      logo,
+      logoColor,
       onlyQueryParams,
       LICENSE_BADGE.altText
     );
