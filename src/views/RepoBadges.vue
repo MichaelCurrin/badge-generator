@@ -220,13 +220,6 @@ export default defineComponent({
         this.badgeColor
       );
 
-      const ghActionsBadge = this.workflowName
-        ? statusBadge(repo, this.workflowName)
-        : "";
-
-      const versionBadge = repo.tagBadge(this.versionType as TagTypes),
-        licenseBadge = repo.licenseBadge(true);
-
       let socialBadges = "";
       if (this.addSocialBadges) {
         const repoBadge = repo.ghBadge();
@@ -241,6 +234,11 @@ ${forksBadge}
 `;
       }
 
+      const ghActionsBadge = this.workflowName
+        ? statusBadge(repo, this.workflowName)
+        : "";
+      const versionBadge = repo.tagBadge(this.versionType as TagTypes),
+        licenseBadge = repo.licenseBadge(true);
       const issuesBadge = this.addIssues ? repo.ghCounterBadge("issues") : "";
 
       const templateButton = this.useThisTemplate
