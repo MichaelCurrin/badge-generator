@@ -137,6 +137,7 @@ import { defineComponent } from "vue";
 
 import { DEBUG } from "@/constants/";
 import { COLOR_PRESETS } from "@/constants/appearance";
+import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
 import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
 
 import Help from "@/components/Help.vue";
@@ -178,7 +179,7 @@ export default defineComponent({
     return {
       username: store.getRepoUsername(),
       repoName: store.getRepoName(),
-      licenseType: "MIT",
+      licenseType: DEFAULT_REPO_INPUTS.licenseType,
 
       addSocialBadges: false,
       addIssues: false,
