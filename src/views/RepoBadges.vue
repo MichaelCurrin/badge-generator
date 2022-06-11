@@ -65,6 +65,12 @@
               />
 
               <Checkbox
+                label="Issues badge"
+                v-model="addIssues"
+                note="Add a counter for number of open issues. The color will change based on the count."
+              />
+
+              <Checkbox
                 label="Template button"
                 v-model="useThisTemplate"
                 note="Add a <i>Use This Template</i> button."
@@ -74,12 +80,6 @@
                 label="GH Pages button"
                 v-model="ghPages"
                 note="Add a link to a GitHub Pages site."
-              />
-
-              <Checkbox
-                label="Issues badge"
-                v-model="addIssues"
-                note="Add a counter for number of open issues. The color will change based on the count."
               />
 
               <Checkbox
