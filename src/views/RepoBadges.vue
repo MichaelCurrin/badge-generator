@@ -97,7 +97,7 @@
               <Checkbox
                 label="License section"
                 v-model="addLicenseSection"
-                note="Add heading and content around documentation."
+                note="Add heading and content around license. If enabled, the license badge at the top of the page will point to this section on the page, otherwise it will point to the full URL of the license file."
               />
             </fieldset>
             <br />
@@ -237,8 +237,10 @@ ${forksBadge}
       const ghActionsBadge = this.workflowName
         ? statusBadge(repo, this.workflowName)
         : "";
-      const versionBadge = repo.tagBadge(this.versionType as TagTypes),
-        licenseBadge = repo.licenseBadge(true);
+      const versionBadge = repo.tagBadge(this.versionType as TagTypes);
+
+      const useLocalLicense = this.addLicenseSection;
+      const licenseBadge = repo.licenseBadge(useLocalLicense);
       const issuesBadge = this.addIssues ? repo.ghCounterBadge("issues") : "";
 
       const templateButton = this.useThisTemplate
