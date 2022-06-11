@@ -21,6 +21,9 @@ function getItem(key: string, defaultValue: string) {
  * returning to the app after closing it.
  */
 const store = {
+  /**
+   * Retrieve a repository username. e.g. 'MyUsername'.
+   */
   getRepoUsername() {
     return getItem("repoUsername", DEFAULT_REPO_INPUTS.username);
   },
@@ -35,6 +38,9 @@ const store = {
     localStorage.setItem("repoUsername", value);
   },
 
+  /**
+   * Retrieve a repository name. e.g. 'my-repo'.
+   */
   getRepoName() {
     return getItem("repoName", DEFAULT_REPO_INPUTS.repoName);
   },
