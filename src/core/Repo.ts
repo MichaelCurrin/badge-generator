@@ -10,7 +10,7 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
-  TEMPLATE_BADGE,
+  TEMPLATE_BADGE
 } from "@/constants/badgeValues";
 import { BADGE_DEFAULTS, DOCUMENTATION_BADGE } from "@/constants/catalogue";
 import {
@@ -19,7 +19,7 @@ import {
   GITHUB_IO,
   LICENSE_PATH,
   SHIELDS_API,
-  VERSION_PARAMS,
+  VERSION_PARAMS
 } from "@/constants/urls";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
@@ -30,8 +30,8 @@ import { RepoMetric, StrMap } from "./types.d";
 
 const LICENSE_EL_ID = "#license";
 
-// TODO: Use link to docs site for GH Pages or given link, with different text and link.
-// For now just a flat badge.
+// TODO: Use link to docs site for GH Pages or given link, with different text
+// and link. For now just a flat badge.
 export function _documentationSectionMd() {
   const docsBadge = genericBadge(
     DOCUMENTATION_BADGE.label,
@@ -93,7 +93,7 @@ export class Repo {
   }
 
   /**
-   * Identifier for a repo.
+   * Identifier for a repo using only username and repo name.
    */
   _nameWithOwner() {
     return `${this.username}/${this.repoName}`;
@@ -126,7 +126,7 @@ export class Repo {
   // TODO: add variation that has a docs site for the text. And add custom text
   // options.
   /**
-   * Badge pointing at a GitHub Pages site.
+   * Create badge pointing at a GitHub Pages site.
    */
   ghPagesBadge() {
     const linkTarget = this._ghPagesURL();
@@ -140,16 +140,22 @@ export class Repo {
     );
   }
 
+  /**
+   * Return URL for issues on the GitHub repo.
+   */
   _issuesURL() {
     return `${this.ghURL()}/issues`;
   }
 
+  /**
+   * Return URL for using the current GitHub repo as a template.
+   */
   _templateURL() {
     return `${this.ghURL()}/generate`;
   }
 
   /**
-   * Badge for "Use this template" button.
+   * Badge for "Use this template" button including link.
    */
   useThisTemplateBadge() {
     const linkTarget = this._templateURL();
@@ -167,6 +173,9 @@ export class Repo {
     );
   }
 
+  /**
+   * Return a URL for a badge which displays the latest tag or release number.
+   */
   _tagBadgeUrl(type: string) {
     const path = `${type}/${this._nameWithOwner()}`;
     const url = `${SHIELDS_API.GH}/${path}`;
@@ -180,7 +189,7 @@ export class Repo {
   }
 
   /**
-   * Create a badge that dynamically shows a tag or release and links to
+   * Create a badge that dynamically shows a tag or release number and links to
    * releases.
    *
    * See Tag badges section of the /docs/badge-notes.md doc.
@@ -198,6 +207,10 @@ export class Repo {
     });
   }
 
+  /**
+   * Return absolute URL pointing to the repo's license file.
+   * This will work from anywhere such as from a docs site.
+   */
   _licenseTarget() {
     const repoUrl = this.ghURL();
 
@@ -205,7 +218,10 @@ export class Repo {
   }
 
   /**
-   * Badge for a license.
+   * Create badge for a license including link.
+   *
+   * @param localLicense If true, then use a short URL pointing to the file
+   *   relative the repo root. If false, use a full URL.
    */
   licenseBadge(localLicense: boolean) {
     if (!this.licenseType) {
@@ -229,10 +245,16 @@ export class Repo {
     );
   }
 
+  /**
+   * Return Markdown text for a documentation heading and content.
+   */
   documentationMessage() {
     return _documentationSectionMd();
   }
 
+  /**
+   * Return Markdown text for a license heading and content.
+   */
   licenseMessage() {
     if (!this.licenseType) {
       return "";
@@ -248,7 +270,7 @@ export class Repo {
   }
 
   /**
-   * Badge URL for GitHub repo.
+   * Create badge URL for a GitHub repo.
    */
   ghBadge() {
     const label = this.username,
@@ -272,7 +294,10 @@ export class Repo {
     );
   }
 
-  /* Social counter for repo popularity. */
+  /**
+   * Create social counter badge for indicating repo popularity - stars or
+   * forks.
+   */
   ghCounterBadge(type: RepoMetric) {
     const altText = `${type} - ${this.repoName}`;
     const imageTarget = ghCounterShieldUrl(type, {
