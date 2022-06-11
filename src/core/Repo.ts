@@ -30,8 +30,8 @@ import { RepoMetric, StrMap } from "./types.d";
 
 const LICENSE_EL_ID = "#license";
 
-// TODO: Use link to docs site for GH Pages or given link, with different text and link.
-// For now just a flat badge.
+// TODO: Use link to docs site for GH Pages or given link, with different text
+// and link. For now just a flat badge.
 export function _documentationSectionMd() {
   const docsBadge = genericBadge(
     DOCUMENTATION_BADGE.label,
@@ -93,7 +93,7 @@ export class Repo {
   }
 
   /**
-   * Identifier for a repo.
+   * Identifier for a repo using only username and repo name.
    */
   _nameWithOwner() {
     return `${this.username}/${this.repoName}`;
@@ -126,7 +126,7 @@ export class Repo {
   // TODO: add variation that has a docs site for the text. And add custom text
   // options.
   /**
-   * Badge pointing at a GitHub Pages site.
+   * Create badge pointing at a GitHub Pages site.
    */
   ghPagesBadge() {
     const linkTarget = this._ghPagesURL();
@@ -140,19 +140,28 @@ export class Repo {
     );
   }
 
+  /**
+   * Return URL for issues on the GitHub repo.
+   */
   _issuesURL() {
     return `${this.ghURL()}/issues`;
   }
 
+  /**
+   * Return URL for using the current GitHub repo as a template.
+   */
   _templateURL() {
     return `${this.ghURL()}/generate`;
   }
 
   /**
-   * Badge for "Use this template" button.
+   * Badge for "Use this template" button including link.
    */
   useThisTemplateBadge() {
     const linkTarget = this._templateURL();
+
+    const logoColor = "";
+    const onlyQueryParams = false;
 
     return genericBadge(
       TEMPLATE_BADGE.label!,
@@ -161,14 +170,17 @@ export class Repo {
       TEMPLATE_BADGE.isLarge,
       linkTarget,
       TEMPLATE_BADGE.logo,
-      "",
-      false,
+      logoColor,
+      onlyQueryParams,
       TEMPLATE_BADGE.altText
     );
   }
 
-  _tagBadgeUrl(type: string) {
-    const path = `${type}/${this._nameWithOwner()}`;
+  /**
+   * Return a URL for a badge which displays the latest tag or release number.
+   */
+  _tagBadgeUrl(tagType: TagTypes) {
+    const path = `${tagType}/${this._nameWithOwner()}`;
     const url = `${SHIELDS_API.GH}/${path}`;
 
     const queryParams: StrMap = { ...VERSION_PARAMS };
@@ -180,14 +192,14 @@ export class Repo {
   }
 
   /**
-   * Create a badge that dynamically shows a tag or release and links to
+   * Create a badge that dynamically shows a tag or release number and links to
    * releases.
    *
    * See Tag badges section of the /docs/badge-notes.md doc.
    */
-  tagBadge(type: TagTypes) {
-    const altText = `GitHub ${type}`,
-      imageTarget = this._tagBadgeUrl(type);
+  tagBadge(tagType: TagTypes) {
+    const altText = `GitHub ${tagType}`,
+      imageTarget = this._tagBadgeUrl(tagType);
 
     const linkTarget = `${this.ghURL()}/releases/`;
 
@@ -198,6 +210,10 @@ export class Repo {
     });
   }
 
+  /**
+   * Return absolute URL pointing to the repo's license file.
+   * This will work from anywhere such as from a docs site.
+   */
   _licenseTarget() {
     const repoUrl = this.ghURL();
 
@@ -205,7 +221,10 @@ export class Repo {
   }
 
   /**
-   * Badge for a license.
+   * Create badge for a license including link.
+   *
+   * @param localLicense If true, then use a short URL pointing to the file
+   *   relative the repo root. If false, use a full URL.
    */
   licenseBadge(localLicense: boolean) {
     if (!this.licenseType) {
@@ -214,6 +233,8 @@ export class Repo {
 
     const badgeColor = this.badgeColor || LICENSE_BADGE.color!;
     const linkTarget = localLicense ? LICENSE_EL_ID : this._licenseTarget();
+    const logo = "";
+    const logoColor = "";
     const onlyQueryParams = false;
 
     return genericBadge(
@@ -222,17 +243,23 @@ export class Repo {
       badgeColor,
       LICENSE_BADGE.isLarge,
       linkTarget,
-      "",
-      "",
+      logo,
+      logoColor,
       onlyQueryParams,
       LICENSE_BADGE.altText
     );
   }
 
+  /**
+   * Return Markdown text for a documentation heading and content.
+   */
   documentationMessage() {
     return _documentationSectionMd();
   }
 
+  /**
+   * Return Markdown text for a license heading and content.
+   */
   licenseMessage() {
     if (!this.licenseType) {
       return "";
@@ -248,7 +275,7 @@ export class Repo {
   }
 
   /**
-   * Badge URL for GitHub repo.
+   * Create badge URL for a GitHub repo.
    */
   ghBadge() {
     const label = this.username,
@@ -272,7 +299,10 @@ export class Repo {
     );
   }
 
-  /* Social counter for repo popularity. */
+  /**
+   * Create social counter badge for indicating repo popularity - stars or
+   * forks.
+   */
   ghCounterBadge(type: RepoMetric) {
     const altText = `${type} - ${this.repoName}`;
     const imageTarget = ghCounterShieldUrl(type, {

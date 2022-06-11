@@ -16,10 +16,14 @@ function getItem(key: string, defaultValue: string) {
 /**
  * Global store.
  *
- * Store user input so values can be remembered by the app across views
- * and page loads.
+ * Store user input so values can be remembered by the app when switching to
+ * views that use the same data, switching back to the previous view, and
+ * returning to the app after closing it.
  */
 const store = {
+  /**
+   * Retrieve a repository username. e.g. 'MyUsername'.
+   */
   getRepoUsername() {
     return getItem("repoUsername", DEFAULT_REPO_INPUTS.username);
   },
@@ -34,6 +38,9 @@ const store = {
     localStorage.setItem("repoUsername", value);
   },
 
+  /**
+   * Retrieve a repository name. e.g. 'my-repo'.
+   */
   getRepoName() {
     return getItem("repoName", DEFAULT_REPO_INPUTS.repoName);
   },
@@ -48,6 +55,9 @@ const store = {
     localStorage.setItem("repoName", value);
   },
 
+  /**
+   * Retrieve the theme.
+   */
   getUserTheme() {
     return localStorage.getItem("user-theme");
   },

@@ -65,6 +65,18 @@
               />
 
               <Checkbox
+                label="Social badges"
+                v-model="addSocialBadges"
+                note="Show badges about the GitHub repo - not useful for your main README.md on GitHub but these are great for adding to a page on docs site or for linking to your repo from another location you control like a repo or website."
+              />
+
+              <Checkbox
+                label="Issues badge"
+                v-model="addIssues"
+                note="Add a counter for number of open issues. The color will change based on the count."
+              />
+
+              <Checkbox
                 label="Template button"
                 v-model="useThisTemplate"
                 note="Add a <i>Use This Template</i> button."
@@ -77,9 +89,15 @@
               />
 
               <Checkbox
-                label="Issues badge"
-                v-model="addIssues"
-                note="Add a counter for number of open issues. The color will change based on the count."
+                label="Documentation section"
+                v-model="addDocsSection"
+                note="Add heading and content around documentation."
+              />
+
+              <Checkbox
+                label="License section"
+                v-model="addLicenseSection"
+                note="Add heading and content around license. If enabled, the license badge at the top of the page will point to this section on the page, otherwise it will point to the full URL of the license file."
               />
             </fieldset>
             <br />
@@ -119,6 +137,7 @@ import { defineComponent } from "vue";
 
 import { DEBUG } from "@/constants/";
 import { COLOR_PRESETS } from "@/constants/appearance";
+import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
 import { COLOR_HELP, INITIAL_RESULT } from "@/constants/text";
 
 import Help from "@/components/Help.vue";
@@ -155,21 +174,26 @@ export default defineComponent({
     TextInput,
   },
   data() {
+    const versionType: TagTypes = "tag";
+
     return {
       username: store.getRepoUsername(),
       repoName: store.getRepoName(),
-      licenseType: "MIT",
+      licenseType: DEFAULT_REPO_INPUTS.licenseType,
 
+      addSocialBadges: false,
+      addIssues: false,
       useThisTemplate: false,
       ghPages: false,
-      addIssues: false,
+      addDocsSection: true,
+      addLicenseSection: true,
       badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
-      versionType: "tag",
+      versionType,
 
       result: INITIAL_RESULT,
-      note: note,
+      note,
       colorHelp: COLOR_HELP,
     };
   },
@@ -199,16 +223,27 @@ export default defineComponent({
         this.badgeColor
       );
 
+      let socialBadges = "";
+      if (this.addSocialBadges) {
+        const repoBadge = repo.ghBadge();
+        const starsBadge = repo.ghCounterBadge("stars");
+        const forksBadge = repo.ghCounterBadge("forks");
+        socialBadges = `\
+_Social buttons_
+
+${repoBadge}
+${starsBadge}
+${forksBadge}
+`;
+      }
+
       const ghActionsBadge = this.workflowName
         ? statusBadge(repo, this.workflowName)
         : "";
+      const versionBadge = repo.tagBadge(this.versionType as TagTypes);
 
-      const versionBadge = repo.tagBadge(this.versionType as TagTypes),
-        licenseBadge = repo.licenseBadge(true);
-
-      const repoBadge = repo.ghBadge();
-      const starsBadge = repo.ghCounterBadge("stars");
-      const forksBadge = repo.ghCounterBadge("forks");
+      const useLocalLicense = this.addLicenseSection;
+      const licenseBadge = repo.licenseBadge(useLocalLicense);
       const issuesBadge = this.addIssues ? repo.ghCounterBadge("issues") : "";
 
       const templateButton = this.useThisTemplate
@@ -219,15 +254,15 @@ export default defineComponent({
       // section or maybe here - just add output URL and assume the other data.
       const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
-      const documentationMessage = repo.documentationMessage();
-      const licenseMessage = repo.licenseMessage();
+      const documentationMessage = this.addDocsSection
+        ? repo.documentationMessage()
+        : "";
+      const licenseMessage = this.addLicenseSection
+        ? repo.licenseMessage()
+        : "";
 
       this.result = `\
-_Social buttons_
-
-${repoBadge}
-${starsBadge}
-${forksBadge}
+${socialBadges}
 
 _Repo metadata_
 

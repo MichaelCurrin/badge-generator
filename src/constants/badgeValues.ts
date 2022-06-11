@@ -16,10 +16,10 @@ export const BADGE_GENERATOR_REPO = {
   repoName: "badge-generator",
 };
 
-// This is the same as above for now, but they don't always have to be.
 export const DEFAULT_REPO_INPUTS = {
-  username: "MichaelCurrin",
-  repoName: "badge-generator",
+  username: BADGE_GENERATOR_REPO.username,
+  repoName: BADGE_GENERATOR_REPO.repoName,
+  licenseType: "MIT",
 };
 
 export const STATIC_DEPENDENCY: IGenericBadge = {
