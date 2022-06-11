@@ -173,6 +173,8 @@ export default defineComponent({
     TextInput,
   },
   data() {
+    const versionType: TagTypes = "tag";
+
     return {
       username: store.getRepoUsername(),
       repoName: store.getRepoName(),
@@ -187,10 +189,10 @@ export default defineComponent({
       badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
-      versionType: "tag",
+      versionType,
 
       result: INITIAL_RESULT,
-      note: note,
+      note,
       colorHelp: COLOR_HELP,
     };
   },
