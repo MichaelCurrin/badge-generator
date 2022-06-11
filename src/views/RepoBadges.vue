@@ -65,6 +65,12 @@
               />
 
               <Checkbox
+                label="Social badges"
+                v-model="addSocialBadges"
+                note="Show badges about the GitHub repo - not useful for your main README.md on GitHub but these are great for adding to a page on docs site or for linking to your repo from another location you control like a repo or website."
+              />
+
+              <Checkbox
                 label="Issues badge"
                 v-model="addIssues"
                 note="Add a counter for number of open issues. The color will change based on the count."
@@ -172,9 +178,10 @@ export default defineComponent({
       repoName: store.getRepoName(),
       licenseType: "MIT",
 
+      addSocialBadges: false,
+      addIssues: false,
       useThisTemplate: false,
       ghPages: false,
-      addIssues: false,
       addDocsSection: true,
       addLicenseSection: true,
       badgeColor: COLOR_PRESETS.Default,
@@ -220,9 +227,20 @@ export default defineComponent({
       const versionBadge = repo.tagBadge(this.versionType as TagTypes),
         licenseBadge = repo.licenseBadge(true);
 
-      const repoBadge = repo.ghBadge();
-      const starsBadge = repo.ghCounterBadge("stars");
-      const forksBadge = repo.ghCounterBadge("forks");
+      let socialBadges = "";
+      if (this.addSocialBadges) {
+        const repoBadge = repo.ghBadge();
+        const starsBadge = repo.ghCounterBadge("stars");
+        const forksBadge = repo.ghCounterBadge("forks");
+        socialBadges = `\
+_Social buttons_
+
+${repoBadge}
+${starsBadge}
+${forksBadge}
+`;
+      }
+
       const issuesBadge = this.addIssues ? repo.ghCounterBadge("issues") : "";
 
       const templateButton = this.useThisTemplate
@@ -241,11 +259,7 @@ export default defineComponent({
         : "";
 
       this.result = `\
-_Social buttons_
-
-${repoBadge}
-${starsBadge}
-${forksBadge}
+${socialBadges}
 
 _Repo metadata_
 
