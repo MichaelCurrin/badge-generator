@@ -81,6 +81,12 @@
                 v-model="addIssues"
                 note="Add a counter for number of open issues. The color will change based on the count."
               />
+
+              <Checkbox
+                label="Documentation section"
+                v-model="addDocs"
+                note="Add heading and badge content around documentation."
+              />
             </fieldset>
             <br />
 
@@ -163,6 +169,7 @@ export default defineComponent({
       useThisTemplate: false,
       ghPages: false,
       addIssues: false,
+      addDocs: true,
       badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
@@ -219,7 +226,9 @@ export default defineComponent({
       // section or maybe here - just add output URL and assume the other data.
       const ghPagesButton = this.ghPages ? repo.ghPagesBadge() : "";
 
-      const documentationMessage = repo.documentationMessage();
+      const documentationMessage = this.addDocs
+        ? repo.documentationMessage()
+        : "";
       const licenseMessage = repo.licenseMessage();
 
       this.result = `\
