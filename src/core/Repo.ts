@@ -198,8 +198,8 @@ export class Repo {
    * See Tag badges section of the /docs/badge-notes.md doc.
    */
   tagBadge(tagType: TagTypes) {
-    const altText = `GitHub ${tagType}`,
-      imageTarget = this._tagBadgeUrl(tagType);
+    const altText = `GitHub ${tagType}`;
+    const imageTarget = this._tagBadgeUrl(tagType);
 
     const linkTarget = `${this.ghURL()}/releases/`;
 
