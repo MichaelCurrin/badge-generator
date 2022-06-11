@@ -19,7 +19,7 @@ export const BADGE_GENERATOR_REPO = {
 export const DEFAULT_REPO_INPUTS = {
   username: BADGE_GENERATOR_REPO.username,
   repoName: BADGE_GENERATOR_REPO.repoName,
-  licenseType: "MIT"
+  licenseType: "MIT",
 };
 
 export const STATIC_DEPENDENCY: IGenericBadge = {
