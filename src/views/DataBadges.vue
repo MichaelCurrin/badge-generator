@@ -104,15 +104,15 @@ Help on form fields:
 - URL: A raw URL for a JSON file on GitHub, or URL for a JSON file on your REST API server. e.g.
     - \`https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json\`
     - \`https://example.com/foo.json\`
-- Query: Look-up value within the data structure. For syntax rules, see this [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html) guide.  e.g.
-    - \`$.keywords\`
-    - \`$.engines["vscode"]\`
+- Query: Look-up value within the data structure, such as these attributes. For syntax rules, see this [JSON path](https://support.smartbear.com/alertsite/docs/monitors/api/endpoint/jsonpath.html) guide.  e.g.
+    - \`$.keywords\` in package.json
+    - \`$.engines.node\` in package.json or \`$.abc["def-ghi"]\` for handling hyphens etc.
 
 Sample badges:
 
-- Badge Generator package.json - [![node](https://img.shields.io/badge/dynamic/json?label=node&query=%24.engines["node"]&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fbadge-generator%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/badge-generator)
+- Badge Generator package.json - [![node](https://img.shields.io/badge/dynamic/json?label=node&query=%24.engines.node&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fbadge-generator%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/badge-generator)
 - AutoCommitMsg package.json - [![keywords](https://img.shields.io/badge/dynamic/json?label=keywords&query=%24.keywords&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/auto-commit-msg)
-- AutoCommitMsg package.json - [![vscode](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines["vscode"]&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/auto-commit-msg/)
+- AutoCommitMsg package.json - [![vscode](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines.vscode&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)](https://github.com/MichaelCurrin/auto-commit-msg/)
 `;
 
 export default defineComponent({
