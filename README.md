@@ -114,11 +114,11 @@ Similar to above but more flexible.
 
 Create a badge that references _any_ value within a public data file (currently only JSON files are supported by Badge Generator). The badge stays up to date with whatever value is in the target file.
 
-In the example below, we lookup the version of VS Code IDE needed by a VS Code extension. The query is `$.engines["vscode"]` and that is done against this target [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on GitHub.
+In the example below, we lookup the version of VS Code IDE needed by a VS Code extension. The query is `$.engines.vscode` and that is done against this target [package.json](https://github.com/MichaelCurrin/auto-commit-msg/blob/master/package.json) file on GitHub.
 
 <div align="center">
 
-![auto-commit-msg](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines%5B%22vscode%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
+![auto-commit-msg](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines.vscode&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)
 
 </div>
 
