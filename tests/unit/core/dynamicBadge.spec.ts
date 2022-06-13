@@ -68,24 +68,24 @@ describe("Dynamic data badge", () => {
       const label = "vscode";
       const url =
         "https://raw.githubusercontent.com/MichaelCurrin/auto-commit-msg/master/package.json";
-      
+
       it("displays a badge correctly when accessing a property from a nested object", () => {
-        const query = '$.engines.vscode';
-    
+        const query = "$.engines.vscode";
+
         const expected =
           "![VS Code](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines.vscode&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)";
 
         expect(dynamicDataBadge(label, url, query, "", altText)).toBe(expected);
       });
-      
+
       it("displays a badge correctly when accessing a property from a quoted nested object", () => {
         const query = '$.engines["vscode"]';
-    
+
         const expected =
           "![VS Code](https://img.shields.io/badge/dynamic/json?label=vscode&query=%24.engines%5B%22vscode%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fauto-commit-msg%2Fmaster%2Fpackage.json)";
 
         expect(dynamicDataBadge(label, url, query, "", altText)).toBe(expected);
-      });      
+      });
     });
   });
 });
