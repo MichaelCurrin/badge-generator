@@ -10,7 +10,6 @@
 
 [![CodeQL](https://github.com/MichaelCurrin/badge-generator/workflows/CodeQL/badge.svg)](https://github.com/MichaelCurrin/badge-generator/actions?query=workflow%3ACodeQL "Code quality workflow status")
 [![Known Vulnerabilities](https://snyk.io/test/github/MichaelCurrin/badge-generator/badge.svg?targetFile=package.json)](https://snyk.io/test/github/MichaelCurrin/badge-generator?targetFile=package.json "Snyk vulnerabilities")
-[![LGTM](https://img.shields.io/lgtm/grade/javascript/github/MichaelCurrin/badge-generator?logo=lgtm)](https://lgtm.com/projects/g/MichaelCurrin/badge-generator/context:javascript "View Code Quality checks on LGTM.com")
 
 [![Made with Node](https://img.shields.io/badge/dynamic/json?label=node&query=%24.engines%5B%22node%22%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FMichaelCurrin%2Fbadge-generator%2Fmaster%2Fpackage.json)](https://nodejs.org "Go to Node.js homepage")
 [![Package - Yarn](https://img.shields.io/badge/yarn->=1-blue?logo=yarn&logoColor=white)](https://classic.yarnpkg.com "Go to Yarn classic homepage")
