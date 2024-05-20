@@ -28,11 +28,11 @@ import { logoQueryParams, staticDashUrl, staticParamsUrl } from "./shieldsApi";
  * having "3.9" as the version in the alt text and the badge message.
  *
  * @param linkTarget Path or URL destination for when the badge image is
- * clicked.
+ *   clicked.
  * @param altText Fallback text.
  * @param hoverTitle Optional title of the image, to display on hover over.
  *   e.g. "Go to website". This is used on the outer link, not the inner image.
- *   If no linkTarget is provided, this field does nothing.
+ *   If no `linkTarget` is provided, this field does nothing.
  */
 export function genericBadge(
   label: string,
