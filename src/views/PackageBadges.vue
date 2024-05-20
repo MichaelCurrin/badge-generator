@@ -190,7 +190,7 @@ import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { REGISTRY, RegistryKeys } from "@/constants/urls";
-import { dependency, nodeVersionBadge } from "@/core/packages";
+import { staticDependencyBadge, nodeVersionBadge } from "@/core/packages";
 import { Repo } from "@/core/Repo";
 import { ENVIRONMENT, EnvironmentKeys } from "@/core/shieldsApi";
 import store from "@/store";
@@ -254,7 +254,12 @@ export default defineComponent({
         registry = REGISTRY[registryKey];
 
       const dependencyBadge = registry
-        ? dependency(this.pkgName, registry, logoAppearance, this.badgeColor)
+        ? staticDependencyBadge(
+            this.pkgName,
+            registry,
+            logoAppearance,
+            this.badgeColor
+          )
         : "";
 
       store.setRepoUsername(this.username);

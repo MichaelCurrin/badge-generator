@@ -1,5 +1,9 @@
 import { REGISTRY } from "@/constants/urls";
-import { dependency, goVersionBadge, nodeVersionBadge } from "@/core/packages";
+import {
+  goVersionBadge,
+  nodeVersionBadge,
+  staticDependencyBadge,
+} from "@/core/packages";
 import { Repo } from "@/core/Repo";
 import { ENVIRONMENT } from "@/core/shieldsApi";
 
@@ -9,7 +13,9 @@ describe("#dependency", () => {
     const linkTarget = "https://www.npmjs.com/package/react";
     const expectedBadge = `[![dependency - react](${imageTarget})](${linkTarget})`;
 
-    expect(dependency("react", REGISTRY.Node, {})).toBe(expectedBadge);
+    expect(staticDependencyBadge("react", REGISTRY.Node, {})).toBe(
+      expectedBadge
+    );
   });
 
   it("returns a static badge for a Node package, including a logo and logo color", () => {
@@ -19,7 +25,10 @@ describe("#dependency", () => {
     const expectedBadge = `[![dependency - react](${imageTarget})](${linkTarget})`;
 
     expect(
-      dependency("react", REGISTRY.Node, { logo: "react", logoColor: "white" })
+      staticDependencyBadge("react", REGISTRY.Node, {
+        logo: "react",
+        logoColor: "white",
+      })
     ).toBe(expectedBadge);
   });
 
@@ -28,7 +37,9 @@ describe("#dependency", () => {
     const linkTarget = "https://pypi.org/project/requests";
     const expectedBadge = `[![dependency - requests](${imageTarget})](${linkTarget})`;
 
-    expect(dependency("requests", REGISTRY.Python, {})).toBe(expectedBadge);
+    expect(staticDependencyBadge("requests", REGISTRY.Python, {})).toBe(
+      expectedBadge
+    );
   });
 
   it("returns a static badge for a Ruby package, including a logo and logo color", () => {
@@ -38,7 +49,7 @@ describe("#dependency", () => {
     const expectedBadge = `[![dependency - jekyll](${imageTarget})](${linkTarget})`;
 
     expect(
-      dependency("jekyll", REGISTRY.Ruby, {
+      staticDependencyBadge("jekyll", REGISTRY.Ruby, {
         logo: "jekyll",
         logoColor: "white",
       })

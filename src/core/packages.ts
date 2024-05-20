@@ -7,10 +7,10 @@ import {
   STATIC_DEPENDENCY,
 } from "@/constants/badgeValues";
 import { REGISTRY, SHIELDS_API } from "@/constants/urls";
+import { Repo } from "./Repo";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink } from "./markdown";
-import { Repo } from "./Repo";
 import {
   ENVIRONMENT,
   logoQueryParams,
@@ -18,7 +18,6 @@ import {
 } from "./shieldsApi";
 import { TLogoAppearance } from "./shieldsApi.d";
 
-// TODO: Rename function.
 /**
  * Static dependency badge.
  *
@@ -40,7 +39,7 @@ import { TLogoAppearance } from "./shieldsApi.d";
  * The PyPI URL is really meant to have a trailing forward slash, but it is
  * easier to omit here and let the URL redirect for you.
  */
-export function dependency(
+export function staticDependencyBadge(
   name: string,
   registry: REGISTRY,
   logoAppearance: TLogoAppearance,
