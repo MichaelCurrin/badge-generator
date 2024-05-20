@@ -21,10 +21,10 @@ import {
   SHIELDS_API,
   VERSION_PARAMS,
 } from "@/constants/urls";
+import { TagTypes } from "./Repo.d";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
-import { TagTypes } from "./Repo.d";
 import { ghCounterShieldUrl } from "./shieldsApi";
 import { RepoMetric, StrMap } from "./types.d";
 
@@ -265,11 +265,14 @@ export class Repo {
       return "";
     }
 
-    const license = mdLink(this.licenseType, LICENSE_PATH);
-    const user = mdLink(
-      `@${this.username}`,
-      `${GITHUB_DOMAIN}/${this.username}`
-    );
+    const license = mdLink({
+      altText: this.licenseType,
+      linkTarget: LICENSE_PATH,
+    });
+    const user = mdLink({
+      altText: `@${this.username}`,
+      linkTarget: `${GITHUB_DOMAIN}/${this.username}`,
+    });
 
     return _licenseSectionMd(license, user);
   }

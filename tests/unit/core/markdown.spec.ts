@@ -2,11 +2,13 @@ import { mdImage, mdImageWithLink, mdLink } from "@/core/markdown";
 
 describe("#mdLink", () => {
   it("returns a valid markdown link", () => {
-    expect(mdLink("Alt text", "foo.md")).toBe("[Alt text](foo.md)");
-
-    expect(mdLink("Example", "https://example.com")).toBe(
-      "[Example](https://example.com)"
+    expect(mdLink({ altText: "Alt text", linkTarget: "foo.md" })).toBe(
+      "[Alt text](foo.md)"
     );
+
+    expect(
+      mdLink({ altText: "Example", linkTarget: "https://example.com" })
+    ).toBe("[Example](https://example.com)");
   });
 });
 

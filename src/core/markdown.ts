@@ -1,20 +1,23 @@
 /**
  * Markdown module.
  *
- * This deals with creating markdown content. It is relatively simple so not worth relying on a
- * library for.
+ * This deals with creating Markdown content. It is relatively simple logic,
+ * so not worth relying on a 3rd-party package for.
  */
 import markdownIt from "markdown-it";
-import { IMdImage, IMdImageWithLink } from "./markdown.d";
+import { IMdImage, IMdImageWithLink, IMdLink } from "./markdown.d";
 
 const md = new markdownIt({ html: true });
 
 /**
- * Create Markdown link code.
+ * Create Markdown code for a link.
  *
- * TODO: Use object destructuring.
+ * @param altText Fallback text.
+ * @param linkTarget Path or URL of the image to show.
+ * @param hoverTitle Optional title of the link, to display on hover over.
+ *   e.g. "Go to website".
  */
-export function mdLink(altText: string, linkTarget: string, hoverTitle = "") {
+export function mdLink({ altText, linkTarget, hoverTitle }: IMdLink) {
   if (hoverTitle) {
     linkTarget = `${linkTarget} "${hoverTitle}"`;
   }
@@ -22,7 +25,7 @@ export function mdLink(altText: string, linkTarget: string, hoverTitle = "") {
 }
 
 /**
- * Create Markdown image code.
+ * Create Markdown code for an image.
  *
  * @param altText Fallback text.
  * @param imageTarget Path or URL of the image to show.
@@ -57,7 +60,7 @@ export function mdImageWithLink({
   const image = mdImage({ altText, imageTarget });
 
   if (linkTarget) {
-    return mdLink(image, linkTarget, hoverTitle);
+    return mdLink({ altText: image, linkTarget, hoverTitle });
   }
   return image;
 }
@@ -72,12 +75,12 @@ export function mdToHTML(value: string): string {
 }
 
 /**
- * Clean HTML.
+ * Clean HTML code.
  *
  * Expect HTML code that was rendered from Markdown and convert it into more
  * typical and readable HTML.
  */
-export function cleanHtml(value: String) {
+export function cleanHtml(value: String): string {
   return value
     .replaceAll("<p>", "")
     .replaceAll("</p>", "\n")
