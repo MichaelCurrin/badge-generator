@@ -2,7 +2,7 @@ import { renderBadges } from "@/core/catalogue";
 
 describe("#renderBadges", () => {
   // Just a sample of catalogue badges need to be tested for a variety of
-  // features. Not all badges. There are already tests for genericBadge
+  // features. Not all badges. There are already tests for the `genericBadge`
   // function.
   describe("convert configured catalogue badges to expected markdown badges", () => {
     const badges = renderBadges();
@@ -27,7 +27,7 @@ describe("#renderBadges", () => {
 
     it("renders a Python badge", () => {
       expect(badges[10]).toBe(
-        '[![Made with Python](https://img.shields.io/badge/Python->=3.6-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")'
+        '[![Made with Python](https://img.shields.io/badge/Python->=3.10-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")'
       );
     });
   });
