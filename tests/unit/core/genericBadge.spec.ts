@@ -125,7 +125,7 @@ describe("#genericBadge", () => {
     });
   });
 
-  // TODO: Currently used in catalogue. This can be added to Generic page if needed.
+  // TODO: Currently used in Catalogue. This can be added to Generic page if needed.
   describe("Alt text", () => {
     it("displays default alt text if not supplied", () => {
       expect(

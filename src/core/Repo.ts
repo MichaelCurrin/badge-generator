@@ -30,8 +30,8 @@ import { RepoMetric, StrMap } from "./types.d";
 
 const LICENSE_EL_ID = "#license";
 
-// TODO: Use link to docs site for GH Pages or given link, with different text
-// and link. For now just a flat badge.
+// TODO: Make dynamic. User provides a link or chooses to use GH Pages auto link
+// For now just a flat badge.
 export function _documentationSectionMd() {
   const docsBadge = genericBadge(
     DOCUMENTATION_BADGE.label,
