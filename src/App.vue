@@ -188,7 +188,7 @@ details summary {
   cursor: pointer;
 }
 
-details:not([open])>*:not(summary) {
+details:not([open]) > *:not(summary) {
   display: none !important;
 }
 
