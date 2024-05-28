@@ -1,30 +1,31 @@
 <template>
   <div>
-    <header class="container-lg">
-      <a id="logo" :href="baseUrl">Badge Generator</a>
+    <header>
+      <div class="container-lg">
+        <a id="logo" :href="baseUrl">Badge Generator</a>
 
-      <div id="nav">
-        <!-- Build menu based on configured app routes. -->
-        <!-- Keep router-link on one line for underlining -->
-        <span v-for="(item, index) in routes" :key="item.path">
-          <span>{{ index !== 0 ? " | " : "" }}</span>
-          <router-link :to="item.path">{{ item.name }}</router-link>
-        </span>
-        <span class="toggle">
-          <ThemeToggle />
-        </span>
+        <div id="nav">
+          <!-- Build menu based on configured app routes. -->
+          <!-- Keep router-link on one line for underlining -->
+          <span v-for="(item, index) in routes" :key="item.path">
+            <span>{{ index !== 0 ? " | " : "" }}</span>
+            <router-link :to="item.path">{{ item.name }}</router-link>
+          </span>
+          <span class="toggle">
+            <ThemeToggle />
+          </span>
+        </div>
       </div>
     </header>
-
     <router-view />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import "highlight.js/styles/github-gist.css";
 import ThemeToggle from "@/components/ThemeToggle.vue";
 import { routes } from "@/router/index";
+import "highlight.js/styles/github-gist.css";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "App",
@@ -45,6 +46,7 @@ export default defineComponent({
   --green: #42b983;
   --green-dark: #3aa776;
   --grey: #2c3e50;
+  --white: #f3f3f3;
   --element-size: 2.5rem;
   color: var(--text-primary-color);
   background-color: var(--background-color-primary);
@@ -61,11 +63,11 @@ export default defineComponent({
   --background-color-primary: #1e1e1e;
   --background-color-secondary: #3f3f3f;
   --accent-color: #e4e4e4;
-  --text-primary-color: #f3f3f3;
+  --text-primary-color: var(--white);
 }
 
 /**
- * Standard Vue base.
+ * Standard Vue base styles.
  *
  * Based on the Vue quickstart app's styles.
  */
@@ -74,7 +76,6 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 10px;
 }
 
 #nav {
@@ -96,7 +97,7 @@ export default defineComponent({
 
 #nav a.router-link-exact-active {
   text-decoration: underline;
-  color: var(--accent-color);
+  color: var(--green);
 }
 
 .toggle {
@@ -117,7 +118,7 @@ a:hover {
 /**
  * GitHub Pages styles base.
  *
- * Based on markdown site built on GitHub Pages without Jekyll.
+ * Based on a Markdown site built on GitHub Pages without Jekyll.
  */
 
 /* Center app. */
@@ -182,12 +183,15 @@ the most useful. */
 [hidden][hidden] {
   display: none !important;
 }
+
 details summary {
   cursor: pointer;
 }
-details:not([open]) > *:not(summary) {
+
+details:not([open])>*:not(summary) {
   display: none !important;
 }
+
 summary {
   display: list-item;
 }
@@ -197,15 +201,28 @@ summary {
 }
 
 /**
- * Custom - header.
+ * Header.
  */
+body {
+  margin: 0px;
+}
+
+header {
+  width: 100%;
+  padding: 7px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  color: var(--white);
+  background: var(--grey);
+}
 
 #logo {
   font-weight: bold;
   font-size: 3em;
 
   text-decoration: none;
-  color: var(--accent-color);
+  color: var(--white);
 }
 
 #logo:hover {
@@ -224,9 +241,9 @@ summary {
  * Flexbox
  *
  * Based on GH pages, Bootstrap and the GH Readme Generator. There is a better
- * way to do this using
- * @media instead of min-width values (the min-width goes off-screen on a really
- * small resolution when tested on desktop but this could be unrealistic).
+ * way to do this using `@media` instead of min-width values (the min-width
+ * goes off-screen on a really small resolution when tested on desktop but
+ * this could be unrealistic).
  *
  * Setting row width as 100% was my own setup to avoid having the col-12 element
  * look to narrow on mobile at min-width 200px, unless I set a min-width like
@@ -256,7 +273,7 @@ summary {
 }
 
 /**
- * Custom - forms.
+ * Forms.
  */
 
 input {
@@ -274,7 +291,7 @@ input:disabled {
 }
 
 .btn {
-  color: white;
+  color: var(--white);
   font-size: 21px;
   background: linear-gradient(to bottom, var(--green), var(--green-dark));
   padding: 10px 20px 10px 20px;
@@ -293,8 +310,8 @@ input:disabled {
  * Custom - output.
  */
 
-/* Prevent highlight.js CSS from adding white background to `code` when `pre` already has grey
-background. */
+/* Prevent highlight.js CSS from adding white background to `code` when `pre`
+   already has grey background. */
 code {
   background: none !important;
 }
