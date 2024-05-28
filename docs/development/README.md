@@ -18,7 +18,7 @@ See the [Installation](/docs/installation.md) and [Usage](/docs/usage.md) docs.
 
 You need Node 16 or higher.
 
-Install Yarn globally. 
+Install Yarn globally.
 
 ```sh
 $ npm install -g yarn
@@ -40,6 +40,6 @@ To convert the Markdown badges to code to be copied, use [Code.vue](/src/compone
 
 ### Markdown to HTML
 
-To convert Markdown to rendered HTML, use [Markdown.vue](/src/components/Markdown.vue), which relies on MarkdownIt.
+To convert Markdown to rendered HTML, use [Markdown.vue](/src/components/Markdown.vue), which relies on `MarkdownIt`.
 
 The VueMarkdown package was used before for a component, but it has vulnerabilities and was not maintained. And a fork proved to be not so good.
