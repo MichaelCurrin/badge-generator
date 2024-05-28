@@ -15,9 +15,9 @@
     "postversion": "git push --follow-tags --no-verify"
   },
   "dependencies": {
-    "markdown-it": "^13.0.1",
-    "vue": "^3.2.36",
-    "vue-router": "^4.0.8"
+    "markdown-it": "^14.1.0",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
