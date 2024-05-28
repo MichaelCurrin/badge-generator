@@ -42,4 +42,4 @@ To convert the Markdown badges to code to be copied, use [Code.vue](/src/compone
 
 To convert Markdown to rendered HTML, use [Markdown.vue](/src/components/Markdown.vue), which relies on `MarkdownIt`.
 
-The VueMarkdown package was used before for a component, but it has vulnerabilities and was not maintained. And a fork proved to be not so good.
+The `VueMarkdown` package was used before for a component, but it has vulnerabilities and was not maintained. And a fork proved to not be so good.
