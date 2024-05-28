@@ -1,5 +1,20 @@
 # Linting and formatting
 
+## Check for issues
+
+```sh
+$ yarn lint:check
+```
+
+## Fix Prettier formatting issues
+
+```sh
+$ yarn lint:fix
+```
+
+
+## Project info
+
 This topic has a few pieces relevant for maintaining this project.
 
 - TS and JS Language Features in VS Code
