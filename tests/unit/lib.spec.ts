@@ -10,6 +10,26 @@ describe("#stripLeadingSlash", () => {
     expect(stripLeadingSlash("foo.png")).toBe("foo.png");
     expect(stripLeadingSlash("foo/bar.png")).toBe("foo/bar.png");
   });
+
+  it("removes multiple leading slashes", () => {
+    expect(stripLeadingSlash("///foo.png")).toBe("foo.png");
+    expect(stripLeadingSlash("///foo/bar.png")).toBe("foo/bar.png");
+  });
+
+  it("returns an empty string if the input is an empty string", () => {
+    expect(stripLeadingSlash("")).toBe("");
+  });
+
+  it("returns an empty string if the input is only slashes", () => {
+    expect(stripLeadingSlash("/")).toBe("");
+    expect(stripLeadingSlash("//")).toBe("");
+    expect(stripLeadingSlash("///")).toBe("");
+  });
+
+  it("handles strings with slashes in the middle or end", () => {
+    expect(stripLeadingSlash("foo/bar/")).toBe("foo/bar/");
+    expect(stripLeadingSlash("foo/bar//")).toBe("foo/bar//");
+  });
 });
 
 describe("#slugify", () => {
