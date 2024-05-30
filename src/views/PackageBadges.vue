@@ -9,9 +9,9 @@
           external link to the package in the registry.
         </p>
         <p>
-          Note that these badges here are <b>static</b> and do not display a version number. Except
-          for the
-          Node badge, which shows the version number in your <code>package.json</code> on GitHub.
+          Note that these badges here are <b>static</b> and do not display a
+          version number. Except for the Node badge, which shows the version
+          number in your <code>package.json</code> on GitHub.
         </p>
       </div>
     </div>
@@ -25,7 +25,12 @@
             <fieldset name="package">
               <legend>Package metadata</legend>
 
-              <TextInput label="Name" v-model="pkgName" placeholder="e.g. vue" isRequired />
+              <TextInput
+                label="Name"
+                v-model="pkgName"
+                placeholder="e.g. vue"
+                isRequired
+              />
               <br />
 
               <div>
@@ -33,25 +38,47 @@
 
                 <!-- Radio buttons. -->
                 <div>
-                  <input type="radio" id="python" name="package-type" value="Python"
-                    v-model="pkgType" checked />
+                  <input
+                    type="radio"
+                    id="python"
+                    name="package-type"
+                    value="Python"
+                    v-model="pkgType"
+                    checked
+                  />
                   <label for="python">Python (PyPI)</label>
                 </div>
 
                 <div>
-                  <input type="radio" id="node" name="package-type" value="Node"
-                    v-model="pkgType" />
+                  <input
+                    type="radio"
+                    id="node"
+                    name="package-type"
+                    value="Node"
+                    v-model="pkgType"
+                  />
                   <label for="node">Node (NPM)</label>
                 </div>
 
                 <div>
-                  <input type="radio" id="ruby" name="package-type" value="Ruby"
-                    v-model="pkgType" />
+                  <input
+                    type="radio"
+                    id="ruby"
+                    name="package-type"
+                    value="Ruby"
+                    v-model="pkgType"
+                  />
                   <label for="ruby">Ruby (RubyGems)</label>
                 </div>
 
                 <div>
-                  <input type="radio" id="go" name="package-type" value="Go" v-model="pkgType" />
+                  <input
+                    type="radio"
+                    id="go"
+                    name="package-type"
+                    value="Go"
+                    v-model="pkgType"
+                  />
                   <label for="go">Go</label>
                 </div>
               </div>
@@ -61,14 +88,27 @@
                 <span>Environment: </span>
 
                 <span>
-                  <input type="radio" id="env-prod" name="env-type" :value="prodOption"
-                    :disabled="!dynamicBadgeEnabled" v-model="envType" checked />
+                  <input
+                    type="radio"
+                    id="env-prod"
+                    name="env-type"
+                    :value="prodOption"
+                    :disabled="!dynamicBadgeEnabled"
+                    v-model="envType"
+                    checked
+                  />
                   <label for="env-prod">{{ prodOption }}</label>
                 </span>
 
                 <span>
-                  <input type="radio" id="env-dev" name="env-type" :value="devOption"
-                    :disabled="!dynamicBadgeEnabled" v-model="envType" />
+                  <input
+                    type="radio"
+                    id="env-dev"
+                    name="env-type"
+                    :value="devOption"
+                    :disabled="!dynamicBadgeEnabled"
+                    v-model="envType"
+                  />
                   <label for="env-dev">{{ devOption }}</label>
                 </span>
               </div>
@@ -78,24 +118,45 @@
             <fieldset name="ghRepo">
               <legend>GitHub repo</legend>
 
-              <TextInput label="Username" v-model="username" :disabled="!dynamicBadgeEnabled" />
+              <TextInput
+                label="Username"
+                v-model="username"
+                :disabled="!dynamicBadgeEnabled"
+              />
               <br />
 
-              <TextInput label="Repo name" v-model="repoName" :disabled="!dynamicBadgeEnabled" />
+              <TextInput
+                label="Repo name"
+                v-model="repoName"
+                :disabled="!dynamicBadgeEnabled"
+              />
             </fieldset>
             <br />
 
             <fieldset name="display-options">
               <legend>Display options</legend>
-              <TextInput label="Color" v-model="badgeColor" placeholder="e.g. blue"
-                :note="colorHelp" />
+              <TextInput
+                label="Color"
+                v-model="badgeColor"
+                placeholder="e.g. blue"
+                :note="colorHelp"
+              />
 
-              <TextInput label="Logo" v-model="logo" placeholder="e.g. vue.js" :note="logoHelp" />
+              <TextInput
+                label="Logo"
+                v-model="logo"
+                placeholder="e.g. vue.js"
+                :note="logoHelp"
+              />
 
-              <TextInput label="Logo color" v-model="logoColor"
+              <TextInput
+                label="Logo color"
+                v-model="logoColor"
                 :disabled="logo === '' || !dynamicBadgeEnabled"
                 :class="logo === '' ? disabledClass : ''"
-                placeholder="e.g. white or #fff or #ffffff" :note="logoColorHelp" />
+                placeholder="e.g. white or #fff or #ffffff"
+                :note="logoColorHelp"
+              />
             </fieldset>
             <br />
 
@@ -199,11 +260,11 @@ export default defineComponent({
 
       const dependencyBadge = registry
         ? staticDependencyBadge(
-          this.pkgName,
-          registry,
-          logoAppearance,
-          this.badgeColor
-        )
+            this.pkgName,
+            registry,
+            logoAppearance,
+            this.badgeColor
+          )
         : "";
 
       store.setRepoUsername(this.username);
@@ -216,12 +277,12 @@ export default defineComponent({
       const lockedPkgBadge =
         registry === REGISTRY.Node
           ? nodeVersionBadge(
-            repo,
-            this.pkgName,
-            logoAppearance,
-            environment,
-            this.badgeColor
-          )
+              repo,
+              this.pkgName,
+              logoAppearance,
+              environment,
+              this.badgeColor
+            )
           : "";
 
       this.result = `\
