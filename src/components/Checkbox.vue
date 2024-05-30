@@ -8,7 +8,9 @@
       :id="slug"
       type="checkbox"
       :checked="modelValue"
-      v-on:change="$emit('update:modelValue', $event.target.checked)"
+      v-on:change="
+        $emit('update:modelValue', ($event.target as HTMLInputElement).checked)
+      "
     />
 
     <small class="note" v-if="note">
