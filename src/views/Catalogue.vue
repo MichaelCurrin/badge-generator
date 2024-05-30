@@ -9,9 +9,11 @@
           mostly used as they are. You can tweak the version numbers as needed.
         </p>
         <p>
-          The badges are all static so they will always look the same. They not
-          rely on anything in your project to load. External links are included
-          using the homepage of the tool.
+          The badges here are all <b>static</b> and do not depend on anything.
+          Tip: for NPM packages, rather use the "Package" tab to make a dynamic
+          badge that will load a version number based on your
+          <code>package.json</code> file. The badges are included with clickable
+          external clicks which take you to the homepage of that tool.
         </p>
         <p>
           Related -
