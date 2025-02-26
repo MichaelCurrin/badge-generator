@@ -26,11 +26,11 @@
       <div class="col-12">
         <p>
           This is an online tool which generates badges (or "shields") based on
-          your inputs, using the <a href="https://shields.io"/>https://shields.io/</a>
-          service. Preview the badges on this tool and then copy the
-          Markdown/HTML to your GitHub repo's <b>README.md</b> file. 
-          These metadata badges can help people learn
-          about your repo at a glance and make it look professional.
+          your inputs, using the
+          <a href="https://shields.io">shields.io</a> service. Preview the
+          badges on this tool and then copy the Markdown/HTML to your GitHub
+          repo's <b>README.md</b> file. These metadata badges can help people
+          learn about your repo at a glance and make it look professional.
         </p>
         <p>
           This tool adds <b>convenience</b> and <b>productivity</b> to your life
@@ -41,7 +41,7 @@
           your to figure out rules and syntax or read long URLs. For badges that
           you need to create regularly, there's no need to look at
           <i>shields.io</i> to figure out how it works or to write the markdown
-          by hand (and do all the tedious things like escaping characters and
+          by hand and do all the tedious things like escaping characters and
           learning the syntax for each badge.
         </p>
         <p>
@@ -59,8 +59,8 @@ import { defineComponent } from "vue";
 
 import Markdown from "@/components/Markdown.vue";
 import { APP_THEME_COLOR, DESCRIPTION } from "@/constants/appearance";
-import { Repo } from "@/core/Repo";
 import { BADGE_GENERATOR_REPO } from "@/constants/badgeValues";
+import { Repo } from "@/core/Repo";
 
 const repo = new Repo(
   BADGE_GENERATOR_REPO.username,
