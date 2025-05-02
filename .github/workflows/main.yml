@@ -22,16 +22,16 @@ jobs:
           persist-credentials: false
 
       - name: Set up Node.js ⚙️
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '16.x'
 
       - name: Get Yarn cache directory 📦
         id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache packages 📦
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir.outputs.dir }}
