@@ -31,15 +31,15 @@ describe("#buildUrl", () => {
   });
 
   it("encodes special characters in a value of URL param", () => {
-    expect(buildUrl("http://example.com", { foo: "abc?def", bar: ">=1.2" })).toBe(
-      "http://example.com/?foo=abc%3Fdef&bar=>%3D1.2"
-    );
+    expect(
+      buildUrl("http://example.com", { foo: "abc?def", bar: ">=1.2" })
+    ).toBe("http://example.com/?foo=abc%3Fdef&bar=>%3D1.2");
   });
 
   it("encodes a space in a value of URL param", () => {
-    expect(buildUrl("http://example.com", { foo: "abc def", bar: ">=1.2" })).toBe(
-      "http://example.com/?foo=abc+def&bar=>%3D1.2"
-    );
+    expect(
+      buildUrl("http://example.com", { foo: "abc def", bar: ">=1.2" })
+    ).toBe("http://example.com/?foo=abc+def&bar=>%3D1.2");
   });
 });
 
