@@ -6,7 +6,8 @@ import { StrMap } from "./types.d";
  * @param url Protocol, domain and path. This must have a protocol or it will be
  *   considered invalid.
  * @param queryParams Object of key-value pairs. This will be outputted in the
- *   form: '?foo=bar'.
+ *   form: '?foo=bar'. The URL is escaped to be compatible with Shields.io
+ *   service.
  */
 export function buildUrl(url: string, queryParams: StrMap): string {
   const urlObj = new URL(url);
