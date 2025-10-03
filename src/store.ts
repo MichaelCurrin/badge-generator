@@ -73,6 +73,58 @@ const store = {
     localStorage.setItem("user-theme", value);
     document.documentElement.className = value;
   },
+
+  /**
+   * Retrieve the Python version badge branch.
+   */
+  getPythonBranch() {
+    return getItem("pythonBranch", "main");
+  },
+
+  /**
+   * Store the Python version badge branch.
+   */
+  setPythonBranch(value: string) {
+    if (DEBUG) {
+      console.debug(`Storing pythonBranch: ${value}`);
+    }
+    localStorage.setItem("pythonBranch", value);
+  },
+
+  /**
+   * Retrieve the Python version badge query type.
+   */
+  getPythonQueryType() {
+    return getItem("pythonQueryType", "PROJECT");
+  },
+
+  /**
+   * Store the Python version badge query type.
+   */
+  setPythonQueryType(value: string) {
+    if (DEBUG) {
+      console.debug(`Storing pythonQueryType: ${value}`);
+    }
+    localStorage.setItem("pythonQueryType", value);
+  },
+
+  /**
+   * Retrieve whether Python version badge is enabled.
+   */
+  getAddPythonVersion() {
+    const value = localStorage.getItem("addPythonVersion");
+    return value === "true";
+  },
+
+  /**
+   * Store whether Python version badge is enabled.
+   */
+  setAddPythonVersion(value: boolean) {
+    if (DEBUG) {
+      console.debug(`Storing addPythonVersion: ${value}`);
+    }
+    localStorage.setItem("addPythonVersion", value.toString());
+  },
 };
 
 export default store;

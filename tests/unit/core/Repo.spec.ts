@@ -250,4 +250,123 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
       );
     });
   });
+
+  describe("#pythonVersionBadge", () => {
+    describe("Project query type", () => {
+      it("returns a valid Python version badge with default branch and Project query", () => {
+        const repo = new Repo("MyUser", "my-repo");
+        const result = repo.pythonVersionBadge("main", "PROJECT");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+
+      it("returns a valid Python version badge with custom branch and Project query", () => {
+        const repo = new Repo("MyUser", "my-repo");
+        const result = repo.pythonVersionBadge("develop", "PROJECT");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fdevelop%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+
+      it("handles repo names with special characters using Project", () => {
+        const repo = new Repo("user-name", "repo.name");
+        const result = repo.pythonVersionBadge("feature-branch", "PROJECT");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fuser-name%2Frepo.name%2Frefs%2Fheads%2Ffeature-branch%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+    });
+
+    describe("Tool Poetry query type", () => {
+      it("returns a valid Python version badge with default branch and Tool Poetry query", () => {
+        const repo = new Repo("MyUser", "my-repo");
+        const result = repo.pythonVersionBadge("main", "TOOL_POETRY");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=tool.poetry.dependencies.python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+
+      it("returns a valid Python version badge with custom branch and Tool Poetry query", () => {
+        const repo = new Repo("MyUser", "my-repo");
+        const result = repo.pythonVersionBadge("develop", "TOOL_POETRY");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fdevelop%2Fpyproject.toml&query=tool.poetry.dependencies.python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+
+      it("handles repo names with special characters using Tool Poetry", () => {
+        const repo = new Repo("user-name", "repo.name");
+        const result = repo.pythonVersionBadge("feature-branch", "TOOL_POETRY");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fuser-name%2Frepo.name%2Frefs%2Fheads%2Ffeature-branch%2Fpyproject.toml&query=tool.poetry.dependencies.python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+    });
+
+    describe("Edge cases", () => {
+      it("handles branch names with special characters", () => {
+        const repo = new Repo("MyOrg", "MyProject");
+        const result = repo.pythonVersionBadge(
+          "feature/update-deps",
+          "PROJECT"
+        );
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyOrg%2FMyProject%2Frefs%2Fheads%2Ffeature%2Fupdate-deps%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+
+      it("handles empty branch name", () => {
+        const repo = new Repo("MyUser", "my-repo");
+        const result = repo.pythonVersionBadge("", "PROJECT");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2F%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+
+      it("uses default parameters when none provided", () => {
+        const repo = new Repo("MyUser", "my-repo");
+        const result = repo.pythonVersionBadge("main", "PROJECT");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+    });
+  });
 });

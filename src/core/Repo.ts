@@ -10,6 +10,8 @@ import {
   GH_BADGE,
   GH_PAGES_BADGE,
   LICENSE_BADGE,
+  PYTHON_QUERY_TYPES,
+  PYTHON_VERSION_BADGE,
   TEMPLATE_BADGE,
 } from "@/constants/badgeValues";
 import { BADGE_DEFAULTS, DOCUMENTATION_BADGE } from "@/constants/catalogue";
@@ -315,5 +317,32 @@ export class Repo {
     const linkTarget = type === "issues" ? this._issuesURL() : this.ghURL();
 
     return mdImageWithLink({ altText, imageTarget, linkTarget });
+  }
+
+  /**
+   * Create a Python version badge that shows the Python version from
+   * pyproject.toml file in the repository using dynamic Shields.io format.
+   */
+  pythonVersionBadge(
+    branch: string = "main",
+    queryType: keyof typeof PYTHON_QUERY_TYPES
+  ) {
+    const altText = PYTHON_VERSION_BADGE.altText;
+    const linkTarget = PYTHON_VERSION_BADGE.linkTarget;
+
+    const rawUrl = `https://raw.githubusercontent.com/${this._nameWithOwner()}/refs/heads/${branch}/pyproject.toml`;
+    const encodedUrl = encodeURIComponent(rawUrl);
+
+    const query = PYTHON_QUERY_TYPES[queryType];
+
+    const imageTarget = `https://img.shields.io/badge/dynamic/toml?url=${encodedUrl}&query=${encodeURIComponent(
+      query
+    )}&label=python&logo=python&logoColor=white`;
+
+    return mdImageWithLink({
+      altText,
+      imageTarget,
+      linkTarget,
+    });
   }
 }

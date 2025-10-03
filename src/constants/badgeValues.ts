@@ -72,3 +72,16 @@ export const GO_MODULE_SHIELD = {
   linkTarget: "https://golang.org",
   altText: "Made with Go",
 };
+
+export const PYTHON_VERSION_BADGE = {
+  isLarge: false,
+  logo: "python",
+  logoColor: "white",
+  linkTarget: "https://python.org",
+  altText: "Python version",
+};
+
+export const PYTHON_QUERY_TYPES = {
+  PROJECT: "project.requires-python",
+  TOOL_POETRY: "tool.poetry.dependencies.python",
+} as const;
