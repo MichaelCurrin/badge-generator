@@ -114,6 +114,56 @@
             </fieldset>
             <br />
 
+            <fieldset name="system-dependencies">
+              <legend>System dependencies</legend>
+
+              <Checkbox
+                label="Python version"
+                v-model="addPythonVersion"
+                note="Display Python badge with version read from a pyproject.toml file."
+              />
+
+              <div :class="!addPythonVersion ? disabledClass : ''">
+                <span>Query type: </span>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="project"
+                    name="python-query-type"
+                    value="PROJECT"
+                    :disabled="!addPythonVersion"
+                    v-model="pythonQueryType"
+                    checked
+                  />
+                  <label for="project">project.requires-python</label>
+                </div>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="tool-poetry"
+                    name="python-query-type"
+                    value="TOOL_POETRY"
+                    :disabled="!addPythonVersion"
+                    v-model="pythonQueryType"
+                  />
+                  <label for="tool-poetry"
+                    >tool.poetry.dependencies.python</label
+                  >
+                </div>
+              </div>
+
+              <TextInput
+                label="Branch"
+                v-model="pythonBranch"
+                placeholder="e.g. main"
+                note="Git branch to read pyproject.toml from."
+                :disabled="!addPythonVersion"
+              />
+            </fieldset>
+            <br />
+
             <input class="btn" type="submit" value="Submit" />
           </form>
         </div>
@@ -148,6 +198,7 @@ import TextInput from "@/components/TextInput.vue";
 import { Repo } from "@/core/Repo";
 import { TagTypes } from "@/core/Repo.d";
 import { statusBadge } from "@/core/ghActions";
+import { PYTHON_QUERY_TYPES } from "@/constants/badgeValues";
 import store from "@/store";
 
 const note = `
@@ -187,6 +238,9 @@ export default defineComponent({
       ghPages: false,
       addDocsSection: true,
       addLicenseSection: true,
+      addPythonVersion: store.getAddPythonVersion(),
+      pythonBranch: store.getPythonBranch(),
+      pythonQueryType: store.getPythonQueryType() as keyof typeof PYTHON_QUERY_TYPES,
       badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
@@ -215,6 +269,9 @@ export default defineComponent({
 
       store.setRepoUsername(this.username);
       store.setRepoName(this.repoName);
+      store.setAddPythonVersion(this.addPythonVersion);
+      store.setPythonBranch(this.pythonBranch);
+      store.setPythonQueryType(this.pythonQueryType);
 
       const repo = new Repo(
         this.username,
@@ -241,6 +298,9 @@ ${forksBadge}
         ? statusBadge(repo, this.workflowName)
         : "";
       const versionBadge = repo.tagBadge(this.versionType as TagTypes);
+      const pythonVersionBadge = this.addPythonVersion
+        ? repo.pythonVersionBadge(this.pythonBranch, this.pythonQueryType)
+        : "";
 
       const useLocalLicense = this.addLicenseSection;
       const licenseBadge = repo.licenseBadge(useLocalLicense);
@@ -270,6 +330,10 @@ ${ghActionsBadge}
 ${versionBadge}
 ${licenseBadge}
 ${issuesBadge}
+
+_System dependencies_
+
+${pythonVersionBadge}
 
 _Call-to-Action buttons_
 
