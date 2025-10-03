@@ -331,7 +331,10 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
     describe("Edge cases", () => {
       it("handles branch names with special characters", () => {
         const repo = new Repo("MyOrg", "MyProject");
-        const result = repo.pythonVersionBadge("feature/update-deps", "PROJECT");
+        const result = repo.pythonVersionBadge(
+          "feature/update-deps",
+          "PROJECT"
+        );
 
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyOrg%2FMyProject%2Frefs%2Fheads%2Ffeature%2Fupdate-deps%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";

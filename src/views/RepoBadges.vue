@@ -240,7 +240,8 @@ export default defineComponent({
       addLicenseSection: true,
       addPythonVersion: store.getAddPythonVersion(),
       pythonBranch: store.getPythonBranch(),
-      pythonQueryType: store.getPythonQueryType() as keyof typeof PYTHON_QUERY_TYPES,
+      pythonQueryType:
+        store.getPythonQueryType() as keyof typeof PYTHON_QUERY_TYPES,
       badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
