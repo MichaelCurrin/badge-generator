@@ -263,4 +263,12 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     altText: "Made with GraphQL",
     hoverTitle: "Go to GraphQL homepage",
   },
+  {
+    label: "API",
+    message: "GitHub GraphQL",
+    target: "https://graphql.github.io",
+    logo: "github",
+    altText: "Made with the GitHub GraphQL API",
+    hoverTitle: "Go to GitHub GraphQL homepage",
+  },
 ];
