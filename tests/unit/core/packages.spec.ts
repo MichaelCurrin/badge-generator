@@ -119,7 +119,7 @@ describe("#goVersionBadge", () => {
     const imageTarget =
       "https://img.shields.io/github/go-mod/go-version/MichaelCurrin/go-project-template?logo=go&logoColor=white";
     const linkTarget = "https://golang.org";
-    const expectedBadge = `[![Made with Go](${imageTarget})](${linkTarget})`;
+    const expectedBadge = `[![Go to Go website](${imageTarget})](${linkTarget})`;
 
     expect(goVersionBadge("MichaelCurrin", "go-project-template")).toBe(
       expectedBadge

@@ -260,7 +260,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
@@ -272,7 +272,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fdevelop%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
@@ -284,7 +284,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fuser-name%2Frepo.name%2Frefs%2Fheads%2Ffeature-branch%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
@@ -298,7 +298,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=tool.poetry.dependencies.python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
@@ -310,7 +310,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fdevelop%2Fpyproject.toml&query=tool.poetry.dependencies.python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
@@ -322,7 +322,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fuser-name%2Frepo.name%2Frefs%2Fheads%2Ffeature-branch%2Fpyproject.toml&query=tool.poetry.dependencies.python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
@@ -339,7 +339,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyOrg%2FMyProject%2Frefs%2Fheads%2Ffeature%2Fupdate-deps%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
@@ -351,7 +351,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2F%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
@@ -363,7 +363,7 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
         const expectedLinkTarget = "https://python.org";
-        const expected = `[![Python version](${expectedImageUrl})](${expectedLinkTarget})`;
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
 
         expect(result).toBe(expected);
       });
