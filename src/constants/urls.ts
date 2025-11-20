@@ -4,6 +4,7 @@ export const SHIELDS_API = {
   DASH: `${SHIELDS_API_BASE}/badge`,
   PARAM: `${SHIELDS_API_BASE}/static/v1`,
   DYNAMIC_JSON: `${SHIELDS_API_BASE}/badge/dynamic/json`,
+  DYNAMIC_TOML: `${SHIELDS_API_BASE}/badge/dynamic/toml`,
   GH: `${SHIELDS_API_BASE}/github`,
   PKG_JSON_DEPENDENCY: `${SHIELDS_API_BASE}/github/package-json/dependency-version`,
   GO_MODULE: `${SHIELDS_API_BASE}/github/go-mod/go-version`,
@@ -18,7 +19,8 @@ export enum REGISTRY {
 export type RegistryKeys = keyof typeof REGISTRY;
 
 export const GITHUB_DOMAIN = "https://github.com",
-  GITHUB_IO = "github.io";
+  GITHUB_IO = "github.io",
+  GITHUB_RAW_BASE = "https://raw.githubusercontent.com";
 
 export const DEFAULT_BRANCH = "main";
 

@@ -19,6 +19,7 @@ import {
   DEFAULT_BRANCH,
   GITHUB_DOMAIN,
   GITHUB_IO,
+  GITHUB_RAW_BASE,
   LICENSE_PATH,
   SHIELDS_API,
   VERSION_PARAMS,
@@ -330,14 +331,15 @@ export class Repo {
     const altText = PYTHON_VERSION_BADGE.altText;
     const linkTarget = PYTHON_VERSION_BADGE.linkTarget;
 
-    const rawUrl = `https://raw.githubusercontent.com/${this._nameWithOwner()}/refs/heads/${branch}/pyproject.toml`;
-    const encodedUrl = encodeURIComponent(rawUrl);
-
-    const query = PYTHON_QUERY_TYPES[queryType];
-
-    const imageTarget = `https://img.shields.io/badge/dynamic/toml?url=${encodedUrl}&query=${encodeURIComponent(
-      query
-    )}&label=python&logo=python&logoColor=white`;
+    const rawUrl = `${GITHUB_RAW_BASE}/${this._nameWithOwner()}/refs/heads/${branch}/pyproject.toml`;
+    const queryParams: StrMap = {
+      label: "python",
+      logo: "python",
+      logoColor: "white",
+      query: PYTHON_QUERY_TYPES[queryType],
+      url: rawUrl,
+    };
+    const imageTarget = buildUrl(SHIELDS_API.DYNAMIC_TOML, queryParams);
 
     return mdImageWithLink({
       altText,
