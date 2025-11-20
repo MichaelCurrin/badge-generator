@@ -94,7 +94,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
 
   {
     label: "Python",
-    message: ">=3.10",
+    message: ">=3.13",
     target: "https://python.org",
     logo: "python",
     altText: "Made with Python",
