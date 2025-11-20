@@ -28,7 +28,7 @@ import { TagTypes } from "./Repo.d";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
-import { ghCounterShieldUrl } from "./shieldsApi";
+import { ghCounterShieldUrl, logoQueryParams } from "./shieldsApi";
 import { RepoMetric, StrMap } from "./types.d";
 
 const LICENSE_EL_ID = "#license";
@@ -332,12 +332,15 @@ export class Repo {
     const linkTarget = PYTHON_VERSION_BADGE.linkTarget;
 
     const rawUrl = `${GITHUB_RAW_BASE}/${this._nameWithOwner()}/refs/heads/${branch}/pyproject.toml`;
-    const queryParams: StrMap = {
-      label: "python",
+    const logoParams = logoQueryParams({
       logo: "python",
       logoColor: "white",
-      query: PYTHON_QUERY_TYPES[queryType],
+    });
+    const queryParams: StrMap = {
       url: rawUrl,
+      query: PYTHON_QUERY_TYPES[queryType],
+      label: "python",
+      ...logoParams,
     };
     const imageTarget = buildUrl(SHIELDS_API.DYNAMIC_TOML, queryParams);
 
