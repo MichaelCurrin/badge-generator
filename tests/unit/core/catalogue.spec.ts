@@ -27,7 +27,7 @@ describe("#renderBadges", () => {
 
     it("renders a Python badge", () => {
       expect(badges[10]).toBe(
-        '[![Made with Python](https://img.shields.io/badge/Python->=3.10-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")'
+        '[![Made with Python](https://img.shields.io/badge/Python->=3.13-blue?logo=python&logoColor=white)](https://python.org "Go to Python homepage")'
       );
     });
   });
