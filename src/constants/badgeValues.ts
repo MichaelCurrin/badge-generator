@@ -70,7 +70,7 @@ export const GO_MODULE_SHIELD = {
   logo: "go",
   logoColor: "white",
   linkTarget: "https://golang.org",
-  altText: "Made with Go",
+  altText: "Go to Go website",
 };
 
 export const PYTHON_VERSION_BADGE = {
@@ -78,7 +78,7 @@ export const PYTHON_VERSION_BADGE = {
   logo: "python",
   logoColor: "white",
   linkTarget: "https://python.org",
-  altText: "Python version",
+  altText: "Go to Python website",
 };
 
 export const PYTHON_QUERY_TYPES = {
