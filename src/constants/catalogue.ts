@@ -117,7 +117,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
   },
   {
     label: "Node.js",
-    message: ">=12",
+    message: ">=22",
     target: "https://nodejs.org",
     logo: "node.js",
     altText: "Made with Node.js",

@@ -4,7 +4,7 @@ name: Upgrade NPM packages
 
 on:
   workflow_dispatch:
-  
+
   #schedule:
   #  - cron: '0 0 * * 0'
 
@@ -21,8 +21,8 @@ jobs:
       - name: Set up Node.js ⚙️
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
-          cache: 'yarn'
+          node-version: "22.x"
+          cache: "yarn"
 
       - name: Check for outdated packages 🔍
         id: vars
@@ -41,7 +41,7 @@ jobs:
       - name: Upgrade packages ⏫
         if: ${{ steps.vars.outputs.outdated != '' }}
         run: yarn upgrade
-        
+
       - name: Lint 🧐
         if: ${{ steps.vars.outputs.outdated != '' }}
         run: yarn lint:check
@@ -60,6 +60,6 @@ jobs:
         if: ${{ steps.vars.outputs.outdated != '' }}
         uses: peter-evans/create-pull-request@v3
         with:
-          title: 'build(deps): Upgrade NPM packages (automated)'
-          branch: 'build-deps-upgrade-npm-packages-automated'
-          commit-message: 'build(deps): upgrade NPM packages (automated)'
+          title: "build(deps): Upgrade NPM packages (automated)"
+          branch: "build-deps-upgrade-npm-packages-automated"
+          commit-message: "build(deps): upgrade NPM packages (automated)"

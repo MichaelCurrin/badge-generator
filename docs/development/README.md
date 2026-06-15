@@ -16,7 +16,7 @@
 
 See the [Installation](/docs/installation.md) and [Usage](/docs/usage.md) docs.
 
-You need Node 16 or higher.
+You need Node with a version as set in `package.json`.
 
 Install Yarn globally.
 
