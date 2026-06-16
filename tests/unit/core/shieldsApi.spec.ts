@@ -205,9 +205,7 @@ describe("#staticParamsUrl", () => {
         },
         {}
       )
-    ).toBe(
-      "https://img.shields.io/static/v1?label=Foo&message=Bar&color=blue"
-    );
+    ).toBe("https://img.shields.io/static/v1?label=Foo&message=Bar&color=blue");
   });
 });
 

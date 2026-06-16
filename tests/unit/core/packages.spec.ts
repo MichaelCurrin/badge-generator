@@ -57,8 +57,7 @@ describe("#dependency", () => {
   });
 
   it("returns a static badge with a custom color overriding the default", () => {
-    const imageTarget =
-      "https://img.shields.io/badge/dependency-react-orange";
+    const imageTarget = "https://img.shields.io/badge/dependency-react-orange";
     const linkTarget = "https://www.npmjs.com/package/react";
     const expectedBadge = `[![dependency - react](${imageTarget})](${linkTarget})`;
 

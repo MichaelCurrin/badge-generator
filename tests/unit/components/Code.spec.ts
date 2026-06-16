@@ -81,10 +81,9 @@ describe("Code.vue", () => {
       },
     });
 
-    await wrapper.findComponent({ name: "Checkbox" }).vm.$emit(
-      "update:modelValue",
-      true
-    );
+    await wrapper
+      .findComponent({ name: "Checkbox" })
+      .vm.$emit("update:modelValue", true);
 
     expect((wrapper.vm as unknown as { asHtml: boolean }).asHtml).toBe(true);
   });
