@@ -55,6 +55,17 @@ describe("#dependency", () => {
       })
     ).toBe(expectedBadge);
   });
+
+  it("returns a static badge with a custom color overriding the default", () => {
+    const imageTarget =
+      "https://img.shields.io/badge/dependency-react-orange";
+    const linkTarget = "https://www.npmjs.com/package/react";
+    const expectedBadge = `[![dependency - react](${imageTarget})](${linkTarget})`;
+
+    expect(staticDependencyBadge("react", REGISTRY.Node, {}, "orange")).toBe(
+      expectedBadge
+    );
+  });
 });
 
 describe("#nodeVersionBadge", () => {
@@ -95,6 +106,16 @@ describe("#nodeVersionBadge", () => {
 
       expect(
         nodeVersionBadge(repo, "vue", logoAppearance, ENVIRONMENT.Prod)
+      ).toBe(expectedBadge);
+    });
+
+    it("returns a dynamic Node package badge with a custom color", () => {
+      const imageTarget =
+        "https://img.shields.io/github/package-json/dependency-version/MichaelCurrin/badge-generator/vue?color=orange";
+      const expectedBadge = `[![Package - vue](${imageTarget})](${linkTarget})`;
+
+      expect(
+        nodeVersionBadge(repo, "vue", {}, ENVIRONMENT.Prod, "orange")
       ).toBe(expectedBadge);
     });
   });

@@ -45,4 +45,39 @@ describe("store", () => {
       expect(store.getUserTheme()).toBe("dark-theme");
     });
   });
+
+  describe("#getPythonBranch and #setPythonBranch", () => {
+    it("gets default branch and persists a custom value", () => {
+      localStorage.removeItem("pythonBranch");
+      expect(store.getPythonBranch()).toBe("main");
+
+      store.setPythonBranch("develop");
+      expect(store.getPythonBranch()).toBe("develop");
+    });
+  });
+
+  describe("#getPythonQueryType and #setPythonQueryType", () => {
+    it("gets default query type and persists a custom value", () => {
+      localStorage.removeItem("pythonQueryType");
+      expect(store.getPythonQueryType()).toBe("PROJECT");
+
+      store.setPythonQueryType("TOOL_POETRY");
+      expect(store.getPythonQueryType()).toBe("TOOL_POETRY");
+    });
+  });
+
+  describe("#getAddPythonVersion and #setAddPythonVersion", () => {
+    it("returns false by default", () => {
+      localStorage.removeItem("addPythonVersion");
+      expect(store.getAddPythonVersion()).toBe(false);
+    });
+
+    it("stores true and false values", () => {
+      store.setAddPythonVersion(true);
+      expect(store.getAddPythonVersion()).toBe(true);
+
+      store.setAddPythonVersion(false);
+      expect(store.getAddPythonVersion()).toBe(false);
+    });
+  });
 });

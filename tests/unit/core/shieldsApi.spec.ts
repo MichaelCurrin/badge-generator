@@ -1,5 +1,8 @@
 import { Repo } from "@/core/Repo";
 import {
+  _decodeAngleBrackets,
+  _encodeParam,
+  _encodeSeparators,
   dashShieldPath,
   ENVIRONMENT,
   ghCounterShieldUrl,
@@ -7,9 +10,6 @@ import {
   nodePkgJsonShieldUrl,
   staticDashUrl,
   staticParamsUrl,
-  _decodeAngleBrackets,
-  _encodeParam,
-  _encodeSeparators,
 } from "@/core/shieldsApi";
 
 describe("#_encodeSeparators", () => {
@@ -81,6 +81,10 @@ describe("#dashShieldPath", () => {
     expect(dashShieldPath({ message: "Foo", color: "green" })).toBe(
       "Foo-green"
     );
+  });
+
+  it("falls back to the default color when color is an empty string", () => {
+    expect(dashShieldPath({ message: "Foo", color: "" })).toBe("Foo-blue");
   });
 
   it("combines 3 fields", () => {
@@ -188,6 +192,21 @@ describe("#staticParamsUrl", () => {
       )
     ).toBe(
       "https://img.shields.io/static/v1?label=Foo&message=Bar&color=green&fizz=buzz"
+    );
+  });
+
+  it("falls back to the default color when color is an empty string", () => {
+    expect(
+      staticParamsUrl(
+        {
+          label: "Foo",
+          message: "Bar",
+          color: "",
+        },
+        {}
+      )
+    ).toBe(
+      "https://img.shields.io/static/v1?label=Foo&message=Bar&color=blue"
     );
   });
 });

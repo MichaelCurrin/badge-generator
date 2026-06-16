@@ -129,6 +129,14 @@ describe("#Repo", () => {
         "https://img.shields.io/github/release/MichaelCurrin/badge-generator?include_prereleases=&sort=semver"
       );
     });
+
+    it("includes custom color when configured", () => {
+      const repoWithColor = new Repo("MichaelCurrin", "badge-generator", "MIT", "orange");
+
+      expect(repoWithColor._tagBadgeUrl("tag")).toBe(
+        "https://img.shields.io/github/tag/MichaelCurrin/badge-generator?include_prereleases=&sort=semver&color=orange"
+      );
+    });
   });
 
   describe("#tagBadge", () => {
@@ -204,6 +212,12 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
 
     it("return an empty license message for no license type", () => {
       expect(repoNoLicense.licenseMessage()).toBe("");
+    });
+  });
+
+  describe("#documentationMessage", () => {
+    it("returns the same snippet as the documentation section helper", () => {
+      expect(repoNoLicense.documentationMessage()).toBe(_documentationSectionMd());
     });
   });
 
@@ -359,6 +373,18 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
       it("uses default parameters when none provided", () => {
         const repo = new Repo("MyUser", "my-repo");
         const result = repo.pythonVersionBadge("main", "PROJECT");
+
+        const expectedImageUrl =
+          "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
+        const expectedLinkTarget = "https://python.org";
+        const expected = `[![Go to Python website](${expectedImageUrl})](${expectedLinkTarget})`;
+
+        expect(result).toBe(expected);
+      });
+
+      it("uses the default branch when branch is undefined", () => {
+        const repo = new Repo("MyUser", "my-repo");
+        const result = repo.pythonVersionBadge(undefined as unknown as string, "PROJECT");
 
         const expectedImageUrl =
           "https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2FMyUser%2Fmy-repo%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&query=project.requires-python&label=python&logo=python&logoColor=white";
