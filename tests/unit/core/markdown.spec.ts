@@ -1,4 +1,10 @@
-import { mdImage, mdImageWithLink, mdLink } from "@/core/markdown";
+import {
+  cleanHtml,
+  mdImage,
+  mdImageWithLink,
+  mdLink,
+  mdToHTML,
+} from "@/core/markdown";
 
 describe("#mdLink", () => {
   it("returns a valid markdown link", () => {
@@ -95,5 +101,33 @@ describe("#mdImageWithLink", () => {
     ).toBe(
       "[![My title](/example.png)](https://example.com?foo=bar&fizz_buzz=baz&x>=2)"
     );
+  });
+});
+
+describe("#mdToHTML", () => {
+  it("renders markdown headings as HTML", () => {
+    expect(mdToHTML("# Hello")).toContain("<h1>Hello</h1>");
+  });
+
+  it("renders markdown links as HTML", () => {
+    expect(mdToHTML("[Example](https://example.com)")).toContain(
+      '<a href="https://example.com">Example</a>'
+    );
+  });
+});
+
+describe("#cleanHtml", () => {
+  it("converts emphasis and strong tags to i and b", () => {
+    const html = mdToHTML("*emphasis* and **strong**");
+    const cleaned = cleanHtml(html);
+
+    expect(cleaned).toContain("<i>emphasis</i>");
+    expect(cleaned).toContain("<b>strong</b>");
+  });
+
+  it("removes paragraph tags and decodes ampersands", () => {
+    const cleaned = cleanHtml("<p>Tom &amp; Jerry</p>");
+
+    expect(cleaned).toBe("Tom & Jerry\n");
   });
 });
