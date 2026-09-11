@@ -120,7 +120,7 @@
               <Checkbox
                 label="Python version"
                 v-model="addPythonVersion"
-                note="Display Python badge with version read from a pyproject.toml file."
+                note="Display Python badge with the version read from a pyproject.toml file."
               />
 
               <div :class="!addPythonVersion ? disabledClass : ''">
