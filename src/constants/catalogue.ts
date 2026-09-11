@@ -1,3 +1,8 @@
+/**
+ * Catalogue of static badges.
+ * 
+ * For valid logo values, see https://shields.io/docs/logos .
+ */
 import { COLOR_PRESETS } from "./appearance";
 import { TBadgeDetails } from "./catalogue.d";
 
@@ -56,11 +61,11 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
   // Netlify CI badge is best created on Netlify itself and not here. But a
   // plain Made with Netlify might be nice.
   {
-    label: "Hosted with",
+    label: "hosted with",
     message: "GitHub Pages",
     target: "https://pages.github.com/",
     logo: "github",
-    altText: "Hosted with GH Pages",
+    altText: "Hosted with GitHub Pages",
     hoverTitle: "Go to GitHub Pages homepage",
   },
   // Use an actual GitHub Actions workflow badge if you prefer. But this could
@@ -70,7 +75,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "GitHub Actions",
     target: "https://github.com/features/actions",
     logo: "github-actions",
-    altText: "Made with GH Actions",
+    altText: "Made with GitHub Actions",
     hoverTitle: "Go to GitHub Actions homepage",
   },
 
@@ -94,7 +99,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
 
   {
     label: "Python",
-    message: ">=3.13",
+    message: ">=3.14",
     target: "https://python.org",
     logo: "python",
     altText: "Made with Python",
@@ -105,6 +110,14 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
     message: "black",
     target: "https://black.readthedocs.io/",
     hoverTitle: "Go to Black homepage",
+  },
+  {
+    label: "Poetry",
+    message: "2.x",
+    target: "https://python-poetry.org/",
+    logo: "poetry",
+    altText: "Made with Poetry",
+    hoverTitle: "Go to Poetry homepage",
   },
 
   {
@@ -117,7 +130,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
   },
   {
     label: "Node.js",
-    message: ">=22",
+    message: ">=26",
     target: "https://nodejs.org",
     logo: "node.js",
     altText: "Made with Node.js",
@@ -145,7 +158,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
   // needed. Especially for frontend-only projects.
   {
     label: "TypeScript",
-    message: "4",
+    message: "7",
     target: "https://typescriptlang.org",
     logo: "typescript",
     altText: "Made with TypeScript",
@@ -153,7 +166,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
   },
   {
     label: "React",
-    message: "18",
+    message: "19",
     target: "https://reactjs.org",
     logo: "react",
     altText: "Made with React",
@@ -170,7 +183,7 @@ export const BADGE_DETAILS: TBadgeDetails[] = [
 
   {
     label: "Deno",
-    message: "1",
+    message: "2",
     target: "https://deno.land",
     logo: "deno",
     altText: "Made with Deno",

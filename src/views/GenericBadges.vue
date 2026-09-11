@@ -98,9 +98,9 @@ import TextInput from "@/components/TextInput.vue";
 import { genericBadge } from "@/core/genericBadge";
 
 const note = `
-This form lets you create a fixed badge using arbitrary text and a link.
+This form lets you create a fixed/static badge using arbitrary text and a link.
 
-For example, describe a tools or platforms your repo is built on or built for running. This form takes care of encoding characters so they are safe for the badge URL.
+For example, describe a tool or platform your repo is built on, or built for running. This form takes care of encoding characters so they are safe for the badge URL.
 `;
 
 export default defineComponent({
