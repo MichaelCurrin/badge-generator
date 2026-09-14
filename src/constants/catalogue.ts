@@ -1,6 +1,6 @@
 /**
  * Catalogue of static badges.
- * 
+ *
  * For valid logo values, see https://shields.io/docs/logos .
  */
 import { COLOR_PRESETS } from "./appearance";
