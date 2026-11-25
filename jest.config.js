@@ -2,6 +2,6 @@ module.exports = {
   preset: "@vue/cli-plugin-unit-jest/presets/typescript",
   testPathIgnorePatterns: ["<rootDir>/dist/"],
   transform: {
-    "^.+\\.vue$": "@vue/vue3-jest",
+    "^.+\\.vue$": "<rootDir>/jest-vue-transformer.cjs",
   },
 };
