@@ -14,6 +14,7 @@ import {
   PYTHON_VERSION_BADGE,
   TEMPLATE_BADGE,
 } from "@/constants/badgeValues";
+import { COLOR_PRESETS } from "@/constants/appearance";
 import { BADGE_DEFAULTS, DOCUMENTATION_BADGE } from "@/constants/catalogue";
 import {
   DEFAULT_BRANCH,
@@ -24,7 +25,13 @@ import {
   SHIELDS_API,
   VERSION_PARAMS,
 } from "@/constants/urls";
-import { TagTypes } from "./Repo.d";
+import {
+  DownloadArchiveFormat,
+  DownloadBadge,
+  DownloadBadgeOptions,
+  DownloadReference,
+  TagTypes,
+} from "./Repo.d";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
@@ -32,6 +39,17 @@ import { ghCounterShieldUrl, logoQueryParams } from "./shieldsApi";
 import { RepoMetric, StrMap } from "./types.d";
 
 const LICENSE_EL_ID = "#license";
+
+function sourceArchiveUrl(
+  repoUrl: string,
+  reference: DownloadReference,
+  format: DownloadArchiveFormat
+) {
+  const refPath = reference.type === "branch" ? "heads" : "tags";
+  const encodedReference = encodeURIComponent(reference.value);
+
+  return `${repoUrl}/archive/refs/${refPath}/${encodedReference}.${format}`;
+}
 
 // TODO: Make dynamic. User provides a link or chooses to use GH Pages auto link
 // For now just a flat badge.
@@ -155,6 +173,22 @@ export class Repo {
    */
   _templateURL() {
     return `${this.ghURL()}/generate`;
+  }
+
+  /**
+   * Return the URL for the latest release on the GitHub repo.
+   */
+  _latestReleaseURL() {
+    return `${this.ghURL()}/releases/latest`;
+  }
+
+  /**
+   * Return the URL for a named asset on the latest release.
+   */
+  _latestReleaseAssetURL(filename: string) {
+    return `${this._latestReleaseURL()}/download/${encodeURIComponent(
+      filename
+    )}`;
   }
 
   /**
@@ -349,5 +383,116 @@ export class Repo {
       imageTarget,
       linkTarget,
     });
+  }
+
+  /**
+   * Create a badge linking to a branch or tag source archive.
+   */
+  sourceArchiveBadge(
+    reference: DownloadReference,
+    format: DownloadArchiveFormat
+  ) {
+    if (!reference.value.trim()) {
+      throw new Error("Reference value cannot be empty.");
+    }
+
+    const archiveUrl = sourceArchiveUrl(this.ghURL(), reference, format);
+    const isBranch = reference.type === "branch";
+    const referenceLabel = isBranch ? "latest" : "tag";
+    const message = `${referenceLabel} ${format}`;
+    const altText = `Download ${referenceLabel} ${format}`;
+
+    return this._downloadBadge(message, altText, archiveUrl);
+  }
+
+  /**
+   * Create a dynamic badge for the latest release.
+   */
+  latestReleaseBadge(format: DownloadArchiveFormat) {
+    const imageTarget = buildUrl(`${SHIELDS_API.DYNAMIC_JSON}`, {
+      label: `download ${format}`,
+      query: "$.tag_name",
+      url: `https://api.github.com/repos/${this._nameWithOwner()}/releases/latest`,
+      style: "for-the-badge",
+    });
+    const linkTarget = this._latestReleaseURL();
+
+    return mdImageWithLink({
+      altText: `Download latest release ${format}`,
+      imageTarget,
+      linkTarget,
+    });
+  }
+
+  /**
+   * Create a badge linking to a named asset on the latest release.
+   */
+  releaseAssetBadge(filename: string, format: DownloadArchiveFormat) {
+    if (!filename.trim()) {
+      throw new Error("Asset filename cannot be empty.");
+    }
+
+    const linkTarget = this._latestReleaseAssetURL(filename);
+
+    return this._downloadBadge(
+      "release asset",
+      `Download release asset ${format}`,
+      linkTarget
+    );
+  }
+
+  /**
+   * Generate structured badge data for whichever download options are provided.
+   */
+  downloadBadges(options: DownloadBadgeOptions) {
+    const badges: DownloadBadge[] = [];
+
+    if (options.source) {
+      badges.push({
+        kind: "source",
+        reference: options.source.reference,
+        format: options.source.format,
+        markdown: this.sourceArchiveBadge(
+          options.source.reference,
+          options.source.format
+        ),
+      });
+    }
+
+    if (options.latestRelease) {
+      badges.push({
+        kind: "latestRelease",
+        format: options.latestRelease,
+        markdown: this.latestReleaseBadge(options.latestRelease),
+      });
+    }
+
+    if (options.releaseAsset) {
+      badges.push({
+        kind: "releaseAsset",
+        filename: options.releaseAsset.filename,
+        format: options.releaseAsset.format,
+        markdown: this.releaseAssetBadge(
+          options.releaseAsset.filename,
+          options.releaseAsset.format
+        ),
+      });
+    }
+
+    return badges;
+  }
+
+  private _downloadBadge(message: string, altText: string, linkTarget: string) {
+    return genericBadge(
+      "Download",
+      message,
+      COLOR_PRESETS.Default,
+      true,
+      linkTarget,
+      "",
+      "",
+      false,
+      altText
+    );
   }
 }
