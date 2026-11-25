@@ -1,6 +1,7 @@
 import Code from "@/components/Code.vue";
 import { shallowMount } from "@vue/test-utils";
 import hljs from "highlight.js";
+import { vi } from "vitest";
 
 describe("Code.vue", () => {
   it("renders a Markdown codeblock as Markdown code, with highlighting", () => {
@@ -48,7 +49,7 @@ describe("Code.vue", () => {
   });
 
   it("highlights code on mount", () => {
-    const spy = jest.spyOn(hljs, "highlightElement");
+    const spy = vi.spyOn(hljs, "highlightElement");
 
     shallowMount(Code, {
       props: {
@@ -61,7 +62,7 @@ describe("Code.vue", () => {
   });
 
   it("highlights code again after update", async () => {
-    const spy = jest.spyOn(hljs, "highlightElement");
+    const spy = vi.spyOn(hljs, "highlightElement");
     const wrapper = shallowMount(Code, {
       props: {
         code: "## Foo bar",

@@ -2,12 +2,7 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ],
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
@@ -18,21 +13,10 @@
     "noUncheckedSideEffectImports": false,
     "sourceMap": true,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "types": [
-      "webpack-env",
-      "jest"
-    ]
+    "types": ["webpack-env", "vitest/globals"]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.vue",
-    "tests/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.vue", "tests/**/*.ts"],
+  "exclude": ["node_modules"]
 }
