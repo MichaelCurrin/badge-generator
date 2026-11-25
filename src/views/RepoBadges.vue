@@ -164,6 +164,95 @@
             </fieldset>
             <br />
 
+            <fieldset name="downloads">
+              <legend>Downloads</legend>
+
+              <Checkbox
+                label="Source archive badge"
+                v-model="addDownloadSource"
+                note="Download the source archive for a branch or tag."
+              />
+
+              <div :class="!addDownloadSource ? disabledClass : ''">
+                <span>Reference type: </span>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="download-reference-branch"
+                    name="download-reference-type"
+                    value="branch"
+                    :disabled="!addDownloadSource"
+                    v-model="downloadReferenceType"
+                  />
+                  <label for="download-reference-branch">Branch</label>
+                </div>
+
+                <div>
+                  <input
+                    type="radio"
+                    id="download-reference-tag"
+                    name="download-reference-type"
+                    value="tag"
+                    :disabled="!addDownloadSource"
+                    v-model="downloadReferenceType"
+                  />
+                  <label for="download-reference-tag">Tag</label>
+                </div>
+
+                <TextInput
+                  :label="downloadReferenceType === 'branch' ? 'Branch' : 'Tag'"
+                  v-model="downloadReference"
+                  :disabled="!addDownloadSource"
+                  :isRequired="addDownloadSource"
+                  :placeholder="
+                    downloadReferenceType === 'branch' ? 'main' : 'v1.2.3'
+                  "
+                  :note="
+                    downloadReferenceType === 'branch'
+                      ? 'Git branch to download.'
+                      : 'Git tag to download.'
+                  "
+                />
+              </div>
+
+              <Checkbox
+                label="Latest release badge"
+                v-model="addDownloadLatestRelease"
+                note="Show the latest release tag and link to its release page."
+              />
+
+              <Checkbox
+                label="Release asset badge"
+                v-model="addDownloadReleaseAsset"
+                note="Link to a named asset attached to the latest release."
+              />
+
+              <div :class="!addDownloadReleaseAsset ? disabledClass : ''">
+                <TextInput
+                  label="Asset filename"
+                  v-model="downloadAssetFilename"
+                  :disabled="!addDownloadReleaseAsset"
+                  :isRequired="addDownloadReleaseAsset"
+                  placeholder="e.g. hello-world.zip"
+                  note="Exact filename of the asset attached to the latest release."
+                />
+              </div>
+
+              <div :class="!hasDownloadBadges ? disabledClass : ''">
+                <label for="download-archive-format">Archive format</label>
+                <select
+                  id="download-archive-format"
+                  v-model="downloadArchiveFormat"
+                  :disabled="!hasDownloadBadges"
+                >
+                  <option value="zip">zip</option>
+                  <option value="tar.gz">tar.gz</option>
+                </select>
+              </div>
+            </fieldset>
+            <br />
+
             <input class="btn" type="submit" value="Submit" />
           </form>
         </div>
@@ -196,7 +285,12 @@ import Results from "@/components/Results.vue";
 import TextInput from "@/components/TextInput.vue";
 
 import { Repo } from "@/core/Repo";
-import { TagTypes } from "@/core/Repo.d";
+import {
+  DownloadArchiveFormat,
+  DownloadBadgeOptions,
+  DownloadReference,
+  TagTypes,
+} from "@/core/Repo.d";
 import { statusBadge } from "@/core/ghActions";
 import { PYTHON_QUERY_TYPES } from "@/constants/badgeValues";
 import store from "@/store";
@@ -245,12 +339,53 @@ export default defineComponent({
       badgeColor: COLOR_PRESETS.Default,
       workflowName: "",
 
+      addDownloadSource: store.getAddDownloadSource(),
+      addDownloadLatestRelease: store.getAddDownloadLatestRelease(),
+      addDownloadReleaseAsset: store.getAddDownloadReleaseAsset(),
+      downloadReferenceType: store.getDownloadReferenceType(),
+      downloadReference: store.getDownloadReference(),
+      downloadArchiveFormat: store.getDownloadArchiveFormat(),
+      downloadAssetFilename: store.getDownloadAssetFilename(),
+
       versionType,
 
       result: INITIAL_RESULT,
       note,
       colorHelp: COLOR_HELP,
+      disabledClass: "disabled-text",
     };
+  },
+  computed: {
+    hasDownloadBadges(): boolean {
+      return (
+        this.addDownloadSource ||
+        this.addDownloadLatestRelease ||
+        this.addDownloadReleaseAsset
+      );
+    },
+  },
+  watch: {
+    addDownloadSource(value: boolean) {
+      store.setAddDownloadSource(value);
+    },
+    addDownloadLatestRelease(value: boolean) {
+      store.setAddDownloadLatestRelease(value);
+    },
+    addDownloadReleaseAsset(value: boolean) {
+      store.setAddDownloadReleaseAsset(value);
+    },
+    downloadReferenceType(value: DownloadReference["type"]) {
+      store.setDownloadReferenceType(value);
+    },
+    downloadReference(value: string) {
+      store.setDownloadReference(value);
+    },
+    downloadArchiveFormat(value: DownloadArchiveFormat) {
+      store.setDownloadArchiveFormat(value);
+    },
+    downloadAssetFilename(value: string) {
+      store.setDownloadAssetFilename(value);
+    },
   },
   methods: {
     submit() {
@@ -303,6 +438,32 @@ ${forksBadge}
         ? repo.pythonVersionBadge(this.pythonBranch, this.pythonQueryType)
         : "";
 
+      const downloadOptions: DownloadBadgeOptions = {};
+      if (this.addDownloadSource) {
+        downloadOptions.source = {
+          reference: {
+            type: this.downloadReferenceType,
+            value: this.downloadReference,
+          },
+          format: this.downloadArchiveFormat,
+        };
+      }
+      if (this.addDownloadLatestRelease) {
+        downloadOptions.latestRelease = this.downloadArchiveFormat;
+      }
+      if (this.addDownloadReleaseAsset) {
+        downloadOptions.releaseAsset = {
+          filename: this.downloadAssetFilename,
+          format: this.downloadArchiveFormat,
+        };
+      }
+      const downloadBadges = repo.downloadBadges(downloadOptions);
+      const downloadSection = downloadBadges.length
+        ? `\n\n_Downloads_\n\n${downloadBadges
+            .map((badge) => badge.markdown)
+            .join("\n")}`
+        : "";
+
       const useLocalLicense = this.addLicenseSection;
       const licenseBadge = repo.licenseBadge(useLocalLicense);
       const issuesBadge = this.addIssues ? repo.ghCounterBadge("issues") : "";
@@ -334,7 +495,7 @@ ${issuesBadge}
 
 _System dependencies_
 
-${pythonVersionBadge}
+${pythonVersionBadge}${downloadSection}
 
 _Call-to-Action buttons_
 

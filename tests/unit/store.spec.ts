@@ -1,6 +1,48 @@
 import store from "@/store";
 
 describe("store", () => {
+  describe("download inputs", () => {
+    beforeEach(() => {
+      [
+        "addDownloadSource",
+        "addDownloadLatestRelease",
+        "addDownloadReleaseAsset",
+        "downloadReferenceType",
+        "downloadReference",
+        "downloadArchiveFormat",
+        "downloadAssetFilename",
+      ].forEach((key) => localStorage.removeItem(key));
+    });
+
+    it("returns defaults for download inputs", () => {
+      expect(store.getAddDownloadSource()).toBe(false);
+      expect(store.getAddDownloadLatestRelease()).toBe(false);
+      expect(store.getAddDownloadReleaseAsset()).toBe(false);
+      expect(store.getDownloadReferenceType()).toBe("branch");
+      expect(store.getDownloadReference()).toBe("main");
+      expect(store.getDownloadArchiveFormat()).toBe("zip");
+      expect(store.getDownloadAssetFilename()).toBe("");
+    });
+
+    it("persists download input values", () => {
+      store.setAddDownloadSource(true);
+      store.setAddDownloadLatestRelease(true);
+      store.setAddDownloadReleaseAsset(true);
+      store.setDownloadReferenceType("tag");
+      store.setDownloadReference("v1.2.3");
+      store.setDownloadArchiveFormat("tar.gz");
+      store.setDownloadAssetFilename("hello-world.tar.gz");
+
+      expect(store.getAddDownloadSource()).toBe(true);
+      expect(store.getAddDownloadLatestRelease()).toBe(true);
+      expect(store.getAddDownloadReleaseAsset()).toBe(true);
+      expect(store.getDownloadReferenceType()).toBe("tag");
+      expect(store.getDownloadReference()).toBe("v1.2.3");
+      expect(store.getDownloadArchiveFormat()).toBe("tar.gz");
+      expect(store.getDownloadAssetFilename()).toBe("hello-world.tar.gz");
+    });
+  });
+
   describe("#getRepoUsername", () => {
     it("can get the default username", () => {
       expect(store.getRepoUsername()).toBe("MichaelCurrin");

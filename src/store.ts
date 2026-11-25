@@ -3,6 +3,7 @@
  */
 import { DEBUG } from "@/constants/";
 import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
+import { DownloadArchiveFormat, DownloadReference } from "@/core/Repo.d";
 
 /**
  * Return a value from localStorage or a default if key is not set.
@@ -124,6 +125,64 @@ const store = {
       console.debug(`Storing addPythonVersion: ${value}`);
     }
     localStorage.setItem("addPythonVersion", value.toString());
+  },
+
+  getAddDownloadSource() {
+    return getItem("addDownloadSource", "false") === "true";
+  },
+
+  setAddDownloadSource(value: boolean) {
+    localStorage.setItem("addDownloadSource", value.toString());
+  },
+
+  getAddDownloadLatestRelease() {
+    return getItem("addDownloadLatestRelease", "false") === "true";
+  },
+
+  setAddDownloadLatestRelease(value: boolean) {
+    localStorage.setItem("addDownloadLatestRelease", value.toString());
+  },
+
+  getAddDownloadReleaseAsset() {
+    return getItem("addDownloadReleaseAsset", "false") === "true";
+  },
+
+  setAddDownloadReleaseAsset(value: boolean) {
+    localStorage.setItem("addDownloadReleaseAsset", value.toString());
+  },
+
+  getDownloadReferenceType(): DownloadReference["type"] {
+    const value = getItem("downloadReferenceType", "branch");
+    return value === "tag" ? value : "branch";
+  },
+
+  setDownloadReferenceType(value: DownloadReference["type"]) {
+    localStorage.setItem("downloadReferenceType", value);
+  },
+
+  getDownloadReference() {
+    return getItem("downloadReference", "main");
+  },
+
+  setDownloadReference(value: string) {
+    localStorage.setItem("downloadReference", value);
+  },
+
+  getDownloadArchiveFormat(): DownloadArchiveFormat {
+    const value = getItem("downloadArchiveFormat", "zip");
+    return value === "tar.gz" ? value : "zip";
+  },
+
+  setDownloadArchiveFormat(value: DownloadArchiveFormat) {
+    localStorage.setItem("downloadArchiveFormat", value);
+  },
+
+  getDownloadAssetFilename() {
+    return getItem("downloadAssetFilename", "");
+  },
+
+  setDownloadAssetFilename(value: string) {
+    localStorage.setItem("downloadAssetFilename", value);
   },
 };
 
