@@ -1,7 +1,6 @@
 import ThemeToggle from "@/components/ThemeToggle.vue";
 import store from "@/store";
 import { shallowMount } from "@vue/test-utils";
-import { vi } from "vitest";
 
 /**
  * Mock window.matchMedia for theme preference tests.
@@ -11,15 +10,15 @@ import { vi } from "vitest";
 function mockMatchMedia(prefersDark: boolean) {
   Object.defineProperty(window, "matchMedia", {
     writable: true,
-    value: vi.fn().mockImplementation((query: string) => ({
+    value: jest.fn().mockImplementation((query: string) => ({
       matches: prefersDark,
       media: query,
       onchange: null,
-      addListener: vi.fn(),
-      removeListener: vi.fn(),
-      addEventListener: vi.fn(),
-      removeEventListener: vi.fn(),
-      dispatchEvent: vi.fn(),
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
     })),
   });
 }

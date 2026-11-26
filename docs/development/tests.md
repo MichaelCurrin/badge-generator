@@ -2,7 +2,7 @@
 
 ## Running tests
 
-This project uses Vitest with Vite's Vue plugin and a jsdom environment to test Vue single-file components.
+This project uses the Vue CLI unit-test plugin with Jest for unit tests. Vue single-file components are processed by Vue Jest, with a small local transform to make the generated template code compatible with Jest.
 
 Run the unit tests:
 
@@ -10,7 +10,7 @@ Run the unit tests:
 $ yarn test:unit
 ```
 
-Run the tests with V8 coverage:
+Run the tests with coverage:
 
 ```sh
 $ yarn test:coverage
@@ -21,13 +21,11 @@ The Makefile targets are also available:
 - `make test` compiles TypeScript, then runs tests with coverage.
 - `make test-quick` runs unit tests without a separate compile or coverage step.
 
-## Why Vitest instead of Jest?
+## Why keep Jest?
 
-The switch was a test-tooling choice made during the TypeScript 6 upgrade; TypeScript 6 does not require Vitest.
+TypeScript 6 does not require changing test runners. The Vue CLI 5 unit-test plugin supplies Jest 27, while this project uses Vue Jest 29, whose generated template code can retain ESM imports that Jest cannot execute. The local transform converts that output to CommonJS; the full unit suite passes with this workaround.
 
-The existing Vue CLI 5 unit-test plugin uses Jest 27, while this project had Vue Jest 29, which targets Jest 29. The mismatch surfaced as Vue template code retaining ESM imports that Jest could not execute. Upgrading Jest to 29 alone did not resolve that transform issue. Jest could be kept working with a custom CommonJS transformer, and that workaround passed the tests, but it added project-specific transform code and left the Jest/ts-jest stack to maintain.
-
-Vitest was chosen to use Vite's Vue SFC transform directly and remove the custom transformer and Jest-specific packages. This is a maintainability trade-off, not a requirement of the TypeScript upgrade; keeping Jest with the transformer was a viable alternative.
+Moving to Vitest would remove the local transform, but it required replacing the Jest setup and adding a separate Vite-based test stack. To keep this TypeScript upgrade focused and avoid adding packages, this branch keeps Jest and the small transform instead. `ts-jest` 27 reports that TypeScript 6 is outside its tested range; it is a warning, and compilation and tests pass.
 
 ## Test layout
 
