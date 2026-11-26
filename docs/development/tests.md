@@ -1,52 +1,33 @@
 # Tests
 
+## Running tests
 
-## Test command
+This project uses Vitest with Vite's Vue plugin and a jsdom environment to test Vue single-file components.
 
-This project uses Jest as a test runner.
-
-This can be added with:
-
-```sh
-$ npx vue add unit-test
-```
-
-The original script setup for testing in this app was:
+Run the unit tests:
 
 ```sh
-$ vue-cli-service test:unit
+$ yarn test:unit
 ```
 
-For more info see [@vue/cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins/unit-jest.html).
-
-### Customization
-
-From the Vue CLI help, note that _all jest command line options are supported_.
-
-To use test coverage when running tests:
+Run the tests with V8 coverage:
 
 ```sh
-$ vue-cli-service test:unit --coverage
+$ yarn test:coverage
 ```
 
-Unrelated to a coverage, a warning requested `--detectOpenHandles` flag to be added.
+The Makefile targets are also available:
 
-> A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with `--detectOpenHandles` to find leaks.
+- `make test` compiles TypeScript, then runs tests with coverage.
+- `make test-quick` runs unit tests without a separate compile or coverage step.
 
-### Running test directly
+## Why Vitest instead of Jest?
 
-You're supposed to the Vue CLI approach according to the docs.
+The switch was a test-tooling choice made during the TypeScript 6 upgrade; TypeScript 6 does not require Vitest.
 
-> Note that directly running jest will fail because the Babel preset requires hints to make your code work in Node.js, so you must run your tests with vue-cli-service test:unit.
+The existing Vue CLI 5 unit-test plugin uses Jest 27, while this project had Vue Jest 29, which targets Jest 29. The mismatch surfaced as Vue template code retaining ESM imports that Jest could not execute. Upgrading Jest to 29 alone did not resolve that transform issue. Jest could be kept working with a custom CommonJS transformer, and that workaround passed the tests, but it added project-specific transform code and left the Jest/ts-jest stack to maintain.
 
-Though, I found this _did_ actually work.
-
-```sh
-$ jest --coverage
-```
-
-Perhaps because I only have unit tests on JS files and not on Vue files, which would need transpilation with Babel.
-
+Vitest was chosen to use Vite's Vue SFC transform directly and remove the custom transformer and Jest-specific packages. This is a maintainability trade-off, not a requirement of the TypeScript upgrade; keeping Jest with the transformer was a viable alternative.
 
 ## Test layout
 
@@ -55,16 +36,11 @@ A template for new tests:
 ```javascript
 describe("#foo", () => {
   it("", () => {
-    expect(
-      foo(
-        ""
-      )
-    ).toBe("");
+    expect(foo("")).toBe("");
   });
 });
 ```
 
-
 ## Exporting
 
-All functions tested needed `export` so they can be imported. A leading underscore is used to indicate functions are private - intended for use only within a module and not to be called directly (except in tests). The `private` keyword is not used as that prevents tests from running.
+All functions tested need to be exported so they can be imported. A leading underscore is used to indicate functions are private - intended for use only within a module and not to be called directly (except in tests). The `private` keyword is not used as that prevents tests from running.

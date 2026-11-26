@@ -57,7 +57,7 @@ $ make fix
 
 ## Tests
 
-Jest is the test runner and it is run using the Jest plugin for Vue. See [cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins/unit-jest.html) in the Vue CLI docs.
+Vitest is the test runner. See the [developer testing notes](/docs/development/tests.md) for commands, coverage, and the reason for using Vitest.
 
 Run unit tests:
 
