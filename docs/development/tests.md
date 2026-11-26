@@ -21,6 +21,12 @@ The Makefile targets are also available:
 - `make test` compiles TypeScript, then runs tests with coverage.
 - `make test-quick` runs unit tests without a separate compile or coverage step.
 
+## Jest options and configuration
+
+The [Vue CLI Jest plugin](https://cli.vuejs.org/core-plugins/unit-jest.html) supports Jest command-line options. Pass additional options through `yarn test:unit`, for example `yarn test:unit --runInBand`. The `test:unit` script already enables `--detectOpenHandles`; use `yarn test:coverage` to collect coverage.
+
+Jest configuration lives in `jest.config.js`. It uses the Vue CLI TypeScript preset and routes `.vue` files through `jest-vue-transformer.cjs`. Keep those settings when customizing Jest unless you are replacing the Vue component transform. Run tests through the Vue CLI script rather than invoking `jest` directly, so the project's configured preset and Vue component transform are applied.
+
 ## Why keep Jest?
 
 TypeScript 6 does not require changing test runners. The Vue CLI 5 unit-test plugin supplies Jest 27, while this project uses Vue Jest 29, whose generated template code can retain ESM imports that Jest cannot execute. The local transform converts that output to CommonJS; the full unit suite passes with this workaround.
