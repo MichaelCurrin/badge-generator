@@ -1,6 +1,44 @@
 import store from "@/store";
 
 describe("store", () => {
+  describe("download inputs", () => {
+    beforeEach(() => {
+      [
+        "addDownloadSource",
+        "addDownloadReleaseAsset",
+        "downloadBranch",
+        "downloadArchiveFormat",
+        "downloadReleaseName",
+        "downloadAssetFilename",
+      ].forEach((key) => localStorage.removeItem(key));
+    });
+
+    it("returns defaults for download inputs", () => {
+      expect(store.getAddDownloadSource()).toBe(false);
+      expect(store.getAddDownloadReleaseAsset()).toBe(false);
+      expect(store.getDownloadBranch()).toBe("main");
+      expect(store.getDownloadArchiveFormat()).toBe("zip");
+      expect(store.getDownloadReleaseName()).toBe("");
+      expect(store.getDownloadAssetFilename()).toBe("");
+    });
+
+    it("persists download input values", () => {
+      store.setAddDownloadSource(true);
+      store.setAddDownloadReleaseAsset(true);
+      store.setDownloadBranch("master");
+      store.setDownloadArchiveFormat("tar.gz");
+      store.setDownloadReleaseName("v1.2.3");
+      store.setDownloadAssetFilename("helloworld.abc");
+
+      expect(store.getAddDownloadSource()).toBe(true);
+      expect(store.getAddDownloadReleaseAsset()).toBe(true);
+      expect(store.getDownloadBranch()).toBe("master");
+      expect(store.getDownloadArchiveFormat()).toBe("tar.gz");
+      expect(store.getDownloadReleaseName()).toBe("v1.2.3");
+      expect(store.getDownloadAssetFilename()).toBe("helloworld.abc");
+    });
+  });
+
   describe("#getRepoUsername", () => {
     it("can get the default username", () => {
       expect(store.getRepoUsername()).toBe("MichaelCurrin");

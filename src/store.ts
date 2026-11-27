@@ -3,6 +3,7 @@
  */
 import { DEBUG } from "@/constants/";
 import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
+import { DownloadArchiveFormat } from "@/core/Repo.d";
 
 /**
  * Return a value from localStorage or a default if key is not set.
@@ -124,6 +125,55 @@ const store = {
       console.debug(`Storing addPythonVersion: ${value}`);
     }
     localStorage.setItem("addPythonVersion", value.toString());
+  },
+
+  getAddDownloadSource() {
+    return getItem("addDownloadSource", "false") === "true";
+  },
+
+  setAddDownloadSource(value: boolean) {
+    localStorage.setItem("addDownloadSource", value.toString());
+  },
+
+  getAddDownloadReleaseAsset() {
+    return getItem("addDownloadReleaseAsset", "false") === "true";
+  },
+
+  setAddDownloadReleaseAsset(value: boolean) {
+    localStorage.setItem("addDownloadReleaseAsset", value.toString());
+  },
+
+  getDownloadBranch() {
+    return getItem("downloadBranch", "main");
+  },
+
+  setDownloadBranch(value: string) {
+    localStorage.setItem("downloadBranch", value);
+  },
+
+  getDownloadArchiveFormat(): DownloadArchiveFormat {
+    const value = getItem("downloadArchiveFormat", "zip");
+    return value === "tar.gz" ? value : "zip";
+  },
+
+  setDownloadArchiveFormat(value: DownloadArchiveFormat) {
+    localStorage.setItem("downloadArchiveFormat", value);
+  },
+
+  getDownloadReleaseName() {
+    return getItem("downloadReleaseName", "");
+  },
+
+  setDownloadReleaseName(value: string) {
+    localStorage.setItem("downloadReleaseName", value);
+  },
+
+  getDownloadAssetFilename() {
+    return getItem("downloadAssetFilename", "");
+  },
+
+  setDownloadAssetFilename(value: string) {
+    localStorage.setItem("downloadAssetFilename", value);
   },
 };
 

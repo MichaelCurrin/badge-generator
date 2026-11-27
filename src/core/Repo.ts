@@ -14,6 +14,7 @@ import {
   PYTHON_VERSION_BADGE,
   TEMPLATE_BADGE,
 } from "@/constants/badgeValues";
+import { COLOR_PRESETS } from "@/constants/appearance";
 import { BADGE_DEFAULTS, DOCUMENTATION_BADGE } from "@/constants/catalogue";
 import {
   DEFAULT_BRANCH,
@@ -24,7 +25,12 @@ import {
   SHIELDS_API,
   VERSION_PARAMS,
 } from "@/constants/urls";
-import { TagTypes } from "./Repo.d";
+import {
+  DownloadArchiveFormat,
+  DownloadBadge,
+  DownloadBadgeOptions,
+  TagTypes,
+} from "./Repo.d";
 import { buildUrl } from "./badges";
 import { genericBadge } from "./genericBadge";
 import { mdImageWithLink, mdLink } from "./markdown";
@@ -32,6 +38,16 @@ import { ghCounterShieldUrl, logoQueryParams } from "./shieldsApi";
 import { RepoMetric, StrMap } from "./types.d";
 
 const LICENSE_EL_ID = "#license";
+
+function sourceArchiveUrl(
+  repoUrl: string,
+  branch: string,
+  format: DownloadArchiveFormat
+) {
+  const encodedBranch = encodeURIComponent(branch);
+
+  return `${repoUrl}/archive/${encodedBranch}.${format}`;
+}
 
 // TODO: Make dynamic. User provides a link or chooses to use GH Pages auto link
 // For now just a flat badge.
@@ -155,6 +171,15 @@ export class Repo {
    */
   _templateURL() {
     return `${this.ghURL()}/generate`;
+  }
+
+  /**
+   * Return the URL for a named asset on a specific release.
+   */
+  _releaseAssetURL(releaseName: string, filename: string) {
+    return `${this.ghURL()}/releases/download/${encodeURIComponent(
+      releaseName
+    )}/${encodeURIComponent(filename)}`;
   }
 
   /**
@@ -349,5 +374,93 @@ export class Repo {
       imageTarget,
       linkTarget,
     });
+  }
+
+  /**
+   * Create a badge linking to a branch source archive.
+   */
+  sourceArchiveBadge(branch: string, format: DownloadArchiveFormat) {
+    if (!branch.trim()) {
+      throw new Error("Branch cannot be empty.");
+    }
+
+    const archiveUrl = sourceArchiveUrl(this.ghURL(), branch, format);
+    const label = `Download code as ${format}`;
+    const altText = `${label} | ${branch}`;
+
+    return this._downloadBadge(label, branch, altText, archiveUrl);
+  }
+
+  /**
+   * Create a badge linking to a named asset on a specific release.
+   */
+  releaseAssetBadge(releaseName: string, filename: string) {
+    if (!releaseName.trim()) {
+      throw new Error("Release name cannot be empty.");
+    }
+    if (!filename.trim()) {
+      throw new Error("Asset filename cannot be empty.");
+    }
+
+    const linkTarget = this._releaseAssetURL(releaseName, filename);
+
+    return this._downloadBadge(
+      "Download",
+      filename,
+      `Download | ${filename}`,
+      linkTarget
+    );
+  }
+
+  /**
+   * Generate structured badge data for whichever download options are provided.
+   */
+  downloadBadges(options: DownloadBadgeOptions) {
+    const badges: DownloadBadge[] = [];
+
+    if (options.source) {
+      badges.push({
+        kind: "source",
+        branch: options.source.branch,
+        format: options.source.format,
+        markdown: this.sourceArchiveBadge(
+          options.source.branch,
+          options.source.format
+        ),
+      });
+    }
+
+    if (options.releaseAsset) {
+      badges.push({
+        kind: "releaseAsset",
+        releaseName: options.releaseAsset.releaseName,
+        filename: options.releaseAsset.filename,
+        markdown: this.releaseAssetBadge(
+          options.releaseAsset.releaseName,
+          options.releaseAsset.filename
+        ),
+      });
+    }
+
+    return badges;
+  }
+
+  private _downloadBadge(
+    label: string,
+    message: string,
+    altText: string,
+    linkTarget: string
+  ) {
+    return genericBadge(
+      label,
+      message,
+      COLOR_PRESETS.Default,
+      true,
+      linkTarget,
+      "",
+      "",
+      false,
+      altText
+    );
   }
 }

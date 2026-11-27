@@ -104,6 +104,14 @@ describe("#Repo", () => {
     });
   });
 
+  describe("#_releaseAssetURL", () => {
+    it("returns a URL for a named asset on a specific release", () => {
+      expect(repoNoLicense._releaseAssetURL("v1.2.3", "hello world.zip")).toBe(
+        "https://github.com/MichaelCurrin/badge-generator/releases/download/v1.2.3/hello%20world.zip"
+      );
+    });
+  });
+
   describe("#useThisTemplateBadge", () => {
     it("returns a valid generate template badge", () => {
       const badgeUrl =
@@ -403,6 +411,68 @@ Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCur
 
         expect(result).toBe(expected);
       });
+    });
+  });
+
+  describe("#downloadBadges", () => {
+    const repo = new Repo("octocat", "hello-world");
+
+    it("generates a source archive badge for a branch in either format", () => {
+      expect(repo.sourceArchiveBadge("main", "zip")).toBe(
+        "[![Download code as zip | main](https://img.shields.io/badge/Download_code_as_zip-main-blue?style=for-the-badge)](https://github.com/octocat/hello-world/archive/main.zip)"
+      );
+      expect(repo.sourceArchiveBadge("master", "tar.gz")).toBe(
+        "[![Download code as tar.gz | master](https://img.shields.io/badge/Download_code_as_tar.gz-master-blue?style=for-the-badge)](https://github.com/octocat/hello-world/archive/master.tar.gz)"
+      );
+    });
+
+    it("generates a badge linking to an asset on the specified release", () => {
+      expect(repo.releaseAssetBadge("v1.2.3", "helloworld.abc")).toBe(
+        "[![Download | helloworld.abc](https://img.shields.io/badge/Download-helloworld.abc-blue?style=for-the-badge)](https://github.com/octocat/hello-world/releases/download/v1.2.3/helloworld.abc)"
+      );
+    });
+
+    it("combines only the requested source and asset badges", () => {
+      expect(
+        repo.downloadBadges({
+          source: {
+            branch: "main",
+            format: "zip",
+          },
+          releaseAsset: {
+            releaseName: "v1.2.3",
+            filename: "helloworld.abc",
+          },
+        })
+      ).toEqual([
+        {
+          kind: "source",
+          branch: "main",
+          format: "zip",
+          markdown:
+            "[![Download code as zip | main](https://img.shields.io/badge/Download_code_as_zip-main-blue?style=for-the-badge)](https://github.com/octocat/hello-world/archive/main.zip)",
+        },
+        {
+          kind: "releaseAsset",
+          releaseName: "v1.2.3",
+          filename: "helloworld.abc",
+          markdown:
+            "[![Download | helloworld.abc](https://img.shields.io/badge/Download-helloworld.abc-blue?style=for-the-badge)](https://github.com/octocat/hello-world/releases/download/v1.2.3/helloworld.abc)",
+        },
+      ]);
+      expect(repo.downloadBadges({})).toEqual([]);
+    });
+
+    it("rejects empty branch, release name, and release asset filename", () => {
+      expect(() => repo.sourceArchiveBadge(" ", "zip")).toThrow(
+        "Branch cannot be empty."
+      );
+      expect(() => repo.releaseAssetBadge("", "helloworld.abc")).toThrow(
+        "Release name cannot be empty."
+      );
+      expect(() => repo.releaseAssetBadge("v1.2.3", "")).toThrow(
+        "Asset filename cannot be empty."
+      );
     });
   });
 });
