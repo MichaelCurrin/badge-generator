@@ -180,6 +180,21 @@ describe("#staticParamsUrl", () => {
     );
   });
 
+  it("keeps an empty label explicit in the params URL", () => {
+    expect(
+      staticParamsUrl(
+        {
+          label: "",
+          message: "Use this template",
+          color: "2ea44f",
+        },
+        {}
+      )
+    ).toBe(
+      "https://img.shields.io/static/v1?label=&message=Use+this+template&color=2ea44f"
+    );
+  });
+
   it("returns a valid params URL with set style params", () => {
     expect(
       staticParamsUrl(
