@@ -18,7 +18,7 @@ describe("PackageBadges.vue", () => {
   it.each([
     ["username", ""],
     ["repoName", ""],
-  ])("omits the NPM version badge when %s is empty", (field, value) => {
+  ] as const)("omits the NPM version badge when %s is empty", (field, value) => {
     const wrapper = createWrapper();
     wrapper.vm.$data.username = "owner";
     wrapper.vm.$data.repoName = "repo";
