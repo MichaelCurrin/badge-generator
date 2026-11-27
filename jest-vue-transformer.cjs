@@ -1,3 +1,4 @@
+// Converts Vue Jest's generated templates to CommonJS for Jest; see docs/development/tests.md.
 const crypto = require("crypto");
 const fs = require("fs");
 const vueJest = require("@vue/vue3-jest");
