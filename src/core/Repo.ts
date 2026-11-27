@@ -29,7 +29,6 @@ import {
   DownloadArchiveFormat,
   DownloadBadge,
   DownloadBadgeOptions,
-  DownloadReference,
   TagTypes,
 } from "./Repo.d";
 import { buildUrl } from "./badges";
@@ -42,13 +41,12 @@ const LICENSE_EL_ID = "#license";
 
 function sourceArchiveUrl(
   repoUrl: string,
-  reference: DownloadReference,
+  branch: string,
   format: DownloadArchiveFormat
 ) {
-  const refPath = reference.type === "branch" ? "heads" : "tags";
-  const encodedReference = encodeURIComponent(reference.value);
+  const encodedBranch = encodeURIComponent(branch);
 
-  return `${repoUrl}/archive/refs/${refPath}/${encodedReference}.${format}`;
+  return `${repoUrl}/archive/${encodedBranch}.${format}`;
 }
 
 // TODO: Make dynamic. User provides a link or chooses to use GH Pages auto link
@@ -176,19 +174,12 @@ export class Repo {
   }
 
   /**
-   * Return the URL for the latest release on the GitHub repo.
+   * Return the URL for a named asset on a specific release.
    */
-  _latestReleaseURL() {
-    return `${this.ghURL()}/releases/latest`;
-  }
-
-  /**
-   * Return the URL for a named asset on the latest release.
-   */
-  _latestReleaseAssetURL(filename: string) {
-    return `${this._latestReleaseURL()}/download/${encodeURIComponent(
-      filename
-    )}`;
+  _releaseAssetURL(releaseName: string, filename: string) {
+    return `${this.ghURL()}/releases/download/${encodeURIComponent(
+      releaseName
+    )}/${encodeURIComponent(filename)}`;
   }
 
   /**
@@ -386,57 +377,37 @@ export class Repo {
   }
 
   /**
-   * Create a badge linking to a branch or tag source archive.
+   * Create a badge linking to a branch source archive.
    */
-  sourceArchiveBadge(
-    reference: DownloadReference,
-    format: DownloadArchiveFormat
-  ) {
-    if (!reference.value.trim()) {
-      throw new Error("Reference value cannot be empty.");
+  sourceArchiveBadge(branch: string, format: DownloadArchiveFormat) {
+    if (!branch.trim()) {
+      throw new Error("Branch cannot be empty.");
     }
 
-    const archiveUrl = sourceArchiveUrl(this.ghURL(), reference, format);
-    const isBranch = reference.type === "branch";
-    const referenceLabel = isBranch ? "latest" : "tag";
-    const message = `${referenceLabel} ${format}`;
-    const altText = `Download ${referenceLabel} ${format}`;
+    const archiveUrl = sourceArchiveUrl(this.ghURL(), branch, format);
+    const label = `Download code as ${format}`;
+    const altText = `${label} | ${branch}`;
 
-    return this._downloadBadge(message, altText, archiveUrl);
+    return this._downloadBadge(label, branch, altText, archiveUrl);
   }
 
   /**
-   * Create a dynamic badge for the latest release.
+   * Create a badge linking to a named asset on a specific release.
    */
-  latestReleaseBadge(format: DownloadArchiveFormat) {
-    const imageTarget = buildUrl(`${SHIELDS_API.DYNAMIC_JSON}`, {
-      label: `download ${format}`,
-      query: "$.tag_name",
-      url: `https://api.github.com/repos/${this._nameWithOwner()}/releases/latest`,
-      style: "for-the-badge",
-    });
-    const linkTarget = this._latestReleaseURL();
-
-    return mdImageWithLink({
-      altText: `Download latest release ${format}`,
-      imageTarget,
-      linkTarget,
-    });
-  }
-
-  /**
-   * Create a badge linking to a named asset on the latest release.
-   */
-  releaseAssetBadge(filename: string, format: DownloadArchiveFormat) {
+  releaseAssetBadge(releaseName: string, filename: string) {
+    if (!releaseName.trim()) {
+      throw new Error("Release name cannot be empty.");
+    }
     if (!filename.trim()) {
       throw new Error("Asset filename cannot be empty.");
     }
 
-    const linkTarget = this._latestReleaseAssetURL(filename);
+    const linkTarget = this._releaseAssetURL(releaseName, filename);
 
     return this._downloadBadge(
-      "release asset",
-      `Download release asset ${format}`,
+      "Download",
+      filename,
+      `Download | ${filename}`,
       linkTarget
     );
   }
@@ -450,31 +421,23 @@ export class Repo {
     if (options.source) {
       badges.push({
         kind: "source",
-        reference: options.source.reference,
+        branch: options.source.branch,
         format: options.source.format,
         markdown: this.sourceArchiveBadge(
-          options.source.reference,
+          options.source.branch,
           options.source.format
         ),
-      });
-    }
-
-    if (options.latestRelease) {
-      badges.push({
-        kind: "latestRelease",
-        format: options.latestRelease,
-        markdown: this.latestReleaseBadge(options.latestRelease),
       });
     }
 
     if (options.releaseAsset) {
       badges.push({
         kind: "releaseAsset",
+        releaseName: options.releaseAsset.releaseName,
         filename: options.releaseAsset.filename,
-        format: options.releaseAsset.format,
         markdown: this.releaseAssetBadge(
-          options.releaseAsset.filename,
-          options.releaseAsset.format
+          options.releaseAsset.releaseName,
+          options.releaseAsset.filename
         ),
       });
     }
@@ -482,9 +445,14 @@ export class Repo {
     return badges;
   }
 
-  private _downloadBadge(message: string, altText: string, linkTarget: string) {
+  private _downloadBadge(
+    label: string,
+    message: string,
+    altText: string,
+    linkTarget: string
+  ) {
     return genericBadge(
-      "Download",
+      label,
       message,
       COLOR_PRESETS.Default,
       true,

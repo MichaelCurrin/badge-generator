@@ -167,88 +167,69 @@
             <fieldset name="downloads">
               <legend>Downloads</legend>
 
+              <p>
+                Download badges may be more useful on a docs site than in your
+                GitHub README.
+              </p>
+
+              <div :class="!addDownloadSource ? disabledClass : ''">
+                <label for="download-archive-format">
+                  Code download format
+                </label>
+                <select
+                  id="download-archive-format"
+                  v-model="downloadArchiveFormat"
+                  :disabled="!addDownloadSource"
+                >
+                  <option value="zip">zip</option>
+                  <option value="tar.gz">tar.gz</option>
+                </select>
+                <small class="note">
+                  Applies to code download badges only.
+                </small>
+              </div>
+
               <Checkbox
-                label="Source archive badge"
+                label="Download source from branch"
                 v-model="addDownloadSource"
-                note="Download the source archive for a branch or tag."
+                note="Generate a badge for the code on a branch such as main or master."
               />
 
               <div :class="!addDownloadSource ? disabledClass : ''">
-                <span>Reference type: </span>
-
-                <div>
-                  <input
-                    type="radio"
-                    id="download-reference-branch"
-                    name="download-reference-type"
-                    value="branch"
-                    :disabled="!addDownloadSource"
-                    v-model="downloadReferenceType"
-                  />
-                  <label for="download-reference-branch">Branch</label>
-                </div>
-
-                <div>
-                  <input
-                    type="radio"
-                    id="download-reference-tag"
-                    name="download-reference-type"
-                    value="tag"
-                    :disabled="!addDownloadSource"
-                    v-model="downloadReferenceType"
-                  />
-                  <label for="download-reference-tag">Tag</label>
-                </div>
-
                 <TextInput
-                  :label="downloadReferenceType === 'branch' ? 'Branch' : 'Tag'"
-                  v-model="downloadReference"
+                  label="Branch"
+                  v-model="downloadBranch"
                   :disabled="!addDownloadSource"
                   :isRequired="addDownloadSource"
-                  :placeholder="
-                    downloadReferenceType === 'branch' ? 'main' : 'v1.2.3'
-                  "
-                  :note="
-                    downloadReferenceType === 'branch'
-                      ? 'Git branch to download.'
-                      : 'Git tag to download.'
-                  "
+                  placeholder="main or master"
+                  note="Branch name to download."
                 />
               </div>
 
               <Checkbox
-                label="Latest release badge"
-                v-model="addDownloadLatestRelease"
-                note="Show the latest release tag and link to its release page."
-              />
-
-              <Checkbox
-                label="Release asset badge"
+                label="Download release asset"
                 v-model="addDownloadReleaseAsset"
-                note="Link to a named asset attached to the latest release."
+                note="Recommended for binaries attached to a release, such as a .sh script, macOS .pkg installer, Windows .msi installer, or Linux .tar.gz package."
               />
 
               <div :class="!addDownloadReleaseAsset ? disabledClass : ''">
+                <TextInput
+                  label="Release name (tag)"
+                  v-model="downloadReleaseName"
+                  :disabled="!addDownloadReleaseAsset"
+                  :isRequired="addDownloadReleaseAsset"
+                  placeholder="e.g. v1.2.3"
+                  note="Release tag used in the asset download URL."
+                />
+
                 <TextInput
                   label="Asset filename"
                   v-model="downloadAssetFilename"
                   :disabled="!addDownloadReleaseAsset"
                   :isRequired="addDownloadReleaseAsset"
-                  placeholder="e.g. hello-world.zip"
-                  note="Exact filename of the asset attached to the latest release."
+                  placeholder="e.g. helloworld.abc"
+                  note="Exact filename of the asset attached to this release."
                 />
-              </div>
-
-              <div :class="!hasDownloadBadges ? disabledClass : ''">
-                <label for="download-archive-format">Archive format</label>
-                <select
-                  id="download-archive-format"
-                  v-model="downloadArchiveFormat"
-                  :disabled="!hasDownloadBadges"
-                >
-                  <option value="zip">zip</option>
-                  <option value="tar.gz">tar.gz</option>
-                </select>
               </div>
             </fieldset>
             <br />
@@ -288,7 +269,6 @@ import { Repo } from "@/core/Repo";
 import {
   DownloadArchiveFormat,
   DownloadBadgeOptions,
-  DownloadReference,
   TagTypes,
 } from "@/core/Repo.d";
 import { statusBadge } from "@/core/ghActions";
@@ -340,11 +320,10 @@ export default defineComponent({
       workflowName: "",
 
       addDownloadSource: store.getAddDownloadSource(),
-      addDownloadLatestRelease: store.getAddDownloadLatestRelease(),
       addDownloadReleaseAsset: store.getAddDownloadReleaseAsset(),
-      downloadReferenceType: store.getDownloadReferenceType(),
-      downloadReference: store.getDownloadReference(),
+      downloadBranch: store.getDownloadBranch(),
       downloadArchiveFormat: store.getDownloadArchiveFormat(),
+      downloadReleaseName: store.getDownloadReleaseName(),
       downloadAssetFilename: store.getDownloadAssetFilename(),
 
       versionType,
@@ -355,33 +334,21 @@ export default defineComponent({
       disabledClass: "disabled-text",
     };
   },
-  computed: {
-    hasDownloadBadges(): boolean {
-      return (
-        this.addDownloadSource ||
-        this.addDownloadLatestRelease ||
-        this.addDownloadReleaseAsset
-      );
-    },
-  },
   watch: {
     addDownloadSource(value: boolean) {
       store.setAddDownloadSource(value);
     },
-    addDownloadLatestRelease(value: boolean) {
-      store.setAddDownloadLatestRelease(value);
-    },
     addDownloadReleaseAsset(value: boolean) {
       store.setAddDownloadReleaseAsset(value);
     },
-    downloadReferenceType(value: DownloadReference["type"]) {
-      store.setDownloadReferenceType(value);
-    },
-    downloadReference(value: string) {
-      store.setDownloadReference(value);
+    downloadBranch(value: string) {
+      store.setDownloadBranch(value);
     },
     downloadArchiveFormat(value: DownloadArchiveFormat) {
       store.setDownloadArchiveFormat(value);
+    },
+    downloadReleaseName(value: string) {
+      store.setDownloadReleaseName(value);
     },
     downloadAssetFilename(value: string) {
       store.setDownloadAssetFilename(value);
@@ -441,20 +408,14 @@ ${forksBadge}
       const downloadOptions: DownloadBadgeOptions = {};
       if (this.addDownloadSource) {
         downloadOptions.source = {
-          reference: {
-            type: this.downloadReferenceType,
-            value: this.downloadReference,
-          },
+          branch: this.downloadBranch,
           format: this.downloadArchiveFormat,
         };
       }
-      if (this.addDownloadLatestRelease) {
-        downloadOptions.latestRelease = this.downloadArchiveFormat;
-      }
       if (this.addDownloadReleaseAsset) {
         downloadOptions.releaseAsset = {
+          releaseName: this.downloadReleaseName,
           filename: this.downloadAssetFilename,
-          format: this.downloadArchiveFormat,
         };
       }
       const downloadBadges = repo.downloadBadges(downloadOptions);

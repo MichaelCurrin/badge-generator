@@ -3,7 +3,7 @@
  */
 import { DEBUG } from "@/constants/";
 import { DEFAULT_REPO_INPUTS } from "@/constants/badgeValues";
-import { DownloadArchiveFormat, DownloadReference } from "@/core/Repo.d";
+import { DownloadArchiveFormat } from "@/core/Repo.d";
 
 /**
  * Return a value from localStorage or a default if key is not set.
@@ -135,14 +135,6 @@ const store = {
     localStorage.setItem("addDownloadSource", value.toString());
   },
 
-  getAddDownloadLatestRelease() {
-    return getItem("addDownloadLatestRelease", "false") === "true";
-  },
-
-  setAddDownloadLatestRelease(value: boolean) {
-    localStorage.setItem("addDownloadLatestRelease", value.toString());
-  },
-
   getAddDownloadReleaseAsset() {
     return getItem("addDownloadReleaseAsset", "false") === "true";
   },
@@ -151,21 +143,12 @@ const store = {
     localStorage.setItem("addDownloadReleaseAsset", value.toString());
   },
 
-  getDownloadReferenceType(): DownloadReference["type"] {
-    const value = getItem("downloadReferenceType", "branch");
-    return value === "tag" ? value : "branch";
+  getDownloadBranch() {
+    return getItem("downloadBranch", "main");
   },
 
-  setDownloadReferenceType(value: DownloadReference["type"]) {
-    localStorage.setItem("downloadReferenceType", value);
-  },
-
-  getDownloadReference() {
-    return getItem("downloadReference", "main");
-  },
-
-  setDownloadReference(value: string) {
-    localStorage.setItem("downloadReference", value);
+  setDownloadBranch(value: string) {
+    localStorage.setItem("downloadBranch", value);
   },
 
   getDownloadArchiveFormat(): DownloadArchiveFormat {
@@ -175,6 +158,14 @@ const store = {
 
   setDownloadArchiveFormat(value: DownloadArchiveFormat) {
     localStorage.setItem("downloadArchiveFormat", value);
+  },
+
+  getDownloadReleaseName() {
+    return getItem("downloadReleaseName", "");
+  },
+
+  setDownloadReleaseName(value: string) {
+    localStorage.setItem("downloadReleaseName", value);
   },
 
   getDownloadAssetFilename() {
