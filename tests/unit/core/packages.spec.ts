@@ -8,6 +8,10 @@ import { Repo } from "@/core/Repo";
 import { ENVIRONMENT } from "@/core/shieldsApi";
 
 describe("#dependency", () => {
+  it("returns no badge when the package name is empty", () => {
+    expect(staticDependencyBadge("", REGISTRY.Node, {})).toBe("");
+  });
+
   it("returns a standard size static badge for a Node package", () => {
     const imageTarget = "https://img.shields.io/badge/dependency-react-blue";
     const linkTarget = "https://www.npmjs.com/package/react";
@@ -69,6 +73,10 @@ describe("#dependency", () => {
 
 describe("#nodeVersionBadge", () => {
   const repo = new Repo("MichaelCurrin", "badge-generator");
+
+  it("returns no badge when the package name is empty", () => {
+    expect(nodeVersionBadge(repo, "", {}, ENVIRONMENT.Prod)).toBe("");
+  });
 
   describe("prod dependency", () => {
     const linkTarget = "https://www.npmjs.com/package/vue";

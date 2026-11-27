@@ -29,7 +29,6 @@
                 label="Name"
                 v-model="pkgName"
                 placeholder="e.g. vue"
-                isRequired
               />
               <br />
 
@@ -258,38 +257,38 @@ export default defineComponent({
       const registryKey = this.pkgType as RegistryKeys,
         registry = REGISTRY[registryKey];
 
-      const dependencyBadge = registry
-        ? staticDependencyBadge(
-            this.pkgName,
-            registry,
-            logoAppearance,
-            this.badgeColor
-          )
-        : "";
+      const packageName = this.pkgName.trim();
+      const dependencyBadge =
+        registry && packageName
+          ? staticDependencyBadge(
+              packageName,
+              registry,
+              logoAppearance,
+              this.badgeColor
+            )
+          : "";
 
       store.setRepoUsername(this.username);
       store.setRepoName(this.repoName);
 
-      const repo = new Repo(this.username, this.repoName);
+      const hasRepo = this.username.trim() && this.repoName.trim();
       const envKey = this.envType as EnvironmentKeys,
         environment = ENVIRONMENT[envKey];
 
       const lockedPkgBadge =
-        registry === REGISTRY.Node
+        registry === REGISTRY.Node && packageName && hasRepo
           ? nodeVersionBadge(
-              repo,
-              this.pkgName,
+              new Repo(this.username.trim(), this.repoName.trim()),
+              packageName,
               logoAppearance,
               environment,
               this.badgeColor
             )
           : "";
 
-      this.result = `\
-${dependencyBadge}
-
-${lockedPkgBadge}
-        `;
+      this.result = [dependencyBadge, lockedPkgBadge]
+        .filter(Boolean)
+        .join("\n\n");
     },
   },
 });
