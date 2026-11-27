@@ -21,7 +21,7 @@
         <div class="app-input">
           <h2>Input values</h2>
 
-          <form @submit.prevent.enter="submit">
+          <form @change="updateResults" @submit.prevent.enter="submit">
             <fieldset name="package">
               <legend>Package metadata</legend>
 
@@ -121,6 +121,7 @@
               <TextInput
                 label="Username"
                 v-model="username"
+                :isRequired="dynamicBadgeEnabled"
                 :disabled="!dynamicBadgeEnabled"
               />
               <br />
@@ -128,6 +129,7 @@
               <TextInput
                 label="Repo name"
                 v-model="repoName"
+                :isRequired="dynamicBadgeEnabled"
                 :disabled="!dynamicBadgeEnabled"
               />
             </fieldset>
@@ -245,6 +247,14 @@ export default defineComponent({
     },
   },
   methods: {
+    updateResults(event: Event) {
+      const form = event.currentTarget as HTMLFormElement;
+      if (form.checkValidity()) {
+        this.submit();
+      } else {
+        this.result = INITIAL_RESULT;
+      }
+    },
     submit() {
       if (DEBUG) {
         console.debug("Process inputs and render results");
