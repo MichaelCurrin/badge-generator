@@ -45,6 +45,10 @@ export function staticDependencyBadge(
   logoAppearance: TLogoAppearance,
   color?: string
 ) {
+  if (!name.trim()) {
+    return "";
+  }
+
   const url = `${registry}/${name}`;
 
   return genericBadge(
@@ -77,6 +81,10 @@ export function nodeVersionBadge(
   environment: ENVIRONMENT,
   color?: string
 ) {
+  if (!pkgName.trim() || !repo.username.trim() || !repo.repoName.trim()) {
+    return "";
+  }
+
   const altText = `Package - ${pkgName}`;
 
   logoAppearance.isLarge = NODE_VERSION_BADGE.IS_LARGE;
