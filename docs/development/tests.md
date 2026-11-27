@@ -1,52 +1,39 @@
 # Tests
 
+## Running tests
 
-## Test command
+This project uses the Vue CLI unit-test plugin with Jest for unit tests. Vue single-file components are processed by Vue Jest, with a small local transform to make the generated template code compatible with Jest.
 
-This project uses Jest as a test runner.
-
-This can be added with:
-
-```sh
-$ npx vue add unit-test
-```
-
-The original script setup for testing in this app was:
+Run the unit tests:
 
 ```sh
-$ vue-cli-service test:unit
+$ yarn test:unit
 ```
 
-For more info see [@vue/cli-plugin-unit-jest](https://cli.vuejs.org/core-plugins/unit-jest.html).
-
-### Customization
-
-From the Vue CLI help, note that _all jest command line options are supported_.
-
-To use test coverage when running tests:
+Run the tests with coverage:
 
 ```sh
-$ vue-cli-service test:unit --coverage
+$ yarn test:coverage
 ```
 
-Unrelated to a coverage, a warning requested `--detectOpenHandles` flag to be added.
+The Makefile targets are also available:
 
-> A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with `--detectOpenHandles` to find leaks.
+- `make test` compiles TypeScript, then runs tests with coverage.
+- `make test-quick` runs unit tests without a separate compile or coverage step.
 
-### Running test directly
+## Jest options and configuration
 
-You're supposed to the Vue CLI approach according to the docs.
+The [Vue CLI Jest plugin](https://cli.vuejs.org/core-plugins/unit-jest.html) supports Jest command-line options. Pass additional options through `yarn test:unit`, for example `yarn test:unit --runInBand`. The `test:unit` script already enables `--detectOpenHandles`; use `yarn test:coverage` to collect coverage.
 
-> Note that directly running jest will fail because the Babel preset requires hints to make your code work in Node.js, so you must run your tests with vue-cli-service test:unit.
+Jest configuration lives in `jest.config.js`. It uses the Vue CLI TypeScript preset and routes `.vue` files through `jest-vue-transformer.cjs`. Keep those settings when customizing Jest unless you are replacing the Vue component transform. Run tests through the Vue CLI script rather than invoking `jest` directly, so the project's configured preset and Vue component transform are applied.
 
-Though, I found this _did_ actually work.
+## Why keep Jest?
 
-```sh
-$ jest --coverage
-```
+TypeScript 6 does not require changing test runners. The Vue CLI 5 unit-test plugin supplies Jest 27, while this project uses Vue Jest 29, whose generated template code can retain ESM imports that Jest cannot execute. The local transform converts that output to CommonJS; the full unit suite passes with this workaround.
 
-Perhaps because I only have unit tests on JS files and not on Vue files, which would need transpilation with Babel.
+Moving to Vitest would remove the local transform because Vite's Vue plugin handles single-file components directly, but it requires replacing the Jest setup and adding a Vite-based test stack. To keep this TypeScript upgrade focused and avoid adding packages, this branch keeps Jest and the small transform instead. `ts-jest` 27 reports that TypeScript 6 is outside its tested range; it is a warning, and compilation and tests pass.
 
+To remove `jest-vue-transformer.cjs`, replace the Vue CLI 5 Jest plugin with a runner that handles Vue single-file components directly, such as Vite/Vitest with its Vue plugin. Simply upgrading within Vue CLI 5 is not enough: its latest unit-test plugin, [5.0.9](https://www.npmjs.com/package/@vue/cli-plugin-unit-jest/v/5.0.9), still targets Jest 27, while this project's [Vue Jest 29](https://www.npmjs.com/package/@vue/vue3-jest/v/29.2.6) requires Jest 29. This is a separate test-runner migration that adds dependencies and configuration, not part of the TypeScript upgrade; upgrading TypeScript to 7 alone will not remove the transform. If keeping Jest, the Jest and Vue SFC transformer versions must instead be aligned and tested, and `ts-jest` must support the selected TypeScript version.
 
 ## Test layout
 
@@ -55,16 +42,11 @@ A template for new tests:
 ```javascript
 describe("#foo", () => {
   it("", () => {
-    expect(
-      foo(
-        ""
-      )
-    ).toBe("");
+    expect(foo("")).toBe("");
   });
 });
 ```
 
-
 ## Exporting
 
-All functions tested needed `export` so they can be imported. A leading underscore is used to indicate functions are private - intended for use only within a module and not to be called directly (except in tests). The `private` keyword is not used as that prevents tests from running.
+All functions tested need to be exported so they can be imported. A leading underscore is used to indicate functions are private - intended for use only within a module and not to be called directly (except in tests). The `private` keyword is not used as that prevents tests from running.
