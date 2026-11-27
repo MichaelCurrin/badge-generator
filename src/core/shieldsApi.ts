@@ -109,7 +109,8 @@ export function staticParamsUrl(badge: GenericBadge, styleParams: StrMap) {
   const color = badge.color || COLOR_PRESETS.Default;
 
   const params = {
-    label: badge.label!,
+    // Keep an explicit empty label: omitting it makes Shields.io treat `static` as the label.
+    label: badge.label ?? "",
     message: badge.message,
     color,
     ...styleParams,
