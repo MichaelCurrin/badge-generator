@@ -11,7 +11,7 @@
         <div class="app-input">
           <h2>Input values</h2>
 
-          <form @submit.prevent.enter="submit">
+          <form @change="updateResults" @submit.prevent.enter="submit">
             <fieldset name="text">
               <legend>Text</legend>
 
@@ -134,6 +134,14 @@ export default defineComponent({
     };
   },
   methods: {
+    updateResults(event: Event) {
+      const form = event.currentTarget as HTMLFormElement;
+      if (form.checkValidity()) {
+        this.submit();
+      } else {
+        this.result = INITIAL_RESULT;
+      }
+    },
     submit() {
       const dynamicDataBadgeResult = dynamicDataBadge(
         this.label,
