@@ -209,6 +209,7 @@ body {
 
 header {
   width: 100%;
+  box-sizing: border-box;
   padding: 7px;
   position: sticky;
   position: -webkit-sticky;
